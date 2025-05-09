@@ -1,11 +1,11 @@
 <?php
 
-namespace modules\mvbdesignsystem\controllers;
+namespace webhubworks\mvbdesignsystem\controllers;
 
 use Craft;
 use craft\helpers\Template;
 use craft\web\Controller;
-use modules\mvbdesignsystem\MvbDesignSystem;
+use webhubworks\mvbdesignsystem\MvbDesignSystem;
 use nystudio107\vite\Vite;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -25,7 +25,7 @@ class ComponentsController extends Controller
             'corsFilter' => [
                 'class' => Cors::class,
                 'cors' => [
-                    'Origin' => ['https://mvb-online-v3.ddev.site:6006'], // The URL of your Storybook instance
+                    'Origin' => ['*'], // The URL of your Storybook instance
                 ],
             ],
         ];

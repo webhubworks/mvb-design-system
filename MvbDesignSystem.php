@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\mvbdesignsystem;
+namespace webhubworks\mvbdesignsystem;
 
 use Craft;
 use craft\base\Event;
@@ -9,9 +9,10 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\i18n\PhpMessageSource;
 use craft\web\UrlManager;
 use craft\web\View;
-use modules\mvbdesignsystem\services\AssetService;
-use modules\mvbdesignsystem\services\RenderComponentService;
-use modules\mvbdesignsystem\web\twig\RenderComponentExtension;
+use Twig\Extra\Intl\IntlExtension;
+use webhubworks\mvbdesignsystem\services\AssetService;
+use webhubworks\mvbdesignsystem\services\RenderComponentService;
+use webhubworks\mvbdesignsystem\web\twig\RenderComponentExtension;
 use yii\base\Module as BaseModule;
 
 /**
@@ -26,7 +27,7 @@ class MvbDesignSystem extends BaseModule
     /**
      * Path to the components directory (supports only a single, one level directory)
      */
-    const COMPONENTS_PATH = 'components';
+    const string COMPONENTS_PATH = 'components';
 
     public function init(): void
     {
@@ -34,18 +35,10 @@ class MvbDesignSystem extends BaseModule
 
         // Set the controllerNamespace based on whether this is a console or web request
         if (Craft::$app->request->isConsoleRequest) {
-            $this->controllerNamespace = 'modules\\mvbdesignsystem\\console\\controllers';
+            $this->controllerNamespace = 'webhubworks\\mvbdesignsystem\\console\\controllers';
         } else {
-            $this->controllerNamespace = 'modules\\mvbdesignsystem\\controllers';
+            $this->controllerNamespace = 'webhubworks\\mvbdesignsystem\\controllers';
         }
-
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['storybook-api/components/<componentId>'] = 'mvb-design-system/components/index';
-            }
-        );
 
         parent::init();
 
@@ -56,6 +49,32 @@ class MvbDesignSystem extends BaseModule
             'allowOverrides' => true,
         ];
 
+        $this->setComponents([
+            'renderComponent' => RenderComponentService::class,
+            'assets' => AssetService::class,
+        ]);
+
+        $this->attachEventHandlers();
+
+        Craft::$app->view->registerTwigExtension(new IntlExtension());
+
+        Craft::$app->onInit(function () {
+            // ...
+        });
+
+        Craft::$app->view->registerTwigExtension(new RenderComponentExtension());
+    }
+
+    private function attachEventHandlers(): void
+    {
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['storybook-api/components/<componentId>'] = 'mvbdesignsystem/components/index';
+            }
+        );
+
         Event::on(
             View::class,
             View::EVENT_REGISTER_SITE_TEMPLATE_ROOTS,
@@ -64,25 +83,5 @@ class MvbDesignSystem extends BaseModule
                 $event->roots[self::COMPONENTS_PATH] = __DIR__ . '/' . self::COMPONENTS_PATH;
             }
         );
-
-        $this->setComponents([
-            'renderComponent' => RenderComponentService::class,
-            'assets' => AssetService::class,
-        ]);
-
-        $this->attachEventHandlers();
-
-        // Any code that creates an element query or loads Twig should be deferred until
-        // after Craft is fully initialized, to avoid conflicts with other plugins/modules
-        Craft::$app->onInit(function () {
-            // ...
-        });
-        Craft::$app->view->registerTwigExtension(new RenderComponentExtension());
-    }
-
-    private function attachEventHandlers(): void
-    {
-        // Register event handlers here ...
-        // (see https://craftcms.com/docs/5.x/extend/events.html to get started)
     }
 }

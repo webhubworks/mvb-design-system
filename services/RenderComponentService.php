@@ -1,9 +1,9 @@
 <?php
 
-namespace modules\mvbdesignsystem\services;
+namespace webhubworks\mvbdesignsystem\services;
 
 use Craft;
-use modules\mvbdesignsystem\MvbDesignSystem;
+use webhubworks\mvbdesignsystem\MvbDesignSystem;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;

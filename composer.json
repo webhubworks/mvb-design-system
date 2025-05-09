@@ -12,8 +12,8 @@
   "require": {
     "php": "^8.2",
     "craftcms/cms": "^5.0",
-    "nystudio107/craft-vite": "^1.0",
-    "illuminate/collections": "^9.0",
+    "nystudio107/craft-vite": "^5.0.0",
+    "illuminate/collections": "^10.0",
     "twig/intl-extra": "^3.21.0"
   },
   "extra": {
@@ -21,15 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\mvbdesignsystem\\": "modules/mvbdesignsystem/"
+      "webhubworks\\mvbdesignsystem\\": ""
     }
-  },
-  "scripts": {
-    "pre-package-install": [
-      "modules\\mvbdesignsystem\\Installer::checkDependencies"
-    ],
-    "post-package-install": [
-      "modules\\mvbdesignsystem\\Installer::copyViteConfigStub"
-    ]
   }
 }
