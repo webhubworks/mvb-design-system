@@ -1,25 +1,24 @@
-
 {% set dates = dates|default([])|filter((v) => v is not null) %}
 
 {% set footerHtml %}
     <div class="flex justify-between px-3 pb-3 pt-2 isolate">
-        <div class="flex items-center text-sm text-cobblestone-600 whitespace-nowrap">
+        <div class="flex items-center text-sm text-cobblestone-600 whitespace-nowrap space-x-1">
             {% if dates|length > 0 %}
                 <span class="flex space-x-1 items-center">
-                    <time datetime="{{ dates|first|date('Y-m-d') }}">
+                    <time datetime="{{ dates|first|date('c') }}" title="{{ 'Timezone: Europe/Berlin'|t('mvbdesignsystem') }}">
                         {{ render('atoms.icon', {name: 'calendar'}) }}
-                        {{ dates|first|format_datetime }}
-{#                        {{ render('atoms.icon', {name: 'clock'}) }}#}
-{#                        {{ dates|first|date('H:i') }}#}
+                        {{ dates|first|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+                        {{ render('atoms.icon', {name: 'clock'}) }}
+                        {{ dates|first|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
                     </time>
                 </span>
                 {% if dates|length > 1 %}
-                    <span class="ml-1.5 z-10 cursor-help bg-cobblestone-50 px-1 rounded" title="{{ 'All dates: {dates}'|t('mvbdesignsystem', {
-                        dates: dates|map((v) => v|date('d.m.Y'))|join(', ')
-                    }) }}">
-                        +&thinsp;{{ dates|length - 1 }}
-                        <span class="sr-only">{{ 'further dates'|t('mvbdesignsystem') }}</span>
-                    </span>
+
+                    {{ render('atoms.tooltip', {
+                        triggerHtml: '<span class="z-10 bg-cobblestone-50 px-1.5 py-0.5 rounded">+&thinsp;'~(dates|length - 1)~'<span class="sr-only">'~"further dates"|t("mvbdesignsystem")~'</span></span>',
+                        contentHtml: 'All dates: {dates}'|t('mvbdesignsystem', {dates: dates|map((v) => v|format_datetime('medium', 'short', locale: craft.app.language, timezone: 'Europe/Berlin'))|join(' ' ~ 'and'|t('mvbdesignsystem') ~ ' ')})
+                    }) }}
+
                 {% endif %}
             {% endif %}
         </div>
