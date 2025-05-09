@@ -1,0 +1,33 @@
+{
+  "title": "Molecules/Cards/Card",
+  "parameters": {
+    "server": {
+      "id": "molecules.card"
+    }
+  },
+  "args": {
+    "content": "Card Title",
+    "href": "#!",
+    "badge": {
+      "text": "Look ma no hands!",
+      "iconName": "book"
+    }
+  },
+  "argTypes": {
+    "badge": {
+      "control": "object",
+      "type": "object",
+      "description": "Object with keys `text` and `iconName` where `iconName` is optional."
+    },
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "Default"
+    }
+  ]
+}

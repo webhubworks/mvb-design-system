@@ -1,0 +1,35 @@
+{
+  "name": "webhubworks/mvb-design-system",
+  "description": "MVB Design System for Craft CMS",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "webhub GmbH",
+      "homepage": "https://webhub.de"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "craftcms/cms": "^5.0",
+    "nystudio107/craft-vite": "^1.0",
+    "illuminate/collections": "^9.0",
+    "twig/intl-extra": "^3.21.0"
+  },
+  "extra": {
+    "type": "craft-module"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\mvbdesignsystem\\": "modules/mvbdesignsystem/"
+    }
+  },
+  "scripts": {
+    "pre-package-install": [
+      "modules\\mvbdesignsystem\\Installer::checkDependencies"
+    ],
+    "post-package-install": [
+      "modules\\mvbdesignsystem\\Installer::copyViteConfigStub"
+    ]
+  }
+}

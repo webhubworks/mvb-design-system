@@ -1,0 +1,16 @@
+{
+  "title": "Molecules/Cards/Event Card",
+  "parameters": {
+    "server": {
+      "id": "molecules.event-card"
+    }
+  },
+  "args": {
+    "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+    "href": "#!",
+    "dates": ["2025-05-13", "2025-05-14"]
+  },
+  "stories": [{
+    "name": "Default"
+  }]
+}

@@ -1,0 +1,8 @@
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget('class').toArray() %}
+
+{% set name = name|default(null)|split('fa-')|join('') %}
+{% set iconClass = 'fa-' ~ name %}
+
+<i class="fal {{ iconClass }} {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}></i>

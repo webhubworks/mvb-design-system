@@ -1,0 +1,15 @@
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget('class').toArray() %}
+
+<div class="flex items-center {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>
+    {{ render('atoms.heading', {
+        text: text,
+        level: level|default(null),
+        visualLevel: visualLevel|default(null),
+        attributes: {
+            class: 'shrink-0',
+        }
+    }) }}
+    <span class="ml-4 h-0.5 w-full bg-primary"></span>
+</div>

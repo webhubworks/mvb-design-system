@@ -1,0 +1,21 @@
+{% set badge = badge|default({text: null, iconName: null}) %}
+
+<div data-component="molecules.card" class="bg-white hover:bg-white/65 group inline-block relative flex flex-col">
+    <div class="relative overflow-hidden">
+        {% if badge.text %}
+            <div class="flex items-center space-x-2 absolute right-0 top-4 max-w-2/3 text-white bg-primary text-sm px-3 py-1.5">
+                {% if badge.iconName %}
+                    {{ render('atoms.icon', {name: badge.iconName}) }}
+                {% endif %}
+                <div title="{{ badge.text }}" class="uppercase whitespace-nowrap truncate">{{ badge.text }}</div>
+            </div>
+        {% endif %}
+        <img src="{{ img.src ?? 'https://picsum.photos/300/200' }}" width="300" height="200" alt="{{ img.alt ?? '' }}"
+             class="w-full">
+    </div>
+    <div class="p-3">
+        <img src="https://mvb-online.de/build/assets/img/MVB.svg" class="mb-3 mt-2 h-5" height="20" alt="Logo">
+        <a href="{{ href }}" class="text-base before:content-[''] before:absolute before:inset-0 break-word">{{ content }}</a>
+    </div>
+    {{ footerHtml|default('')|raw }}
+</div>

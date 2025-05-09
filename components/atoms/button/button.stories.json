@@ -1,0 +1,64 @@
+{
+  "title": "Atoms/Button",
+  "parameters": {
+    "server": {
+      "id": "atoms.button"
+    }
+  },
+  "args": {
+    "label": "Button",
+    "variant": "primary"
+  },
+  "argTypes": {
+    "label": {
+      "control": "text",
+      "type": "string"
+    },
+    "variant": {
+      "control": "radio",
+      "type": "string",
+      "options": [
+        "primary",
+        "secondary"
+      ]
+    },
+    "href": {
+      "control": "text",
+      "type": "string",
+      "description": "The URL to navigate to when the button is clicked. If provided, the button will be rendered as an anchor tag instead of a button element."
+    },
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "Primary",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.button', {label: 'Button'}) }}"
+          },
+          "description": {
+            "story": "This is the default primary button."
+          }
+        }
+      }
+    },
+    {
+      "name": "Secondary",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.button', {label: 'Button', variant: 'secondary'}) }}"
+          }
+        }
+      },
+      "args": {
+        "variant": "secondary"
+      }
+    }
+  ]
+}

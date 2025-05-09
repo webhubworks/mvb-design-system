@@ -1,0 +1,69 @@
+{
+  "title": "Atoms/Headings/Heading",
+  "parameters": {
+    "server": {
+      "id": "atoms.heading"
+    }
+  },
+  "args": {
+    "text": "Wir bringen Bücher ins Ziel",
+    "level": "h1"
+  },
+  "argTypes": {
+    "text": {
+      "control": "text",
+      "type": "string"
+    },
+    "level": {
+      "control": "select",
+      "defaultValue": "h1",
+      "type": "string",
+      "options": [
+        "h1",
+        "h2",
+        "h3",
+        "h4"
+      ]
+    },
+    "visualLevel": {
+      "control": "select",
+      "type": "string",
+      "description": "Defaults to `level`",
+      "options": [
+        "like level",
+        "h1",
+        "h2",
+        "h3",
+        "h4"
+      ]
+    },
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "H1"
+    },
+    {
+      "name": "H2",
+      "args": {
+        "level": "h2"
+      }
+    },
+    {
+      "name": "H3",
+      "args": {
+        "level": "h3"
+      }
+    },
+    {
+      "name": "H4",
+      "args": {
+        "level": "h4"
+      }
+    }
+  ]
+}

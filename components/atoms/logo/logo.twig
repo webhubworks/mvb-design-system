@@ -1,0 +1,20 @@
+{% set brand = brand|default(null) %}
+
+{% if brand in ["MVB", "VLB", "VLB-TIX", "Livro", "Lesemotive", "Boersenblatt", "Bewegte-Schaufenster", "Buecherscheck", "Metabooks", "MVB-Data-Summit", "Buchjournal"] %}
+    {# MVB #}
+    {% if brand == "MVB" %}
+
+        <svg>
+            <use href="#logo-mvb"></use>
+        </svg>
+    {% endif %}
+    {# VLB #}
+    {% if brand == "VLB" %}
+
+        <svg>
+            <use href="#logo-vlb"></use>
+        </svg>
+    {% endif %}
+
+
+{% endif %}

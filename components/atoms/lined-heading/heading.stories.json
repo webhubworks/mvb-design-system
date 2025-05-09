@@ -1,0 +1,64 @@
+{
+  "title": "Atoms/Headings/Lined Heading",
+  "parameters": {
+    "server": {
+      "id": "atoms.lined-heading"
+    }
+  },
+  "args": {
+    "text": "Wir bringen Bücher ins Ziel",
+    "level": "h1"
+  },
+  "argTypes": {
+    "text": {
+      "control": "text"
+    },
+    "level": {
+      "control": "select",
+      "options": [
+        "h1",
+        "h2",
+        "h3",
+        "h4"
+      ]
+    },
+    "visualLevel": {
+      "control": "select",
+      "options": [
+        "like level",
+        "h1",
+        "h2",
+        "h3",
+        "h4"
+      ]
+    },
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "H1"
+    },
+    {
+      "name": "H2",
+      "args": {
+        "level": "h2"
+      }
+    },
+    {
+      "name": "H3",
+      "args": {
+        "level": "h3"
+      }
+    },
+    {
+      "name": "H4",
+      "args": {
+        "level": "h4"
+      }
+    }
+  ]
+}

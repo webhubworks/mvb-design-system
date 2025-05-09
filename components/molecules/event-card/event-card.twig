@@ -1,0 +1,33 @@
+
+{% set dates = dates|default([])|filter((v) => v is not null) %}
+
+{% set footerHtml %}
+    <div class="flex justify-between px-3 pb-3 pt-2 isolate">
+        <div class="flex items-center text-sm text-cobblestone-600 whitespace-nowrap">
+            {% if dates|length > 0 %}
+                <span class="flex space-x-1 items-center">
+                    <time datetime="{{ dates|first|date('Y-m-d') }}">
+                        {{ render('atoms.icon', {name: 'calendar'}) }}
+                        {{ dates|first|format_datetime }}
+{#                        {{ render('atoms.icon', {name: 'clock'}) }}#}
+{#                        {{ dates|first|date('H:i') }}#}
+                    </time>
+                </span>
+                {% if dates|length > 1 %}
+                    <span class="ml-1.5 z-10 cursor-help bg-cobblestone-50 px-1 rounded" title="{{ 'All dates: {dates}'|t('mvbdesignsystem', {
+                        dates: dates|map((v) => v|date('d.m.Y'))|join(', ')
+                    }) }}">
+                        +&thinsp;{{ dates|length - 1 }}
+                        <span class="sr-only">{{ 'further dates'|t('mvbdesignsystem') }}</span>
+                    </span>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endset %}
+
+{{ render('molecules.card', {
+    content: content,
+    href: href,
+    footerHtml: footerHtml
+}) }}

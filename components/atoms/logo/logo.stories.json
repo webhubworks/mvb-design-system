@@ -1,0 +1,63 @@
+{
+  "title": "Atoms/Logo",
+  "parameters": {
+    "server": {
+      "id": "atoms.logo"
+    }
+  },
+  "args": {
+    "brand": "MVB"
+  },
+  "argTypes": {
+    "brand": {
+      "control": "select",
+      "options": [
+        "MVB",
+        "VLB",
+        "VLB-TIX",
+        "Livro",
+        "Lesemotive",
+        "Boersenblatt",
+        "Bewegte-Schaufenster",
+        "Buecherscheck",
+        "Metabooks",
+        "Buchjournal"
+      ]
+    }
+  },
+  "stories": [
+    {
+      "name": "MVB"
+    },
+    {
+      "name": "VLB",
+      "args": {
+        "brand": "VLB"
+      }
+    },
+    {
+      "name": "Livro"
+    },
+    {
+      "name": "VLB-TIX"
+    },
+    {
+      "name": "Lesemotive"
+    },
+    {
+      "name": "Boersenblatt"
+    },
+    {
+      "name": "Bewegte-Schaufenster"
+    },
+    {
+      "name": "Buecherscheck"
+    },
+    {
+      "name": "Metabooks"
+    },
+    {
+      "name": "Buchjournal"
+    }
+  ]
+}

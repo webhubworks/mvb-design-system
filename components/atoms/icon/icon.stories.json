@@ -1,0 +1,40 @@
+{
+  "title": "Atoms/Icon",
+  "parameters": {
+    "server": {
+      "id": "atoms.icon"
+    }
+  },
+  "args": {
+    "name": "book",
+    "attributes": {
+      "class": "text-monza-400 text-4xl"
+    }
+  },
+  "argTypes": {
+    "name": {
+      "control": "text",
+      "type": "string"
+    },
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "Default",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.icon', {name: 'book', attributes: {class: 'text-cobblestone-400'}) }}"
+          },
+          "description": {
+            "story": "Fontawesome docs: https://docs.fontawesome.com/ Fontawesome icon search: https://fontawesome.com/search?o=r&s=light&ip=classic"
+          }
+        }
+      }
+    }
+  ]
+}
