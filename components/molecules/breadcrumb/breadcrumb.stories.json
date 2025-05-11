@@ -1,0 +1,32 @@
+{
+  "title": "Molecules/Breadcrumb",
+  "parameters": {
+    "server": {
+      "id": "molecules.breadcrumb"
+    }
+  },
+  "args": {
+    "items": [{
+      "label": "Marken und Produkte",
+      "href": "#!"
+    }, {
+      "label": "VLB-TIX",
+      "href": "#!"
+    }, {
+      "label": "Some other page",
+      "href": "#!"
+    }]
+  },
+  "argTypes": {
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "Breadcrumb"
+    }
+  ]
+}
