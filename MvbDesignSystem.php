@@ -10,7 +10,6 @@ use craft\i18n\PhpMessageSource;
 use craft\web\UrlManager;
 use craft\web\View;
 use Twig\Extra\Intl\IntlExtension;
-use webhubworks\mvbdesignsystem\services\AssetService;
 use webhubworks\mvbdesignsystem\services\RenderComponentService;
 use webhubworks\mvbdesignsystem\web\twig\RenderComponentExtension;
 use yii\base\Module as BaseModule;
@@ -20,7 +19,6 @@ use yii\base\Module as BaseModule;
  *
  * @method static MvbDesignSystem getInstance()
  * @property-read RenderComponentService $renderComponent
- * @property-read AssetService $assets
  */
 class MvbDesignSystem extends BaseModule
 {
@@ -31,7 +29,8 @@ class MvbDesignSystem extends BaseModule
 
     public function init(): void
     {
-        Craft::setAlias('@modules/mvbdesignsystem', __DIR__);
+        Craft::setAlias('@webhubworks/mvbdesignsystem', __DIR__);
+        Craft::setAlias('@mvbDesignSystemAssets', \Craft::getAlias('@web/mvbdesignsystem/assets/'));
 
         // Set the controllerNamespace based on whether this is a console or web request
         if (Craft::$app->request->isConsoleRequest) {
@@ -51,7 +50,6 @@ class MvbDesignSystem extends BaseModule
 
         $this->setComponents([
             'renderComponent' => RenderComponentService::class,
-            'assets' => AssetService::class,
         ]);
 
         $this->attachEventHandlers();

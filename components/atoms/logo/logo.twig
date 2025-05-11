@@ -1,20 +1,21 @@
 {% set brand = brand|default(null) %}
 
-{% if brand in ["MVB", "VLB", "VLB-TIX", "Livro", "Lesemotive", "Boersenblatt", "Bewegte-Schaufenster", "Buecherscheck", "Metabooks", "MVB-Data-Summit", "Buchjournal"] %}
-    {# MVB #}
-    {% if brand == "MVB" %}
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
 
-        <svg>
-            <use href="#logo-mvb"></use>
-        </svg>
-    {% endif %}
-    {# VLB #}
-    {% if brand == "VLB" %}
-
-        <svg>
-            <use href="#logo-vlb"></use>
-        </svg>
-    {% endif %}
+{% set logos = {
+    'MVB': '@mvbDesignSystemAssets/logos/mvb.svg',
+    'VLB': '@mvbDesignSystemAssets/logos/vlb.svg',
 
 
+
+
+} %}
+
+{% set logoPath = logos[brand]|default(null) %}
+
+{% if logoPath %}
+    <img alt="{{ 'Logo of'|t('mvbdesignsystem') }} {{ brand }}" src="{{ alias(logoPath) }}"
+         class="{{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }} />
 {% endif %}
