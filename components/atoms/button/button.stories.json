@@ -48,6 +48,19 @@
       }
     },
     {
+      "name": "Primary as Link",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.button', {label: 'Button', href: '#!'}) }}"
+          }
+        }
+      },
+      "args": {
+        "href": "#!"
+      }
+    },
+    {
       "name": "Secondary",
       "parameters": {
         "docs": {

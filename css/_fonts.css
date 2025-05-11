@@ -27,3 +27,10 @@
     font-weight: 400;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Graphik-Web';
+    src: url(../fonts/Graphik/Graphik-Semibold-Web.woff) format("woff"), url(../fonts/Graphik/Graphik-Semibold-Web.woff2) format("woff2");
+    font-weight: 600;
+    font-display: swap;
+}

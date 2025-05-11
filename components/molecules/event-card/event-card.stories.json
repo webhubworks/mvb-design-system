@@ -8,20 +8,7 @@
   "args": {
     "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
     "href": "#!",
-    "locale": "de",
     "dates": ["2025-05-13T13:30+00:00", "2025-05-12T23:30+00:00"]
-  },
-  "argTypes": {
-    "locale": {
-      "control": "select",
-      "options": [
-        "de",
-        "en",
-        "fr",
-        "pt",
-        "nl"
-      ]
-    }
   },
   "stories": [{
     "name": "Default"

@@ -45,6 +45,10 @@ class ComponentsController extends Controller
         try {
             $queryParams = $this->parseQueryParams($this->request->getQueryParams());
 
+            if (isset($queryParams['locale'])) {
+                Craft::$app->language = $queryParams['locale'];
+            }
+
             if (! Vite::getInstance()->vite->devServerRunning()) { // Working
                 return implode([
                     '<style>',
