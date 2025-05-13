@@ -30,7 +30,6 @@ class MvbDesignSystem extends BaseModule
     public function init(): void
     {
         Craft::setAlias('@webhubworks/mvbdesignsystem', __DIR__);
-        Craft::setAlias('@mvbDesignSystemAssets', \Craft::getAlias('@web/mvbdesignsystem/assets/'));
 
         // Set the controllerNamespace based on whether this is a console or web request
         if (Craft::$app->request->isConsoleRequest) {
