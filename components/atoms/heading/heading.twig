@@ -1,4 +1,4 @@
-{% set level = level|default('h1') %}
+{% set level = level is defined and level in ['h1', 'h2', 'h3', 'h4'] ? level : 'h1' %}
 {% set visualLevel = visualLevel is defined and visualLevel in ['h1', 'h2', 'h3', 'h4'] ? visualLevel : null %}
 
 {% set attributeCollection = attributes|default({})|collect() %}
@@ -11,17 +11,6 @@
     'h3': 'font-bold text-[1.625rem]/[1.1]',
     'h4': 'font-bold text-[1.25rem]/[1.1]',
 } %}
-
-{% switch level %}
-{% case 'h2' %}
-    <h2 class="{{ classes[visualLevel ?? level] }} {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>{{ text }}</h2>
-{% case 'h3' %}
-    <h3 class="{{ classes[visualLevel ?? level] }} {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>{{ text }}</h3>
-{% case 'h4' %}
-    <h4 class="{{ classes[visualLevel ?? level] }} {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>{{ text }}</h4>
-{% default %}
-    <h1 class="{{ classes[visualLevel ?? level] }} {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>{{ text }}</h1>
-{% endswitch %}
 
 {% tag level with {
     class: classes[visualLevel ?? level],
