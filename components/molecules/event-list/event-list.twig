@@ -1,0 +1,36 @@
+{% set tag = tag|default({text: null, iconName: null}) %}
+{% set headingLevel = headingLevel is defined and headingLevel in ['h1', 'h2', 'h3', 'h4'] ? headingLevel : 'h2' %}
+
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<div {{ attributesToHtml(additionalAttributes) }}
+        data-component="molecules.event-list"
+        class="@container/event-list bg-cobblestone-800 text-white divide-y divide-cobblestone-700 {{ additionalClasses }}">
+
+    {% for event in events %}
+        <div class="flex space-x-3 @xs/event-list:space-x-6 px-3 @2xs/event-list:px-4 @xs/event-list:px-6 py-3 @xs/event-list:py-6">
+            <div class="hidden @2xs/event-list:inline-block">
+                {{ render('atoms.icon', {name: 'calendar', attributes: {class: 'text-3xl pt-0.5 @xs/event-list:pt-0 @xs/event-list:text-4xl text-cobblestone-200'}}) }}
+            </div>
+            <div class="pt-1 @2xs/event-list:pt-2.5 flex flex-col items-start space-y-4">
+                <img alt="Logo" src="{{ event.logoImgSrc }}" class="h-5 brightness-0 invert" />
+                <a href="{{ event.href }}" class="font-bold active:text-cobblestone-100 hover:underline text-lg">
+                    {{ tag(headingLevel, {
+                        text: event.title
+                    }) }}
+                </a>
+                <div class="text-cobblestone-200">
+                    {% if event.tag.text is defined and event.tag.text|length %}
+                        <p class="@xs/event-list:mb-1">
+                            {% if event.tag.iconName %}{{ render('atoms.icon', {name: event.tag.iconName, attributes: {class: 'fa-fw'}}) }}{% endif %}
+                            {{ event.tag.text }}
+                        </p>
+                    {% endif %}
+                    <p>{{ render('atoms.event-time', {date: event.date, attributes: {class: ''}}) }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
