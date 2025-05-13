@@ -8,7 +8,28 @@
   "args": {
     "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
     "href": "#!",
-    "dates": ["2025-05-13T13:30+00:00", "2025-05-12T23:30+00:00"]
+    "dates": ["2025-05-13T13:30+00:00", "2025-05-12T23:30+00:00"],
+    "badge": {
+      "text": "Webinars",
+      "iconName": "desktop"
+    }
+  },
+  "argTypes": {
+    "badge": {
+      "control": "object",
+      "type": "object",
+      "description": "Object with keys `text` and `iconName` where `iconName` is optional."
+    },
+    "img": {
+      "control": "object",
+      "type": "object",
+      "description": "Object with keys `src`, `alt`, and `caption` where `src` is required. The `alt` and `caption` attributes are optional."
+    },
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
   },
   "stories": [{
     "name": "Default"

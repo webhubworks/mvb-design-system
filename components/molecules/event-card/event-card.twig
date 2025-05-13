@@ -4,14 +4,9 @@
     <div class="flex justify-between px-3 pb-3 pt-2 isolate">
         <div class="flex items-center text-sm text-cobblestone-600 whitespace-nowrap space-x-1">
             {% if dates|length > 0 %}
-                <span class="flex space-x-1 items-center">
-                    <time datetime="{{ dates|first|date('c') }}" title="{{ 'Timezone: Europe/Berlin'|t('mvbdesignsystem') }}">
-                        {{ render('atoms.icon', {name: 'calendar'}) }}
-                        {{ dates|first|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
-                        {{ render('atoms.icon', {name: 'clock'}) }}
-                        {{ dates|first|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
-                    </time>
-                </span>
+
+                {{ render('atoms.event-time', {date: dates|first}) }}
+
                 {% if dates|length > 1 %}
 
                     {% set contentHtml %}
@@ -19,12 +14,7 @@
                         <ul class="mb-2">
                             {% for dateObject in dates %}
                                 <li>
-                                    <time datetime="{{ dateObject|date('c') }}">
-                                        {{ render('atoms.icon', {name: 'calendar'}) }}
-                                        {{ dateObject|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
-                                        {{ render('atoms.icon', {name: 'clock'}) }}
-                                        {{ dateObject|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
-                                    </time>
+                                    {{ render('atoms.event-time', {date: dateObject}) }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -51,5 +41,8 @@
 {{ render('molecules.card', {
     content: content,
     href: href,
-    footerHtml: footerHtml
+    badge: badge,
+    img: img|default(null),
+    footerHtml: footerHtml,
+    attributes: attributes|default({}),
 }) }}

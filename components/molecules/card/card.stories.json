@@ -5,19 +5,32 @@
       "id": "molecules.card"
     }
   },
-  "args": {
-    "content": "Card Title",
-    "href": "#!",
-    "badge": {
-      "text": "Look ma no hands!",
-      "iconName": "book"
-    }
-  },
   "argTypes": {
     "badge": {
       "control": "object",
       "type": "object",
+      "required": true,
       "description": "Object with keys `text` and `iconName` where `iconName` is optional."
+    },
+    "img": {
+      "control": "object",
+      "type": "object",
+      "description": "Object with keys `src`, `alt`, and `caption` where `src` is required. The `alt` and `caption` attributes are optional."
+    },
+    "accentColor": {
+      "control": "text",
+      "type": "string",
+      "description": "The accent color of the card used as an image border. Must be a valid CSS variable: `--color-monza`"
+    },
+    "logoImgSrc": {
+      "control": "text",
+      "type": "string",
+      "description": "The URL of the logo image. If provided, the logo will be displayed in the card."
+    },
+    "footerHtml": {
+      "control": "text",
+      "type": "string",
+      "description": "The HTML content to be displayed in the footer of the card. Must be valid `HTML`."
     },
     "attributes": {
       "control": "object",
@@ -27,7 +40,30 @@
   },
   "stories": [
     {
-      "name": "Default"
+      "name": "Basic",
+      "args": {
+        "content": "Some content",
+        "href": "#!"
+      }
+    },
+    {
+      "name": "Full example",
+      "args": {
+        "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+        "href": "#!",
+        "badge": {
+          "text": "'sup?",
+          "iconName": "question"
+        },
+        "accentColor": "--color-emerald",
+        "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
+        "img": {
+          "src": "https://picsum.photos/300/200",
+          "alt": "Some stock image",
+          "caption": "© Lorem Picsum"
+        },
+        "footerHtml": "<p class='px-3 pb-3 text-sm'>Some footer content</p>"
+      }
     }
   ]
 }

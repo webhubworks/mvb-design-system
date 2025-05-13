@@ -1,11 +1,16 @@
 {% set badge = badge|default({text: null, iconName: null}) %}
+{% set logoImgSrc = logoImgSrc|default(null) %}
+{% set accentColor = accentColor|default(null) %}
+{% set _accentColorClasses = accentColor ? 'border-b-3 border-('~accentColor~')' : '' %}
+{% set _missingImage = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjNDE0MTQxIiBkPSJNMCAwaDYwMHY0MDBIMHoiLz48cGF0aCBmaWxsPSIjQjJCMkIyIiBkPSJNMzQ0IDE1NmgtODhhOCA4IDAgMCAwLTggOHY3MmE4IDggMCAwIDAgOCA4aDg4YTggOCAwIDAgMCA4LTh2LTcyYTggOCAwIDAgMC04LThabTAgOHY1MS4zNzVsLTEzLjAzNS0xMy4wM2E4IDggMCAwIDAtMTEuMzE1IDBsLTEwIDEwLTIyLTIyYTggOCAwIDAgMC0xMS4zMSAwTDI1NiAyMTAuNjg1VjE2NGg4OFptLTg4IDU4IDI2LTI2IDQwIDQwaC02NnYtMTRabTg4IDE0aC0xMC42ODVsLTE4LTE4IDEwLTEwTDM0NCAyMjYuNjlWMjM2Wm0tMzYtNTBhNS45OTggNS45OTggMCAwIDEgNy4xNzEtNS44ODUgNi4wMDcgNi4wMDcgMCAwIDEgNC43MTQgNC43MTQgNi4wMDYgNi4wMDYgMCAwIDEtMi41NTIgNi4xNkE1Ljk5OCA1Ljk5OCAwIDAgMSAzMDggMTg2WiIvPjwvc3ZnPg==" %}
+{% set img = img|default({src: _missingImage}) %}
 
 {% set attributeCollection = attributes|default({})|collect() %}
-{% set additionalClasses = attributeCollection.get('class') %}
-{% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
 
-<div data-component="molecules.card" class="bg-white hover:bg-white/65 group inline-block relative flex flex-col {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>
-    <div class="relative overflow-hidden">
+<div data-component="molecules.card" class="bg-white hover:bg-white/65 group inline-block relative flex flex-col {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+    <div class="relative overflow-hidden {{ _accentColorClasses }}">
         {% if badge.text %}
             <div class="flex items-center space-x-2 absolute right-0 top-4 max-w-2/3 text-white bg-primary px-2 py-1.5">
                 {% if badge.iconName %}
@@ -14,11 +19,18 @@
                 <div title="{{ badge.text }}" class="uppercase whitespace-nowrap text-xs truncate font-semibold">{{ badge.text }}</div>
             </div>
         {% endif %}
-        <img src="{{ img.src ?? 'https://picsum.photos/300/200' }}" width="300" height="200" alt="{{ img.alt ?? '' }}"
-             class="w-full">
+        <figure class="relative">
+            <img src="{{ img.src }}" width="300" height="200" alt="{{ img.alt ?? '' }}"
+                 class="w-full">
+            <figcaption class="absolute z-10 -rotate-90 translate-x-full origin-left right-4 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[200px]" title="{{ img.caption ?? '' }}">
+                {{ img.caption ?? '' }}
+            </figcaption>
+        </figure>
     </div>
     <div class="p-3">
-        {{ render('atoms.logo', {brand: 'MVB', attributes: {class: 'mb-3 mt-2 h-5'}}) }}
+        {% if logoImgSrc %}
+            <img src="{{ logoImgSrc }}" alt="Logo" class="mb-3 mt-2 h-5">
+        {% endif %}
         <a href="{{ href }}" class="text-base before:content-[''] before:absolute before:inset-0 break-word">{{ content }}</a>
     </div>
     {{ footerHtml|default('')|raw }}
