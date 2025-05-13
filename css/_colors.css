@@ -1,4 +1,7 @@
 @theme {
+    --color-*: initial;  /* drop all default colors */
+    --color-white: #ffffff;
+    /*--color-black: #000000;*/
     /* MVB */
     --color-monza: var(--color-monza-500);
     --color-monza-50: oklch(95.984% 0.0198 25.169);
@@ -54,18 +57,4 @@
     --color-emerald-800: oklch(42.73% 0.06121 181.19);
     --color-emerald-900: oklch(32.746% 0.04369 185.99);
     --color-emerald-950: oklch(27.388% 0.03531 186.32);
-
-    /* VLB */
-    --color-mountain-meadow: var(--color-mountain-meadow-500);
-    --color-mountain-meadow-50: oklch(93.854% 0.05755 175.82);
-    --color-mountain-meadow-100: oklch(91.498% 0.07996 176.17);
-    --color-mountain-meadow-200: oklch(85.027% 0.09709 177.37);
-    --color-mountain-meadow-300: oklch(80.349% 0.1199 177.47);
-    --color-mountain-meadow-400: oklch(74.49% 0.12631 178.46);
-    --color-mountain-meadow-500: oklch(66.285% 0.11704 180.21);
-    --color-mountain-meadow-600: oklch(57.061% 0.09809 183.99);
-    --color-mountain-meadow-700: oklch(47.385% 0.07943 187.85);
-    --color-mountain-meadow-800: oklch(37.133% 0.0602 191.62);
-    --color-mountain-meadow-900: oklch(26.003% 0.0403 194.96);
-    --color-mountain-meadow-950: oklch(19.921% 0.02984 195.02);
 }
