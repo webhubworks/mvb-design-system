@@ -33,7 +33,7 @@ class RenderComponentExtension extends AbstractExtension
                     if (! (is_string($value) || is_scalar($value) || is_null($value))) {
                         throw new InvalidArgumentException("Invalid attribute value for key '$key'. Expected string, scalar, or null.");
                     }
-                    return $key . '="' . $value . '"';
+                    return "$key=$value";
                 })->join(' ');
             }),
             new TwigFunction('render', function (string $component, array $params = []): string {

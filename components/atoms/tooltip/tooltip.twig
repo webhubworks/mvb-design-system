@@ -1,17 +1,25 @@
 {% set componentId = generateUniqueComponentId('tooltip') %}
+{% set inverted = inverted|default(false) %}
 
-<div class="isolate" data-component="tooltip">
-    <button data-component="tooltip.trigger"
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+{% set contentClasses = inverted ? 'bg-cobblestone-50 text-cobblestone-800' : 'bg-cobblestone-800 text-white' %}
+{% set arrowClasses = inverted ? 'bg-cobblestone-50' : 'bg-cobblestone-800' %}
+
+<div data-component="atoms.tooltip" class="{{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>
+    <button data-component-part="tooltip.trigger"
             class="cursor-help"
          aria-describedby="{{ componentId }}">
         {{ triggerHtml|raw }}
     </button>
 
-    <div data-component="tooltip.content"
+    <div data-component-part="tooltip.content"
          id="{{ componentId }}"
          role="tooltip"
-         class="bg-cobblestone-800 text-white text-sm px-2 hidden py-1.5 absolute top-0 left-0 w-max rounded-sm">
+         class="text-sm px-2 hidden py-1.5 absolute top-0 left-0 w-max rounded-sm z-100 drop-shadow-lg {{ contentClasses }}">
         {{ contentHtml|raw }}
-        <div data-component="tooltip.arrow" class="bg-cobblestone-800 z-[-1]"></div>
+        <div data-component-part="tooltip.arrow" class="z-[-1] {{ arrowClasses }}"></div>
     </div>
 </div>

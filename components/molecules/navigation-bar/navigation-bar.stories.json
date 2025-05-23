@@ -1,0 +1,46 @@
+{
+  "title": "Molecules/Navigation Bar",
+  "parameters": {
+    "server": {
+      "id": "molecules.navigation-bar"
+    }
+  },
+  "args": {
+    "items": [{
+      "label": "Home",
+      "children": [
+        {
+          "label": "Submenu 1",
+          "href": "/home/submenu1"
+        },
+        {
+          "label": "Submenu 2",
+          "href": "/home/submenu2"
+        }
+      ]
+    }, {
+      "label": "About",
+      "children": [
+        {
+          "label": "Submenu 1",
+          "href": "/home/submenu1"
+        },
+        {
+          "label": "Submenu longer 2",
+          "href": "/home/submenu2"
+        }
+      ]
+    }, {
+      "label": "Contact",
+      "href": "/contact"
+    }, {
+      "label": "Contact",
+      "href": "/contact"
+    }]
+  },
+  "stories": [
+    {
+      "name": "Navigation Bar"
+    }
+  ]
+}

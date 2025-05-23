@@ -1,35 +1,74 @@
-{% set isLink = href is defined %}
+{% set isLink = href is defined and href != null %}
 {% set tag = isLink ? 'a' : 'button' %}
 {% set type = type ?? 'button' %}
+{% set icon = icon is defined and icon.name is defined ? icon : null %}
+{% set noSpace = noSpace|default(false) %}
+{% set textAlign = textAlign|default('center') %}
+{% set variant = variant|default('primary') %}
+{% set label = label ?? null %}
+
+{% set textAlignClasses = {
+    'left': 'justify-start',
+    'right': 'justify-end',
+    'center': 'justify-center',
+}[textAlign] %}
+
+{% set baseClasses = [
+    'cursor-pointer inline-flex space-x-2 items-center text-base focus:outline-none transition-colors duration-150',
+    textAlignClasses ?? 'justify-center',
+    noSpace ? '' : 'px-4 py-2',
+]|join(' ') %}
+
+{% set iconRight = icon and icon.position is defined and icon.position == 'right' %}
+{% set iconLeft = not iconRight %}
+
+{% set variantClasses = {
+    'primary': 'bg-primary text-white hover:bg-primary-600 active:bg-primary-700 focus-visible:ring-cobblestone-400 focus-visible:ring-2 focus-visible:ring-offset-2',
+    'secondary': 'bg-[#FF81EE]',
+    'ghost': 'bg-transparent text-cobblestone-800 hover:bg-cobblestone-100 active:bg-cobblestone-200 focus-visible:inset-ring-cobblestone-400 focus-visible:inset-ring-2',
+}[variant] %}
 
 {% set attributeCollection = attributes|default({})|collect() %}
 {% set additionalClasses = attributeCollection.get('class') %}
 {% set additionalAttributes = attributeCollection.forget(['class', 'href', 'type']).toArray() %}
 
-{% set baseClasses = 'cursor-pointer inline-flex items-center justify-center px-4 py-2 text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-colors duration-150' %}
-
-{% set variantClasses = {
-    'primary': 'bg-primary text-white uppercase hover:bg-primary-600 active:bg-primary-700 focus-visible:ring-cobblestone-400',
-    'secondary': 'bg-[#FF81EE]'
-}[variant|default('primary')] %}
-
 {% if isLink %}
-    <a data-component="atoms.button"
+    <a data-component="{{ additionalAttributes['data-component'] ?? 'atoms.button'}}"
        class="{{ baseClasses }} {{ variantClasses }} {{ additionalClasses }}"
        {{ attributesToHtml(additionalAttributes) }}
        href="{{ href }}"
        role="button"
     >
-        {{ label }}
+        {% if iconRight and label %}
+            <span>{{ label }}</span>
+        {% endif %}
+
+        {% if icon %}
+            {{ render('atoms.icon', {name: icon.name, attributes: {class: label|length ? 'mt-0.5' : ''}}) }}
+        {% endif %}
+
+        {% if iconLeft and label %}
+            <span>{{ label }}</span>
+        {% endif %}
     </a>
 {% endif %}
 
 {% if not isLink %}
-    <button data-component="atoms.button"
+    <button data-component="{{ additionalAttributes['data-component'] ?? 'atoms.button'}}"
             class="{{ baseClasses }} {{ variantClasses }} {{ additionalClasses }}"
             {{ attributesToHtml(additionalAttributes) }}
             type="{{ type }}"
     >
-        {{ label }}
+        {% if iconRight and label %}
+            <span>{{ label }}</span>
+        {% endif %}
+
+        {% if icon %}
+            {{ render('atoms.icon', {name: icon.name, attributes: {class: label|length ? 'mt-0.5' : ''}}) }}
+        {% endif %}
+
+        {% if iconLeft and label %}
+            <span>{{ label }}</span>
+        {% endif %}
     </button>
 {% endif %}

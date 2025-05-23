@@ -21,14 +21,23 @@
                         text: event.title
                     }) }}
                 </a>
-                <div class="text-cobblestone-200">
+                <div class="text-cobblestone-100">
                     {% if event.tag.text is defined and event.tag.text|length %}
-                        <p class="@xs/event-list:mb-1">
+                        <div class="@xs/event-list:mb-1">
                             {% if event.tag.iconName %}{{ render('atoms.icon', {name: event.tag.iconName, attributes: {class: 'fa-fw'}}) }}{% endif %}
                             {{ event.tag.text }}
-                        </p>
+                        </div>
                     {% endif %}
-                    <p>{{ render('atoms.event-time', {date: event.date, attributes: {class: ''}}) }}</p>
+                    <div class="flex items-center space-x-1">
+                        {{ render('atoms.event-time', {date: event.dates|first, attributes: {class: ''}}) }}
+                        {% if event.dates|length > 1 %}
+                            {{ render('molecules.dates-tooltip', {
+                                dates: event.dates|slice(1),
+                                inverted: true,
+                            }) }}
+                        {% endif %}
+                    </div>
+
                 </div>
             </div>
         </div>

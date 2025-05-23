@@ -5,4 +5,4 @@
 {% set name = name|default(null)|split('fa-')|join('') %}
 {% set iconClass = 'fa-' ~ name %}
 
-<i class="fal {{ iconClass }} {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}></i>
+<i data-component="atoms.icon" class="fal {{ iconClass }} {{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}></i>

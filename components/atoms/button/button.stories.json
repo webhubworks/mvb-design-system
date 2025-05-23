@@ -14,6 +14,11 @@
       "control": "text",
       "type": "string"
     },
+    "icon": {
+      "control": "object",
+      "type": "object",
+      "description": "The icon to be displayed in the button. This should be an object with a `name` property and an optional `position` property with the values `left` or `right` (`right` is default)."
+    },
     "variant": {
       "control": "radio",
       "type": "string",
@@ -48,7 +53,25 @@
       }
     },
     {
-      "name": "Primary as Link",
+      "name": "Primary with Icon",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.button', {label: 'Button'}) }}"
+          },
+          "description": {
+            "story": "This is the default primary button."
+          }
+        }
+      },
+      "args": {
+        "icon": {
+          "name": "arrow-right"
+        }
+      }
+    },
+    {
+      "name": "Primary (Link)",
       "parameters": {
         "docs": {
           "source": {
@@ -71,6 +94,35 @@
       },
       "args": {
         "variant": "secondary"
+      }
+    },
+    {
+      "name": "Ghost",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.button', {label: 'Button', variant: 'ghost'}) }}"
+          }
+        }
+      },
+      "args": {
+        "variant": "ghost"
+      }
+    },
+    {
+      "name": "Ghost with Icon",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.button', {label: 'Button', variant: 'ghost', icon: 'angle-down'}) }}"
+          }
+        }
+      },
+      "args": {
+        "variant": "ghost",
+        "icon": {
+          "name": "arrow-down"
+        }
       }
     }
   ]

@@ -1,9 +1,9 @@
 import { arrow, autoPlacement, autoUpdate, computePosition, flip, offset, shift } from '@floating-ui/dom'
 
 const initTooltip = (component) => {
-    const triggerElement = component.querySelector('[data-component="tooltip.trigger"]')
-    const contentElement = component.querySelector('[data-component="tooltip.content"]')
-    const arrowElement = component.querySelector('[data-component="tooltip.arrow"]')
+    const triggerElement = component.querySelector('[data-component-part="tooltip.trigger"]')
+    const contentElement = component.querySelector('[data-component-part="tooltip.content"]')
+    const arrowElement = component.querySelector('[data-component-part="tooltip.arrow"]')
     const arrowSize = 12;
 
     let cleanup
@@ -71,7 +71,7 @@ const initTooltip = (component) => {
 }
 
 const initTooltips = () => {
-    document.querySelectorAll('[data-component="tooltip"]').forEach((component) => {
+    document.querySelectorAll('[data-component="atoms.tooltip"]').forEach((component) => {
         initTooltip(component)
     })
 }

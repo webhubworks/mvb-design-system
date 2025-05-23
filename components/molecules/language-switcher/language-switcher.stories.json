@@ -1,0 +1,13 @@
+{
+  "title": "Molecules/Language Switcher",
+  "parameters": {
+    "server": {
+      "id": "molecules.language-switcher"
+    }
+  },
+  "stories": [
+    {
+      "name": "Language Switcher"
+    }
+  ]
+}

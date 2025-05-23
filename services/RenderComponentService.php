@@ -58,7 +58,7 @@ class RenderComponentService extends Component
 
     /**
      * The path resolver supports dot separated paths, e.g. `atoms.button`
-     * and expects to find the component named `button.twig` in the `atoms/button` directory.
+     * and expects to find the component named `button.twig` in the `atoms/button` directory: atoms/button/button.twig
      */
     private function resolveTemplatePath(string $component): string
     {

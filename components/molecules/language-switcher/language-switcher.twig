@@ -1,0 +1,21 @@
+{% set componentId = generateUniqueComponentId('lang-switch') %}
+
+{% set trigger %}
+    {{ render('atoms.button', {
+        variant: 'ghost',
+        icon: {
+            name: 'globe',
+            position: 'left',
+        },
+        label: 'Language'|t('mvbdesignsystem'),
+        attributes: {
+            id: componentId,
+            'data-component': 'molecules.language-switcher',
+        }
+    }) }}
+{% endset %}
+
+{{ render('atoms.tooltip', {
+    triggerHtml: trigger,
+    contentHtml: 'ass'
+}) }}

@@ -56,7 +56,7 @@ class MvbDesignSystem extends BaseModule
         Craft::$app->view->registerTwigExtension(new IntlExtension());
 
         Craft::$app->onInit(function () {
-            // ...
+
         });
 
         Craft::$app->view->registerTwigExtension(new RenderComponentExtension());
