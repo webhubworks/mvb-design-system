@@ -1,0 +1,26 @@
+{
+  "title": "Molecules/Accordions",
+  "parameters": {
+    "server": {
+      "id": "molecules.accordions"
+    }
+  },
+  "args": {
+    "itemGroupLabel": "Marken und Produkte",
+    "items": [{
+      "summary": "Marken und Produkte 1",
+      "details": "VLB-TIX ist die zentrale Plattform für den Vertrieb von Verlagsprodukten."
+    }, {
+      "summary": "Marken und Produkte 2",
+      "details": "VLB-TIX ist die zentrale Plattform für den Vertrieb von Verlagsprodukten."
+    }, {
+      "summary": "Marken und Produkte 3",
+      "details": "VLB-TIX ist die zentrale Plattform für den Vertrieb von Verlagsprodukten."
+    }]
+  },
+  "stories": [
+    {
+      "name": "Accordions"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<div class="space-y-2">
+{% for item in items  %}
+    <details data-component="molecules.accordion" name="{{ itemGroupLabel ?? item.summary }}" class="group">
+        <summary class="flex appearance-none bg-white cursor-pointer items-center justify-between">
+            <span class="text-xl font-bold group-hover:text-primary px-3"> {{ item.summary }}</span>
+
+            <span class="text-cobblestone-800 group-open:bg-primary group-open:text-white text-xl px-2 py-1 group-hover:bg-primary group-hover:text-white ">
+                <span class="">{{ render('atoms.icon', {name: 'chevron-down', attributes: {class: 'transform group-open:rotate-180 transition-transform duration-300'}}) }}</span>
+            </span>
+        </summary>
+        <div class="p-3">
+            {{ item.details }}
+        </div>
+    </details>
+{% endfor %}
+</div>
