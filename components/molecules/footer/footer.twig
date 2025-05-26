@@ -1,0 +1,80 @@
+{% set logoImgSrc = logoImgSrc|default(null) %}
+
+
+<footer data-component="molecules.footer" class="bg-cobblestone-800 px-4 py-8 text-white">
+    <div class="container mx-auto">
+        {# Footer Logo #}
+        {% if logoImgSrc %}
+            <img src="{{ logoImgSrc }}" alt="Logo" class="mb-3 mt-2 h-6">
+        {% endif %}
+        {# Navigation + Contact #}
+        <div class="flex flex-col lg:flex-row space-y-4 space-x-4 w-full my-12">
+            {% for column in footerColumns %}
+                <div class="flex-grow basis-full">
+                    <p><strong>{{ column.label }}</strong></p>
+                    <ul class="space-y-2 mt-2">
+                        {% for item in column.children %}
+                            <li><a href="{{ item.href }}" class="hover:underline">{{ item.label }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+
+            <div class="flex-grow basis-full">
+                <p><strong>{{ contactHeading }}</strong></p>
+                <ul class="space-y-2 mt-2">
+                    {% for item in contactItems %}
+                        <li class="pl-7">
+                            <a href="{{ item.href }}" class="hover:underline relative flex items-center space-x-2">
+                                {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white absolute -left-7'}}) }}
+                                {{ item.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+        </div>
+        {# MVB Products #}
+        <div>
+            {% if showMVBLogo %}
+                <svg viewBox="0 0 86 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-auto mb-2">
+                    <path d="M0 0.169556H7.25417L10.9524 10.553L14.7217 0.169556H21.8336V19.5851H16.2863V7.49485L11.5213 19.5851H9.67223L4.97835 7.49485V19.5851H0V0.169556Z"
+                          fill="white"/>
+                    <path d="M24.0383 0.169556H30.0124L33.9239 13.8245L37.9777 0.169556H43.1694L36.8398 19.5851H30.5102L24.0383 0.169556Z"
+                          fill="white"/>
+                    <path d="M45.3741 0.169556H54.0507C58.6735 0.169556 60.5937 2.23202 60.5937 5.21903V5.36127C60.5937 7.56597 59.4558 8.98835 57.3222 9.55731C59.7402 9.98402 61.2338 11.4064 61.2338 14.1089V14.2512C61.2338 17.736 58.9579 19.6563 54.1929 19.6563H45.3741V0.169556ZM52.9128 7.92156C54.6197 7.92156 55.3309 7.35261 55.3309 5.93022V5.78798C55.3309 4.43672 54.6197 3.86776 52.9128 3.86776H50.7792V7.92156H52.9128ZM53.1262 15.8869C54.9041 15.8869 55.6865 15.1046 55.6865 13.6111V13.4689C55.6865 11.9754 54.9041 11.2642 52.9128 11.2642H50.7792V15.8869H53.1262Z"
+                          fill="white"/>
+                    <path d="M79.4403 19.5851L73.6796 11.762H64.0074L69.9103 0.169556H79.5825L85.3432 8.0638L79.4403 19.5851Z"
+                          fill="white"/>
+                </svg>
+            {% endif %}
+            <p><strong>{{ productHeading }}</strong></p>
+
+
+            <div class="bg-monza-500 p-4 mt-4">
+                <ul class="flex flex-wrap gap-4">
+                    {% for item in productItems %}
+                        <li class="inline-block"><a href="{{ item.href }}" class="hover:underline">{{ item.label }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {# Copyright #}
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 mt-2">
+            <span>
+                &copy; {{ ( copyright ?? 'MVB GmbH') ~ " " ~ "now"|date("Y") }}
+            </span>
+            <nav aria-label="Meta menu">
+                <ul class="md:flex md:justify-end space-x-4">
+                    {% for item in metaItems %}
+                        <li><a href="{{ item.href }}" target="{{ item.target ?? 'self' }}"
+                               class="hover:underline">{{ item.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</footer>

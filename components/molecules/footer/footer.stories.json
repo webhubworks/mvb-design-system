@@ -1,0 +1,185 @@
+{
+  "title": "Molecules/Footer",
+  "parameters": {
+    "server": {
+      "id": "molecules.footer"
+    }
+  },
+  "argTypes": {
+    "logoImgSrc": {
+      "control": "text",
+      "type": "string",
+      "description": "The URL of the logo image. If provided, the logo will be displayed in the card."
+    }
+  },
+  "args": {
+    "copyright": "MVB GmbH",
+    "logoImgSrc": "https://vlb.de/assets/images/mvb-logo-3.svg",
+    "showMVBLogo": true,
+    "footerColumns": [
+      {
+        "label": "MVB",
+        "children": [
+          {
+            "label": "Unternehmen",
+            "href": "#"
+          },
+          {
+            "label": "Presse",
+            "href": "#"
+          },
+          {
+            "label": "Service",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "label": "Wir für Sie",
+        "children": [
+          {
+            "label": "Für Verlage",
+            "href": "#"
+          },
+          {
+            "label": "Für Buchhandlungen",
+            "href": "#"
+          },
+          {
+            "label": "Für Dienstleister",
+            "href": "#"
+          },
+          {
+            "label": "Für Selfpublisher",
+            "href": "#"
+          }
+        ]
+      }
+    ],
+    "contactHeading": "Kontakt",
+    "contactItems": [
+      {
+        "label": "Kontaktperson",
+        "iconName": "user",
+        "href": "#"
+      },
+      {
+        "label": "+49 69 1306-550",
+        "iconName": "phone",
+        "href": "tel:+49691306550"
+      },
+      {
+        "label": "kundenservice@mvb-online.de",
+        "iconName": "envelope",
+        "href": "mailto:kundenservice@mvb-online.de"
+      }
+    ],
+    "socialItems": [
+      {
+        "label": "Instagram",
+        "iconSVG": "instagram",
+        "href": "https://www.instagram.com/mvbverlagsauslieferung/"
+      },
+      {
+        "label": "LinkedIn",
+        "iconName": "linkedin",
+        "href": "https://www.linkedin.com/company/mvb-verlagsauslieferung/"
+      },
+      {
+        "label": "Youtube",
+        "iconName": "youtube",
+        "href": "https://www.youtube.com/@mvb2357"
+      }
+    ],
+    "productHeading": "Unsere Angebote für Sie",
+    "productItems": [
+      {
+        "label": "ADB",
+        "href": "https://mvb-online.de/marken-und-produkte/adb"
+      },
+      {
+        "label": "Aus dem Antiquariat",
+        "href": "https://mvb-online.de/marken-und-produkte/ada"
+      },
+      {
+        "label": "Börsenblatt",
+        "href": "https://mvb-online.de/marken-und-produkte/boersenblatt"
+      },
+      {
+        "label": "buchhandel.de",
+        "href": "https://mvb-online.de/marken-und-produkte/buchhandel-de"
+      },
+      {
+        "label": "Buchjournal",
+        "href": "https://mvb-online.de/marken-und-produkte/buchjournal"
+      },
+      {
+        "label": "Bücherscheck",
+        "href": "https://mvb-online.de/marken-und-produkte/buecherscheck"
+      },
+      {
+        "label": "IBU",
+        "href": "https://mvb-online.de/marken-und-produkte/ibu"
+      },
+      {
+        "label": "ISBN",
+        "href": "https://mvb-online.de/marken-und-produkte/isbn"
+      },
+      {
+        "label": "ISNI",
+        "href": "https://mvb-online.de/marken-und-produkte/isni"
+      },
+      {
+        "label": "Livro",
+        "href": "https://mvb-online.de/marken-und-produkte/livro"
+      },
+      {
+        "label": "medien.jobs",
+        "href": "https://mvb-online.de/marken-und-produkte/medien-jobs"
+      },
+      {
+        "label": "Metabooks",
+        "href": "https://mvb-online.de/marken-und-produkte/metabooks"
+      },
+      {
+        "label": "Pubeasy",
+        "href": "https://mvb-online.de/marken-und-produkte/pubeasy"
+      },
+      {
+        "label": "Pubnet",
+        "href": "https://mvb-online.de/marken-und-produkte/pubnet"
+      },
+      {
+        "label": "VLB",
+        "href": "https://mvb-online.de/marken-und-produkte/vlb"
+      },
+      {
+        "label": "VLB-TIX",
+        "href": "https://mvb-online.de/marken-und-produkte/vlb-tix"
+      }
+    ],
+    "metaItems": [
+      {
+        "label": "Netiquette",
+        "href": "#"
+      },
+      {
+        "label": "AGB",
+        "href": "#"
+      },
+      {
+        "label": "Datenschutz",
+        "href": "#"
+      },
+      {
+        "label": "Impressum",
+        "href": "#"
+      }
+    ]
+  },
+  "stories": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
