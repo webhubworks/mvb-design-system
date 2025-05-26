@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.0",
+    "alpinejs": "^3.14.9",
     "swiper": "^11.2.8"
   }
 }
