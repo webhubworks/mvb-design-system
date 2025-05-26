@@ -1,0 +1,67 @@
+<div class="swiper relative isolate" data-component="organisms.hero-slider">
+
+    {% if slides|length > 1 %}
+        <div class="absolute top-0 right-0 md:container md:top-auto md:bottom-0 md:left-0 z-10 md:flex md:justify-end">
+            <div class="text-white bg-primary/90 flex flex-col md:flex-row items-center justify-center md:p-2 ">
+                {{ render('atoms.button', {
+                    variant: 'primary',
+                    noSpace: true,
+                    icon: {
+                        name: 'pause-circle',
+                    },
+                    attributes: {
+                        'aria-label': 'Pause slideshow',
+                        'data-component-part': 'hero-slider.play',
+                        class: 'text-lg md:text-xl w-12 h-12'
+                    }
+                }) }}
+                {{ render('atoms.button', {
+                    variant: 'primary',
+                    noSpace: true,
+                    icon: {
+                        name: 'arrow-left',
+                    },
+                    attributes: {
+                        'aria-label': 'Previous slide',
+                        'data-component-part': 'hero-slider.prev',
+                        class: 'text-lg md:text-xl w-12 h-12'
+                    }
+                }) }}
+                {{ render('atoms.button', {
+                    variant: 'primary',
+                    noSpace: true,
+                    icon: {
+                        name: 'arrow-right',
+                    },
+                    attributes: {
+                        'aria-label': 'Next slide',
+                        'data-component-part': 'hero-slider.next',
+                        class: 'text-lg md:text-xl w-12 h-12'
+                    }
+                }) }}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="swiper-wrapper">
+        {% for slide in slides %}
+            <div class="swiper-slide">
+                <div class="h-[60vh] min-h-[400px] relative md:pb-8">
+                    <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
+                        <div class="bg-primary/90 p-6 md:p-8 text-white w-full md:w-[475px]">
+                            {% if slide.headingText is not empty %}
+                                {{ render('atoms.heading', {text: slide.headingText, level: 'h2', attributes: {class: 'mb-6'}}) }}
+                            {% endif %}
+                            {% if slide.text is not empty %}
+                                <p class="text-lg">{{ slide.text }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if slide.img is not empty %}
+                        <img class="object-cover w-full h-full" alt="{{ slide.img.alt }}" src="{{ slide.img.src }}">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

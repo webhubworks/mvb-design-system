@@ -13,7 +13,7 @@
 } %}
 
 {% tag level with {
-    class: classes[visualLevel ?? level],
+    class: [classes[visualLevel ?? level], additionalClasses]|join(' '),
 } %}
   {{ text }}
 {% endtag %}

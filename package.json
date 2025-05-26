@@ -25,6 +25,7 @@
     "vite-plugin-restart": "^0.4.2"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.7.0"
+    "@floating-ui/dom": "^1.7.0",
+    "swiper": "^11.2.8"
   }
 }

@@ -1,0 +1,44 @@
+{
+  "title": "Organisms/Hero Slider",
+  "parameters": {
+    "server": {
+      "id": "organisms.hero-slider"
+    }
+  },
+  "args": {
+    "slides": [
+      {
+        "headingText": "Frankfurt am Main, London, Mexiko-Stadt, New York, São Paulo",
+        "text": "Wir vernetzen die Buchbranche",
+        "img": {
+          "src": "https://picsum.photos/2000/800",
+          "alt": "Placeholder Image 1"
+        }
+      },
+      {
+        "headingText": "Slide 2",
+        "text": "Some text for slide 2",
+        "img": {
+          "src": "https://picsum.photos/2000/800",
+          "alt": "Placeholder Image 2"
+        }
+      }
+    ]
+  },
+  "argTypes": {
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "Basic",
+      "args": {
+        "content": "Some content",
+        "href": "#!"
+      }
+    }
+  ]
+}
