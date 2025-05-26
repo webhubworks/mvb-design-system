@@ -50,19 +50,19 @@ class ComponentsController extends Controller
             }
 
             if (! Vite::getInstance()->vite->devServerRunning()) { // ToDo: Not working??
-                ray(Vite::getInstance()->vite->script('app.js'));
+                ray(Vite::getInstance()->vite->script('js/app.js'));
                 return implode([
                     '<style>',
 //                    Vite::getInstance()->vite->fetch(Vite::getInstance()->vite->asset('app.css')),
                     '</style>',
-                    Vite::getInstance()->vite->script('app.js'),
+                    Vite::getInstance()->vite->script('js/app.js'),
                     MvbDesignSystem::getInstance()->renderComponent->render($componentId, $queryParams)
                 ]);
             }
 
             if (Vite::getInstance()->vite->devServerRunning()) {
                 return implode([
-                    Vite::getInstance()->vite->script('app.js'),
+                    Vite::getInstance()->vite->script('js/app.js'),
                     MvbDesignSystem::getInstance()->renderComponent->render($componentId, $queryParams)
                 ]);
             }
