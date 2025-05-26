@@ -1,4 +1,4 @@
-import { arrow, autoPlacement, autoUpdate, computePosition, flip, offset, shift } from '@floating-ui/dom'
+import { arrow, autoPlacement, autoUpdate, computePosition, offset, shift } from '@floating-ui/dom'
 
 const initTooltip = (component) => {
     const triggerElement = component.querySelector('[data-component-part="tooltip.trigger"]')

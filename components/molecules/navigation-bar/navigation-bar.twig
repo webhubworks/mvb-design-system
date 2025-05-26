@@ -34,7 +34,9 @@
         </div>
 
         <div class="order-3 hidden lg:block">
-            {{ render('molecules.language-switcher') }}
+            {{ render('molecules.language-switcher', {
+                languages: languages
+            }) }}
         </div>
 
         <div data-component-part="navigation-bar.menu" class="w-full hidden lg:block lg:order-2">
@@ -60,7 +62,7 @@
                         }) }}
 
                         {% if item.children is defined and item.children|length %}
-                            <ul class="lg:absolute hidden data-[state=open]:block bg-white" data-component-part="main-navigation.sub-menu">
+                            <ul class="lg:absolute hidden data-[state=open]:block bg-white z-10" data-component-part="main-navigation.sub-menu">
                                 {% for child in item.children %}
                                     <li class="pl-2 lg:pl-0">
 
@@ -80,6 +82,13 @@
                         {% endif %}
                     </li>
                 {% endfor %}
+                <li class="border-t border-cobblestone-100">
+                    <div class="lg:hidden">
+                        {{ render('molecules.language-switcher', {
+                            languages: languages
+                        }) }}
+                    </div>
+                </li>
             </ul>
         </div>
 

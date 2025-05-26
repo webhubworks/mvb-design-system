@@ -7,7 +7,26 @@
   },
   "stories": [
     {
-      "name": "Language Switcher"
+      "name": "Language Switcher",
+      "args": {
+        "languages": [
+          {
+            "labelEn": "English",
+            "href": "/en",
+            "alpha2Code": "en"
+          },
+          {
+            "labelEn": "German",
+            "href": "/de",
+            "alpha2Code": "de"
+          },
+          {
+            "labelEn": "French",
+            "href": "/fr",
+            "alpha2Code": "fr"
+          }
+        ]
+      }
     }
   ]
 }

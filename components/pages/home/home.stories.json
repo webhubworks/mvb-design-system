@@ -1,0 +1,121 @@
+{
+  "title": "Pages/Home",
+  "parameters": {
+    "server": {
+      "id": "pages.home"
+    }
+  },
+  "stories": [
+    {
+      "name": "Home",
+      "args": {
+        "news": [{
+          "content": "Kai-Uwe übers Podcasten",
+          "href": "#!",
+          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+          "img": {
+            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+            "alt": "Er"
+          }
+        }, {
+          "content": "Kai-Uwe übers Podcasten",
+          "href": "#!",
+          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+          "img": {
+            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+            "alt": "Er"
+          }
+        }, {
+          "content": "Kai-Uwe übers Podcasten",
+          "href": "#!",
+          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+          "img": {
+            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+            "alt": "Er"
+          }
+        }, {
+          "content": "Kai-Uwe übers Podcasten",
+          "href": "#!",
+          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+          "img": {
+            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+            "alt": "Er"
+          }
+        }],
+        "eventItems": [
+          {
+            "title": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+            "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
+            "dates": ["2025-05-13T13:30+00:00", "2025-05-14T13:30+00:00"],
+            "href": "#!",
+            "tag": {
+              "text": "Webinar",
+              "iconName": "desktop"
+            }
+          },
+          {
+            "title": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+            "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
+            "dates": ["2025-05-12T23:30+00:00"],
+            "href": "#!"
+          },
+          {
+            "title": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+            "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
+            "dates": ["2025-05-11T13:30+00:00"],
+            "href": "#!"
+          }
+        ],
+        "heroSlides": [
+          {
+            "headingText": "Frankfurt am Main, London, Mexiko-Stadt, New York, São Paulo",
+            "text": "Wir vernetzen die Buchbranche",
+            "img": {
+              "src": "https://picsum.photos/2000/800",
+              "alt": "Placeholder Image 1"
+            }
+          },
+          {
+            "headingText": "Slide 2",
+            "text": "Some text for slide 2",
+            "img": {
+              "src": "https://picsum.photos/2000/800",
+              "alt": "Placeholder Image 2"
+            }
+          }
+        ],
+        "navigationItems": [{
+          "label": "Home",
+          "children": [
+            {
+              "label": "Submenu 1",
+              "href": "/home/submenu1"
+            },
+            {
+              "label": "Submenu 2",
+              "href": "/home/submenu2"
+            }
+          ]
+        }, {
+          "label": "About",
+          "children": [
+            {
+              "label": "Submenu 1",
+              "href": "/home/submenu1"
+            },
+            {
+              "label": "Submenu longer 2",
+              "href": "/home/submenu2"
+            }
+          ]
+        }, {
+          "label": "Contact",
+          "href": "/contact"
+        }, {
+          "label": "Contact",
+          "href": "/contact"
+        }]
+      }
+    }
+  ]
+}

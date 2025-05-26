@@ -12,12 +12,12 @@ const config = {
     ],
     previewHead: (head) => {
         return head + `
-            <style>
-                [data-component="molecules.card"],
-                [data-component="molecules.event-list"] {
-                    max-width: 350px;
-                }
-            </style>
+<!--            <style>-->
+<!--                [data-component="molecules.card"],-->
+<!--                [data-component="molecules.event-list"] {-->
+<!--                    max-width: 350px;-->
+<!--                }-->
+<!--            </style>-->
         `;
     },
     framework: {
