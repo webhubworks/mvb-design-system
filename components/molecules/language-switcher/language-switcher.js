@@ -1,6 +1,11 @@
+import { convertRemToPixels } from '@js/_utils.js'
+
 const initLanguageSwitcher = component => {
     const trigger = component.querySelector('[data-component-part="language-switcher.trigger"]')
     const subMenu = component.querySelector('[data-component-part="language-switcher.sub-menu"]')
+
+    let styles = getComputedStyle(document.documentElement)
+    let lgBreakpointRem = styles.getPropertyValue('--breakpoint-lg')
 
     if (trigger && subMenu) {
 
@@ -20,14 +25,24 @@ const initLanguageSwitcher = component => {
             }
         })
 
-        // item.addEventListener('mouseenter', () => {
-        //     if (window.innerWidth < convertRemToPixels(lgBreakpointRem)) {
-        //         return
-        //     }
-        //     timer = setTimeout(() => {
-        //         openSubmenu(item)
-        //     }, 200)
-        // })
+        trigger.addEventListener('mouseenter', () => {
+            if (window.innerWidth < convertRemToPixels(lgBreakpointRem)) {
+                return
+            }
+            timer = setTimeout(() => {
+                subMenu.dataset.state = 'open'
+            }, 200)
+        })
+
+        trigger.addEventListener('mouseleave', () => {
+            if (window.innerWidth < convertRemToPixels(lgBreakpointRem)) {
+                return
+            }
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+                subMenu.dataset.state = 'closed'
+            }, 200)
+        })
     }
 }
 
