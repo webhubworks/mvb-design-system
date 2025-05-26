@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 import {defineConfig, loadEnv} from 'vite'
 import viteRestart from 'vite-plugin-restart'
+import * as path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -25,7 +26,7 @@ export default defineConfig(({ command, mode }) => {
             outDir: '../../public/dist/',
             rollupOptions: {
                 input: {
-                    app: './app.js',
+                    app: './js/app.js',
                 },
             },
             sourcemap: true,
@@ -35,7 +36,7 @@ export default defineConfig(({ command, mode }) => {
             viteRestart({
                 reload: [
                     './components/**/*',
-                    './app.{js}',
+                    './js/**/*',
                     './css/**/*',
                     '../../theme.css',
                     '../../templates/**/*',
@@ -52,5 +53,12 @@ export default defineConfig(({ command, mode }) => {
             },
             allowedHosts: ['.ddev.site'],
         },
+        resolve: {
+            alias: {
+                '@components': path.resolve(__dirname, './components'),
+                '@js': path.resolve(__dirname, './js'),
+                '@css': path.resolve(__dirname, './css'),
+            }
+        }
     }
 })

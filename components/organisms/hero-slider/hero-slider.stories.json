@@ -6,6 +6,7 @@
     }
   },
   "args": {
+    "news": [{}],
     "slides": [
       {
         "headingText": "Frankfurt am Main, London, Mexiko-Stadt, New York, São Paulo",

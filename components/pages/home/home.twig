@@ -1,0 +1,23 @@
+{{ render('molecules.navigation-bar', {items: navigationItems}) }}
+{{ render('organisms.hero-slider', {slides: heroSlides}) }}
+
+<div class="container mx-auto">
+    {{ render('atoms.heading', {text: 'MVB – Wir bringen Bücher ins Ziel', attributes: {class: 'mb-12'}}) }}
+
+    <p class="mb-8">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+    <div class="grid grid-cols-3 gap-8">
+        <div class="w-full mb-8 col-span-2">
+            {{ render('atoms.lined-heading', {text: 'Aktuelles', level: 'h3', attributes: {class: 'mb-8'}}) }}
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                {% for newsItem in news %}
+                    {{ render('molecules.card', newsItem) }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="w-full">
+            {{ render('atoms.lined-heading', {text: 'Termine', level: 'h3', attributes: {class: 'mb-8'}}) }}
+            {{ render('molecules.event-list', {events: eventItems}) }}
+        </div>
+    </div>
+</div>

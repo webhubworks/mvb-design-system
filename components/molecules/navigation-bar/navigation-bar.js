@@ -1,3 +1,5 @@
+import { convertRemToPixels } from '@js/_utils.js'
+
 const initNavigationBar = (component) => {
 
     const menu = component.querySelector('[data-component-part="navigation-bar.menu"]')
@@ -111,10 +113,6 @@ const initNavigationBars = () => {
         .forEach((component) => {
             initNavigationBar(component)
         })
-}
-
-const convertRemToPixels = rem =>  {
-    return parseFloat(rem) * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
 export default initNavigationBars
