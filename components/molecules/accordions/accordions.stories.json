@@ -5,22 +5,33 @@
       "id": "molecules.accordions"
     }
   },
-  "args": {
-    "itemGroupLabel": "Marken und Produkte",
-    "items": [{
-      "summary": "Marken und Produkte 1",
-      "details": "VLB-TIX ist die zentrale Plattform für den Vertrieb von Verlagsprodukten."
-    }, {
-      "summary": "Marken und Produkte 2",
-      "details": "VLB-TIX ist die zentrale Plattform für den Vertrieb von Verlagsprodukten."
-    }, {
-      "summary": "Marken und Produkte 3",
-      "details": "VLB-TIX ist die zentrale Plattform für den Vertrieb von Verlagsprodukten."
-    }]
-  },
   "stories": [
     {
-      "name": "Accordions"
+      "name": "Accordion Group",
+      "args": {
+        "itemGroupLabel": "AccordionGroup",
+        "items": [{
+          "summary": "Accordion Group Item 1",
+          "detailsHtml": "<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum.</p>"
+        }, {
+          "summary": "Accordion Group Item 2",
+          "detailsHtml": "<p>Some Details content</p>"
+        }, {
+          "summary": "Accordion Group Item 3",
+          "detailsHtml": "<p>Some Details content</p>"
+        }]
+      }
+    }, {
+      "name": "Accordion Basic",
+      "args": {
+        "items": [{
+          "summary": "Accordion 1",
+          "detailsHtml": "<p>Some Details content</p>"
+        }, {
+          "summary": "Accordion 2",
+          "detailsHtml": "<p>Some Details content</p>"
+        }]
+      }
     }
   ]
 }
