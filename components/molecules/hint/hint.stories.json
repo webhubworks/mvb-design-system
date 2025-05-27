@@ -1,0 +1,28 @@
+{
+  "title": "Molecules/Hint",
+  "parameters": {
+    "server": {
+      "id": "molecules.hint"
+    }
+  },
+  "stories": [
+    {
+      "name": "Hint",
+      "args": {
+        "heading": "Heading",
+        "title": "Der Bücherscheck auf Instagram\n",
+        "text": "Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!",
+        "icon": {
+          "name": "instagram"
+        },
+        "button": {
+          "label": "Button",
+          "href": "#!",
+          "icon": {
+            "name": "arrow-right"
+          }
+        }
+      }
+    }
+  ]
+}

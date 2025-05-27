@@ -1,0 +1,39 @@
+<div data-component="molecules.hint">
+
+    {{ render('atoms.lined-heading', {text: heading, level: 'h3', attributes: {class: 'mb-6'}}) }}
+
+    <div class="bg-primary text-white p-6">
+        <div class="flex flex-col sm:flex-row justify-start sm:items-start space-x-6 space-y-4 sm:space-y-0">
+
+            {% if icon %}
+                {{ render('atoms.icon', {name: icon.name, attributes: {class: 'text-3xl sm:text-5xl'}}) }}
+            {% endif %}
+
+            <div>
+                <h4 class="font-bold">{{ title }}</h4>
+                <p>{{ text }}</p>
+            </div>
+
+            <div class="ml-auto sm:self-end">
+                {% set button = button|default({label: 'Learn more', href: '#'}) %}
+                {{ render('atoms.button', {
+                    label: button.label,
+                    href: button.href,
+                    variant: 'secondary',
+                    textAlign: 'left',
+                    icon: {
+                        position: 'right',
+                        name: "arrow-right",
+                    },
+                    attributes: {
+                        class: 'whitespace-nowrap',
+                    }
+                }) }}
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
