@@ -12,6 +12,21 @@
         "heading": "Heading",
         "title": "Der Bücherscheck auf Instagram\n",
         "text": "Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!",
+        "button": {
+          "label": "Button",
+          "href": "#!",
+          "icon": {
+            "name": "arrow-right"
+          }
+        }
+      }
+    },
+    {
+      "name": "Hint with icon",
+      "args": {
+        "heading": "Heading",
+        "title": "Der Bücherscheck auf Instagram\n",
+        "text": "Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!",
         "icon": {
           "name": "instagram"
         },
@@ -21,6 +36,17 @@
           "icon": {
             "name": "arrow-right"
           }
+        }
+      }
+    },
+    {
+      "name": "Hint without Button",
+      "args": {
+        "heading": "Heading",
+        "title": "Der Bücherscheck auf Instagram\n",
+        "text": "Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!",
+        "icon": {
+          "name": "instagram"
         }
       }
     }

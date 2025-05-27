@@ -1,3 +1,6 @@
+{% set icon = icon is defined and icon.name is defined ? icon : null %}
+{% set button = button is defined and button.href is defined ? button : null %}
+
 <div data-component="molecules.hint">
 
     {{ render('atoms.lined-heading', {text: heading, level: 'h3', attributes: {class: 'mb-6'}}) }}
@@ -8,32 +11,27 @@
             {% if icon %}
                 {{ render('atoms.icon', {name: icon.name, attributes: {class: 'text-3xl sm:text-5xl'}}) }}
             {% endif %}
-
             <div>
                 <h4 class="font-bold">{{ title }}</h4>
                 <p>{{ text }}</p>
             </div>
-
-            <div class="ml-auto sm:self-end">
-                {% set button = button|default({label: 'Learn more', href: '#'}) %}
-                {{ render('atoms.button', {
-                    label: button.label,
-                    href: button.href,
-                    variant: 'secondary',
-                    textAlign: 'left',
-                    icon: {
-                        position: 'right',
-                        name: "arrow-right",
-                    },
-                    attributes: {
-                        class: 'whitespace-nowrap',
-                    }
-                }) }}
-            </div>
-
-
+            {% if button %}
+                <div class="ml-auto sm:self-end">
+                    {{ render('atoms.button', {
+                        label: button.label,
+                        href: button.href,
+                        variant: 'secondary',
+                        textAlign: 'left',
+                        icon: {
+                            position: 'right',
+                            name: "arrow-right",
+                        },
+                        attributes: {
+                            class: 'whitespace-nowrap',
+                        }
+                    }) }}
+                </div>
+            {% endif %}
         </div>
-
-
     </div>
 </div>
