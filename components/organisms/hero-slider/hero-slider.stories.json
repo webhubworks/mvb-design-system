@@ -13,7 +13,8 @@
         "text": "Wir vernetzen die Buchbranche",
         "img": {
           "src": "https://picsum.photos/2000/800",
-          "alt": "Placeholder Image 1"
+          "alt": "Placeholder Image 1",
+          "caption": "© Placeholder Image 1 Caption"
         }
       },
       {
@@ -21,7 +22,8 @@
         "text": "Some text for slide 2",
         "img": {
           "src": "https://picsum.photos/2000/800",
-          "alt": "Placeholder Image 2"
+          "alt": "Placeholder Image 2",
+            "caption": "© Placeholder Image 2 Caption"
         }
       }
     ]
