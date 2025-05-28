@@ -1,0 +1,71 @@
+{
+  "title": "Molecules/Button Group",
+  "parameters": {
+    "server": {
+      "id": "molecules.button-group"
+    }
+  },
+  "stories": [
+    {
+      "name": "Primary Button Group",
+      "args": {
+        "items": [
+          {
+            "label": "Für Buchhandlungen",
+            "href": "!#",
+            "variant": "primary"
+          },
+          {
+            "label": "Für Verlage",
+            "href": "!#",
+            "variant": "primary"
+          },
+          {
+            "label": "Für Selfpublisher",
+            "href": "!#",
+            "variant": "primary"
+          },
+          {
+            "label": "Für Dienstleister",
+            "href": "!#",
+            "variant": "primary"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Secondary Button Group",
+      "args": {
+        "items": [
+          {
+            "label": "Für Buchhandlungen",
+            "href": "!#",
+            "variant": "secondary",
+            "icon": {
+              "name": "arrow-right",
+              "position": "right"
+            }
+          },
+          {
+            "label": "Für Verlage",
+            "href": "!#",
+            "variant": "secondary",
+            "icon": {
+              "name": "arrow-right",
+              "position": "right"
+            }
+          },
+          {
+            "label": "Für Selfpublisher",
+            "href": "!#",
+            "variant": "secondary",
+            "icon": {
+              "name": "arrow-right",
+              "position": "right"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
