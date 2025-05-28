@@ -1,0 +1,46 @@
+{
+  "title": "Organisms/Testimonial Slider",
+  "parameters": {
+    "server": {
+      "id": "organisms.testimonial-slider"
+    }
+  },
+  "args": {
+    "slides": [
+      {
+        "quote": "Als Buchhändlerinnen haben wir nie genug Zeit. Mit VLB-TIX aber jeden Tag ein paar gewonnene Minuten.",
+        "cite": "Lena Renold, Position XY",
+        "img": {
+          "src": "https://picsum.photos/540/480",
+          "alt": "Placeholder Image 1",
+          "caption": "© Placeholder Image 1 Caption"
+        }
+      },
+      {
+        "quote": "Für uns bei Kanon, einem jungen und wendigen Verlag, ist VLB-TIX ein wichtiges Instrument, um unsere Titel von Beginn an noch erfolgreicher im Markt zu platzieren.",
+        "cite": "Sabine Gartmann, Inhaberin, die schatulle – lies weise",
+        "img": {
+          "src": "https://picsum.photos/540/480",
+          "alt": "Placeholder Image 2",
+          "caption": "© Placeholder Image 2 Caption"
+        }
+      }
+    ]
+  },
+  "argTypes": {
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "Basic",
+      "args": {
+        "content": "Some content",
+        "href": "#!"
+      }
+    }
+  ]
+}
