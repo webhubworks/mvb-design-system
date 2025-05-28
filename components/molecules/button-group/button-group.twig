@@ -1,6 +1,5 @@
 <div class="w-full grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]">
 {% for item in items  %}
-
     {{ render('atoms.button', {
         label: item.label,
         href: item.href,
@@ -11,6 +10,5 @@
             class: 'lg:text-xl lg:py-6 lg:px-8 flex-grow font-bold',
         }
     }) }}
-
 {% endfor %}
 </div>

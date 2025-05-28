@@ -1,0 +1,105 @@
+{
+  "title": "Molecules/Logo Cloud",
+  "parameters": {
+    "server": {
+      "id": "molecules.logo-cloud"
+    }
+  },
+  "stories": [
+    {
+      "name": "Default",
+      "args": {
+        "size": "large",
+        "heading": "Unsere Marken und Produkte",
+        "items": [
+          {
+            "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+            "alt": "VLB Logo",
+            "width": 68,
+            "height": 18,
+            "href": "https://www.vlbtix.de"
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+            "alt": "VLB Logo",
+            "width": 68,
+            "height": 18,
+            "href": "https://www.vlbtix.de"
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+            "alt": "VLB Logo",
+            "width": 68,
+            "height": 18,
+            "href": "https://www.vlbtix.de"
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_Boersenblatt_Copyright_Vier_fuer_Texas.svg",
+            "alt": "Börsenblatt",
+            "width": 167,
+            "height": 20
+          },
+          {
+            "src": "https://mvb-online.de/assets/logos/AdA.svg",
+            "alt": "VLB Logo",
+            "width": 148,
+            "height": 44
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_Boersenblatt_Copyright_Vier_fuer_Texas.svg",
+            "alt": "Börsenblatt",
+            "width": 167,
+            "height": 20
+          },
+          {
+            "src": "https://mvb-online.de/assets/logos/AdA.svg",
+            "alt": "VLB Logo",
+            "width": 148,
+            "height": 44
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+            "alt": "VLB Logo",
+            "width": 68,
+            "height": 18,
+            "href": "https://www.vlbtix.de"
+          }
+        ]
+      }
+    },
+    {
+      "name": "External Brands",
+      "args": {
+        "size": "medium",
+        "items": [
+          {
+            "src": "https://www.vlbtix.de/assets/media/premiumclients/Logo_Kupido_Copyright_Anonym.jpg",
+            "alt": "Logo vom Kupido Literaturverlag.",
+            "width": 925,
+            "height": 334,
+            "monochrome": true
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/premiumclients/Logo_Aubau_Copyright_Anonym.png",
+            "alt": "Logo vom aubau Verlag.",
+            "width": 240,
+            "height": 120
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/premiumclients/Logo_Rotpunkt_Copyright_Anonym.png",
+            "alt": "Logo vom Rotpunkt Verlag.",
+            "width": 240,
+            "height": 120,
+            "monochrome": true
+          },
+          {
+            "src": "https://www.vlbtix.de/assets/media/premiumclients/Logo_Hans_Nietsch_Copyright_Anonym.jpg",
+            "alt": "Logo vom Hans-Nietsch Verlag.",
+            "width": 240,
+            "height": 120
+          }
+        ]
+      }
+    }
+  ]
+}

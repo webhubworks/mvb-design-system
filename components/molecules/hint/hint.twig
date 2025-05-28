@@ -3,7 +3,9 @@
 
 <div data-component="molecules.hint">
 
-    {{ render('atoms.lined-heading', {text: heading, level: 'h3', attributes: {class: 'mb-6'}}) }}
+    {% if heading is defined and heading|length %}
+        {{ render('atoms.lined-heading', {text: heading, level: 'h3', attributes: {class: 'mb-6'}}) }}
+    {% endif %}
 
     <div class="bg-primary text-white p-6">
         <div class="flex flex-col sm:flex-row justify-start sm:items-start space-x-6 space-y-4 sm:space-y-0">

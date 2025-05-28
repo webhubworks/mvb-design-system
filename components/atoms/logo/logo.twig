@@ -1,0 +1,27 @@
+{% set isLink = href is defined and href != null %}
+{% set noSpace = noSpace|default(false) %}
+{% set monochrome = monochrome is defined and monochrome %}
+
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+{% set baseClasses = [
+    'inline-flex space-x-2 items-center justify-center bg-white',
+    noSpace ? '' : 'p-4',
+    monochrome ? 'grayscale' : ''
+]|join(' ') %}
+
+{% if isLink %}
+    <figure class="{{ baseClasses }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+        <a href="{{ href }}">
+            <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="max-h-full w-auto">
+        </a>
+    </figure>
+{% endif %}
+
+{% if not isLink %}
+    <figure class="{{ baseClasses }} {{ _additionalClasses }}">
+        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="max-h-full w-auto">
+    </figure>
+{% endif %}

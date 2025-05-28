@@ -1,0 +1,20 @@
+{% set logoImgSrc = logoImgSrc|default(null) %}
+{% set accentColor = accentColor|default(null) %}
+{% set _accentColorClasses = accentColor ? 'border-b-3 border-('~accentColor~')' : '' %}
+
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<div data-component="molecules.press-card" class="bg-white hover:bg-white/65 group inline-block relative flex flex-col {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+    <div class="p-3 space-y-4">
+        <div class="flex justify-between">
+        {% if logoImgSrc %}
+            <img src="{{ logoImgSrc }}" alt="Logo" class="mb-3 mt-2 h-5">
+        {% endif %}
+        {{ render('atoms.date', {date: dates|first}) }}
+        </div>
+        <a href="{{ href }}" class="font-bold text-[1.25rem]/[1.1] block before:content-[''] before:absolute before:inset-0 break-word">{{ title }}</a>
+        <p class="text-base">{{ content }}</p>
+    </div>
+</div>

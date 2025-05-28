@@ -1,0 +1,18 @@
+{
+  "title": "Molecules/Cards/Press Card",
+  "parameters": {
+    "server": {
+      "id": "molecules.press-card"
+    }
+  },
+  "args": {
+    "title": "Eva Singer wird Key Account Managerin bei MVB",
+    "content": "Technologie- und Informationsanbieter baut Vertrieb für seine Plattformen VLB und VLB-TIX …",
+    "href": "#!",
+    "dates": ["2025-05-13T13:30+00:00"],
+    "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png"
+  },
+  "stories": [{
+    "name": "Default"
+  }]
+}

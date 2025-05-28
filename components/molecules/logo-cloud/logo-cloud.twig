@@ -1,0 +1,31 @@
+{% set size = size|default('large') %}
+
+
+{% set columnSizeClasses = {
+    'large': 'auto-rows-[minmax(70px,90px)] lg:auto-rows-[minmax(100px,120px)]',
+    'medium': 'auto-rows-[minmax(50px,70px)] lg:auto-rows-[minmax(60px,80px)]',
+}[size] %}
+
+{% set baseClasses = [
+    'w-full grid gap-4 sm:grid-cols-2 lg:grid-cols-4',
+    columnSizeClasses ?? 'auto-rows-[minmax(80px,120px)] lg:auto-rows-[minmax(100px,120px)]'
+]|join(' ') %}
+<div data-component="molecules.logo-cloud">
+    {% if heading is defined and heading|length %}
+        {{ render('atoms.lined-heading', {text: heading, level: 'h3', attributes: {class: 'mb-6'}}) }}
+    {% endif %}
+    <div class="{{ baseClasses }}">
+        {% for item in items %}
+            {{ render('atoms.logo', {
+                alt: item.alt,
+                src: item.src,
+                width: item.width,
+                height: item.height,
+                monochrome: item.monochrome ?? null,
+                href: item.href is defined ? item.href : null,
+                attributes: {
+                }
+            }) }}
+        {% endfor %}
+    </div>
+</div>

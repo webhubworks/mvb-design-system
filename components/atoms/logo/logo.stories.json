@@ -1,0 +1,18 @@
+{
+  "title": "Atoms/Logo",
+  "parameters": {
+    "server": {
+      "id": "atoms.logo"
+    }
+  },
+  "args": {
+      "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+      "alt": "VLB Logo",
+      "width": 68,
+      "height": 18,
+      "href": "https://www.vlbtix.de"
+  },
+  "stories": [{
+    "name": "Default"
+  }]
+}

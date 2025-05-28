@@ -1,0 +1,14 @@
+{% set date = date|default('now'|date) %}
+
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<time {{ attributesToHtml(additionalAttributes) }}
+        data-component="atoms.event-time"
+        datetime="{{ date|date('c') }}"
+        class="{{ additionalClasses }}"
+        title="{{ 'Timezone: Europe/Berlin'|t('mvbdesignsystem') }}">
+    {{ render('atoms.icon', {name: 'calendar-day', attributes: {class: 'fa-fw'}}) }}
+    {{ date|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+</time>
