@@ -10,14 +10,19 @@
       "name": "Hint",
       "args": {
         "heading": "Heading",
-        "title": "Der Bücherscheck auf Instagram\n",
-        "text": "Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!",
+        "headingLevel": "h3",
+        "title": "Der Bücherscheck auf Instagram",
+        "titleLevel": "h4",
+        "text": "<p>Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p>",
         "button": {
           "label": "Button",
           "href": "#!",
           "icon": {
             "name": "arrow-right"
           }
+        },
+        "attributes": {
+          "class": "text-white"
         }
       }
     },
@@ -25,8 +30,10 @@
       "name": "Hint with icon",
       "args": {
         "heading": "Heading",
-        "title": "Der Bücherscheck auf Instagram\n",
-        "text": "Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!",
+        "headingLevel": "h2",
+        "title": "Der Bücherscheck auf Instagram",
+        "titleLevel": "h3",
+        "text": "<p>Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p>",
         "icon": {
           "name": "instagram"
         },
@@ -36,6 +43,9 @@
           "icon": {
             "name": "arrow-right"
           }
+        },
+        "attributes": {
+          "class": "text-white"
         }
       }
     },
@@ -43,11 +53,21 @@
       "name": "Hint without Button",
       "args": {
         "heading": "Heading",
-        "title": "Der Bücherscheck auf Instagram\n",
-        "text": "Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!",
+        "title": "Der Bücherscheck auf Instagram",
+        "text": "<p>Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p>",
         "icon": {
           "name": "instagram"
+        },
+        "attributes": {
+          "class": "text-white"
         }
+      }
+    },
+    {
+      "name": "Info Hint",
+      "args": {
+        "text": "<p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein echter Fan des.</p><p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p><p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein.</p><p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p>",
+        "variant": "info"
       }
     }
   ]

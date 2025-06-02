@@ -1,0 +1,78 @@
+.rich-text {
+
+    @apply space-y-4;
+
+
+    h1 {
+        @apply font-bold text-[2.8125rem]/[1.1] mt-8;
+    }
+
+    h2 {
+        @apply font-bold text-[2.125rem]/[1.1] mt-8;
+    }
+
+    h3 {
+        @apply font-bold text-[1.625rem]/[1.1] mt-6;
+    }
+
+    h4 {
+        @apply font-bold text-[1.25rem]/[1.1];
+    }
+
+    a{
+        @apply text-primary hover:text-primary-600 transition-colors duration-200 underline;
+    }
+
+    blockquote {
+        @apply text-xl italic mb-6;
+
+        *:first-child{
+            @apply before:content-['„'];
+        }
+
+        *:last-child{
+           @apply after:content-['“'];
+        }
+
+    }
+
+    ul {
+        @apply list-disc pl-6;
+
+        li {
+            @apply text-base text-cobblestone-800;
+        }
+    }
+
+    ol {
+        @apply list-decimal pl-6;
+
+        li {
+            @apply text-base text-cobblestone-800;
+        }
+    }
+
+    table {
+        @apply w-full border-separate;
+
+        thead {
+            @apply bg-cobblestone-100 text-left;
+
+            th {
+                @apply p-2 text-lg font-semibold text-cobblestone-800 ;
+            }
+        }
+
+        tbody {
+            tr {
+                @apply bg-white;
+
+                td {
+                    @apply p-2 text-base text-cobblestone-800 ;
+                }
+            }
+        }
+    }
+
+
+}
