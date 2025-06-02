@@ -33,7 +33,6 @@
         *:last-child{
            @apply after:content-['“'];
         }
-
     }
 
     ul {
@@ -73,6 +72,14 @@
             }
         }
     }
+}
 
+[data-component="molecules.hint"] .rich-text{
+    *:first-child{
+        @apply mt-0;
+    }
+    a{
+        @apply text-cobblestone-800 hover:text-cobblestone-600;
+    }
 
 }

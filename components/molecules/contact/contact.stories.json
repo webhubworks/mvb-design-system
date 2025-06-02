@@ -1,0 +1,39 @@
+{
+  "title": "Molecules/Contact",
+  "parameters": {
+    "server": {
+      "id": "molecules.contact"
+    }
+  },
+  "stories": [
+    {
+      "name": "Contact",
+      "args": {
+        "heading": "Sie haben Fragen? Gerne bin ich persönlich für Sie da!",
+        "headingLevel": "h3",
+        "title": "Kontakt",
+        "titleLevel": "h3",
+        "content": "<p><strong>Karoline Weide</strong></p>",
+        "contactItems": [
+          {
+            "label": "+49 69 1306-550",
+            "iconName": "phone",
+            "href": "tel:+49691306550"
+          },
+          {
+            "label": "kundenservice@mvb-online.de",
+            "iconName": "envelope",
+            "href": "mailto:kundenservice@mvb-online.de"
+          }
+        ],
+        "img": {
+          "src": "https://picsum.photos/400/266",
+          "width": 400,
+          "height": 266,
+          "alt": "Some stock image",
+          "caption": "© Lorem Picsum"
+        }
+      }
+    }
+  ]
+}

@@ -4,9 +4,9 @@
 
 {% set variantClasses = {
     'primary': 'bg-primary',
-    'info': 'bg-monza-100',
-    'warning': 'bg-monza-400',
-    'success': 'bg-green-200',
+    'info': 'bg-persian-blue-200',
+    'warning': 'bg-clementine-200',
+    'success': 'bg-mountain-meadow-300',
 }[variant] %}
 
 {% set attributeCollection = attributes|default({})|collect() %}
@@ -27,7 +27,7 @@
                 {{ render('atoms.icon', {name: icon.name, attributes: {class: 'text-3xl sm:text-5xl'}}) }}
             {% endif %}
 
-            <div class="space-y-2">
+            <div class="rich-text">
                 {% if title is defined and title %}
                     {{ render('atoms.heading', {
                         text: title,
