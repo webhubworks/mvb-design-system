@@ -1,4 +1,4 @@
-<div class="swiper relative isolate mb-16" data-component="organisms.testimonial-slider">
+<div class="swiper relative isolate mb-16" data-component="organisms.content-slider">
 
     {% if slides|length > 1 %}
         <div class="absolute right-0 top-auto bottom-0 right-6 sm:right-8 z-10 md:flex md:justify-end">
@@ -11,7 +11,7 @@
                     },
                     attributes: {
                         'aria-label': 'Pause slideshow',
-                        'data-component-part': 'testimonial-slider.play',
+                        'data-component-part': 'content-slider.play',
                         class: 'text-lg md:text-xl w-12 h-12'
                     }
                 }) }}
@@ -23,7 +23,7 @@
                     },
                     attributes: {
                         'aria-label': 'Previous slide',
-                        'data-component-part': 'testimonial-slider.prev',
+                        'data-component-part': 'content-slider.prev',
                         class: 'text-lg md:text-xl w-12 h-12'
                     }
                 }) }}
@@ -35,7 +35,7 @@
                     },
                     attributes: {
                         'aria-label': 'Next slide',
-                        'data-component-part': 'testimonial-slider.next',
+                        'data-component-part': 'content-slider.next',
                         class: 'text-lg md:text-xl w-12 h-12'
                     }
                 }) }}
@@ -60,10 +60,36 @@
                             </figure>
                         {% endif %}
                         <div class="bg-white pt-6 pb-8 px-6 md:p-8">
-                            <blockquote>
-                                <p class="text-3xl italic font-bold mb-6 before:content-['„'] after:content-['“']">{{ slide.quote|default('') }}</p>
-                                <cite>{{ slide.cite }}</cite>
-                            </blockquote>
+                            {% if slide.quote is defined and slide.quote|length %}
+                                <blockquote>
+                                    <p class="text-3xl italic font-bold mb-6 before:content-['„'] after:content-['“']">{{ slide.quote.text|default('') }}</p>
+                                    <cite>{{ slide.quote.cite }}</cite>
+                                </blockquote>
+                            {% endif %}
+                            {% if slide.content is defined and slide.content|length %}
+                                {{ render('atoms.heading', {
+                                    text: slide.content.heading|default(''),
+                                    level:  slide.content.headingLevel|default('h2'),
+                                    attributes: {
+                                        class: 'mb-4'
+                                    }
+                                }) }}
+                               <p>{{ slide.content.text|raw }}</p>
+                                {{ render('atoms.link', {
+                                    label: slide.content.link.label|default(''),
+                                    href: slide.content.link.href|default('#'),
+                                    variant: slide.content.link.variant|default('primary'),
+                                    icon: {
+                                        position: 'right',
+                                        name: 'arrow-right',
+                                    },
+                                    attributes: {
+                                        class: 'mt-6'
+                                    }
+                                }) }}
+
+
+                            {% endif %}
                         </div>
                     </div>
 

@@ -1,0 +1,48 @@
+{% set icon = icon is defined and icon.name is defined ? icon : null %}
+{% set textAlign = textAlign|default('center') %}
+{% set target = target|default('_self') %}
+{% set variant = variant|default('primary') %}
+{% set label = label ?? null %}
+
+{% set textAlignClasses = {
+    'left': 'justify-start',
+    'right': 'justify-end',
+    'center': 'justify-center',
+}[textAlign] %}
+
+{% set baseClasses = [
+    'group cursor-pointer inline-flex space-x-2 items-center text-base focus:outline-none transition-colors duration-150',
+    textAlignClasses ?? 'justify-center',
+]|join(' ') %}
+
+{% set iconRight = icon and icon.position is defined and icon.position == 'right' %}
+{% set iconLeft = not iconRight %}
+
+{% set variantClasses = {
+    'primary': 'text-primary hover:text-primary-600 focus-visible:ring-cobblestone-400 focus-visible:ring-2 focus-visible:ring-offset-2',
+}[variant] %}
+
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget(['class', 'href', 'type']).toArray() %}
+
+
+<a data-component="{{ additionalAttributes['data-component'] ?? 'atoms.link' }}"
+   class="{{ baseClasses }} {{ variantClasses }} {{ additionalClasses }}"
+        {{ attributesToHtml(additionalAttributes) }}
+   href="{{ href }}"
+   target="{{ target }}"
+>
+    {% if iconRight and label %}
+        <span class="group-hover:underline">{{ label }}</span>
+    {% endif %}
+
+    {% if icon %}
+        {{ render('atoms.icon', {name: icon.name, attributes: {class: label|length ? 'mt-0.5' : ''}}) }}
+    {% endif %}
+
+    {% if iconLeft and label %}
+        <span class="group-hover:underline">{{ label }}</span>
+    {% endif %}
+</a>
+

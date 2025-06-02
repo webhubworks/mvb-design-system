@@ -1,0 +1,78 @@
+{
+  "title": "Organisms/Content Slider",
+  "parameters": {
+    "server": {
+      "id": "organisms.content-slider"
+    }
+  },
+  "stories": [
+    {
+      "name": "Testimonial Slider",
+      "args": {
+        "slides": [
+          {
+            "quote": {
+                "text": "Als Buchhändlerinnen haben wir nie genug Zeit. Mit VLB-TIX aber jeden Tag ein paar gewonnene Minuten.",
+                "cite": "Lena Renold, Position XY"
+            },
+            "img": {
+              "src": "https://picsum.photos/540/480",
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
+            }
+          },
+          {
+            "quote": {
+                "text": "Für uns bei Kanon, einem jungen und wendigen Verlag, ist VLB-TIX ein wichtiges Instrument, um unsere Titel von Beginn an noch erfolgreicher im Markt zu platzieren.",
+              "cite": "Sabine Gartmann, Inhaberin, die schatulle – lies weise"
+            },
+            "img": {
+              "src": "https://picsum.photos/540/480",
+              "alt": "Placeholder Image 2",
+              "caption": "© Placeholder Image 2 Caption"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Teaser Slider",
+      "args": {
+        "slides": [
+          {
+            "content": {
+              "heading": "Livro - Ihre Titel auf den Buchmessen in Frankfurt und Leipzig",
+              "headingLevel": "h3",
+              "text": "Livro bietet Selfpublishern und Kleinverlegern die Möglichkeit, ihre Titel auf den Buchmessen in Frankfurt und Leipzig auszustellen und zu bewerben. Im Umfeld der großen Verlage können Sie Ihre Titel einem breiten Publikum vorstellen und so den Bekanntheitsgrad unter Buchhändlern und Endkunden steigern.",
+              "link": {
+                "label": "mehr erfahren",
+                "href": "#!"
+              }
+            },
+            "img": {
+              "src": "https://picsum.photos/540/480",
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
+            }
+          },
+          {
+            "content": {
+              "heading": "Ihr Einstieg in die Titelvermarktung im Buchhandel",
+              "headingLevel": "h3",
+              "text": "Erfahren Sie in diesem einstündigen Webinar Wissenswertes über die Grundlagen des Buchhandelns – von der Buchpreisbindung über die Preiskalkulation und die Vorteile einer ISBN bis hin zu der Distribution im Handel. Wir zeigen Ihnen, wie Sie strukturiert und mit einfachen Mitteln die Sichtbarkeit Ihres Titels erhöhen und ihn auf der Leipziger und Frankfurter Buchmesse einer breiten Öffentlichkeit aus Fachbesuchern und Literaturbegeisterten präsentieren können.",
+              "link": {
+                "label": "mehr erfahren",
+                "href": "#!"
+              }
+            },
+            "img": {
+              "src": "https://picsum.photos/540/480",
+              "alt": "Placeholder Image 2",
+              "caption": "© Placeholder Image 2 Caption"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

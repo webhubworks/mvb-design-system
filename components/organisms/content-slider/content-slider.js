@@ -2,10 +2,10 @@ import Swiper from 'swiper'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 
-const initTestimonialSlider = component => {
-    const nextButton = component.querySelector('[data-component-part="testimonial-slider.next"]')
-    const prevButton = component.querySelector('[data-component-part="testimonial-slider.prev"]')
-    const playButton = component.querySelector('[data-component-part="testimonial-slider.play"]')
+const initContentSlider = component => {
+    const nextButton = component.querySelector('[data-component-part="content-slider.next"]')
+    const prevButton = component.querySelector('[data-component-part="content-slider.prev"]')
+    const playButton = component.querySelector('[data-component-part="content-slider.play"]')
     const playButtonIcon = playButton.querySelector('[data-component="atoms.icon"]')
     const swiper = new Swiper(component, {
         modules: [Navigation],
@@ -40,10 +40,10 @@ const initTestimonialSlider = component => {
     }
 }
 
-const initTestimonialSliders = () => {
-    document.querySelectorAll('[data-component="organisms.testimonial-slider"]').forEach((component) => {
-        initTestimonialSlider(component)
+const initContentSliders = () => {
+    document.querySelectorAll('[data-component="organisms.content-slider"]').forEach((component) => {
+        initContentSlider(component)
     })
 }
 
-export default initTestimonialSliders
+export default initContentSliders
