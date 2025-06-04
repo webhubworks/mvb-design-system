@@ -1,0 +1,9 @@
+<a href="{{ href }}" class="group text-primary hover:text-primary-600 transition-colors duration-200 {{ attributes.class|default('') }}" {{ attributesToHtml(attributes|default({})) }} download>
+    {{ render('atoms.icon', {name: "download"}) }}
+
+    <span class="underline ml-1">{{ label }}</span>
+
+    {% if meta is defined  %}
+        <span class="uppercase ml-1">({{ meta }})</span>
+    {% endif %}
+</a>

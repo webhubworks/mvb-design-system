@@ -1,0 +1,21 @@
+{
+  "title": "Atoms/File",
+  "parameters": {
+    "server": {
+      "id": "atoms.file"
+    }
+  },
+  "stories": [
+    {
+      "name": "File",
+      "args": {
+        "label": "File",
+        "href": "#!",
+        "meta": "pdf, 1 MB",
+        "attributes": {
+          "class": "text-primary"
+        }
+      }
+    }
+  ]
+}
