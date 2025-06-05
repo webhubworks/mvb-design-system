@@ -1,0 +1,29 @@
+{
+  "title": "Molecules/Icon Paragraph",
+    "parameters": {
+        "server": {
+        "id": "molecules.icon-paragraph"
+        }
+    },
+  "stories": [
+    {
+      "name": "Icon Paragraph",
+      "args": {
+        "icon": {
+          "name": "asterisk"
+        },
+        "contentHtml": "<p>Hier ist ein Beispieltext, der in einem Icon Paragraph angezeigt wird. Hier ist ein Beispieltext, der in einem Icon Paragraph angezeigt wird. Hier ist ein Beispieltext, der in einem Icon Paragraph angezeigt wird.</p>"
+      }
+    },
+    {
+      "name": "Icon Paragraph with Link",
+      "args": {
+        "icon": {
+          "name": "link"
+        },
+        "contentHtml": "<p>Hier ist ein Beispieltext mit einem <a href='#'>Link</a>.</p>",
+        "href": "#!"
+      }
+    }
+  ]
+}

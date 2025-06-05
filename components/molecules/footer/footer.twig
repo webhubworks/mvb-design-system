@@ -1,11 +1,22 @@
-{% set logoImgSrc = logoImgSrc|default(null) %}
-
+{% set logo = logo|default(null) %}
 
 <footer data-component="molecules.footer" class="bg-cobblestone-800 px-4 py-8 text-white">
     <div class="container mx-auto">
 
-        {% if logoImgSrc %}
-            <img src="{{ logoImgSrc }}" alt="Logo" class="mb-3 mt-2 h-6">
+        {% if logo and logo.src|length %}
+            {{ render('atoms.logo', {
+                alt: logo.alt ?? '',
+                src: logo.src,
+                width: logo.width,
+                height: logo.height,
+                noSpace: true,
+                monochrome: logo.monochrome ?? null,
+                whiteInverted: logo.whiteInverted ?? null,
+                href: logo.href is defined ? logo.href : null,
+                attributes: {
+                    additionalImgClasses: 'h-6 w-auto',
+                }
+            }) }}
         {% endif %}
 
         <div class="flex flex-col md:flex-row space-y-8 md:space-y-0 space-x-4 w-full my-12 text-lg">
@@ -33,37 +44,42 @@
                     {% endfor %}
                 </ul>
                 <ul class="mt-6 flex justify-start items-center space-x-4 -ml-1">
-                {% for item in socialItems %}
-                    <li>
-                        <a href="{{ item.href }}" class="hover:underline hover:opacity-75 relative flex items-center p-1" target="_blank">
-                            {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white'}}) }}
-                            <span class="sr-only">{{ item.label }}</span>
-                        </a>
-                    </li>
-                {% endfor %}
+                    {% for item in socialItems %}
+                        <li>
+                            <a href="{{ item.href }}"
+                               class="hover:underline hover:opacity-75 relative flex items-center p-1" target="_blank">
+                                {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white'}}) }}
+                                <span class="sr-only">{{ item.label }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
 
         <div>
             {% if showMVBLogo %}
-                <svg viewBox="0 0 86 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-auto mb-2">
-                    <path d="M0 0.169556H7.25417L10.9524 10.553L14.7217 0.169556H21.8336V19.5851H16.2863V7.49485L11.5213 19.5851H9.67223L4.97835 7.49485V19.5851H0V0.169556Z"
-                          fill="white"></path>
-                    <path d="M24.0383 0.169556H30.0124L33.9239 13.8245L37.9777 0.169556H43.1694L36.8398 19.5851H30.5102L24.0383 0.169556Z"
-                          fill="white"></path>
-                    <path d="M45.3741 0.169556H54.0507C58.6735 0.169556 60.5937 2.23202 60.5937 5.21903V5.36127C60.5937 7.56597 59.4558 8.98835 57.3222 9.55731C59.7402 9.98402 61.2338 11.4064 61.2338 14.1089V14.2512C61.2338 17.736 58.9579 19.6563 54.1929 19.6563H45.3741V0.169556ZM52.9128 7.92156C54.6197 7.92156 55.3309 7.35261 55.3309 5.93022V5.78798C55.3309 4.43672 54.6197 3.86776 52.9128 3.86776H50.7792V7.92156H52.9128ZM53.1262 15.8869C54.9041 15.8869 55.6865 15.1046 55.6865 13.6111V13.4689C55.6865 11.9754 54.9041 11.2642 52.9128 11.2642H50.7792V15.8869H53.1262Z"
-                          fill="white"></path>
-                    <path d="M79.4403 19.5851L73.6796 11.762H64.0074L69.9103 0.169556H79.5825L85.3432 8.0638L79.4403 19.5851Z"
-                          fill="white"></path>
-                </svg>
+                <a href="http://mvb-online.de/" target="_blank">
+                    <svg viewBox="0 0 86 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6 w-auto mb-2">
+                        <path d="M0 0.169556H7.25417L10.9524 10.553L14.7217 0.169556H21.8336V19.5851H16.2863V7.49485L11.5213 19.5851H9.67223L4.97835 7.49485V19.5851H0V0.169556Z"
+                              fill="white"></path>
+                        <path d="M24.0383 0.169556H30.0124L33.9239 13.8245L37.9777 0.169556H43.1694L36.8398 19.5851H30.5102L24.0383 0.169556Z"
+                              fill="white"></path>
+                        <path d="M45.3741 0.169556H54.0507C58.6735 0.169556 60.5937 2.23202 60.5937 5.21903V5.36127C60.5937 7.56597 59.4558 8.98835 57.3222 9.55731C59.7402 9.98402 61.2338 11.4064 61.2338 14.1089V14.2512C61.2338 17.736 58.9579 19.6563 54.1929 19.6563H45.3741V0.169556ZM52.9128 7.92156C54.6197 7.92156 55.3309 7.35261 55.3309 5.93022V5.78798C55.3309 4.43672 54.6197 3.86776 52.9128 3.86776H50.7792V7.92156H52.9128ZM53.1262 15.8869C54.9041 15.8869 55.6865 15.1046 55.6865 13.6111V13.4689C55.6865 11.9754 54.9041 11.2642 52.9128 11.2642H50.7792V15.8869H53.1262Z"
+                              fill="white"></path>
+                        <path d="M79.4403 19.5851L73.6796 11.762H64.0074L69.9103 0.169556H79.5825L85.3432 8.0638L79.4403 19.5851Z"
+                              fill="white"></path>
+                    </svg>
+                    <span class="sr-only">Visit mvb-online.de</span>
+                </a>
             {% endif %}
 
             <p><strong>{{ productHeading }}</strong></p>
             <div class="bg-monza-500 p-4 mt-4 text-lg">
                 <ul class="sm:flex sm:flex-wrap gap-4">
                     {% for item in productItems %}
-                        <li class="sm:inline-block"><a href="{{ item.href }}" class="hover:underline">{{ item.label }}</a></li>
+                        <li class="sm:inline-block"><a href="{{ item.href }}"
+                                                       class="hover:underline">{{ item.label }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -76,7 +92,8 @@
             <nav aria-label="Meta menu">
                 <ul class="md:flex md:justify-end space-x-4">
                     {% for item in metaItems %}
-                        <li><a href="{{ item.href }}" target="{{ item.target ?? 'self' }}" class="hover:underline">{{ item.label }}</a></li>
+                        <li><a href="{{ item.href }}" target="{{ item.target ?? 'self' }}"
+                               class="hover:underline">{{ item.label }}</a></li>
                     {% endfor %}
                 </ul>
             </nav>

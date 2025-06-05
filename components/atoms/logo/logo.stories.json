@@ -5,6 +5,43 @@
       "id": "atoms.logo"
     }
   },
+  "argTypes": {
+    "src": {
+      "control": "text",
+      "type": "string",
+      "description": "The URL of the logo image. This is required."
+    },
+    "alt": {
+      "control": "text",
+      "type": "string",
+      "description": "The alternative text for the logo image. This is required for accessibility."
+    },
+    "width": {
+      "control": "number",
+      "type": "number",
+      "description": "The width of the logo image in pixels."
+    },
+    "height": {
+      "control": "number",
+      "type": "number",
+      "description": "The height of the logo image in pixels."
+    },
+    "href": {
+      "control": "text",
+      "type": "string",
+      "description": "The URL to navigate to when the logo is clicked. If provided, the logo will be rendered as an anchor tag."
+    },
+    "monochrome": {
+      "control": "boolean",
+      "type": "boolean",
+      "description": "If true, the logo will be displayed in monochrome. This is useful for dark mode or specific design requirements."
+    },
+    "whiteInverted": {
+        "control": "boolean",
+        "type": "boolean",
+        "description": "If true, the logo will be displayed in white inverted style. This is useful for dark backgrounds."
+    }
+  },
   "args": {
       "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
       "alt": "VLB Logo",
