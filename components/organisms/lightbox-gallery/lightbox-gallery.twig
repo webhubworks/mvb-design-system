@@ -1,0 +1,92 @@
+<div data-component="organisms.lightbox-gallery" class="space-y-4">
+    <div class="gallery grid gird-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {% for image in images %}
+            <button
+                    class="gallery-item focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-left"
+                    data-index="{{ image.index }}"
+                    data-image="{{ image.largeUrl }}"
+                    data-alt="{{ image.alt ?? 'Bild ohne Beschreibung' }}"
+                    data-caption="{{ image.caption ?? '' }}"
+                    data-copyright="{{ image.copyright ?? '' }}"
+                    type="button"
+            >
+                <img
+                        class="w-full h-auto text-left mb-1"
+                        src="{{ image.thumbnailUrl }}"
+                        alt="{{ image.alt ?? 'Bild ohne Beschreibung' }}"
+                >
+                {% if image.caption is defined and image.caption %}
+                    <span class="text-base">{{ image.caption }}</span>
+                {% endif %}
+            </button>
+        {% endfor %}
+    </div>
+
+    <div
+            class="lightbox fixed inset-0 z-50 bg-cobblestone-800/95 flex items-center justify-center p-2 sm:p-4 hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Lightbox element"
+            aria-describedby="lightbox-caption"
+            data-component-part="lightbox-gallery.lightbox"
+    >
+        <div class="relative w-full h-full">
+            {{ render('atoms.button', {
+                variant: 'primary',
+                noSpace: true,
+                icon: {
+                    name: 'close',
+                },
+                attributes: {
+                    'aria-label': 'Close lightbox',
+                    'data-component-part': 'lightbox-gallery.close',
+                    class: 'close-btn absolute top-4 right-0 text-lg md:text-xl w-12 h-12'
+                }
+            }) }}
+
+            <div class="h-full max-w-[80%] flex justify-center items-center mx-auto">
+                <figure class="text-center p-4 md:p-6" data-component-part="lightbox-gallery.figure">
+                    <img
+                            data-component-part="lightbox-gallery.image"
+                            class="max-h-[70vh] mx-auto mb-4"
+                            src=""
+                            alt=""
+                    >
+                    <figcaption
+                            id="lightbox-caption"
+                            data-component-part="lightbox-gallery.caption"
+                            class="text-gray-600 text-sm text-white "
+                    ></figcaption>
+                </figure>
+            </div>
+
+            <div class="controls flex justify-between absolute top-1/2 left-0 right-0 transform -translate-y-1/2">
+                {{ render('atoms.button', {
+                    variant: 'primary',
+                    noSpace: true,
+                    icon: {
+                        name: 'arrow-left',
+                    },
+                    attributes: {
+                        'aria-label': 'Prev image',
+                        'data-component-part': 'lightbox-gallery.prev',
+                        class: 'prev-btn text-lg md:text-xl w-12 h-12'
+                    }
+                }) }}
+
+                {{ render('atoms.button', {
+                    variant: 'primary',
+                    noSpace: true,
+                    icon: {
+                        name: 'arrow-right',
+                    },
+                    attributes: {
+                        'aria-label': 'Next image',
+                        'data-component-part': 'lightbox-gallery.next',
+                        class: 'next-btn text-lg md:text-xl w-12 h-12'
+                    }
+                }) }}
+            </div>
+        </div>
+    </div>
+</div>
