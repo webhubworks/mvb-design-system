@@ -24,6 +24,8 @@
                 monochrome: item.monochrome ?? null,
                 href: item.href is defined ? item.href : null,
                 attributes: {
+                    class: 'bg-white',
+                    additionalImgClasses: 'max-h-full w-auto',
                 }
             }) }}
         {% endfor %}

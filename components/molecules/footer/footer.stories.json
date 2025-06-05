@@ -14,7 +14,14 @@
   },
   "args": {
     "copyright": "MVB GmbH",
-    "logoImgSrc": "https://vlb.de/assets/images/mvb-logo-3.svg",
+    "logo": {
+      "src": "https://german-isbn.de/assets/media/partnerlogos/isbn-logo-1.svg",
+      "alt": "MVB Logo",
+      "width": 120,
+      "height": 40,
+      "href": "https://mvb-online.de",
+      "whiteInverted": true
+    },
     "showMVBLogo": true,
     "footerColumns": [
       {

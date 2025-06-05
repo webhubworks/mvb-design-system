@@ -1,27 +1,30 @@
 {% set isLink = href is defined and href != null %}
 {% set noSpace = noSpace|default(false) %}
 {% set monochrome = monochrome is defined and monochrome %}
+{% set whiteInverted = whiteInverted is defined and whiteInverted %}
 
 {% set attributeCollection = attributes|default({})|collect() %}
 {% set _additionalClasses = attributeCollection.get('class') %}
-{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+{% set _additionalImgClasses = attributeCollection.get('additionalImgClasses')%}
+{% set _additionalAttributes = attributeCollection.forget(['class', 'additionalImgClasses']).toArray() %}
 
 {% set baseClasses = [
-    'inline-flex space-x-2 items-center justify-center bg-white',
+    'inline-flex space-x-2 items-center justify-center',
     noSpace ? '' : 'p-4',
-    monochrome ? 'grayscale' : ''
+    monochrome ? 'grayscale' : '',
+    whiteInverted ? 'invert brightness-0' : '',
 ]|join(' ') %}
 
 {% if isLink %}
     <figure class="{{ baseClasses }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
         <a href="{{ href }}">
-            <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="max-h-full w-auto">
+            <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="{{ _additionalImgClasses }}"/>
         </a>
     </figure>
 {% endif %}
 
 {% if not isLink %}
     <figure class="{{ baseClasses }} {{ _additionalClasses }}">
-        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="max-h-full w-auto">
+        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="{{ _additionalImgClasses }}"/>
     </figure>
 {% endif %}

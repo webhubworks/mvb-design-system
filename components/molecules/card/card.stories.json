@@ -43,7 +43,10 @@
       "name": "Basic",
       "args": {
         "content": "Some content",
-        "href": "#!"
+        "href": "#!",
+        "attributes": {
+          "class": "text-xl font-bold hover:text-primary-600"
+        }
       }
     },
     {
