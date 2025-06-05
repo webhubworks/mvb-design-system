@@ -1,0 +1,17 @@
+{
+  "title": "Molecules/Form",
+  "parameters": {
+    "server": {
+      "id": "molecules.form"
+    }
+  },
+  "argTypes": {
+  },
+  "args": {
+  },
+  "stories": [
+    {
+      "name": "Form"
+    }
+  ]
+}

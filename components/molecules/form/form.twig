@@ -1,0 +1,7 @@
+{% if craft.app.plugins.pluginEnabled('freeform') %}
+
+    {% set formProperties = formProperties|default({}) %}
+
+    {{ freeform.form("storybook", formProperties).render() }}
+
+{% endif %}

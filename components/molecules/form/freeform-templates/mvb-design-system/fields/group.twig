@@ -1,0 +1,10 @@
+{% import "components/molecules/form/freeform-templates/mvb-design-system/_row.twig" as rowMacro %}
+
+{{ field.renderContainerOpeningTag }}
+
+    {{ field.renderLabel }}
+    {{ field.renderInstructions }}
+
+    {{ rowMacro.render(field.layout, form) }}
+
+{{ field.renderContainerClosingTag }}

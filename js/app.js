@@ -5,6 +5,7 @@ import initHeroSliders from '@components/organisms/hero-slider/hero-slider.js'
 import initLanguageSwitchers from '@components/molecules/language-switcher/language-switcher.js'
 import initContentSliders from '@components/organisms/content-slider/content-slider.js'
 import initLightboxGalleries from '@components/organisms/lightbox-gallery/lightbox-gallery.js'
+import initForms from '@components/molecules/form/form.js'
 
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitchers();
@@ -13,4 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroSliders();
     initContentSliders();
     initLightboxGalleries();
+    initForms();
 })
