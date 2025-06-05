@@ -14,7 +14,8 @@
     "craftcms/cms": "^5.0",
     "nystudio107/craft-vite": "^5.0.0",
     "illuminate/collections": "^10.0",
-    "twig/intl-extra": "^3.21.0"
+    "twig/intl-extra": "^3.21.0",
+    "solspace/craft-freeform": "^5.10.16.1"
   },
   "extra": {
     "type": "craft-module"
