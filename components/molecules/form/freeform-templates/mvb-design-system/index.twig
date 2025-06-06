@@ -4,9 +4,10 @@
 
 {# Render the opening form tag #}
 {{ form.renderTag({
+
   attributes: {
     form: { class: "freeform-form", "data-freeform-tailwind": true },
-    row: { class: "flex gap-x-2 -mx-2 mb-4" },
+    row: { class: "flex gap-x-4 mb-4" },
     novalidate: true,
   },
   buttons: {
@@ -22,10 +23,10 @@
   fields: {
     "@global": {
       attributes: {
-        container: { class: "w-full px-2" },
-        label: { class: "block text-base/6 mb-1 font-medium text-cobblestone-900" },
+        container: { class: "w-full" },
+        label: { class: "block text-base mb-1 text-cobblestone-900 font-semibold" },
         input: {
-          class: "block w-full  bg-white px-3 py-1.5 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base/6",
+          class: "block w-full text-base bg-white px-3 py-1.5 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600",
         },
         instructions: { class: "text-base text-cobblestone-1000 -mt-1.5 mb-1" },
         error: { class: "mt-1 text-base text-red-600" },
@@ -48,13 +49,19 @@
         label: { tag: "legend" },
       },
     },
+    '@richt-text': {
+      attributes: {
+        container: { "+class": "-mb-4" },
+        input: { "+class": "outline-1 -outline-offset-1 outline-red-600" },
+      },
+    },
     "@checkboxes, @radios": {
       attributes: {
         input: {
-          "-class": "block w-full px-3 py-1.5  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base/6",
+          "-class": "block w-full px-3 py-1.5  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base font-semibold",
           "+class": "appearance-none size-4 border border-cobblestone-600 checked:border-primary-600 checked:bg-primary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600",
         },
-        optionLabel: { class: "block text-base/6 font-medium text-cobblestone-900" },
+        optionLabel: { class: "block text-base text-cobblestone-900" },
       },
     },
     "@radios": {
@@ -86,10 +93,11 @@
     "@checkbox": {
       attributes: {
         label: {
-          class: "block text-base/6 font-medium text-cobblestone-900",
+          class: "block text-base text-cobblestone-900",
+          '-class': 'font-semibold'
         },
         input: {
-          "-class": "block w-full px-3 py-1.5  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base/6",
+          "-class": "block w-full px-3 py-1.5  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base",
           "+class": "col-start-1 row-start-1 rounded-sm appearance-none size-4 rounded-full border border-cobblestone-600 bg-white checked:border-primary-600 checked:bg-primary-600 indeterminate:border-primary-600 indeterminate:bg-primary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600",
         },
       },
@@ -136,7 +144,7 @@
     },
     "@group": {
       attributes: {
-        container: { "+class": "-mb-4" },
+        container: { "+class": "my-3 py-3 border-t border-b border-cobblestone-200" },
         label: { "-class": "font-medium", "+class": "font-semibold" },
       },
     },
@@ -147,7 +155,7 @@
     },
     "@stripe": {
       attributes: {
-        input: { "-class": " bg-white px-3 py-1.5 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base/6" },
+        input: { "-class": " bg-white px-3 py-1.5 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base" },
       },
     },
   },
