@@ -78,8 +78,8 @@
             <div class="bg-monza-500 p-4 mt-4 text-lg">
                 <ul class="sm:flex sm:flex-wrap gap-4">
                     {% for item in productItems %}
-                        <li class="sm:inline-block"><a href="{{ item.href }}"
-                                                       class="hover:underline">{{ item.label }}</a></li>
+                        <li class="sm:inline-block">
+                            <a href="{{ item.href }}" class="hover:underline">{{ item.label }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

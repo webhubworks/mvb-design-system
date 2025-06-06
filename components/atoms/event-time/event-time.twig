@@ -9,8 +9,12 @@
         datetime="{{ date|date('c') }}"
         class="{{ additionalClasses }}"
         title="{{ 'Timezone: Europe/Berlin'|t('mvbdesignsystem') }}">
-    {{ render('atoms.icon', {name: 'calendar-day', attributes: {class: 'fa-fw'}}) }}
-    {{ date|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
-    {{ render('atoms.icon', {name: 'clock', attributes: {class: 'fa-fw'}}) }}
-    {{ date|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+    <span class="whitespace-nowrap">
+        {{ render('atoms.icon', {name: 'calendar-day', attributes: {class: 'fa-fw'}}) }}
+        {{ date|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+    </span>
+    <span class="whitespace-nowrap">
+        {{ render('atoms.icon', {name: 'clock', attributes: {class: 'fa-fw'}}) }}
+        {{ date|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+    </span>
 </time>

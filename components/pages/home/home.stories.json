@@ -9,44 +9,53 @@
     {
       "name": "Home",
       "args": {
-        "news": [{
-          "content": "Kai-Uwe übers Podcasten",
-          "href": "#!",
-          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
-          "img": {
-            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
-            "alt": "Er"
+        "welcomeText": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut\n        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea\n        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit\n        amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam\n        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no\n        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>",
+        "news": [
+          {
+            "content": "Kai-Uwe übers Podcasten",
+            "href": "#!",
+            "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+            "img": {
+              "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+              "alt": "Er"
+            }
+          },
+          {
+            "content": "Kai-Uwe übers Podcasten",
+            "href": "#!",
+            "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+            "img": {
+              "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+              "alt": "Er"
+            }
+          },
+          {
+            "content": "Kai-Uwe übers Podcasten",
+            "href": "#!",
+            "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+            "img": {
+              "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+              "alt": "Er"
+            }
+          },
+          {
+            "content": "Kai-Uwe übers Podcasten",
+            "href": "#!",
+            "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
+            "img": {
+              "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
+              "alt": "Er"
+            }
           }
-        }, {
-          "content": "Kai-Uwe übers Podcasten",
-          "href": "#!",
-          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
-          "img": {
-            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
-            "alt": "Er"
-          }
-        }, {
-          "content": "Kai-Uwe übers Podcasten",
-          "href": "#!",
-          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
-          "img": {
-            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
-            "alt": "Er"
-          }
-        }, {
-          "content": "Kai-Uwe übers Podcasten",
-          "href": "#!",
-          "logoImgSrc": "https://mvb-online.de/build/assets/img/MVB.svg",
-          "img": {
-            "src": "https://mvb-online.de/assets/mitarbeiter/_thumbnail/Kai_Vogt_Copyright_Kai_Vogt.jpg",
-            "alt": "Er"
-          }
-        }],
+        ],
         "eventItems": [
           {
             "title": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
             "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
-            "dates": ["2025-05-13T13:30+00:00", "2025-05-14T13:30+00:00"],
+            "dates": [
+              "2025-05-13T13:30+00:00",
+              "2025-05-14T13:30+00:00"
+            ],
             "href": "#!",
             "tag": {
               "text": "Webinar",
@@ -56,13 +65,17 @@
           {
             "title": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
             "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
-            "dates": ["2025-05-12T23:30+00:00"],
+            "dates": [
+              "2025-05-12T23:30+00:00"
+            ],
             "href": "#!"
           },
           {
             "title": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
             "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
-            "dates": ["2025-05-11T13:30+00:00"],
+            "dates": [
+              "2025-05-11T13:30+00:00"
+            ],
             "href": "#!"
           }
         ],
@@ -72,7 +85,8 @@
             "text": "Wir vernetzen die Buchbranche",
             "img": {
               "src": "https://picsum.photos/2000/800",
-              "alt": "Placeholder Image 1"
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
             }
           },
           {
@@ -80,41 +94,325 @@
             "text": "Some text for slide 2",
             "img": {
               "src": "https://picsum.photos/2000/800",
-              "alt": "Placeholder Image 2"
+              "alt": "Placeholder Image 2",
+              "caption": "© Placeholder Image 2 Caption"
             }
           }
         ],
-        "navigationItems": [{
-          "label": "Home",
-          "children": [
+        "languages": [
+          {
+            "labelEn": "English",
+            "href": "/en",
+            "alpha2Code": "en"
+          },
+          {
+            "labelEn": "German",
+            "href": "/de",
+            "alpha2Code": "de"
+          },
+          {
+            "labelEn": "French",
+            "href": "/fr",
+            "alpha2Code": "fr"
+          }
+        ],
+        "navigationItems": [
+          {
+            "label": "Home",
+            "children": [
+              {
+                "label": "Submenu 1",
+                "href": "/home/submenu1"
+              },
+              {
+                "label": "Submenu 2",
+                "href": "/home/submenu2"
+              }
+            ]
+          },
+          {
+            "label": "About",
+            "children": [
+              {
+                "label": "Submenu 1",
+                "href": "/home/submenu1"
+              },
+              {
+                "label": "Submenu longer 2",
+                "href": "/home/submenu2"
+              }
+            ]
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          }
+        ],
+        "footer": {
+          "copyright": "MVB GmbH",
+          "logo": {
+            "src": "https://german-isbn.de/assets/media/partnerlogos/isbn-logo-1.svg",
+            "alt": "MVB Logo",
+            "width": 120,
+            "height": 40,
+            "href": "https://mvb-online.de",
+            "whiteInverted": true
+          },
+          "showMVBLogo": true,
+          "footerColumns": [
             {
-              "label": "Submenu 1",
-              "href": "/home/submenu1"
+              "label": "MVB",
+              "children": [
+                {
+                  "label": "Unternehmen",
+                  "href": "#"
+                },
+                {
+                  "label": "Presse",
+                  "href": "#"
+                },
+                {
+                  "label": "Service",
+                  "href": "#"
+                }
+              ]
             },
             {
-              "label": "Submenu 2",
-              "href": "/home/submenu2"
+              "label": "Wir für Sie",
+              "children": [
+                {
+                  "label": "Für Verlage",
+                  "href": "#"
+                },
+                {
+                  "label": "Für Buchhandlungen",
+                  "href": "#"
+                },
+                {
+                  "label": "Für Dienstleister",
+                  "href": "#"
+                },
+                {
+                  "label": "Für Selfpublisher",
+                  "href": "#"
+                }
+              ]
             }
-          ]
-        }, {
-          "label": "About",
-          "children": [
+          ],
+          "contactHeading": "Kontakt",
+          "contactItems": [
             {
-              "label": "Submenu 1",
-              "href": "/home/submenu1"
+              "label": "Kontaktperson",
+              "iconName": "user",
+              "href": "#"
             },
             {
-              "label": "Submenu longer 2",
-              "href": "/home/submenu2"
+              "label": "+49 69 1306-550",
+              "iconName": "phone",
+              "href": "tel:+49691306550"
+            },
+            {
+              "label": "kundenservice@mvb-online.de",
+              "iconName": "envelope",
+              "href": "mailto:kundenservice@mvb-online.de"
+            }
+          ],
+          "socialItems": [
+            {
+              "label": "Instagram",
+              "iconName": "instagram",
+              "href": "https://www.instagram.com/mvbverlagsauslieferung/"
+            },
+            {
+              "label": "LinkedIn",
+              "iconName": "linkedin",
+              "href": "https://www.linkedin.com/company/mvb-verlagsauslieferung/"
+            },
+            {
+              "label": "Youtube",
+              "iconName": "youtube",
+              "href": "https://www.youtube.com/@mvb2357"
+            }
+          ],
+          "productHeading": "Unsere Angebote für Sie",
+          "productItems": [
+            {
+              "label": "ADB",
+              "href": "https://mvb-online.de/marken-und-produkte/adb"
+            },
+            {
+              "label": "Aus dem Antiquariat",
+              "href": "https://mvb-online.de/marken-und-produkte/ada"
+            },
+            {
+              "label": "Börsenblatt",
+              "href": "https://mvb-online.de/marken-und-produkte/boersenblatt"
+            },
+            {
+              "label": "buchhandel.de",
+              "href": "https://mvb-online.de/marken-und-produkte/buchhandel-de"
+            },
+            {
+              "label": "Buchjournal",
+              "href": "https://mvb-online.de/marken-und-produkte/buchjournal"
+            },
+            {
+              "label": "Bücherscheck",
+              "href": "https://mvb-online.de/marken-und-produkte/buecherscheck"
+            },
+            {
+              "label": "IBU",
+              "href": "https://mvb-online.de/marken-und-produkte/ibu"
+            },
+            {
+              "label": "ISBN",
+              "href": "https://mvb-online.de/marken-und-produkte/isbn"
+            },
+            {
+              "label": "ISNI",
+              "href": "https://mvb-online.de/marken-und-produkte/isni"
+            },
+            {
+              "label": "Livro",
+              "href": "https://mvb-online.de/marken-und-produkte/livro"
+            },
+            {
+              "label": "medien.jobs",
+              "href": "https://mvb-online.de/marken-und-produkte/medien-jobs"
+            },
+            {
+              "label": "Metabooks",
+              "href": "https://mvb-online.de/marken-und-produkte/metabooks"
+            },
+            {
+              "label": "Pubeasy",
+              "href": "https://mvb-online.de/marken-und-produkte/pubeasy"
+            },
+            {
+              "label": "Pubnet",
+              "href": "https://mvb-online.de/marken-und-produkte/pubnet"
+            },
+            {
+              "label": "VLB",
+              "href": "https://mvb-online.de/marken-und-produkte/vlb"
+            },
+            {
+              "label": "VLB-TIX",
+              "href": "https://mvb-online.de/marken-und-produkte/vlb-tix"
+            }
+          ],
+          "metaItems": [
+            {
+              "label": "Netiquette",
+              "href": "#"
+            },
+            {
+              "label": "AGB",
+              "href": "#"
+            },
+            {
+              "label": "Datenschutz",
+              "href": "#"
+            },
+            {
+              "label": "Impressum",
+              "href": "#"
             }
           ]
-        }, {
-          "label": "Contact",
-          "href": "/contact"
-        }, {
-          "label": "Contact",
-          "href": "/contact"
-        }]
+        },
+        "logoCloud": {
+          "size": "large",
+          "heading": "Unsere Marken und Produkte",
+          "items": [
+            {
+              "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+              "alt": "VLB Logo",
+              "width": 68,
+              "height": 18,
+              "href": "https://www.vlbtix.de"
+            },
+            {
+              "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+              "alt": "VLB Logo",
+              "width": 68,
+              "height": 18,
+              "href": "https://www.vlbtix.de"
+            },
+            {
+              "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_VLB_RGB_Copyright_Vier_fuer_Texas_02.svg",
+              "alt": "VLB Logo",
+              "width": 68,
+              "height": 18,
+              "href": "https://www.vlbtix.de"
+            },
+            {
+              "src": "https://www.vlbtix.de/assets/media/partnerlogos/Logo_Boersenblatt_Copyright_Vier_fuer_Texas.svg",
+              "alt": "Börsenblatt",
+              "width": 167,
+              "height": 20
+            }
+          ]
+        },
+        "contentSlides": {
+          "slides": [
+            {
+              "content": {
+                "heading": "Livro - Ihre Titel auf den Buchmessen in Frankfurt und Leipzig",
+                "headingLevel": "h3",
+                "text": "Livro bietet Selfpublishern und Kleinverlegern die Möglichkeit, ihre Titel auf den Buchmessen in Frankfurt und Leipzig auszustellen und zu bewerben. Im Umfeld der großen Verlage können Sie Ihre Titel einem breiten Publikum vorstellen und so den Bekanntheitsgrad unter Buchhändlern und Endkunden steigern.",
+                "link": {
+                  "label": "mehr erfahren",
+                  "href": "#!"
+                }
+              },
+              "img": {
+                "src": "https://picsum.photos/540/480",
+                "alt": "Placeholder Image 1",
+                "caption": "© Placeholder Image 1 Caption"
+              }
+            },
+            {
+              "content": {
+                "heading": "Ihr Einstieg in die Titelvermarktung im Buchhandel",
+                "headingLevel": "h3",
+                "text": "Erfahren Sie in diesem einstündigen Webinar Wissenswertes über die Grundlagen des Buchhandelns – von der Buchpreisbindung über die Preiskalkulation und die Vorteile einer ISBN bis hin zu der Distribution im Handel. Wir zeigen Ihnen, wie Sie strukturiert und mit einfachen Mitteln die Sichtbarkeit Ihres Titels erhöhen und ihn auf der Leipziger und Frankfurter Buchmesse einer breiten Öffentlichkeit aus Fachbesuchern und Literaturbegeisterten präsentieren können.",
+                "link": {
+                  "label": "mehr erfahren",
+                  "href": "#!"
+                }
+              },
+              "img": {
+                "src": "https://picsum.photos/540/480",
+                "alt": "Placeholder Image 2",
+                "caption": "© Placeholder Image 2 Caption"
+              }
+            }
+          ]
+        },
+        "hint": {
+          "heading": "Heading",
+          "headingLevel": "h3",
+          "title": "Der Bücherscheck auf Instagram",
+          "titleLevel": "h4",
+          "text": "<p>Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p>",
+          "icon": {
+            "name": "instagram"
+          },
+          "button": {
+            "label": "Button",
+            "href": "#!",
+            "icon": {
+              "name": "arrow-right"
+            }
+          },
+          "attributes": {
+            "class": "text-white"
+          }
+        }
       }
     }
   ]

@@ -28,7 +28,7 @@
                             {{ event.tag.text }}
                         </div>
                     {% endif %}
-                    <div class="flex items-center space-x-1">
+                    <div class="flex flex-wrap items-center space-x-1">
                         {{ render('atoms.event-time', {date: event.dates|first, attributes: {class: ''}}) }}
                         {% if event.dates|length > 1 %}
                             {{ render('molecules.dates-tooltip', {

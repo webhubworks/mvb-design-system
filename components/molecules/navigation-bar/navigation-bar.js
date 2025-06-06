@@ -1,7 +1,6 @@
 import { convertRemToPixels } from '@js/_utils.js'
 
 const initNavigationBar = (component) => {
-
     const menu = component.querySelector('[data-component-part="navigation-bar.menu"]')
     const navItems = component.querySelectorAll('[data-component-part="navigation-bar.menu-item"]')
     const burgerButton = component.querySelector('[data-component-part="navigation-bar.burger-button"]')

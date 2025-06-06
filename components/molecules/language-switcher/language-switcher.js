@@ -34,7 +34,7 @@ const initLanguageSwitcher = component => {
             }, 200)
         })
 
-        trigger.addEventListener('mouseleave', () => {
+        component.addEventListener('mouseleave', () => {
             if (window.innerWidth < convertRemToPixels(lgBreakpointRem)) {
                 return
             }
