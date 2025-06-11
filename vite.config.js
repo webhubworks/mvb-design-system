@@ -4,21 +4,7 @@ import viteRestart from 'vite-plugin-restart'
 import * as path from 'node:path'
 
 // https://vite.dev/config/
-export default defineConfig(({ command, mode }) => {
-    // Load env file based on `mode` in the current working directory.
-    // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
-    const env = loadEnv(mode, process.cwd()+'/../../../', '')
-
-    // no sanity checks here. when PRIMARY_SITE_URL is missing, something is wrong.
-    const primarySiteUrl =
-        env.PRIMARY_SITE_URL.charAt(env.PRIMARY_SITE_URL.length - 1) === '/'
-            ? env.PRIMARY_SITE_URL.slice(0, env.PRIMARY_SITE_URL.length - 1)
-            : env.PRIMARY_SITE_URL
-
-    if (!primarySiteUrl) {
-        throw new Error('PRIMARY_SITE_URL is not set in .env')
-    }
-
+export default defineConfig(({command, mode}) => {
     return {
         base: command === 'serve' ? '' : '/dist/',
         build: {
@@ -47,7 +33,7 @@ export default defineConfig(({ command, mode }) => {
             host: '0.0.0.0',
             port: 5173,
             strictPort: true,
-            origin: `${primarySiteUrl}:5173`,
+            origin: `${getPrimarySiteUrl(mode)}:5173`,
             cors: {
                 origin: /^https?:\/\/(?:[a-zA-Z0-9-]+\.)+ddev\.site(?::\d+)?$/,
             },
@@ -62,3 +48,15 @@ export default defineConfig(({ command, mode }) => {
         }
     }
 })
+
+const getPrimarySiteUrl = (mode) => {
+    const env = loadEnv(mode, process.cwd() + '/../../../', '')
+
+    if (env.PRIMARY_SITE_URL === undefined || env.PRIMARY_SITE_URL === '') {
+        throw new Error('PRIMARY_SITE_URL is not set in .env')
+    }
+
+    return env.PRIMARY_SITE_URL.charAt(env.PRIMARY_SITE_URL.length - 1) === '/'
+        ? env.PRIMARY_SITE_URL.slice(0, env.PRIMARY_SITE_URL.length - 1)
+        : env.PRIMARY_SITE_URL
+}
