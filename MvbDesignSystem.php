@@ -25,7 +25,7 @@ class MvbDesignSystem extends BaseModule
     /**
      * Path to the components directory (supports only a single, one level directory)
      */
-    const string COMPONENTS_PATH = 'components';
+    const COMPONENTS_PATH = 'components';
 
     public function init(): void
     {
