@@ -7,7 +7,7 @@
 @import "../components/molecules/form/form.css";
 
 @source "../components/**/*.twig";
-@source "../../../templates/**/*.twig";
+@source "../../../../templates/**/*.twig";
 
 @theme {
     --font-sans: "Graphik-Web";

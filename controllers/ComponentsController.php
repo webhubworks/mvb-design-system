@@ -50,7 +50,6 @@ class ComponentsController extends Controller
             }
 
             if (! Vite::getInstance()->vite->devServerRunning()) { // ToDo: Not working??
-                ray(Vite::getInstance()->vite->script('js/app.js'));
                 return implode([
                     '<style>',
 //                    Vite::getInstance()->vite->fetch(Vite::getInstance()->vite->asset('app.css')),
