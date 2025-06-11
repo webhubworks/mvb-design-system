@@ -3,7 +3,7 @@
 @import "./_fontawesome-6.7.2.css";
 @import "./_colors.css";
 @import "./_rich-text.css";
-@import "../../../theme.css";
+@import "../../../../theme.css";
 @import "../components/molecules/form/form.css";
 
 @source "../components/**/*.twig";

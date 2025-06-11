@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../craft-plugin-playground/.idea/craft-plugin-playground.iml" filepath="$PROJECT_DIR$/../../../craft-plugin-playground/.idea/craft-plugin-playground.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mvb-design-system.iml" filepath="$PROJECT_DIR$/.idea/mvb-design-system.iml" />
+    </modules>
+  </component>
+</project>

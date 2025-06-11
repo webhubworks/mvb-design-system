@@ -2,14 +2,12 @@ import tailwindcss from '@tailwindcss/vite'
 import {defineConfig, loadEnv} from 'vite'
 import viteRestart from 'vite-plugin-restart'
 import * as path from 'node:path'
-import fs from 'fs'
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
     // Load env file based on `mode` in the current working directory.
     // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
-    const envPath = fs.existsSync(process.cwd()+'/../../.env') ? process.cwd()+'/../../' : process.cwd()+'/../../../';
-    const env = loadEnv(mode, process.cwd()+'/../../', '')
+    const env = loadEnv(mode, process.cwd()+'/../../../', '')
 
     // no sanity checks here. when PRIMARY_SITE_URL is missing, something is wrong.
     const primarySiteUrl =
@@ -25,7 +23,7 @@ export default defineConfig(({ command, mode }) => {
         base: command === 'serve' ? '' : '/dist/',
         build: {
             manifest: true,
-            outDir: '../../public/dist/',
+            outDir: '../../../web/dist/',
             rollupOptions: {
                 input: {
                     app: './js/app.js',
