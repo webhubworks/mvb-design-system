@@ -11,14 +11,7 @@ const config = {
         "@storybook/addon-a11y"
     ],
     previewHead: (head) => {
-        return head + `
-<!--            <style>-->
-<!--                [data-component="molecules.card"],-->
-<!--                [data-component="molecules.event-list"] {-->
-<!--                    max-width: 350px;-->
-<!--                }-->
-<!--            </style>-->
-        `;
+        return head;
     },
     framework: {
         "name": "@storybook/server-webpack5",
