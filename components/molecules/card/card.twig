@@ -31,7 +31,7 @@
         {% if logoImgSrc %}
             <img src="{{ logoImgSrc }}" alt="Logo" class="mb-3 mt-2 h-5">
         {% endif %}
-        <a href="{{ href }}" class="text-base before:content-[''] before:absolute before:inset-0 break-word">{{ content }}</a>
+        <a href="{{ href }}" class="before:content-[''] before:absolute before:inset-0 break-word">{{ content }}</a>
     </div>
     {{ footerHtml|default('')|raw }}
 </div>
