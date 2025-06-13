@@ -5,17 +5,23 @@
 {% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
 
 <nav aria-label="Breadcrumb" data-component="molecules.breadcrumbs" class="{{ additionalClasses }}" {{ attributesToHtml(additionalAttributes) }}>
-    <ol class="">
+    <ol class="after:content-[''] after:block after:clear-both">
         <li class="float-left pr-2">
             <a href="/" class="hover:text-cobblestone-950">{{ render('atoms.icon', {name: 'home-lg-alt'}) }}<span class="sr-only">{{ 'To the homepage'|t('mvbdesignsystem') }}</span></a>
         </li>
         {% for item in items %}
             <li class="{{ loop.last ? '' : "" }} max-w-[190px] truncate before:content-['/'] before:pr-0.5 pr-2 float-left">
-                <a {{ loop.last ? 'aria-current="page"' : '' }}
-                        title="{{ item.label }}"
-                        class="{{ not loop.last ? 'underline' : 'pointer-events-none text-cobblestone-600' }} hover:text-cobblestone-950 whitespace-nowrap"
-                        href="{{ loop.last ? '' : item.href }}"
-                >{{ item.label }}</a>
+                {% if item.href is defined %}
+                    <a {{ loop.last ? 'aria-current="page"' : '' }}
+                            title="{{ item.label }}"
+                            class="{{ not loop.last ? 'underline' : 'pointer-events-none text-cobblestone-600' }} hover:text-cobblestone-950 whitespace-nowrap"
+                            href="{{ loop.last ? '' : item.href }}"
+                    >{{ item.label }}</a>
+                {% else %}
+                    <span title="{{ item.label }}"
+                          class="whitespace-nowrap"
+                    >{{ item.label }}</span>
+                {% endif %}
             </li>
         {% endfor %}
     </ol>
