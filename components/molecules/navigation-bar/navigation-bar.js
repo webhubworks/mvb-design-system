@@ -19,6 +19,10 @@ const initNavigationBar = (component) => {
         let timer
         const topLevelButton = item.querySelector('[data-component="atoms.button"]')
 
+        if (topLevelButton.dataset.togglesSubmenu !== 'true') {
+            return;
+        }
+
         window.addEventListener('click', e => {
             if (!item.contains(e.target)) {
                 closeSubmenu(item)

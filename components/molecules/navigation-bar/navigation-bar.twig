@@ -49,6 +49,24 @@
 
                     <li class="relative" data-component-part="navigation-bar.menu-item">
 
+                        {% set isActive = item.isActive is defined and item.isActive %}
+                        {% set hasActiveChild = item.children is defined and collect(item.children).some(child => child.isActive is defined and child.isActive) %}
+
+                        {% set attributes = {
+                            'aria-haspopup': hasChildren ? 'true' : 'false',
+                            'data-toggles-submenu': hasChildren ? 'true' : 'false',
+                            'class': [
+                                'max-w-[230px] [&>span]:truncate',
+                                isActive or hasActiveChild ? 'font-semibold' : '',
+                            ]|join(' ')
+                        } %}
+
+                        {% if hasChildren %}
+                            {% set attributes = attributes|merge({
+                                'aria-expanded': 'false',
+                            }) %}
+                        {% endif %}
+
                         {{ render('atoms.button', {
                             label: item.label,
                             href: hasChildren ? null : item.href,
@@ -57,10 +75,7 @@
                                 name: 'angle-down',
                                 position: 'right'
                             } : null,
-                            attributes: {
-                                'aria-haspopup': hasChildren ? 'true' : '',
-                                'aria-expanded': hasChildren ? 'false': '',
-                            }
+                            attributes: attributes
                         }) }}
 
                         {% if item.children is defined and item.children|length %}
@@ -68,13 +83,18 @@
                                 {% for child in item.children %}
                                     <li class="pl-2 lg:pl-0">
 
+                                        {% set isActive = child.isActive is defined and child.isActive %}
+
                                         {{ render('atoms.button', {
                                             label: child.label,
                                             href: child.href,
                                             variant: 'ghost',
                                             textAlign: 'left',
                                             attributes: {
-                                                class: 'whitespace-nowrap lg:w-full',
+                                                class: [
+                                                    'whitespace-nowrap lg:w-full',
+                                                    isActive ? 'font-semibold' : ''
+                                                ]|join(' '),
                                             }
                                         }) }}
 

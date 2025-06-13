@@ -32,7 +32,8 @@
         },
         {
           "label": "Submenu 2",
-          "href": "/home/submenu2"
+          "href": "/home/submenu2",
+          "isActive": true
         }
       ]
     }, {
