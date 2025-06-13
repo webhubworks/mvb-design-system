@@ -26,6 +26,7 @@ class StorybookController extends Controller
 
         $this->stdout("📣 Running Storybook dev...\n");
         $storybook = new Process(['npm', '--prefix', Craft::getAlias('@webhubworks/mvbdesignsystem'), 'run', 'storybook']);
+        $storybook->setTimeout(4 * 3600); // Basically unlimited
         $storybook->run(function ($type, $buffer): void {
             if (StringHelper::contains($buffer, '[webpack.Progress]')) {
                 return;
@@ -53,6 +54,7 @@ class StorybookController extends Controller
 
         $this->stdout("📣 Running Storybook build...\n");
         $storybook = new Process(['npm', '--prefix', Craft::getAlias('@webhubworks/mvbdesignsystem'), 'run', 'build:storybook']);
+        $storybook->setTimeout(180);
         $storybook->run(function ($type, $buffer): void {
             $this->stdout($buffer);
         });

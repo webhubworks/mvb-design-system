@@ -27,6 +27,7 @@ trait RunsNode
         }
 
         $checkNvm = new Process(['bash', '-c', 'command -v nvm']);
+        $checkNvm->setTimeout(180);
         $checkNvm->run(function ($type, $buffer): void {
             $this->stdout($buffer);
         });
@@ -37,6 +38,7 @@ trait RunsNode
         }
 
         $installNode = new Process(['bash', '-c', "source ~/.nvm/nvm.sh && nvm install $nodeVersion"]);
+        $installNode->setTimeout(180);
         $installNode->run(function ($type, $buffer): void {
             $this->stdout($buffer);
         });
@@ -54,6 +56,7 @@ trait RunsNode
         $this->stdout("📣 Installing Node modules...\n");
 
         $npmInstall = new Process(['npm', '--prefix', Craft::getAlias('@webhubworks/mvbdesignsystem'), 'install']);
+        $npmInstall->setTimeout(180);
         $npmInstall->run(function ($type, $buffer): void {
             $this->stdout($buffer);
         });

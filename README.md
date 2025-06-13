@@ -79,7 +79,7 @@ PRIMARY_SITE_URL
 ## Build for production
 There are two CLI commands ready to build the project for production:
 ```shell
-# use this to build the assets of the design system and your own tempaltes
+# use this to build the assets of the design system and your own templates
 craft mvbdesignsystem/vite/build
 
 # use this to build the storybook for static hosting

@@ -25,6 +25,7 @@ class ViteController extends Controller
 
         $this->stdout("📣 Running Vite build...\n");
         $viteDev = new Process(['npm', '--prefix', Craft::getAlias('@webhubworks/mvbdesignsystem'), 'run', 'build']);
+        $viteDev->setTimeout(180);
         $viteDev->run(function ($type, $buffer): void {
             $this->stdout($buffer);
         });
@@ -49,6 +50,7 @@ class ViteController extends Controller
 
         $this->stdout("📣 Running Vite dev server...\n");
         $viteDev = new Process(['npm', '--prefix', Craft::getAlias('@webhubworks/mvbdesignsystem'), 'run', 'dev']);
+        $viteDev->setTimeout(4 * 3600); // Basically unlimited
         $viteDev->run(function ($type, $buffer): void {
             $this->stdout($buffer);
         });
