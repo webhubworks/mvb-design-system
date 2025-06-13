@@ -11,6 +11,10 @@
       {
         "headingText": "Frankfurt am Main, London, Mexiko-Stadt, New York, São Paulo",
         "text": "Wir vernetzen die Buchbranche",
+        "link": {
+          "label": "Mehr erfahren",
+          "href": "www.google.de"
+        },
         "img": {
           "src": "https://picsum.photos/2000/800",
           "alt": "Placeholder Image 1",

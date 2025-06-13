@@ -1,8 +1,8 @@
 <div class="swiper relative isolate mb-16" data-component="organisms.hero-slider">
 
     {% if slides|length > 1 %}
-        <div class="absolute top-0 right-0 md:container md:top-auto md:bottom-0 md:left-1/2 md:right-auto md:-translate-x-1/2 z-10 md:flex md:justify-end">
-            <div class="text-white bg-primary flex flex-col md:flex-row items-center justify-center md:p-2 ">
+        <div class="absolute top-0 right-0 md:container md:top-auto md:bottom-0 md:left-1/2 md:right-auto md:-translate-x-1/2 z-10 md:flex md:justify-end pointer-events-none">
+            <div class="text-white bg-primary flex flex-col md:flex-row items-center justify-center md:p-2 pointer-events-auto">
                 {{ render('atoms.button', {
                     variant: 'primary',
                     noSpace: true,
@@ -54,6 +54,21 @@
                             {% endif %}
                             {% if slide.text is not empty %}
                                 <p class="text-lg">{{ slide.text }}</p>
+                            {% endif %}
+                            {% if slide.link is defined and slide.link is not empty %}
+                               {{ render('atoms.link', {
+                                    label: slide.link.label,
+                                    href: slide.link.href,
+                                    target: slide.link.target|default('_self'),
+                                   variant: 'white',
+                                   icon: {
+                                        name: 'arrow-right',
+                                        position: 'right'
+                                    },
+                                    attributes: {
+                                        class: 'mt-6',
+                                    }
+                               }) }}
                             {% endif %}
                         </div>
                     </div>
