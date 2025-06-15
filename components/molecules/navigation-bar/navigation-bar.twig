@@ -1,7 +1,7 @@
 <nav class="bg-white p-4" data-component="molecules.navigation-bar" role="navigation" aria-label="Main menu">
     <div class="container mx-auto flex flex-wrap lg:flex-nowrap justify-between lg:justify-start items-center group">
         <a href="/">
-            <img height="24" alt="Logo" src="https://mvb-online.de/assets/logos/MVB.png">
+            <img height="24" alt="Logo" src="{{ logoImgSrc|default('https://mvb-online.de/assets/logos/MVB.png') }}">
             <span class="sr-only">Back to homepage</span>
         </a>
 
@@ -34,12 +34,13 @@
             }) }}
 
         </div>
-
-        <div class="order-3 hidden lg:block">
-            {{ render('molecules.language-switcher', {
-                languages: languages
-            }) }}
-        </div>
+        {% if languages is defined and languages|length %}
+            <div class="order-3 hidden lg:block">
+                {{ render('molecules.language-switcher', {
+                    languages: languages
+                }) }}
+            </div>
+        {% endif %}
 
         <div data-component-part="navigation-bar.menu" class="w-full hidden lg:block lg:order-2">
             <ul class="lg:flex lg:justify-end">
@@ -79,7 +80,8 @@
                         }) }}
 
                         {% if item.children is defined and item.children|length %}
-                            <ul class="lg:absolute hidden data-[state=open]:block bg-white z-10" data-component-part="main-navigation.sub-menu">
+                            <ul class="lg:absolute hidden data-[state=open]:block bg-white z-10"
+                                data-component-part="main-navigation.sub-menu">
                                 {% for child in item.children %}
                                     <li class="pl-2 lg:pl-0">
 
@@ -104,6 +106,7 @@
                         {% endif %}
                     </li>
                 {% endfor %}
+                {% if languages is defined and languages|length %}
                 <li class="border-t border-cobblestone-100">
                     <div class="lg:hidden">
                         {{ render('molecules.language-switcher', {
@@ -111,6 +114,7 @@
                         }) }}
                     </div>
                 </li>
+                {% endif %}
             </ul>
         </div>
 

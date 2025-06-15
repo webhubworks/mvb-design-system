@@ -6,6 +6,7 @@
     }
   },
   "args": {
+    "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
     "languages": [
       {
         "labelEn": "English",
