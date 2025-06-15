@@ -13,7 +13,8 @@
         "text": "Wir vernetzen die Buchbranche",
         "link": {
           "label": "Mehr erfahren",
-          "href": "www.google.de"
+          "href": "www.google.de",
+          "target": "_blank"
         },
         "img": {
           "src": "https://picsum.photos/2000/800",

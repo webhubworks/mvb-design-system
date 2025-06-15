@@ -11,7 +11,10 @@
   },
   "stories": [
     {
-      "name": "Form"
+      "name": "Form",
+      "args": {
+        "formHandle": "storybook"
+      }
     }
   ]
 }
