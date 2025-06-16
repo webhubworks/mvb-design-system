@@ -1,11 +1,28 @@
-<nav class="bg-white p-4" data-component="molecules.navigation-bar" role="navigation" aria-label="Main menu">
+<nav class="bg-white px-4" data-component="molecules.navigation-bar" role="navigation" aria-label="Main menu">
     <div class="container mx-auto flex flex-wrap lg:flex-nowrap justify-between lg:justify-start items-center group">
-        <a href="/">
-            <img height="24" alt="Logo" src="{{ logoImgSrc|default('https://mvb-online.de/assets/logos/MVB.png') }}">
-            <span class="sr-only">Back to homepage</span>
-        </a>
 
-        <div class="flex space-x-1 lg:order-4">
+        {% if logo is defined and logo.src|length %}
+            {{ render('atoms.logo', {
+                alt: logo.alt ?? '',
+                src: logo.src,
+                width: logo.width,
+                height: logo.height,
+                noSpace: true,
+                monochrome: logo.monochrome ?? null,
+                whiteInverted: logo.whiteInverted ?? null,
+                href: logo.href is defined ? logo.href : null,
+                attributes: logo.attributes|default({ additionalImgClasses: 'h-12 w-auto' })
+            }) }}
+            {% else %}
+                <a href="/" class="block ">
+                    <img height="45"  alt="Logo" src="{{ logoImgSrc|default('https://mvb-online.de/assets/logos/MVB.png') }}">
+                    <span class="sr-only">Back to homepage</span>
+                </a>
+        {% endif %}
+
+
+
+        <div class="flex space-x-1 lg:order-4 py-4">
             <div class="lg:hidden">
                 {{ render('atoms.button', {
                     label: '',
@@ -15,6 +32,7 @@
                         name: 'bars'
                     },
                     attributes: {
+                        ariaLabel: 'Toggle navigation menu',
                         'data-component-part': 'navigation-bar.burger-button',
                         class: 'text-xl py-3 w-12'
                     }
@@ -29,6 +47,7 @@
                     name: 'search'
                 },
                 attributes: {
+                    'aria-label': 'Search',
                     class: 'text-xl py-3 w-12 shrink-0'
                 }
             }) }}

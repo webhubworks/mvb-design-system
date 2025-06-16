@@ -6,7 +6,16 @@
     }
   },
   "args": {
-    "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
+    "logo": {
+      "src": "https://german-isbn.de/build/assets/img/isbn-logo.svg",
+      "alt": "MVB Logo",
+      "width": 73,
+      "height": 19,
+      "href": "https://mvb-online.de",
+      "attributes": {
+       "additionalImgClasses": "h-6 lg:h-10 w-auto"
+      }
+    },
     "languages": [
       {
         "labelEn": "English",
