@@ -1,7 +1,7 @@
 div[data-field-type="rich-text"],
 .rich-text {
 
-    @apply space-y-4;
+    @apply space-y-4 after:content-[''] after:block after:clear-both;
 
     p{
         @apply  text-base;

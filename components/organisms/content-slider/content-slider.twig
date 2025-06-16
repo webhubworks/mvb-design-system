@@ -89,10 +89,10 @@
                                     {% endif %}
                                 {% endif %}
 
-                                {% if slide.content.link is defined and slide.content.link|length %}
+                                {% if slide.content.link is defined and slide.content.link.href|length %}
                                     {{ render('atoms.link', {
-                                        label: slide.content.link.label|default(''),
-                                        href: slide.content.link.href|default('#'),
+                                        label: slide.content.link.label ?? slide.content.link.href,
+                                        href: slide.content.link.href ?? null,
                                         variant: slide.content.link.variant|default('primary'),
                                         icon: {
                                             position: 'right',
