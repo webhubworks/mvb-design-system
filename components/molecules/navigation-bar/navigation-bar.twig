@@ -20,48 +20,23 @@
                 </a>
         {% endif %}
 
-
-
-        <div class="flex space-x-1 lg:order-4 py-4">
-            <div class="lg:hidden">
-                {{ render('atoms.button', {
-                    label: '',
-                    variant: 'ghost',
-                    noSpace: true,
-                    icon: {
-                        name: 'bars'
-                    },
-                    attributes: {
-                        'aria-label': 'Toggle navigation menu',
-                        'data-component-part': 'navigation-bar.burger-button',
-                        class: 'text-xl py-3 w-12'
-                    }
-                }) }}
-            </div>
-
+        <div class="lg:hidden ml-auto">
             {{ render('atoms.button', {
                 label: '',
-                variant: 'primary',
+                variant: 'ghost',
                 noSpace: true,
                 icon: {
-                    name: 'search'
+                    name: 'bars'
                 },
                 attributes: {
-                    'aria-label': 'Search',
-                    class: 'text-xl py-3 w-12 shrink-0'
+                    'aria-label': 'Toggle navigation menu',
+                    'data-component-part': 'navigation-bar.burger-button',
+                    class: 'text-xl py-3 w-12 '
                 }
             }) }}
-
         </div>
-        {% if languages is defined and languages|length %}
-            <div class="order-3 hidden lg:block">
-                {{ render('molecules.language-switcher', {
-                    languages: languages
-                }) }}
-            </div>
-        {% endif %}
 
-        <div data-component-part="navigation-bar.menu" class="w-full hidden lg:block lg:order-2">
+        <div data-component-part="navigation-bar.menu" class="w-full order-5 hidden lg:block lg:order-2">
             <ul class="lg:flex lg:justify-end">
                 {% for item in items %}
 
@@ -126,16 +101,68 @@
                     </li>
                 {% endfor %}
                 {% if languages is defined and languages|length %}
-                <li class="border-t border-cobblestone-100">
-                    <div class="lg:hidden">
-                        {{ render('molecules.language-switcher', {
-                            languages: languages
-                        }) }}
-                    </div>
-                </li>
+                    <li class="border-t border-cobblestone-100">
+                        <div class="lg:hidden">
+                            {{ render('molecules.language-switcher', {
+                                languages: languages
+                            }) }}
+                        </div>
+                    </li>
                 {% endif %}
+
             </ul>
         </div>
+
+        {% if languages is defined and languages|length %}
+            <div class="order-3 hidden lg:block">
+                {{ render('molecules.language-switcher', {
+                    languages: languages
+                }) }}
+            </div>
+        {% endif %}
+
+        <div class="flex space-x-1 lg:order-5 py-4">
+
+
+
+            {% if additionalButtons is defined and additionalButtons is not empty  %}
+                <div class="shrink-0">
+                    {% for button in additionalButtons %}
+                        {{ render('atoms.button', {
+                            label: button.label,
+                            href: button.href,
+                            target: button.target|default('_self'),
+                            variant: 'primary',
+                            icon: {
+                                position: 'right',
+                                name: button.iconName ?? 'null'
+                            },
+                            attributes: {
+                                class: 'text-xl shrink-0'
+                            }
+                        }) }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {{ render('atoms.button', {
+                label: '',
+                variant: 'primary',
+                noSpace: true,
+                icon: {
+                    name: 'search'
+                },
+                attributes: {
+                    'aria-label': 'Search',
+                    class: 'text-xl py-3 w-12 shrink-0'
+                }
+            }) }}
+
+        </div>
+
+
+
+
 
     </div>
 
