@@ -109,6 +109,23 @@
                         </div>
                     </li>
                 {% endif %}
+                {% for button in additionalButtons %}
+                <li class="lg:hidden py-2 w-full">
+                    {{ render('atoms.button', {
+                        label: button.label,
+                        href: button.href,
+                        target: button.target|default('_self'),
+                        variant: 'primary',
+                        icon: {
+                            position: 'right',
+                            name: button.iconName ?? 'null'
+                        },
+                        attributes: {
+                            class: 'text-xl shrink-0 w-full'
+                        }
+                    }) }}
+                </li>
+                {% endfor %}
 
             </ul>
         </div>
@@ -123,10 +140,8 @@
 
         <div class="flex space-x-1 lg:order-5 py-4">
 
-
-
             {% if additionalButtons is defined and additionalButtons is not empty  %}
-                <div class="shrink-0">
+                <div class="shrink-0 hidden lg:block">
                     {% for button in additionalButtons %}
                         {{ render('atoms.button', {
                             label: button.label,
@@ -159,10 +174,6 @@
             }) }}
 
         </div>
-
-
-
-
 
     </div>
 
