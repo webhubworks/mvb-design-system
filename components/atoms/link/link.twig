@@ -27,23 +27,25 @@
 {% set additionalClasses = attributeCollection.get('class') %}
 {% set additionalAttributes = attributeCollection.forget(['class', 'href', 'type']).toArray() %}
 
+{% if href is defined and href is not empty %}
 
-<a data-component="{{ additionalAttributes['data-component'] ?? 'atoms.link' }}"
-   class="{{ baseClasses }} {{ variantClasses }} {{ additionalClasses }}"
-        {{ attributesToHtml(additionalAttributes) }}
-   href="{{ href }}"
-   target="{{ target }}"
->
-    {% if iconRight and label %}
-        <span class="group-hover:underline">{{ label }}</span>
-    {% endif %}
+    <a data-component="{{ additionalAttributes['data-component'] ?? 'atoms.link' }}"
+       class="{{ baseClasses }} {{ variantClasses }} {{ additionalClasses }}"
+            {{ attributesToHtml(additionalAttributes) }}
+       href="{{ href }}"
+       target="{{ target }}"
+    >
+        {% if iconRight and label %}
+            <span class="group-hover:underline">{{ label }}</span>
+        {% endif %}
 
-    {% if icon %}
-        {{ render('atoms.icon', {name: icon.name, attributes: {class: label|length ? 'mt-0.5' : ''}}) }}
-    {% endif %}
+        {% if icon %}
+            {{ render('atoms.icon', {name: icon.name, attributes: {class: label|length ? 'mt-0.5' : ''}}) }}
+        {% endif %}
 
-    {% if iconLeft and label %}
-        <span class="group-hover:underline">{{ label }}</span>
-    {% endif %}
-</a>
+        {% if iconLeft and label %}
+            <span class="group-hover:underline">{{ label }}</span>
+        {% endif %}
+    </a>
 
+{% endif %}
