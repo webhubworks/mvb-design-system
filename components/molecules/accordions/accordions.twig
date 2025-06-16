@@ -1,4 +1,4 @@
-<div class="space-y-2">
+<div class="space-y-4">
 {% for item in items  %}
     <details data-component="molecules.accordion" name="{{ itemGroupLabel ?? item.summary }}" class="group">
         <summary class="flex appearance-none bg-white cursor-pointer items-center justify-between">
@@ -8,7 +8,9 @@
             </span>
         </summary>
         <div class="p-3">
-            {{ item.detailsHtml|default('')|raw }}
+            {{ render('atoms.paragraph', {
+                contentHtml: item.detailsHtml|default('')
+            }) }}
         </div>
     </details>
 {% endfor %}
