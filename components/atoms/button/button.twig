@@ -6,6 +6,7 @@
 {% set textAlign = textAlign|default('center') %}
 {% set variant = variant|default('primary') %}
 {% set label = label ?? null %}
+{% set target = target is defined and target != null ? target : '_self' %}
 
 {% set textAlignClasses = {
     'left': 'justify-start',
@@ -38,6 +39,7 @@
        {{ attributesToHtml(additionalAttributes) }}
        href="{{ href }}"
        role="button"
+       target="{{ target }}"
     >
         {% if iconRight and label %}
             <span>{{ label }}</span>

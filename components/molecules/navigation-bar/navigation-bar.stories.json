@@ -37,7 +37,8 @@
       {
         "label": "ISBN kaufen",
         "iconName": "cart-shopping",
-        "href": "/login"
+        "target": "_blank",
+        "href": "https://www.google.de"
       }
     ],
     "items": [{
