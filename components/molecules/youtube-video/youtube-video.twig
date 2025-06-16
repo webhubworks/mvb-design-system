@@ -1,0 +1,14 @@
+<div data-component="molecules.youtube-video" class="w-full">
+
+    {% if videoId is defined and videoId|length %}
+        <iframe
+                class="aspect-video w-full"
+                src="{{ 'https://www.youtube-nocookie.com/embed/' ~ videoId }}"
+                title="Youtube Video Player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    {% endif %}
+
+</div>

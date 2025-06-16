@@ -1,0 +1,16 @@
+{
+  "title": "Molecules/YouTube Video",
+  "parameters": {
+    "server": {
+      "id": "molecules.youtube-video"
+    }
+  },
+  "stories": [
+    {
+      "name": "YouTube Video",
+      "args": {
+        "videoId": "3Jd9riLSNvI"
+      }
+    }
+  ]
+}

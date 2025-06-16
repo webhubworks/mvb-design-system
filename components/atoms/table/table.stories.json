@@ -1,0 +1,41 @@
+{
+  "title": "Atoms/Table",
+  "parameters": {
+    "server": {
+      "id": "atoms.Table"
+    }
+  },
+  "stories": [
+    {
+      "name": "Table",
+      "args": {
+        "columns": [
+          {
+            "label": "Name",
+            "key": "name"
+          },
+          {
+            "label": "Age",
+            "key": "age"
+          },
+          {
+            "label": "E-Mail",
+            "key": "email"
+          }
+        ],
+        "rows": [
+          {
+            "name": "John Doe",
+            "age": 30,
+            "email": "email@domain.de"
+          },
+          {
+            "name": "Jane Smith",
+            "age": 25,
+            "email": "email2@domain.de"
+          }
+        ]
+      }
+    }
+  ]
+}

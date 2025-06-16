@@ -1,0 +1,22 @@
+<div data-component="atoms.table">
+    <div class="rich-text overflow-x-auto">
+        <table class="overflow-scroll w-full">
+            <thead>
+            <tr>
+                {% for column in columns %}
+                    <th>{{ column.label }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }} </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
