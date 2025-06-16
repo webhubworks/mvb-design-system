@@ -44,9 +44,55 @@
     {
       "name": "Basic",
       "args": {
-        "content": "Some content",
-        "href": "#!"
+        "slides": [
+          {
+            "headingText": "Frankfurt am Main, London, Mexiko-Stadt, New York, São Paulo",
+            "text": "Wir vernetzen die Buchbranche",
+            "link": {
+              "label": "Mehr erfahren",
+              "href": "www.google.de",
+              "target": "_blank"
+            },
+            "img": {
+              "src": "https://picsum.photos/2000/800",
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
+            }
+          },
+          {
+            "headingText": "Slide 2",
+            "text": "Some text for slide 2",
+            "img": {
+              "src": "https://picsum.photos/2000/800",
+              "alt": "Placeholder Image 2",
+              "caption": "© Placeholder Image 2 Caption"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "name": "Single Element",
+      "args": {
+        "slides": [
+          {
+            "headingText": "Frankfurt am Main, London, Mexiko-Stadt, New York, São Paulo",
+            "text": "Wir vernetzen die Buchbranche",
+            "link": {
+              "label": "Mehr erfahren",
+              "href": "https://www.google.de",
+              "target": "_blank"
+            },
+            "img": {
+              "src": "https://picsum.photos/2000/800",
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
+            }
+          }
+        ]
       }
     }
+
   ]
 }

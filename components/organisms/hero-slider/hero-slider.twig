@@ -48,27 +48,24 @@
             <div class="swiper-slide">
                 <div class="h-[60vh] min-h-[400px] relative md:pb-8">
                     <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
-                        <div class="bg-primary/90 p-6 md:p-8 text-white w-full md:w-[475px]">
+                        <div class="bg-primary/90 p-6 md:p-8 text-white w-full md:w-[475px] space-y-6">
                             {% if slide.headingText is not empty %}
-                                {{ render('atoms.heading', {text: slide.headingText, level: 'h2', attributes: {class: 'mb-6'}}) }}
+                                {{ render('atoms.heading', {text: slide.headingText, level: 'h2'}) }}
                             {% endif %}
                             {% if slide.text is not empty %}
                                 <p class="text-lg">{{ slide.text }}</p>
                             {% endif %}
                             {% if slide.link is defined and slide.link is not empty %}
-                               {{ render('atoms.link', {
+                                {{ render('atoms.link', {
                                     label: slide.link.label,
                                     href: slide.link.href,
                                     target: slide.link.target|default('_self'),
-                                   variant: 'white',
-                                   icon: {
+                                    variant: 'white',
+                                    icon: {
                                         name: 'arrow-right',
                                         position: 'right'
-                                    },
-                                    attributes: {
-                                        class: 'mt-6',
                                     }
-                               }) }}
+                                }) }}
                             {% endif %}
                         </div>
                     </div>
