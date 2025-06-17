@@ -3,7 +3,9 @@
 <div data-component="molecules.icon-paragraph" class="flex justify-center flex-col sm:flex-row sm:justify-start items-center gap-4 sm:gap-8">
 
     {% if icon %}
-        {{ render('atoms.icon', {name: icon.name, attributes: {class: 'text-2xl md:text-3xl md:w-8 lg:w-12'}}) }}
+        <div class="block md:w-8 lg:w-12 flex-shrink-0">
+            {{ render('atoms.icon', {name: icon.name, attributes: {class: 'text-2xl md:text-3xl'}}) }}
+        </div>
     {% endif %}
 
     {{ render('atoms.paragraph', {
