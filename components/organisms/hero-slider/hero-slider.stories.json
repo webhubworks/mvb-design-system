@@ -67,6 +67,13 @@
               "alt": "Placeholder Image 2",
               "caption": "© Placeholder Image 2 Caption"
             }
+          },
+          {
+            "img": {
+              "src": "https://picsum.photos/2000/800",
+              "alt": "Placeholder Image 2",
+              "caption": "© Placeholder Image 2 Caption"
+            }
           }
         ]
       }

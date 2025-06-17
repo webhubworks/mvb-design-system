@@ -1,4 +1,4 @@
-<div class="swiper relative isolate mb-16" data-component="organisms.hero-slider">
+<div class="swiper relative isolate mb-8" data-component="organisms.hero-slider">
 
     {% if slides|length > 1 %}
         <div class="absolute top-0 right-0 md:container md:top-auto md:bottom-0 md:left-1/2 md:right-auto md:-translate-x-1/2 z-10 md:flex md:justify-end pointer-events-none">
@@ -47,28 +47,30 @@
         {% for slide in slides %}
             <div class="swiper-slide">
                 <div class="h-[60vh] min-h-[400px] relative md:pb-8">
-                    <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
-                        <div class="bg-primary/90 p-6 md:p-8 text-white w-full md:w-[475px] space-y-6">
-                            {% if slide.headingText is not empty %}
-                                {{ render('atoms.heading', {text: slide.headingText, level: 'h2'}) }}
-                            {% endif %}
-                            {% if slide.text is not empty %}
-                                <p class="text-lg">{{ slide.text }}</p>
-                            {% endif %}
-                            {% if slide.link is defined and slide.link is not empty %}
-                                {{ render('atoms.link', {
-                                    label: slide.link.label,
-                                    href: slide.link.href,
-                                    target: slide.link.target|default('_self'),
-                                    variant: 'white',
-                                    icon: {
-                                        name: 'arrow-right',
-                                        position: 'right'
-                                    }
-                                }) }}
-                            {% endif %}
+                    {% if (slide.headingText is defined and slide.headingText is not empty) or ( slide.text is defined and slide.text is not empty) or ( slide.link is defined and slide.link is not empty) %}
+                        <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
+                            <div class="bg-primary/90 p-6 md:p-8 text-white w-full md:w-[475px] space-y-6">
+                                {% if slide.headingText is defined and slide.headingText %}
+                                    {{ render('atoms.heading', {text: slide.headingText, level: 'h2'}) }}
+                                {% endif %}
+                                {% if slide.text is defined and slide.text is not empty %}
+                                    <p class="text-lg">{{ slide.text }}</p>
+                                {% endif %}
+                                {% if slide.link is defined and slide.link is not empty %}
+                                    {{ render('atoms.link', {
+                                        label: slide.link.label,
+                                        href: slide.link.href,
+                                        target: slide.link.target|default('_self'),
+                                        variant: 'white',
+                                        icon: {
+                                            name: 'arrow-right',
+                                            position: 'right'
+                                        }
+                                    }) }}
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
                     {% if slide.img is not empty %}
                         <figure class="h-full w-full relative -z-10">
                             <img class="object-cover w-full h-full" alt="{{ slide.img.alt }}" src="{{ slide.img.src }}">
