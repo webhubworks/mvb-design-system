@@ -61,8 +61,10 @@
         "accentColor": "--color-emerald",
         "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
         "img": {
-          "src": "https://picsum.photos/300/200",
+          "src": "https://picsum.photos/600/400",
           "alt": "Some stock image",
+          "width": 600,
+          "height": 400,
           "caption": "© Lorem Picsum"
         },
         "footerHtml": "<p class='px-3 pb-3 text-sm'>Some footer content</p>"
