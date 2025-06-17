@@ -109,24 +109,25 @@
                         </div>
                     </li>
                 {% endif %}
-                {% for button in additionalButtons %}
-                <li class="lg:hidden py-2 w-full">
-                    {{ render('atoms.button', {
-                        label: button.label,
-                        href: button.href,
-                        target: button.target|default('_self'),
-                        variant: 'primary',
-                        icon: {
-                            position: 'right',
-                            name: button.iconName ?? 'null'
-                        },
-                        attributes: {
-                            class: 'text-xl shrink-0 w-full'
-                        }
-                    }) }}
-                </li>
-                {% endfor %}
-
+                {% if additionalButtons is defined and additionalButtons|length %}
+                    {% for button in additionalButtons %}
+                        <li class="lg:hidden py-2 w-full">
+                            {{ render('atoms.button', {
+                                label: button.label,
+                                href: button.href,
+                                target: button.target|default('_self'),
+                                variant: 'primary',
+                                icon: {
+                                    position: 'right',
+                                    name: button.iconName ?? 'null'
+                                },
+                                attributes: {
+                                    class: 'text-xl shrink-0 w-full'
+                                }
+                            }) }}
+                        </li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </div>
 
@@ -164,6 +165,7 @@
                 label: '',
                 variant: 'primary',
                 noSpace: true,
+                href: searchUrl ?? 'search',
                 icon: {
                     name: 'search'
                 },
