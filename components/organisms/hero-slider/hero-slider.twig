@@ -47,7 +47,9 @@
         {% for slide in slides %}
             <div class="swiper-slide">
                 <div class="h-[60vh] min-h-[400px] relative md:pb-8">
-                    {% if (slide.headingText is defined and slide.headingText is not empty) or ( slide.text is defined and slide.text is not empty) or ( slide.link is defined and slide.link is not empty) %}
+                    {% set showTextBox = (slide.headingText is defined and slide.headingText is not empty) or ( slide.text is defined and slide.text is not empty) or ( slide.link.href is defined and slide.link is not empty) %}
+
+                    {% if showTextBox %}
                         <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
                             <div class="bg-primary/90 p-6 md:p-8 text-white w-full md:w-[475px] space-y-6">
                                 {% if slide.headingText is defined and slide.headingText %}
@@ -58,7 +60,7 @@
                                 {% endif %}
                                 {% if slide.link is defined and slide.link is not empty %}
                                     {{ render('atoms.link', {
-                                        label: slide.link.label,
+                                        label: slide.link.label ?? slide.link.href,
                                         href: slide.link.href,
                                         target: slide.link.target|default('_self'),
                                         variant: 'white',

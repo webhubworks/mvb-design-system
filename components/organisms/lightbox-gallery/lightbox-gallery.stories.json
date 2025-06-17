@@ -12,8 +12,29 @@
           "largeUrl": "https://picsum.photos/1000/800",
           "thumbnailUrl": "https://picsum.photos/300/200",
           "alt": "Alt",
-          "caption": "Caption 1",
           "copyright": "Lorem Picsum"
+      },
+      {
+        "index": 2,
+        "largeUrl": "https://picsum.photos/900/400",
+        "thumbnailUrl": "https://picsum.photos/300/200",
+        "alt": "Alt",
+        "caption": "Caption 2"
+      },
+      {
+        "index": 3,
+        "largeUrl": "https://picsum.photos/800/700",
+        "thumbnailUrl": "https://picsum.photos/300/200",
+        "alt": "Alt",
+        "copyright": "Lorem Picsum 3"
+      },
+      {
+        "index": 1,
+        "largeUrl": "https://picsum.photos/1000/800",
+        "thumbnailUrl": "https://picsum.photos/300/200",
+        "alt": "Alt",
+        "caption": "Caption 3",
+        "copyright": "Lorem Picsum"
       },
       {
         "index": 2,
