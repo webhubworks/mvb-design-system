@@ -12,7 +12,7 @@
                     attributes: {
                         'aria-label': 'Pause slideshow',
                         'data-component-part': 'content-slider.play',
-                        class: 'text-lg md:text-xl w-12 h-12'
+                        class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
                     }
                 }) }}
                 {{ render('atoms.button', {
@@ -24,7 +24,7 @@
                     attributes: {
                         'aria-label': 'Previous slide',
                         'data-component-part': 'content-slider.prev',
-                        class: 'text-lg md:text-xl w-12 h-12'
+                        class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
                     }
                 }) }}
                 {{ render('atoms.button', {
@@ -36,7 +36,7 @@
                     attributes: {
                         'aria-label': 'Next slide',
                         'data-component-part': 'content-slider.next',
-                        class: 'text-lg md:text-xl w-12 h-12'
+                        class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
                     }
                 }) }}
             </div>

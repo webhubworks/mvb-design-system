@@ -19,16 +19,18 @@
         "img": {
           "src": "https://picsum.photos/2000/800",
           "alt": "Placeholder Image 1",
-          "caption": "© Placeholder Image 1 Caption"
+          "caption": "© Placeholder Image 1 Caption",
+          "position" : "top"
         }
       },
       {
         "headingText": "Slide 2",
         "text": "Some text for slide 2",
         "img": {
-          "src": "https://picsum.photos/2000/800",
+          "src": "https://picsum.photos/2000/1000",
           "alt": "Placeholder Image 2",
-            "caption": "© Placeholder Image 2 Caption"
+          "caption": "© Placeholder Image 2 Caption",
+          "position" : "bottom"
         }
       }
     ]
@@ -55,25 +57,28 @@
               "target": "_blank"
             },
             "img": {
-              "src": "https://picsum.photos/2000/800",
+              "src": "https://picsum.photos/2000/2000",
               "alt": "Placeholder Image 1",
-              "caption": "© Placeholder Image 1 Caption"
+              "caption": "© Placeholder Image 1 Caption",
+              "position" : "bottom"
             }
           },
           {
             "headingText": "Slide 2",
             "text": "Some text for slide 2",
             "img": {
-              "src": "https://picsum.photos/2000/800",
+              "src": "https://picsum.photos/2000/2000",
               "alt": "Placeholder Image 2",
-              "caption": "© Placeholder Image 2 Caption"
+              "caption": "© Placeholder Image 2 Caption",
+              "position" : "top"
             }
           },
           {
             "img": {
               "src": "https://picsum.photos/2000/800",
               "alt": "Placeholder Image 2",
-              "caption": "© Placeholder Image 2 Caption"
+              "caption": "© Placeholder Image 2 Caption",
+              "position" : "center"
             }
           }
         ]

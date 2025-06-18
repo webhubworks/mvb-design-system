@@ -17,7 +17,35 @@ const initHeroSlider = component => {
             stopOnLastSlide: true,
             pauseOnMouseEnter: false,
         },
+        on: {
+            init: function () {
+                updateTabindex(this);
+            },
+            slideChangeTransitionEnd: function () {
+                updateTabindex(this);
+            }
+        }
     })
+
+    function updateTabindex(swiperInstance) {
+        // Alle Slides: tabindex -1 für a und button
+        swiperInstance.slides.forEach(slide => {
+            const focusables = slide.querySelectorAll('a, button');
+            focusables.forEach(el => {
+                el.setAttribute('tabindex', '-1');
+            });
+        });
+
+        // Sichtbarer aktiver Slide via Klasse
+        const activeSlide = swiperInstance.el.querySelector('.swiper-slide-active');
+        if (activeSlide) {
+            const activeElements = activeSlide.querySelectorAll('a, button');
+            activeElements.forEach(el => {
+                el.removeAttribute('tabindex'); // Oder: el.setAttribute('tabindex', '0');
+            });
+        }
+    }
+
     if (nextButton) {
         nextButton.addEventListener('click', () => {
             swiper.slideNext()

@@ -1,3 +1,17 @@
+{% set imagePositionClasses = {
+    'left': 'object-left',
+    'right': 'object-right',
+    'top-left': 'object-top-left',
+    'top-right': 'object-top-right',
+    'bottom-left': 'object-bottom-left',
+    'bottom-right': 'object-bottom-right',
+    'center-left': 'object-center-left',
+    'center-right': 'object-center-right',
+    'top': 'object-top',
+    'bottom': 'object-bottom',
+    'center' : 'object-center',
+} %}
+
 <div class="swiper relative isolate mb-8" data-component="organisms.hero-slider">
 
     {% if slides|length > 1 %}
@@ -12,7 +26,7 @@
                     attributes: {
                         'aria-label': 'Pause slideshow',
                         'data-component-part': 'hero-slider.play',
-                        class: 'text-lg md:text-xl w-12 h-12'
+                        class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
                     }
                 }) }}
                 {{ render('atoms.button', {
@@ -24,7 +38,7 @@
                     attributes: {
                         'aria-label': 'Previous slide',
                         'data-component-part': 'hero-slider.prev',
-                        class: 'text-lg md:text-xl w-12 h-12'
+                        class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
                     }
                 }) }}
                 {{ render('atoms.button', {
@@ -36,7 +50,7 @@
                     attributes: {
                         'aria-label': 'Next slide',
                         'data-component-part': 'hero-slider.next',
-                        class: 'text-lg md:text-xl w-12 h-12'
+                        class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
                     }
                 }) }}
             </div>
@@ -76,7 +90,8 @@
                     {% endif %}
                     {% if slide.img is not empty %}
                         <figure class="h-full w-full relative -z-10">
-                            <img class="object-cover w-full h-full" alt="{{ slide.img.alt }}" src="{{ slide.img.src }}">
+                            {% set imagePostion = slide.img.position is defined and slide.img.position ?  slide.img.position : 'center' %}
+                            <img class="object-cover {{ imagePositionClasses[imagePostion] }} w-full h-full" alt="{{ slide.img.alt }}" src="{{ slide.img.src }}">
                             {% if slide.img.caption %}
                                 <figcaption
                                         class="absolute bg-cobblestone/50 z-10 -rotate-90 translate-x-full origin-bottom-left right-0 px-2 py-1 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[240px]">
