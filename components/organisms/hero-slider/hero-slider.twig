@@ -50,8 +50,9 @@
                     {% set showTextBox = (slide.headingText is defined and slide.headingText is not empty) or ( slide.text is defined and slide.text is not empty) or ( slide.link.href is defined and slide.link is not empty) %}
 
                     {% if showTextBox %}
+                        {% set opaqueBackground = slide.opaqueBackground is defined and slide.opaqueBackground ? true : false%}
                         <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
-                            <div class="bg-primary/90 p-6 md:p-8 text-white w-full md:w-[475px] space-y-6">
+                            <div class="{{ opaqueBackground ? 'bg-primary' : 'bg-primary/90'}} p-6 md:p-8 text-white w-full md:w-[475px] space-y-6">
                                 {% if slide.headingText is defined and slide.headingText %}
                                     {{ render('atoms.heading', {text: slide.headingText, level: 'h2'}) }}
                                 {% endif %}

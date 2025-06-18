@@ -48,6 +48,7 @@
           {
             "headingText": "Frankfurt am Main, London, Mexiko-Stadt, New York, São Paulo",
             "text": "Wir vernetzen die Buchbranche",
+            "opaqueBackground": true,
             "link": {
               "label": "Mehr erfahren",
               "href": "www.google.de",
