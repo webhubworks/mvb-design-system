@@ -7,7 +7,7 @@
 
     attributes: {
         form: { class: "freeform-form", "data-freeform-tailwind": true },
-        row: { class: "flex flex-wrap md:flex-nowrap md:items-end gap-4 mb-4" },
+        row: { class: "flex flex-wrap md:flex-nowrap md:items-start gap-4 mb-4" },
         novalidate: true,
     },
     buttons: {
@@ -26,9 +26,9 @@
                 container: { class: "w-full" },
                 label: { class: "block text-base mb-1 text-cobblestone-900 font-semibold" },
                 input: {
-                    class: "block w-full text-base bg-white px-3 py-2 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600",
+                    class: "block w-full text-base bg-white px-3 py-2 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-persian-blue-400",
                 },
-                instructions: { class: "text-base text-cobblestone-1000 -mt-1.5 mb-1" },
+                instructions: { class: "text-base text-cobblestone-1000 mt-1.5 mb-1" },
                 error: {
                     "-class": 'mt-1 text-sm text-red-600,',
                     "+class": "mt-1 text-base text-monza-600"
@@ -62,7 +62,7 @@
             attributes: {
                 input: {
                     "-class": "block w-full px-3 py-2  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base font-semibold",
-                    "+class": "appearance-none size-4 border border-cobblestone-600 checked:border-primary-600 checked:bg-primary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600",
+                    "+class": "appearance-none size-4 border border-cobblestone-600 checked:border-persian-blue-600 checked:bg-persian-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-400",
                 },
                 optionLabel: { class: "block text-base text-cobblestone-900" },
             },
@@ -100,8 +100,8 @@
                     '-class': 'font-semibold'
                 },
                 input: {
-                    "-class": "block w-full px-3 py-1.5  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base",
-                    "+class": "col-start-1 row-start-1 rounded-sm appearance-none size-4 rounded-full border border-cobblestone-600 bg-white checked:border-primary-600 checked:bg-primary-600 indeterminate:border-primary-600 indeterminate:bg-primary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600",
+                    "-class": "block w-full px-3 py-2  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base",
+                    "+class": "col-start-1 row-start-1 rounded-sm appearance-none size-4 rounded-full border border-cobblestone-600 bg-white checked:border-persian-blue-600 checked:bg-persian-blue-600 indeterminate:border-persian-blue-600 indeterminate:bg-persian-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-600",
                 },
             },
         },
@@ -132,7 +132,7 @@
         "@file": {
             attributes: {
                 label: {
-                    "=class": "freeform-upload-btn inline-flex items-center justify-center gap-2 px-3 py-1.5 text-base text-cobblestone-900 font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100",
+                    "=class": "freeform-upload-btn inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-cobblestone-900 font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100",
                 },
                 input: {
                     "=class": "freeform-file-upload-input absolute inset-0 w-0 h-0 opacity-0 cursor-pointer",
@@ -153,12 +153,12 @@
         },
         "@signature": {
             attributes: {
-                input: { "=class": "inline-flex items-center justify-center gap-2 px-3 py-1.5 text-base text-cobblestone-900 font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100" },
+                input: { "=class": "inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-cobblestone-900 font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100" },
             },
         },
         "@stripe": {
             attributes: {
-                input: { "-class": " bg-white px-3 py-1.5 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base" },
+                input: { "-class": " bg-white px-3 py-2 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base" },
             },
         },
     },
@@ -177,7 +177,7 @@
             }
         },
         attributes: {
-            class: "reeform-success-banner mb-8 hidden"
+            class: "freeform-success-banner mb-8 hidden"
         }
     }) }}
 

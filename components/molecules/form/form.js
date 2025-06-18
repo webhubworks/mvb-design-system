@@ -4,8 +4,8 @@ const initForms = () => {
         e.addEventListener('freeform-ready', function(e) {
             let t = e.freeform
             console.log(t)
-            t.setOption('errorClassList', ['mt-1', 'text-base', 'text-monza-600'])
-            t.setOption('errorClassField', ['outline-1', '-outline-offset-1', 'outline-monza-600'])
+            t.setOption('errorClassList', ['mt-1', 'text-base', 'font-semibold', 'text-monza-600'])
+            t.setOption('errorClassField', ['outline-2', '-outline-offset-1', 'outline-monza-600'])
         })
         e.addEventListener('freeform-render-success', function(t) {
             t.preventDefault()
