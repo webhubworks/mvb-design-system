@@ -25,7 +25,7 @@
         <div class="flex flex-col sm:flex-row justify-start sm:items-start space-x-6 space-y-4 sm:space-y-0">
 
             {% if icon %}
-                {{ render('atoms.icon', {name: icon.name, attributes: {class: 'text-3xl sm:text-5xl'}}) }}
+                {{ render('atoms.icon', icon ) }}
             {% endif %}
 
             <div class="rich-text">

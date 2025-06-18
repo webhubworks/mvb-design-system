@@ -35,7 +35,10 @@
         "titleLevel": "h3",
         "text": "<p>Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p>",
         "icon": {
-          "name": "instagram"
+          "name": "instagram",
+          "attributes": {
+            "class": "text-2xl lg:text-3xl"
+          }
         },
         "button": {
           "label": "Button",
@@ -74,14 +77,26 @@
       "name": "Success Hint",
       "args": {
         "text": "<p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein echter Fan des.</p>",
-        "variant": "success"
+        "variant": "success",
+        "icon": {
+          "name": "check-circle",
+          "attributes": {
+            "class": "text-2xl lg:text-3xl"
+          }
+        }
       }
     },
     {
       "name": "Warning Hint",
       "args": {
         "text": "<p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein echter Fan des.</p>",
-        "variant": "warning"
+        "variant": "warning",
+        "icon": {
+          "name": "warning",
+          "attributes": {
+            "class": "text-2xl lg:text-3xl"
+          }
+        }
       }
     }
   ]
