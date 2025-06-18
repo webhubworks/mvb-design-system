@@ -1,17 +1,3 @@
-{% set imagePositionClasses = {
-    'left': 'object-left',
-    'right': 'object-right',
-    'top-left': 'object-top-left',
-    'top-right': 'object-top-right',
-    'bottom-left': 'object-bottom-left',
-    'bottom-right': 'object-bottom-right',
-    'center-left': 'object-center-left',
-    'center-right': 'object-center-right',
-    'top': 'object-top',
-    'bottom': 'object-bottom',
-    'center' : 'object-center',
-} %}
-
 <div class="swiper relative isolate mb-8" data-component="organisms.hero-slider">
 
     {% if slides|length > 1 %}
@@ -64,6 +50,7 @@
                     {% set showTextBox = (slide.headingText is defined and slide.headingText is not empty) or ( slide.text is defined and slide.text is not empty) or ( slide.link.href is defined and slide.link is not empty) %}
 
                     {% if showTextBox %}
+
                         {% set opaqueBackground = slide.opaqueBackground is defined and slide.opaqueBackground ? true : false%}
                         <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
                             <div class="{{ opaqueBackground ? 'bg-primary' : 'bg-primary/90'}} p-6 md:p-8 text-white w-full md:w-[475px] space-y-6">
@@ -90,8 +77,15 @@
                     {% endif %}
                     {% if slide.img is not empty %}
                         <figure class="h-full w-full relative -z-10">
-                            {% set imagePostion = slide.img.position is defined and slide.img.position ?  slide.img.position : 'center' %}
-                            <img class="object-cover {{ imagePositionClasses[imagePostion] }} w-full h-full" alt="{{ slide.img.alt }}" src="{{ slide.img.src }}">
+
+                            {% set imagePosition = slide.img.position ?? 'center' %}
+                            {% set imagePositionClasses = {
+                                'top': 'object-top',
+                                'bottom': 'object-bottom',
+                                'center': 'object-center'
+                            }[imagePosition] ?? 'object-center' %}
+
+                            <img class="object-cover {{ imagePositionClasses }} w-full h-full" alt="{{ slide.img.alt }}" src="{{ slide.img.src }}">
                             {% if slide.img.caption %}
                                 <figcaption
                                         class="absolute bg-cobblestone/50 z-10 -rotate-90 translate-x-full origin-bottom-left right-0 px-2 py-1 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[240px]">

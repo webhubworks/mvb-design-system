@@ -45,7 +45,7 @@ const initContentSlider = component => {
             });
         }
     }
-    
+
     if (nextButton) {
         nextButton.addEventListener('click', () => {
             swiper.slideNext()
