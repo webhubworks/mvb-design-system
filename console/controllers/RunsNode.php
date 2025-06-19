@@ -26,7 +26,7 @@ trait RunsNode
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $checkNvm = new Process(['bash', '-lc', 'command -v nvm']);
+        $checkNvm = new Process(['bash', '-c', 'source ~/.nvm/nvm.sh && command -v nvm']);
         $checkNvm->setTimeout(180);
         $checkNvm->run(function ($type, $buffer): void {
             $this->stdout($buffer);
@@ -37,7 +37,7 @@ trait RunsNode
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $installNode = new Process(['bash', '-lc', "source ~/.nvm/nvm.sh && nvm install $nodeVersion"]);
+        $installNode = new Process(['bash', '-c', "source ~/.nvm/nvm.sh && nvm install $nodeVersion"]);
         $installNode->setTimeout(180);
         $installNode->run(function ($type, $buffer): void {
             $this->stdout($buffer);
