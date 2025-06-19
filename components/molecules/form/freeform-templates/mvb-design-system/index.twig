@@ -7,7 +7,7 @@
 
     attributes: {
         form: { class: "freeform-form", "data-freeform-tailwind": true },
-        row: { class: "flex flex-wrap md:flex-nowrap md:items-start gap-4 mb-4" },
+        row: { class: "flex flex-wrap md:flex-nowrap md:items-start gap-4 mb-4 lg:mb-6" },
         novalidate: true,
     },
     buttons: {
@@ -24,11 +24,11 @@
         "@global": {
             attributes: {
                 container: { class: "w-full" },
-                label: { class: "block text-base mb-1 text-cobblestone-900 font-semibold" },
+                label: { class: "block text-base mb-1 font-semibold" },
                 input: {
-                    class: "block w-full text-base bg-white px-3 py-2 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-persian-blue-400",
+                    class: "block w-full text-base bg-white px-3 py-2 text-base outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-persian-blue-400",
                 },
-                instructions: { class: "text-base text-cobblestone-1000 mt-1.5 mb-1" },
+                instructions: { class: "text-base mt-1.5 mb-1" },
                 error: {
                     "-class": 'mt-1 text-sm text-red-600,',
                     "+class": "mt-1 text-base text-monza-600"
@@ -61,10 +61,10 @@
         "@checkboxes, @radios": {
             attributes: {
                 input: {
-                    "-class": "block w-full px-3 py-2  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base font-semibold",
+                    "-class": "block w-full px-3 py-2  text-base outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base font-semibold",
                     "+class": "appearance-none size-4 border border-cobblestone-600 checked:border-persian-blue-600 checked:bg-persian-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-400",
                 },
-                optionLabel: { class: "block text-base text-cobblestone-900" },
+                optionLabel: { class: "block text-base" },
             },
         },
         "@radios": {
@@ -84,7 +84,7 @@
         },
         "@opinion-scale": {
             attributes: {
-                optionLabel: { "=class": "relative flex items-center justify-between cursor-pointer bg-cobblestone-100 px-3 py-1.5  text-base text-cobblestone-900 text-base outline-1 -outline-offset-1 outline-cobblestone-600  peer-checked:outline-2 peer-checked:outline-primary-600 hover:bg-cobblestone-100" },
+                optionLabel: { "=class": "relative flex items-center justify-between cursor-pointer bg-cobblestone-100 px-3 py-1.5  text-base text-base outline-1 -outline-offset-1 outline-cobblestone-600  peer-checked:outline-2 peer-checked:outline-primary-600 hover:bg-cobblestone-100" },
                 input: { "-class": "appearance-none block w-full" },
             },
         },
@@ -96,11 +96,11 @@
         "@checkbox": {
             attributes: {
                 label: {
-                    class: "block text-base text-cobblestone-900",
+                    class: "block text-base",
                     '-class': 'font-semibold'
                 },
                 input: {
-                    "-class": "block w-full px-3 py-2  text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base",
+                    "-class": "block w-full px-3 py-2  text-base outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base",
                     "+class": "col-start-1 row-start-1 rounded-sm appearance-none size-4 rounded-full border border-cobblestone-600 bg-white checked:border-persian-blue-600 checked:bg-persian-blue-600 indeterminate:border-persian-blue-600 indeterminate:bg-persian-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-600",
                 },
             },
@@ -129,10 +129,30 @@
                 },
             },
         },
+        '@rich-text': {
+            attributes: {
+                label: {
+                    class: "hidden"
+                },
+                container:{
+                    class: "rich-text"
+                }
+            },
+        },
+        '@html': {
+            attributes: {
+                label: {
+                    class: "hidden"
+                },
+                container:{
+                    class: "rich-text"
+                }
+            },
+        },
         "@file": {
             attributes: {
                 label: {
-                    "=class": "freeform-upload-btn inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-cobblestone-900 font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100",
+                    "=class": "freeform-upload-btn inline-flex items-center justify-center gap-2 px-3 py-2 text-base font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100",
                 },
                 input: {
                     "=class": "freeform-file-upload-input absolute inset-0 w-0 h-0 opacity-0 cursor-pointer",
@@ -153,12 +173,12 @@
         },
         "@signature": {
             attributes: {
-                input: { "=class": "inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-cobblestone-900 font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100" },
+                input: { "=class": "inline-flex items-center justify-center gap-2 px-3 py-2 text-base font-normal bg-white  cursor-pointer ring-1 ring-cobblestone-600 ring-inset hover:bg-cobblestone-100" },
             },
         },
         "@stripe": {
             attributes: {
-                input: { "-class": " bg-white px-3 py-2 text-base text-cobblestone-900 outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base" },
+                input: { "-class": " bg-white px-3 py-2 text-base outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-base" },
             },
         },
     },
@@ -226,7 +246,7 @@
                     clip-rule="evenodd"/>
             </svg>
           {% else %}
-              <span class="{{ form.currentPage.index == page.index ? 'border-primary-600 text-primary-600 font-semibold' : 'border-cobblestone-600 text-cobblestone-1000' }}">{{ page.index + '1' }}</span>
+              <span class="{{ form.currentPage.index == page.index ? 'border-primary-600 text-primary-600 font-semibold' : 'border-cobblestone-600' }}">{{ page.index + '1' }}</span>
           {% endif %}
           </span>
           <span class="ml-4 text-base font-medium {% if form.currentPage.index > page.index %}text-cobblestone-900{% elseif form.currentPage.index == page.index %}text-primary-600 font-semibold{% else %}text-cobblestone-1000{% endif %}">{{ page.label }}</span>
