@@ -87,6 +87,16 @@
       }
     },
     {
+      "name": "Success without icon",
+      "args": {
+        "text": "<p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein echter Fan des.</p>",
+        "variant": "success",
+        "icon": {
+          "name": ""
+        }
+      }
+    },
+    {
       "name": "Warning Hint",
       "args": {
         "text": "<p><strong>Ob Bücherwurm: </strong> oder Buch-Blogger: Zeige, dass du ein echter Fan des.</p>",

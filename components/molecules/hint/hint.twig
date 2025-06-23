@@ -1,4 +1,4 @@
-{% set icon = icon is defined and icon.name is defined ? icon : null %}
+{% set icon = icon is defined and (icon.name is defined and icon.name is not empty ) ? icon : null %}
 {% set button = button is defined and button.href is defined ? button : null %}
 {% set variant = variant|default('primary') %}
 
