@@ -114,3 +114,11 @@ craft mvbdesignsystem/vite/dev
 # use this to start the storybook for the design system
 craft mvbdesignsystem/storybook/dev
 ```
+
+
+### Fix icon classes
+All projects use prefixed Font Awesome icon classes. To make them compatible with the new Icons Atom, we’ve added a command that handles the necessary adjustments:
+
+```shell
+craft mvbdesignsystem/fix-icons
+```

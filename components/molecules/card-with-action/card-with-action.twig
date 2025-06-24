@@ -1,0 +1,55 @@
+{% set button = button is defined and button.href is defined ? button : null %}
+{% set accentColor = accentColor|default(null) %}
+{% set _accentColorClasses = accentColor ? 'border-b-3 border-('~accentColor~')' : '' %}
+
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<div data-component="molecules.card-with-action"
+     class="bg-white group relative flex flex-col {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+    {% if img is defined and (img.src is defined and img.src is not empty) %}
+        <div class="relative overflow-hidden {{ _accentColorClasses }}">
+            <figure class="relative">
+                <img src="{{ img.src }}" width="{{ img.width ?? '' }}" height="{{ img.height ?? '' }}"
+                     alt="{{ img.alt ?? '' }}"
+                     class="w-full">
+                <figcaption
+                        class="absolute bg-cobblestone/50 z-10 -rotate-90 translate-x-full origin-bottom-left right-0 px-2 py-1 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[200px]"
+                        title="{{ img.caption ?? '' }}">
+                    {{ img.caption ?? '' }}
+                </figcaption>
+            </figure>
+        </div>
+    {% endif %}
+    <div class="p-3 space-y-3">
+        {% if title is defined and title is not empty %}
+            <div data-component-part="card-with-action.title">
+                {{ title }}
+            </div>
+        {% endif %}
+
+        {{ render('atoms.paragraph', {
+            contentHtml: '<p>' ~ (content|default('')) ~ '</p>',
+        }) }}
+
+        {% if button is defined and button|length %}
+            <div class="ml-auto sm:self-end">
+                {{ render('atoms.button', {
+                    label: button.label,
+                    href: button.href,
+                    variant: 'primary',
+                    textAlign: 'left',
+                    icon: {
+                        position: 'right',
+                        name: "arrow-right",
+                    },
+                    attributes: {
+                        class: 'whitespace-nowrap',
+                    }
+                }) }}
+            </div>
+        {% endif %}
+    </div>
+    {{ footerHtml|default('')|raw }}
+</div>

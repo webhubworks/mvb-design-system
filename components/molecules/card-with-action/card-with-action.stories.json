@@ -1,0 +1,68 @@
+{
+  "title": "Molecules/Cards/Card With Action",
+  "parameters": {
+    "server": {
+      "id": "molecules.card-with-action"
+    }
+  },
+  "argTypes": {
+    "img": {
+      "control": "object",
+      "type": "object",
+      "description": "Object with keys `src`, `alt`, and `caption` where `src` is required. The `alt` and `caption` attributes are optional."
+    },
+    "accentColor": {
+      "control": "text",
+      "type": "string",
+      "description": "The accent color of the card used as an image border. Must be a valid CSS variable: `--color-monza`"
+    },
+    "attributes": {
+      "control": "object",
+      "type": "object",
+      "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+    }
+  },
+  "stories": [
+    {
+      "name": "Full example",
+      "args": {
+        "title": "Card with Action",
+        "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+        "button": {
+          "label": "Button",
+          "href": "#!",
+          "icon": {
+            "name": "arrow-right"
+          }
+        },
+        "img": {
+          "src": "https://picsum.photos/600/400",
+          "alt": "Some stock image",
+          "width": 600,
+          "height": 400,
+          "caption": "© Lorem Picsum"
+        },
+        "attributes": {
+          "class": "[&_[data-component-part='card-with-action.title']]:text-xl [&_[data-component-part='card-with-action.title']]:font-semibold"
+        }
+      }
+    },
+    {
+      "name": "Without Image",
+      "args": {
+        "title": "Card with Action",
+        "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+        "button": {
+          "label": "Button",
+          "href": "#!",
+          "icon": {
+            "name": "arrow-right"
+          }
+        },
+        "attributes": {
+          "class": "[&_[data-component-part='card-with-action.title']]:text-xl [&_[data-component-part='card-with-action.title']]:font-semibold"
+        }
+      }
+    }
+  ]
+}
