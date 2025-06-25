@@ -25,7 +25,7 @@
                     <p><strong>{{ column.label }}</strong></p>
                     <ul class="space-y-2 mt-2">
                         {% for item in column.children %}
-                            <li><a href="{{ item.href }}" class="hover:underline">{{ item.label }}</a></li>
+                            <li><a href="{{ item.href }}" class="hover:underline" target="{{ item.target ?? '_self' }}">{{ item.label }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -47,6 +47,7 @@
                     {% for item in socialItems %}
                         <li>
                             <a href="{{ item.href }}"
+                               target="{{ item.target ?? '_self' }}"
                                class="hover:underline hover:opacity-75 relative flex items-center p-1" target="_blank">
                                 {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white'}}) }}
                                 <span class="sr-only">{{ item.label }}</span>
@@ -79,7 +80,7 @@
                 <ul class="sm:flex sm:flex-wrap gap-4">
                     {% for item in productItems %}
                         <li class="sm:inline-block">
-                            <a href="{{ item.href }}" class="hover:underline">{{ item.label }}</a></li>
+                            <a href="{{ item.href }}" class="hover:underline" target="{{ item.target ?? '_self' }}">{{ item.label }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -92,7 +93,7 @@
             <nav aria-label="Meta menu">
                 <ul class="md:flex md:justify-end space-x-4">
                     {% for item in metaItems %}
-                        <li><a href="{{ item.href }}" target="{{ item.target ?? 'self' }}"
+                        <li><a href="{{ item.href }}" target="{{ item.target ?? '_self' }}"
                                class="hover:underline">{{ item.label }}</a></li>
                     {% endfor %}
                 </ul>

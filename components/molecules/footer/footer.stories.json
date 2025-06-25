@@ -150,7 +150,8 @@
       },
       {
         "label": "Pubeasy",
-        "href": "https://mvb-online.de/marken-und-produkte/pubeasy"
+        "href": "https://mvb-online.de/marken-und-produkte/pubeasy",
+        "target": "_blank"
       },
       {
         "label": "Pubnet",
