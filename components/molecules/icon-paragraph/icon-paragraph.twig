@@ -1,9 +1,9 @@
 {% set icon = icon is defined and icon.name is defined ? icon : null %}
 
-<div data-component="molecules.icon-paragraph" class="flex justify-center flex-col sm:flex-row sm:justify-start items-center gap-4 sm:gap-8">
+<div data-component="molecules.icon-paragraph" class="flex justify-center flex-col sm:flex-row sm:justify-start items-center gap-4 sm:gap-6">
 
     {% if icon %}
-        <div class="block md:w-8 lg:w-12 flex-shrink-0">
+        <div class="block md:w-8 lg:w-12 flex-shrink-0 text-center">
             {{ render('atoms.icon', {name: icon.name, attributes: {class: 'text-2xl md:text-3xl'}}) }}
         </div>
     {% endif %}
