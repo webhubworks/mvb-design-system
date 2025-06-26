@@ -10,13 +10,12 @@
 }
 
 .freeform-form {
-    font-family: sans-serif;
     box-sizing: border-box;
 }
 
 .freeform-form .freeform-required::after {
     content: "*";
-    color: var(--color-red-600);
+    color: var(--color-monza-500);
     margin-left: 3px;
 }
 
