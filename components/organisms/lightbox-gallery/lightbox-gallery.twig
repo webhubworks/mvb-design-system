@@ -2,7 +2,7 @@
     <div class="gallery grid gird-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
         {% for image in images %}
             <button
-                    class="gallery-item focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-left"
+                    class="gallery-item focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-left group cursor-pointer"
                     data-index="{{ image.index }}"
                     data-image="{{ image.largeUrl }}"
                     data-alt="{{ image.alt ?? 'Bild ohne Beschreibung' }}"
@@ -11,7 +11,7 @@
                     type="button"
             >
                 <img
-                        class="w-full h-auto text-left "
+                        class="w-full h-auto text-left block group-hover:cursor-pointer"
                         src="{{ image.thumbnailUrl }}"
                         alt="{{ image.alt ?? 'Bild ohne Beschreibung' }}"
                 >
