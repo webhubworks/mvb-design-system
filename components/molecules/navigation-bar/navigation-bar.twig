@@ -52,7 +52,7 @@
                             'data-toggles-submenu': hasChildren ? 'true' : 'false',
                             'class': [
                                 'max-w-[230px] [&>span]:truncate',
-                                isActive or hasActiveChild ? 'font-semibold' : '',
+                                isActive or hasActiveChild ? 'font-bold' : '',
                             ]|join(' ')
                         } %}
 
@@ -89,7 +89,7 @@
                                             attributes: {
                                                 class: [
                                                     'whitespace-nowrap lg:w-full lg:max-w-[280px] [&_span]:truncate',
-                                                    isActive ? 'font-semibold' : ''
+                                                    isActive ? 'font-bold' : ''
                                                 ]|join(' '),
                                             }
                                         }) }}
