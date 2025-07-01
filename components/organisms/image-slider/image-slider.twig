@@ -1,0 +1,115 @@
+{% set gridClasses = content is defined and content is not empty ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1' %}
+
+<div class="grid {{ gridClasses }} pb-6 sm:pb-8 ">
+    <div>
+        <div class="relative overflow-visible " data-component="organisms.image-slider">
+
+            {% set slides = slides|default([]) %}
+
+            {% if slides is empty %}
+                <p class="text-center text-gray-500">No slides available.</p>
+            {% endif %}
+
+            {% if slides|length > 1 %}
+                <div class="absolute right-0 top-auto  translate-y-1/2 bottom-0 right-6 sm:right-8 z-10 md:flex md:justify-end">
+                    <div class="text-white bg-primary flex flex-row items-center justify-center md:p-2 ">
+                        {{ render('atoms.button', {
+                            variant: 'primary',
+                            noSpace: true,
+                            icon: {
+                                name: 'pause-circle',
+                            },
+                            attributes: {
+                                'aria-label': 'Pause slideshow',
+                                'data-component-part': 'image-slider.play',
+                                class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
+                            }
+                        }) }}
+                        {{ render('atoms.button', {
+                            variant: 'primary',
+                            noSpace: true,
+                            icon: {
+                                name: 'arrow-left',
+                            },
+                            attributes: {
+                                'aria-label': 'Previous slide',
+                                'data-component-part': 'image-slider.prev',
+                                class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
+                            }
+                        }) }}
+                        {{ render('atoms.button', {
+                            variant: 'primary',
+                            noSpace: true,
+                            icon: {
+                                name: 'arrow-right',
+                            },
+                            attributes: {
+                                'aria-label': 'Next slide',
+                                'data-component-part': 'image-slider.next',
+                                class: 'text-lg md:text-xl w-12 h-12 focus-visible:z-20'
+                            }
+                        }) }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="swiper isolate" data-component-part="image-slider.slider">
+                <div class="swiper-wrapper">
+                    {% for slide in slides %}
+                        <div class="swiper-slide">
+                            <div class="relative">
+                                {% if slide.img is not empty %}
+                                    <figure class="h-full w-full relative -z-10">
+                                        <img class="object-cover w-full h-full" alt="{{ slide.img.alt }}"
+                                             src="{{ slide.img.src }}">
+                                        {% if slide.img.caption %}
+                                            <figcaption
+                                                    class="absolute bg-cobblestone/50 z-10 -rotate-90 translate-x-full origin-bottom-left right-0 px-2 py-1 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[240px]">
+                                                {{ slide.img.caption }}
+                                            </figcaption>
+                                        {% endif %}
+                                    </figure>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% if content is defined and content is not empty %}
+        <div class="bg-white pt-6 pb-8 px-6 md:p-8 space-y-6">
+            {% if content.heading is defined and content.heading %}
+                {{ render('atoms.heading', {
+                    text: content.heading,
+                    level: content.headingLevel|default('h4'),
+                }) }}
+            {% endif %}
+
+            {{ render('atoms.paragraph', {
+                contentHtml:content.text|default('')
+            }) }}
+
+            {% if content.button is defined and content.button|length %}
+                <div class="mt-6">
+                    {{ render('atoms.link', {
+                        label: content.button.label,
+                        href: content.button.href,
+                        variant: 'primary',
+                        textAlign: 'left',
+                        icon: {
+                            position: 'right',
+                            name: "arrow-right",
+                        },
+                        attributes: {
+                            class: 'whitespace-nowrap',
+                        }
+                    }) }}
+                </div>
+            {% endif %}
+        </div>
+
+    {% endif %}
+
+</div>

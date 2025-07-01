@@ -1,0 +1,74 @@
+{
+  "title": "Organisms/Image Slider",
+  "parameters": {
+    "server": {
+      "id": "organisms.image-slider"
+    }
+  },
+  "stories": [
+    {
+      "name": "Image Slider",
+      "args": {
+        "slides": [
+          {
+            "img": {
+              "src": "https://picsum.photos/540/480",
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
+            }
+          },
+          {
+            "img": {
+              "src": "https://picsum.photos/540/480",
+              "alt": "Placeholder Image 2",
+              "caption": "© Placeholder Image 2 Caption"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Image Slider with Text-Block",
+      "args": {
+        "slides": [
+          {
+            "img": {
+              "src": "https://picsum.photos/540/380",
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
+            }
+          },
+          {
+            "img": {
+              "src": "https://picsum.photos/540/380",
+              "alt": "Placeholder Image 1",
+              "caption": "© Placeholder Image 1 Caption"
+            }
+          },
+          {
+            "img": {
+              "src": "https://picsum.photos/540/380",
+              "alt": "Placeholder Image 2",
+              "caption": "© Placeholder Image 2 Caption"
+            }
+          }
+        ],
+        "content": {
+          "heading": "Die Bücherscheck-Geschenkhülle",
+          "headingLevel": "h3",
+          "text": "<p>So wird Ihr Bücherscheck im Buchhandel zum anspruchsvollen, zugleich aber auch sehr individuellen Geschenk. Fragen Sie in Ihrer Buchhandlung nach dieser schönen Verpackungsart.</p>",
+          "button": {
+            "label": "Zu den Geschenkhüllen",
+            "href": "#!",
+            "icon": {
+              "name": "arrow-right"
+            }
+          },
+          "attributes": {
+            "class": "text-white"
+          }
+        }
+      }
+    }
+  ]
+}
