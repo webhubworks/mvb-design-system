@@ -55,7 +55,9 @@
                         <div class="md:container absolute bottom-0 left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2">
                             <div class="{{ opaqueBackground ? 'bg-primary' : 'bg-primary/90'}} p-4 md:p-6 lg:p-8 text-white w-full md:w-[475px] space-y-4 lg:space-y-6">
                                 {% if slide.headingText is defined and slide.headingText %}
-                                    {{ render('atoms.heading', {text: slide.headingText, level: 'h2'}) }}
+                                    <div>
+                                        {{ render('atoms.heading', {text: slide.headingText, level: 'span', visualLevel: 'h2'}) }}
+                                    </div>
                                 {% endif %}
                                 {% if slide.text is defined and slide.text is not empty %}
                                     <p class="text-base lg:text-lg">{{ slide.text }}</p>

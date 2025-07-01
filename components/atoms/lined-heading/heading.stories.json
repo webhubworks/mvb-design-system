@@ -49,6 +49,21 @@
       }
     },
     {
+      "name": "H2 with long text",
+      "args": {
+        "level": "h2",
+        "text": "Additional arbitrary HTML attributes to be added to the root element of the component"
+      }
+    },
+    {
+      "name": "Span-H2 with long text",
+      "args": {
+        "level": "span",
+        "visualLevel": "h2",
+        "text": "Additional arbitrary HTML attributes to be added to the root element of the component"
+      }
+    },
+    {
       "name": "H3",
       "args": {
         "level": "h3"
