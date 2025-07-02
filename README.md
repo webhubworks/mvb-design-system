@@ -62,6 +62,16 @@ CRAFT_ENVIRONMENT
 PRIMARY_SITE_URL
 ```
 
+### Change node version in ddev config.yaml
+```yaml
+nodejs_version: 22
+```
+
+### Untrack dist files in .gitignore
+```dotenv
+/web/dist/**/*
+```
+
 ## Usage
 ### Include the design system in your templates
 ```twig
@@ -113,11 +123,15 @@ craft mvbdesignsystem/vite/dev
 
 # use this to start the storybook for the design system
 craft mvbdesignsystem/storybook/dev
+
+# combined for fast update and build/dev
+ddev composer update webhubworks/mvb-design-system && ddev craft mvbdesignsystem/vite/build
+ddev composer update webhubworks/mvb-design-system && ddev craft mvbdesignsystem/vite/dev
 ```
 
 
 ### Fix icon classes
-All projects use prefixed Font Awesome icon classes. To make them compatible with the new Icons Atom, we’ve added a command that handles the necessary adjustments:
+All projects use prefixed Font Awesome icon classes. To make them compatible with the new Icons Atom, we’ve added a command that handles the necessary adjustments. After using the command, all "icon fields" needs to be converted to native icon fields via the CP:
 
 ```shell
 craft mvbdesignsystem/fix-icons
