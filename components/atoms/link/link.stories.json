@@ -1,0 +1,44 @@
+{
+  "title": "Atoms/Link",
+  "parameters": {
+    "server": {
+      "id": "atoms.link"
+    }
+  },
+  "args": {
+    "label": "Link",
+    "variant": "primary"
+  },
+  "stories": [
+    {
+      "name": "Primary with Icon",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('atoms.link', {label: 'Button', href: '#', icon: {name: 'arrow-right', position: 'right'}) }}"
+          },
+          "description": {
+            "story": "This is the default primary button."
+          }
+        }
+      },
+      "args": {
+        "variant": "primary",
+        "href": "#!",
+        "label": "Link with Icon",
+        "icon": {
+          "position": "right",
+          "name": "arrow-right"
+        }
+      }
+    },
+    {
+      "name": "White (Link)",
+      "Label": "White Link",
+      "args": {
+        "variant": "white",
+        "href": "#!"
+      }
+    }
+  ]
+}
