@@ -11,7 +11,13 @@
 ]|join(' ') %}
 <div data-component="molecules.logo-cloud">
     {% if heading is defined and heading|length %}
-        {{ render('atoms.lined-heading', {text: heading, level: 'h3', attributes: {class: 'mb-6'}}) }}
+        {{ render('atoms.lined-heading', {
+            text: heading,
+            level: headingLevel|default('h2'),
+            visualLevel: headingVisualLevel|default('h2'),
+            attributes: {
+                class: 'mb-6'
+            }}) }}
     {% endif %}
     <div class="{{ baseClasses }}">
         {% for item in items %}
