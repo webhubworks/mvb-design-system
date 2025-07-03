@@ -17,7 +17,12 @@
 <div data-component="molecules.hint">
 
     {% if heading is defined and heading|length %}
-        {{ render('atoms.lined-heading', { text: heading, level: headingLevel|default('h3'), attributes: {class: 'mb-6'}}) }}
+        {{ render('atoms.lined-heading', {
+            text: heading,
+            level: headingLevel|default('h2'),
+            visualLevel: headingVisualLevel|default('h2'),
+            attributes: {class: 'mb-6'}
+        }) }}
     {% endif %}
 
     <div class="p-6 {{ variantClasses }} {{ additionalClasses }}"
@@ -28,16 +33,17 @@
                 {{ render('atoms.icon', icon ) }}
             {% endif %}
 
-            <div class="rich-text">
+            <div class="space-y-2">
                 {% if title is defined and title %}
                     {{ render('atoms.heading', {
                         text: title,
-                        level: titleLevel|default('h4'),
+                        level: titleLevel|default('h3'),
+                        visualLevel: titleVisualLevel|default('h3')
                     }) }}
                 {% endif %}
-
-                {{ text|raw }}
-
+                <div class="rich-text">
+                    {{ text|raw }}
+                </div>
             </div>
             {% if button is defined and button|length %}
                 <div class="ml-auto sm:self-end">

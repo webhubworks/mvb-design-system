@@ -10,9 +10,11 @@
       "name": "Hint",
       "args": {
         "heading": "Heading",
-        "headingLevel": "h3",
+        "headingLevel": "h2",
+        "headingVisualLevel": "h2",
         "title": "Der Bücherscheck auf Instagram",
-        "titleLevel": "h4",
+        "titleLevel": "h1",
+        "titleVisualLevel": "h3",
         "text": "<p>Ob Bücherwurm oder Buch-Blogger: Zeige, dass du ein echter Fan des deutschlandweiten Buchgutschein bist!</p>",
         "button": {
           "label": "Button",
