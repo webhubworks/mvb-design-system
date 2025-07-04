@@ -10,14 +10,15 @@
       {
         "index": 1,
           "largeUrl": "https://picsum.photos/1000/800",
-          "thumbnailUrl": "https://picsum.photos/300/200",
+          "thumbnailUrl": "https://picsum.photos/100/300",
           "alt": "Alt",
-          "copyright": "Lorem Picsum"
+          "copyright": "Lorem Picsum",
+          "caption": "Caption 1"
       },
       {
         "index": 2,
         "largeUrl": "https://picsum.photos/900/400",
-        "thumbnailUrl": "https://picsum.photos/300/200",
+        "thumbnailUrl": "https://picsum.photos/300/100",
         "alt": "Alt",
         "caption": "Caption 2"
       },

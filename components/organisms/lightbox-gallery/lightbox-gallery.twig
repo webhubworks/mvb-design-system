@@ -1,5 +1,5 @@
 <div data-component="organisms.lightbox-gallery" class="space-y-4">
-    <div class="gallery grid gird-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
+    <div class="gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
         {% for image in images %}
             <button
                     class="gallery-item focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-left group cursor-pointer"
@@ -10,14 +10,19 @@
                     data-copyright="{{ image.copyright ?? '' }}"
                     type="button"
             >
-                <img
-                        class="w-full h-auto text-left block group-hover:cursor-pointer"
-                        src="{{ image.thumbnailUrl }}"
-                        alt="{{ image.alt ?? 'Bild ohne Beschreibung' }}"
-                >
-                {% if image.caption is defined and image.caption %}
-                    <span class="text-base mt-1 block">{{ image.caption }}</span>
-                {% endif %}
+                <figure class="grid h-full w-full grid-rows-[minmax(0,1fr)_auto] place-items-center">
+                    <span class="block aspect-[3/2] w-full row-start-1 row-end-2">
+                         <img
+                                 class="h-full w-full object-contain object-center group-hover:cursor-pointer"
+                                 src="{{ image.thumbnailUrl }}"
+                                 alt="{{ image.alt ?? 'Bild ohne Beschreibung' }}"
+                         >
+                    </span>
+
+                    {% if image.caption is defined and image.caption %}
+                        <figcaption class="text-base text-center row-start-2 row-end-3 text-base mt-1 block">{{ image.caption }}</figcaption>
+                    {% endif %}
+                </figure>
             </button>
         {% endfor %}
     </div>
