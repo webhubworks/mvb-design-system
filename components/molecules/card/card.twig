@@ -9,7 +9,7 @@
 {% set _additionalClasses = attributeCollection.get('class') %}
 {% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
 
-<div data-component="molecules.card" class="bg-white hover:bg-white/65 hover:cursor-pointer group relative flex flex-col {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+<div data-component="molecules.card" class="bg-white {{ href is defined and href is not empty ? 'hover:bg-white/65 hover:cursor-pointer' }} group relative flex flex-col {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
     <div class="relative overflow-hidden {{ _accentColorClasses }}">
         {% if badge.text %}
             <div class="flex items-center space-x-2 absolute right-0 top-4 max-w-2/3 text-white bg-primary px-2 py-1.5 z-10">
@@ -31,7 +31,12 @@
         {% if logoImgSrc %}
             <img src="{{ logoImgSrc }}" alt="Logo" class="mb-3 mt-2 h-5">
         {% endif %}
-        <a href="{{ href }}" class="before:content-[''] before:absolute before:inset-0 break-word group-hover:cursor-pointer">{{ content }}</a>
+        {% if href is defined and href is not empty %}
+            <a href="{{ href }}" class="before:content-[''] before:absolute before:inset-0 break-word group-hover:cursor-pointer">{{ content }}</a>
+            {% else %}
+                {{ content }}
+        {% endif %}
+
     </div>
     {{ footerHtml|default('')|raw }}
 </div>

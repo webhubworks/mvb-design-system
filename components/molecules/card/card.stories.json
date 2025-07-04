@@ -50,6 +50,16 @@
       }
     },
     {
+      "name": "Basic without link",
+      "args": {
+        "content": "Some content",
+        "attributes": {
+          "class": "text-xl font-bold"
+        },
+        "footerHtml": "<p class='px-3 pb-3 text-lg font-normal'>Some footer content</p>"
+      }
+    },
+    {
       "name": "Full example",
       "args": {
         "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
