@@ -1,13 +1,13 @@
 {% set size = size|default('large') %}
 
 {% set columnSizeClasses = {
-    'large': 'auto-rows-[minmax(70px,90px)] lg:auto-rows-[minmax(100px,120px)]',
-    'medium': 'auto-rows-[minmax(50px,70px)] lg:auto-rows-[minmax(60px,80px)]',
+    'large': 'auto-rows-[minmax(70px,_90px)] lg:auto-rows-[minmax(100px,_120px)]',
+    'medium': 'auto-rows-[minmax(50px,_70px)] lg:auto-rows-[minmax(60px,_80px)]',
 }[size] %}
 
 {% set baseClasses = [
     'w-full grid gap-4 sm:grid-cols-2 lg:grid-cols-4',
-    columnSizeClasses ?? 'auto-rows-[minmax(80px,120px)] lg:auto-rows-[minmax(100px,120px)]'
+    columnSizeClasses ?? 'auto-rows-[minmax(80px,_120px)] lg:auto-rows-[minmax(100px,_120px)]'
 ]|join(' ') %}
 <div data-component="molecules.logo-cloud">
     {% if heading is defined and heading|length %}
@@ -30,7 +30,7 @@
                 href: item.href is defined ? item.href : null,
                 attributes: {
                     class: 'bg-white',
-                    additionalImgClasses: 'max-h-full w-auto',
+                    additionalImgClasses: 'object-contain max-h-full max-w-full w-full h-full',
                 }
             }) }}
         {% endfor %}

@@ -9,7 +9,7 @@
 {% set _additionalAttributes = attributeCollection.forget(['class', 'additionalImgClasses']).toArray() %}
 
 {% set baseClasses = [
-    'inline-flex space-x-2 items-center justify-center',
+    'flex items-center justify-center h-full w-full',
     noSpace ? '' : 'p-4',
     monochrome ? 'grayscale' : '',
     whiteInverted ? 'invert brightness-0' : '',
@@ -17,7 +17,7 @@
 
 {% if isLink %}
     <figure class="{{ baseClasses }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
-        <a href="{{ href }}">
+        <a href="{{ href }}" class="block w-full h-full" target="_blank">
             <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="{{ _additionalImgClasses }}"/>
         </a>
     </figure>
