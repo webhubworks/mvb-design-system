@@ -1,5 +1,6 @@
 {% set isLink = href is defined and href != null %}
 {% set noSpace = noSpace|default(false) %}
+{% set target = target|default('_blank') %}
 {% set monochrome = monochrome is defined and monochrome %}
 {% set whiteInverted = whiteInverted is defined and whiteInverted %}
 
@@ -17,7 +18,7 @@
 
 {% if isLink %}
     <figure class="{{ baseClasses }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
-        <a href="{{ href }}" class="block w-full h-full" target="_blank">
+        <a href="{{ href }}" class="block w-full h-full" target="{{ target }}">
             <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="{{ _additionalImgClasses }}"/>
         </a>
     </figure>

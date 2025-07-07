@@ -1,17 +1,21 @@
-<div class="space-y-4">
-{% for item in items  %}
-    <details data-component="molecules.accordion" name="{{ itemGroupLabel ?? item.summary }}" class="group">
-        <summary class="flex appearance-none bg-white cursor-pointer items-center justify-between">
-            <span class="text-xl font-bold group-hover:text-primary px-4 py-2"> {{ item.summary }}</span>
-            <span class="text-cobblestone-800 group-open:text-primary text-xl px-4 py-1 group-hover:text-primary group-focus-within:text-primary group-focus-within:text-primary">
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<div class="space-y-4 {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+    {% for item in items %}
+        <details data-component="molecules.accordion" name="{{ itemGroupLabel ?? item.summary }}" class="group">
+            <summary class="flex appearance-none bg-white cursor-pointer items-center justify-between">
+                <span class="text-xl font-bold group-hover:text-primary px-4 py-2"> {{ item.summary }}</span>
+                <span class="text-cobblestone-800 group-open:text-primary text-xl px-4 py-1 group-hover:text-primary group-focus-within:text-primary group-focus-within:text-primary">
                 {{ render('atoms.icon', {name: 'chevron-circle-down', attributes: {class: 'transform group-open:rotate-180 transition-transform duration-300'}}) }}
             </span>
-        </summary>
-        <div class="p-3">
-            {{ render('atoms.paragraph', {
-                contentHtml: item.detailsHtml|default('')
-            }) }}
-        </div>
-    </details>
-{% endfor %}
+            </summary>
+            <div class="p-3">
+                {{ render('atoms.paragraph', {
+                    contentHtml: item.detailsHtml|default('')
+                }) }}
+            </div>
+        </details>
+    {% endfor %}
 </div>
