@@ -27,7 +27,7 @@
           {
             "name": "John Doe",
             "age": 30,
-            "email": "email@domain.de"
+            "email": "<a href='email@domain.de'>email@domain.de</a>"
           },
           {
             "name": "Jane Smith",
