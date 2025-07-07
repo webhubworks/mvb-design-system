@@ -62,7 +62,7 @@ div[data-field-type="rich-text"],
             @apply bg-cobblestone-100 text-left;
 
             th {
-                @apply p-2 text-lg font-semibold text-cobblestone-800 ;
+                @apply p-2 text-lg font-bold text-cobblestone-800 ;
             }
         }
 
@@ -72,6 +72,10 @@ div[data-field-type="rich-text"],
 
                 td {
                     @apply p-2 text-base text-cobblestone-800 ;
+                }
+
+                th {
+                    @apply p-2 text-lg font-bold text-cobblestone-800 bg-cobblestone-100 text-left;
                 }
             }
         }
