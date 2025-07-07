@@ -1,3 +1,7 @@
-<div data-component="atoms.paragraph" class="rich-text">
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<div data-component="atoms.paragraph" class="rich-text {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
     {{ contentHtml|raw }}
 </div>
