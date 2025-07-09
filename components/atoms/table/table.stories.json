@@ -9,6 +9,7 @@
     {
       "name": "Table",
       "args": {
+        "useReplaceRules": true,
         "columns": [
           {
             "label": "Name",
@@ -25,8 +26,9 @@
         ],
         "rows": [
           {
-            "name": "John Doe",
+            "name": "John horst",
             "age": 30,
+
             "email": "<a href='email@domain.de'>email@domain.de</a>"
           },
           {

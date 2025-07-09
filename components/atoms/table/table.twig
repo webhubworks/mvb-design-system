@@ -1,3 +1,13 @@
+
+{% set useReplaceRules = useReplaceRules|default(false) %}
+
+{% set replaceRules ={
+    '/\\*\\*([^*]+)\\*\\*/': '<strong>\\1</strong>',
+    '/__([^_]+)__/': '<i>\\1</i>',
+    '/==/': '<br>',
+    '/(http:\\/\\/[^\\s\\n]+)/': '<a href="\\1">\\1</a>'
+} %}
+
 <div data-component="atoms.table">
     <div class="rich-text overflow-x-auto">
         <table class="overflow-scroll w-full">
@@ -12,7 +22,7 @@
             {% for row in rows %}
                 <tr>
                     {% for cell in row %}
-                        <td>{{ cell|raw }} </td>
+                        <td>{{ cell|replace(useReplaceRules ? replaceRules : null)|raw }} </td>
                     {% endfor %}
                 </tr>
             {% endfor %}
