@@ -1,0 +1,156 @@
+<nav class="bg-cobblestone-800 max-w-[320px] pr-1" data-component="molecules.support-navigation" role="navigation"
+     aria-label="Support menu">
+
+    {% macro renderMenu(items, depth) %}
+        <ul class="pl-2 py-2 level-{{ depth }} {{ depth == 1 ? 'group' : '' }}"
+            data-component-part="support-navigation.menu"
+            data-depth="{{ depth }}"
+        >
+            {% for item in items %}
+
+                {% set hasChildren = item.children is defined and item.children|length %}
+                {% set isActive = item.isActive is defined and item.isActive %}
+                {% set hasActiveChild = item.children is defined and collect(item.children).some(child => child.isActive is defined and child.isActive) %}
+
+                {% set attributes = {
+                    'aria-haspopup': hasChildren ? 'true' : 'false',
+                    'data-toggles-submenu': hasChildren ? 'true' : 'false',
+                    'class': [
+                        'max-w-[230px] [&>span]:sr-only text-white hover:text-white hover:bg-primary flex items-center justify-center px-2 py-1 ',
+                        isActive or hasActiveChild ? 'font-bold active' : '',
+                    ]|join(' ')
+                } %}
+
+                <li class="text-white" data-component-part="support-navigation.menu-item"
+                    >
+                    <div class="flex justify-between items-stretch flex-grow">
+
+                        {{ render('atoms.button', {
+                            label: item.label,
+                            href: item.href,
+                            variant: 'ghost',
+                            textAlign: 'left',
+                            noSpace: true,
+                            attributes: {
+                                "data-depth": depth,
+                                class: [
+                                    "[&[data-depth='1']]:text-base [&[data-depth='2']]:text-sm [&[data-depth='3']]:text-sm [&[data-depth='4']]:text-sm [&[data-depth='4']]:italic px-2 py-1 whitespace-nowrap lg:w-full [&_span]:truncate text-white hover:text-white hover:bg-primary flex-1",
+                                    isActive ? 'font-bold active' : ''
+                                ]|join(' '),
+                            }
+                        }) }}
+
+                        {% if hasChildren %}
+                            {% set attributes = attributes|merge({
+                                'aria-expanded': 'false',
+                            }) %}
+
+                            {{ render('atoms.button', {
+                                label: item.label,
+                                href: null,
+                                variant: 'ghost',
+                                noSpace: true,
+                                icon: hasChildren ? {
+                                    name: 'angle-down',
+                                    position: 'right'
+                                } : null,
+                                attributes: attributes
+                            }) }}
+
+                        {% endif %}
+                    </div>
+
+
+                    {# Lade Kinder dieses Eintrags #}
+                    {% set children = item.children ?? null %}
+                    {% if children|length %}
+                        {{ _self.renderMenu(children, depth + 1) }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endmacro %}
+
+    {{ _self.renderMenu(items, 1) }}
+
+
+
+
+
+
+    {# {% for item in items %}
+
+
+
+                {% set hasChildren = item.children is defined and item.children|length %}
+
+                <li class="relative" data-component-part="support-navigation.menu-item">
+
+                    {% set isActive = item.isActive is defined and item.isActive %}
+                    {% set hasActiveChild = item.children is defined and collect(item.children).some(child => child.isActive is defined and child.isActive) %}
+
+
+                    <div class="flex justify-between items-stretch flex-grow">
+                        {{ render('atoms.button', {
+                            label: item.label,
+                            href: item.href,
+                            variant: 'ghost',
+                            textAlign: 'left',
+                            attributes: {
+                                class: [
+                                    'whitespace-nowrap lg:w-full [&_span]:truncate text-white hover:text-white hover:bg-primary flex-1 ',
+                                    isActive ? 'font-bold' : ''
+                                ]|join(' '),
+                            }
+                        }) }}
+
+                        {% if hasChildren %}
+                            {% set attributes = attributes|merge({
+                                'aria-expanded': 'false',
+                            }) %}
+
+                            {{ render('atoms.button', {
+                                label: item.label,
+                                href: null,
+                                variant: 'ghost',
+                                icon: hasChildren ? {
+                                    name: 'angle-down',
+                                    position: 'right'
+                                } : null,
+                                attributes: attributes
+                            }) }}
+
+                        {% endif %}
+
+
+                    </div>
+
+
+                    {% if item.children is defined and item.children|length %}
+                        <ul class="hidden data-[state=open]:block bg-white z-10"
+                            data-component-part="support-navigation.sub-menu">
+                            {% for child in item.children %}
+                                <li class="pl-2 lg:pl-0">
+
+                                    {% set isActive = child.isActive is defined and child.isActive %}
+
+                                    {{ render('atoms.button', {
+                                        label: child.label,
+                                        href: child.href,
+                                        variant: 'ghost',
+                                        textAlign: 'left',
+                                        attributes: {
+                                            class: [
+                                                'whitespace-nowrap lg:w-full lg:max-w-[280px] [&_span]:truncate',
+                                                isActive ? 'font-bold' : ''
+                                            ]|join(' '),
+                                        }
+                                    }) }}
+
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %} #}
+</nav>
