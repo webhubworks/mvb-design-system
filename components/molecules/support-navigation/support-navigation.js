@@ -64,8 +64,13 @@ const initSupportNavigation = (component) => {
             toggleSubmenu(item, toggleButton, subMenu)
         })
 
-        window.addEventListener('click', (e) => {
-            if (!item.contains(e.target) && subMenu.dataset.state === 'open') {
+        document.addEventListener('click', (e) => {
+            const isToggle = toggleButton.contains(e.target)
+            const isInMenu = item.contains(e.target)
+            const hasActiveItem = subMenu.querySelector('.active')
+
+            // Nur schließen, wenn nicht aktiv
+            if (!isToggle && !isInMenu && subMenu.dataset.state === 'open' && !hasActiveItem) {
                 closeSubmenu(item, toggleButton, subMenu)
             }
         })
