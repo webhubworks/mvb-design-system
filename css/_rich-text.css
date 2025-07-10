@@ -97,7 +97,7 @@ div[data-field-type="rich-text"],
                 @apply bg-white;
 
                 td {
-                    @apply p-2 text-base text-cobblestone-800 ;
+                    @apply p-2 text-base text-cobblestone-800 break-all;
                 }
 
                 th {
