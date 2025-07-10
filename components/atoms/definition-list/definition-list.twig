@@ -6,7 +6,7 @@
     data-component="atoms.definition-list">
     {% for item in items %}
         <dt class="text-lg bg-cobblestone-100 font-bold p-2">{{ item.title }}</dt>
-        <dd class="p-2 bg-white sm:col-span-2">
+        <dd class="p-2 bg-white sm:col-span-2 overflow-x-auto">
             {{ render('atoms.paragraph', {
                 contentHtml: item.contentHtml|default('')
             }) }}
