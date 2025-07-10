@@ -79,7 +79,7 @@
                         }) }}
 
                         {% if item.children is defined and item.children|length %}
-                            <ul class="lg:absolute hidden data-[state=open]:block bg-white z-10"
+                            <ul class="lg:absolute hidden data-[state=open]:block bg-white z-[900]"
                                 data-component-part="main-navigation.sub-menu">
                                 {% for child in item.children %}
                                     <li class="pl-2 lg:pl-0">
