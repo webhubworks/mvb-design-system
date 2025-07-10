@@ -78,7 +78,10 @@ div[data-field-type="rich-text"],
     }
 
     code {
-        @apply block font-mono bg-white text-base text-cobblestone-800 p-4 ;
+        @apply block font-mono bg-white text-cobblestone-800 p-4;
+        * {
+            @apply text-sm;
+        }
     }
 
     table {
