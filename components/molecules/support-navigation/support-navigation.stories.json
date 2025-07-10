@@ -39,6 +39,56 @@
               ]
             }
           ]
+        },
+        {
+          "label": "Submenu 1 - 2",
+          "href": "/home/submenu2",
+          "children": [
+            {
+              "label": "Submenu 1 - 2.1",
+              "href": "/home/submenu2/submenu2-1"
+            },
+            {
+              "label": "Submenu 1 - 2.2 Long Long Long Long Long",
+              "href": "/home/submenu2/submenu2-2",
+              "children": [
+                {
+                  "label": " Submenu 1 - 2.1 ",
+                  "isActive": true,
+                  "href": "/home/submenu2/submenu2-1"
+                },
+                {
+                  "label": "Submenu 1 - 2.2",
+                  "href": "/home/submenu2/submenu2-2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Submenu 1 - 2",
+          "href": "/home/submenu2",
+          "children": [
+            {
+              "label": "Submenu 1 - 2.1",
+              "href": "/home/submenu2/submenu2-1"
+            },
+            {
+              "label": "Submenu 1 - 2.2 Long Long Long Long Long",
+              "href": "/home/submenu2/submenu2-2",
+              "children": [
+                {
+                  "label": " Submenu 1 - 2.1 ",
+                  "isActive": true,
+                  "href": "/home/submenu2/submenu2-1"
+                },
+                {
+                  "label": "Submenu 1 - 2.2",
+                  "href": "/home/submenu2/submenu2-2"
+                }
+              ]
+            }
+          ]
         }
       ]
     }, {
