@@ -44,6 +44,17 @@ div[data-field-type="rich-text"],
 
         li {
             @apply text-base text-cobblestone-800;
+            > ul{
+                @apply my-2;
+                li{
+                    @apply list-[circle];
+                    > ul {
+                        li{
+                            @apply list-[square];
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -52,6 +63,17 @@ div[data-field-type="rich-text"],
 
         li {
             @apply text-base text-cobblestone-800;
+            > ol{
+                @apply my-2;
+                li {
+                    @apply list-[upper-alpha];
+                    > ol {
+                        li{
+                            @apply list-[lower-alpha];
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -60,7 +82,7 @@ div[data-field-type="rich-text"],
     }
 
     table {
-        @apply w-full border-separate text-base;
+        @apply w-full border-separate border-spacing-0.5 text-base;
 
         thead {
             @apply bg-cobblestone-100 text-left;

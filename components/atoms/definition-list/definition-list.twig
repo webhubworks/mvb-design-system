@@ -1,0 +1,17 @@
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<dl class="grid grid-cols-1 sm:grid-cols-3 gap-0.5 {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}
+    data-component="atoms.definition-list">
+
+    {% for item in items %}
+        <dt class="text-lg bg-cobblestone-100 font-bold p-2">{{ item.title }}</dt>
+        <dd class="p-2 bg-white sm:col-span-2">
+
+            {{ render('atoms.paragraph', {
+                contentHtml: item.contentHtml|default('')
+            }) }}
+        </dd>
+    {% endfor %}
+</dl>
