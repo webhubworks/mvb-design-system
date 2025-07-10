@@ -1,76 +1,125 @@
-<nav class="bg-cobblestone-800 max-w-[320px] pr-1" data-component="molecules.support-navigation" role="navigation"
-     aria-label="Support menu">
+{% set breakpointClass = breakpointClass|default('') %}
 
-    {% macro renderMenu(items, depth) %}
-        <ul class="pl-2 py-2 level-{{ depth }} {{ depth == 1 ? 'group' : '' }}"
-            data-component-part="support-navigation.menu"
-            data-depth="{{ depth }}"
-        >
-            {% for item in items %}
+<div class="help-side-navigation bg-cobblestone-800 text-white fixed bottom-0 left-0 right-0 min-[1540px]:relative w-full order-1 overflow-y-scroll max-h-screen">
+    <div class="top-0 lg:sticky">
+        <div class="py-4 ">
 
-                {% set hasChildren = item.children is defined and item.children|length %}
-                {% set isActive = item.isActive is defined and item.isActive %}
-                {% set hasActiveChild = item.children is defined and collect(item.children).some(child => child.isActive is defined and child.isActive) %}
+            <div class="flex justify-between items-center px-4 gap-x-2">
 
-                {% set attributes = {
-                    'aria-haspopup': hasChildren ? 'true' : 'false',
-                    'data-toggles-submenu': hasChildren ? 'true' : 'false',
-                    'class': [
-                        'max-w-[230px] [&>span]:sr-only text-white hover:text-white hover:bg-primary flex items-center justify-center px-2 py-1 ',
-                        isActive or hasActiveChild ? 'font-bold active' : '',
-                    ]|join(' ')
-                } %}
-
-                <li class="text-white" data-component-part="support-navigation.menu-item"
-                    >
-                    <div class="flex justify-between items-stretch flex-grow  lg:w-full">
-
-                        {{ render('atoms.button', {
-                            label: item.label,
-                            href: item.href,
-                            variant: 'ghost',
-                            textAlign: 'left',
-                            noSpace: true,
-                            attributes: {
-                                "data-depth": depth,
-                                class: [
-                                    "[&[data-depth='1']]:text-base [&[data-depth='2']]:text-sm [&[data-depth='3']]:text-sm [&[data-depth='4']]:text-sm [&[data-depth='4']]:italic px-2 py-1 text-white hover:text-white hover:bg-primary flex-1",
-                                    isActive ? 'font-bold active' : ''
-                                ]|join(' '),
-                            }
-                        }) }}
-
-                        {% if hasChildren %}
-                            {% set attributes = attributes|merge({
-                                'aria-expanded': 'false',
-                            }) %}
-
-                            {{ render('atoms.button', {
-                                label: item.label,
-                                href: null,
-                                variant: 'ghost',
-                                noSpace: true,
-                                icon: hasChildren ? {
-                                    name: 'angle-down',
-                                    position: 'right'
-                                } : null,
-                                attributes: attributes
-                            }) }}
-
-                        {% endif %}
+                <form id="search-form" action="{{ searchSupport.url ?? '' }}" role="search"
+                      class="min-[1540px]:w-full max-w-md ">
+                    <label for="support-search" class="sr-only">{{ searchLabel ?? 'Search' }}</label>
+                    <div class="relative flex items-center">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="fal fa-search text-white" aria-hidden="true"></i>
+                    </span>
+                        <input
+                                id="support-search"
+                                name="query"
+                                type="text"
+                                placeholder="{{ searchTerm ?? 'Search term' }}"
+                                aria-label="{{ searchLabel ?? 'Search' }}"
+                                value="{{ searchValue ?? '' }}"
+                                class="w-full pl-10 pr-4 py-1.5 min-[1540px]:py-2  bg-transparent border border-white text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
+                        >
                     </div>
+                </form>
+
+                {{ render('atoms.button', {
+                    label: 'Toggle Menu',
+                    href: null,
+                    variant: 'primary',
+                    icon: {
+                        name: 'times',
+                        position: 'right'
+                    },
+                    attributes: {
+                        class: 'min-[1540px]:hidden whitespace-nowrap',
+                        'data-component-part': 'support-navigation.toggle-button'
+                    }
+                }) }}
+
+            </div>
+
+            <nav class="bg-cobblestone-800 hidden data-[open='true']:block min-[1540px]:block min-[1540px]:relative pr-4" data-component="molecules.support-navigation"
+                 role="navigation"
+                 aria-label="Support menu">
 
 
-                    {# Lade Kinder dieses Eintrags #}
-                    {% set children = item.children ?? null %}
-                    {% if children|length %}
-                        {{ _self.renderMenu(children, depth + 1) }}
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endmacro %}
+                {% macro renderMenu(items, depth) %}
+                    <ul class="pl-2 py-2 level-{{ depth }} {{ depth == 1 ? 'group' : '' }}"
+                        data-component-part="support-navigation.menu"
+                        data-depth="{{ depth }}"
+                    >
+                        {% for item in items %}
 
-    {{ _self.renderMenu(items, 1) }}
+                            {% set hasChildren = item.children is defined and item.children|length %}
+                            {% set isActive = item.isActive is defined and item.isActive %}
+                            {% set hasActiveChild = item.children is defined and collect(item.children).some(child => child.isActive is defined and child.isActive) %}
 
-</nav>
+                            {% set attributes = {
+                                'aria-haspopup': hasChildren ? 'true' : 'false',
+                                'data-toggles-submenu': hasChildren ? 'true' : 'false',
+                                'class': [
+                                    'max-w-[230px] [&>span]:sr-only text-white hover:text-white hover:bg-primary flex items-center justify-center px-2 py-1 ',
+                                    isActive or hasActiveChild ? 'font-bold active' : '',
+                                ]|join(' ')
+                            } %}
+
+                            <li class="text-white" data-component-part="support-navigation.menu-item"
+                            >
+                                <div class="flex justify-between items-stretch flex-grow  lg:w-full">
+
+                                    {{ render('atoms.button', {
+                                        label: item.label,
+                                        href: item.href,
+                                        variant: 'ghost',
+                                        textAlign: 'left',
+                                        noSpace: true,
+                                        attributes: {
+                                            "data-depth": depth,
+                                            class: [
+                                                "[&[data-depth='1']]:text-base [&[data-depth='2']]:text-sm [&[data-depth='3']]:text-sm [&[data-depth='4']]:text-sm [&[data-depth='4']]:italic px-2 py-1 text-white hover:text-white hover:bg-primary flex-1",
+                                                isActive ? 'font-bold active' : ''
+                                            ]|join(' '),
+                                        }
+                                    }) }}
+
+                                    {% if hasChildren %}
+                                        {% set attributes = attributes|merge({
+                                            'aria-expanded': 'false',
+                                        }) %}
+
+                                        {{ render('atoms.button', {
+                                            label: item.label,
+                                            href: null,
+                                            variant: 'ghost',
+                                            noSpace: true,
+                                            icon: hasChildren ? {
+                                                name: 'angle-down',
+                                                position: 'right'
+                                            } : null,
+                                            attributes: attributes
+                                        }) }}
+
+                                    {% endif %}
+                                </div>
+
+
+                                {# Lade Kinder dieses Eintrags #}
+                                {% set children = item.children ?? null %}
+                                {% if children|length %}
+                                    {{ _self.renderMenu(children, depth + 1) }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endmacro %}
+
+                {{ _self.renderMenu(items, 1) }}
+
+            </nav>
+
+        </div>
+    </div>
+</div>

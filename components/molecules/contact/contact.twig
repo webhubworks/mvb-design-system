@@ -13,10 +13,10 @@
     {% endif %}
 
 
-    <div class="bg-white group relative flex flex-col sm:flex-row {{ reducedSpacing ? ' sm:space-x-4' : ' sm:space-x-8' }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+    <div class="bg-white group relative flex flex-col sm:flex-row {{ reducedSpacing ? ' sm:space-x-4' : ' sm:space-x-8' }} {{ _additionalClasses }} overflow-hidden" {{ attributesToHtml(_additionalAttributes) }}>
 
         <div class="relative overflow-hidden sm:max-w-1/2">
-            <figure class="relative h-full aspect-ratio-[400/266]">
+            <figure class="relative h-full aspect-ratio-[400/266] z-20">
                 {% if img.src is empty %}
                     <img src="{{ _missingImage }}" width="400" height="266" alt="{{ img.alt ?? '' }}"
                          class="w-full h-full object-cover">
@@ -44,8 +44,6 @@
                 {% if content is defined and content %}
                     {{ content|raw }}
                 {% endif %}
-
-
 
                 <ul class="space-y-2 mt-2">
                     {% for item in contactItems %}

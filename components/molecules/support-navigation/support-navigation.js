@@ -37,7 +37,38 @@ const closeSubmenu = (item, button, subMenu) => {
 }
 
 const initSupportNavigation = (component) => {
+    const supportNav = document.querySelector('[data-component="molecules.support-navigation"]');
+    const toggleButtons = document.querySelectorAll('[data-component-part="support-navigation.toggle-button"]');
     const navItems = component.querySelectorAll('[data-component-part="support-navigation.menu-item"]')
+
+    if (!supportNav || !toggleButtons.length) return;
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const isOpen = supportNav.hasAttribute('data-open');
+
+            if (isOpen) {
+                supportNav.removeAttribute('data-open');
+            } else {
+                supportNav.setAttribute('data-open', 'true');
+            }
+        });
+    });
+
+    // Optional: Schließen bei "Escape"-Taste
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && supportNav.hasAttribute('data-open')) {
+            supportNav.removeAttribute('data-open');
+        }
+    });
+
+    // Optional: Klick außerhalb des Menüs schließt es
+    document.addEventListener('click', (event) => {
+        const isClickInside = supportNav.contains(event.target) || [...toggleButtons].some(btn => btn.contains(event.target));
+        if (!isClickInside && supportNav.hasAttribute('data-open')) {
+            supportNav.removeAttribute('data-open');
+        }
+    });
 
     navItems.forEach((item) => {
         const toggleButton = item.querySelector('button[data-toggles-submenu="true"]')
