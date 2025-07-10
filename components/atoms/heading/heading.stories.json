@@ -50,7 +50,10 @@
     {
       "name": "H2",
       "args": {
-        "level": "h2"
+        "level": "h2",
+        "attributes": {
+          "id": "eine-id"
+        }
       }
     },
     {

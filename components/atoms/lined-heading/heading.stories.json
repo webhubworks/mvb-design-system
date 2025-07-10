@@ -52,7 +52,10 @@
       "name": "H2 with long text",
       "args": {
         "level": "h2",
-        "text": "Additional arbitrary HTML attributes to be added to the root element of the component"
+        "text": "Additional arbitrary HTML attributes to be added to the root element of the component",
+        "attributes": {
+          "id": "eine-id"
+        }
       }
     },
     {

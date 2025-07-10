@@ -14,6 +14,7 @@
 
 {% tag level with {
     class: [classes[visualLevel ?? level], additionalClasses]|join(' '),
+    ...additionalAttributes
 } %}
   {{ text }}
 {% endtag %}
