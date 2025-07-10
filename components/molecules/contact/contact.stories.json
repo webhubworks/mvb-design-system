@@ -12,7 +12,9 @@
         "heading": "Sie haben Fragen? Gerne bin ich persönlich für Sie da!",
         "headingLevel": "h3",
         "title": "Kontakt",
+        "reducedSpacing": true,
         "titleLevel": "h3",
+        "titleVisualLevel": "h2",
         "content": "<p><strong>Karoline Weide</strong></p>",
         "contactItems": [
           {
@@ -28,7 +30,7 @@
         ],
         "img": {
           "src": "https://picsum.photos/400/266",
-          "width": 400,
+          "width": 300,
           "height": 266,
           "alt": "Some stock image",
           "caption": "© Lorem Picsum"

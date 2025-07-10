@@ -1,5 +1,6 @@
 {% set _missingImage = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjNDE0MTQxIiBkPSJNMCAwaDYwMHY0MDBIMHoiLz48cGF0aCBmaWxsPSIjQjJCMkIyIiBkPSJNMzQ0IDE1NmgtODhhOCA4IDAgMCAwLTggOHY3MmE4IDggMCAwIDAgOCA4aDg4YTggOCAwIDAgMCA4LTh2LTcyYTggOCAwIDAgMC04LThabTAgOHY1MS4zNzVsLTEzLjAzNS0xMy4wM2E4IDggMCAwIDAtMTEuMzE1IDBsLTEwIDEwLTIyLTIyYTggOCAwIDAgMC0xMS4zMSAwTDI1NiAyMTAuNjg1VjE2NGg4OFptLTg4IDU4IDI2LTI2IDQwIDQwaC02NnYtMTRabTg4IDE0aC0xMC42ODVsLTE4LTE4IDEwLTEwTDM0NCAyMjYuNjlWMjM2Wm0tMzYtNTBhNS45OTggNS45OTggMCAwIDEgNy4xNzEtNS44ODUgNi4wMDcgNi4wMDcgMCAwIDEgNC43MTQgNC43MTQgNi4wMDYgNi4wMDYgMCAwIDEtMi41NTIgNi4xNkE1Ljk5OCA1Ljk5OCAwIDAgMSAzMDggMTg2WiIvPjwvc3ZnPg==" %}
 {% set img = img|default({src: _missingImage}) %}
+{% set reducedSpacing = reducedSpacing|default(false) %}
 
 {% set attributeCollection = attributes|default({})|collect() %}
 {% set _additionalClasses = attributeCollection.get('class') %}
@@ -12,11 +13,10 @@
     {% endif %}
 
 
-    <div class="bg-white group relative flex flex-col sm:flex-row sm:space-x-8 {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+    <div class="bg-white group relative flex flex-col sm:flex-row {{ reducedSpacing ? ' sm:space-x-4' : ' sm:space-x-8' }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
 
-
-        <div class="relative overflow-hidden">
-            <figure class="relative h-full aspect-ratio-400/266">
+        <div class="relative overflow-hidden sm:max-w-1/2">
+            <figure class="relative h-full aspect-ratio-[400/266]">
                 {% if img.src is empty %}
                     <img src="{{ _missingImage }}" width="400" height="266" alt="{{ img.alt ?? '' }}"
                          class="w-full h-full object-cover">
@@ -30,18 +30,22 @@
                 </figcaption>
             </figure>
         </div>
-        <div class="flex flex-col justify-center p-3 md:p-8 relative z-20">
+        <div class="flex flex-col justify-center p-3 {{ reducedSpacing ? 'md:p-4' : 'md:p-8' }} relative z-20">
 
             {% if title is defined and title %}
                 {{ render('atoms.heading', {
                     text: title,
                     level: titleLevel|default('h4'),
+                    visualLevel: visualLevel|default('h3'),
                     attributes: {class: 'text-primary mb-3 md:mb-6'}
                 }) }}
             {% endif %}
             <div>
+                {% if content is defined and content %}
+                    {{ content|raw }}
+                {% endif %}
 
-                {{ content|raw }}
+
 
                 <ul class="space-y-2 mt-2">
                     {% for item in contactItems %}
