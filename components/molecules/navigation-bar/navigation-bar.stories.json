@@ -16,6 +16,7 @@
        "additionalImgClasses": "h-6 lg:h-10 w-auto"
       }
     },
+    "reducedXSpacing": false,
     "searchUrl": "https://www.google.de",
     "languages": [
       {
@@ -38,6 +39,7 @@
       {
         "label": "ISBN kaufen",
         "iconName": "cart-shopping",
+        "iconPosition": "left",
         "target": "_blank",
         "href": "https://www.google.de"
       }
