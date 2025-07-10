@@ -1,6 +1,4 @@
-{% set breakpointClass = breakpointClass|default('') %}
-
-<div class="help-side-navigation bg-cobblestone-800 text-white fixed bottom-0 left-0 right-0 min-[1540px]:relative w-full order-1 overflow-y-scroll max-h-screen">
+<div class="help-side-navigation bg-cobblestone-800 text-white fixed bottom-0 left-0 right-0 min-[1540px]:relative w-full order-1 overflow-y-scroll max-h-screen min-[1540px]:max-h-none z-[1000] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] min-[1540px]:shadow-none">
     <div class="top-0 lg:sticky">
         <div class="py-4 ">
 
@@ -26,11 +24,11 @@
                 </form>
 
                 {{ render('atoms.button', {
-                    label: 'Toggle Menu',
+                    label: toggleButtonLabel ?? 'Support Menu',
                     href: null,
                     variant: 'primary',
                     icon: {
-                        name: 'times',
+                        name: 'book',
                         position: 'right'
                     },
                     attributes: {
