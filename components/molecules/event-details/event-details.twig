@@ -1,0 +1,153 @@
+{% set date = date|default('now'|date) %}
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set _additionalClasses = attributeCollection.get('class') %}
+{% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+<div data-component="molecules.event-details"
+     class="bg-white {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+
+    {% for date in eventDates %}
+        <div class="odd:bg-cobblestone-100 even:bg-cobblestone-200 p-4">
+            <dl class="grid grid-cols-[1.5rem_1fr] gap-y-1 gap-x-4 [&>dt]:text-center [&>dd]:font-bold">
+                {% if date.dateObject is defined and date.dateObject is not empty %}
+                    <dt>
+                        {{ render('atoms.icon', {name: 'calendar-day'}) }}
+                    </dt>
+                    <dd>
+                        {{ date.dateObject|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+                    </dd>
+                    <dt>
+                        {{ render('atoms.icon', {name: 'clock'}) }}
+                    </dt>
+                    <dd>
+                        {{ date.dateObject|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+                    </dd>
+                {% endif %}
+                {% if eventDuration is defined and eventDuration is not empty %}
+                    <dt>
+                        {{ render('atoms.icon', {
+                            name: 'clock-rotate-left',
+                        }) }}
+                    </dt>
+                    <dd> {{ eventDuration }}</dd>
+                {% endif %}
+                {% if eventPrice is defined and eventPrice is not empty and eventPrice > 0 %}
+                    <dt>
+                        {{ render('atoms.icon', {name: 'euro-sign'}) }}
+                    </dt>
+                    <dd>
+                        {{ eventPrice|number_format(2, ',', '.') }}
+                    </dd>
+
+                {% endif %}
+                {% if date.location is defined and date.location is not empty %}
+                    <dt>
+                        {{ render('atoms.icon', {
+                            name: 'map-marker-alt'
+                        }) }}
+                    </dt>
+                    <dd>
+                        {{ date.location }}
+                    </dd>
+                {% endif %}
+            </dl>
+        </div>
+    {% endfor %}
+
+    <div class="p-4">
+        <dl class="grid grid-cols-[1.5rem_1fr] gap-y-2 gap-x-4 [&>dt]:text-center [&>dd]:font-bold">
+            {% if categories is defined and categories is not empty %}
+                {% for item in categories %}
+                    <dt>
+                        {{ render('atoms.icon', {
+                            name:  item.iconName ?? 'users-class'
+                        }) }}
+                    </dt>
+                    <dd>
+                        {{ item.title }}
+                    </dd>
+                {% endfor %}
+            {% endif %}
+            {% if targetGroupsText is defined and targetGroupsText is not empty %}
+                <dt>
+                    {{ render('atoms.icon', {
+                        name: 'user-group'
+                    }) }}
+                </dt>
+                <dd><span class="font-bold block">{{ targetGroupLabel ?? "Zielgrupp" }}</span>
+                    <span class="font-normal">{{ targetGroupsText }}</span>
+                </dd>
+            {% endif %}
+            {% if eventTag is defined and eventTag is not empty %}
+                <dt>
+                    {{ render('atoms.icon', {
+                        name: 'lightbulb'
+                    }) }}
+                </dt>
+                <dd>{{ eventTag }}</dd>
+            {% endif %}
+        </dl>
+
+
+        {% if speakers is defined and speakers is not empty %}
+            <dl class="border-t border-cobblestone-100  grid grid-cols-[1.5rem_1fr] gap-y-2 gap-x-4 [&>dt]:text-center [&>dd]:font-bold mt-4 pt-4">
+                <dt>
+                    {{ render('atoms.icon', {
+                        name: 'user'
+                    }) }}
+                </dt>
+                <dd>
+                    {{ speakersLabel ?? "Referent*innen" }}
+                </dd>
+            </dl>
+            <div class="w-full mt-4 grid grid-cols-1 gap-y-2">
+
+                {% for speaker in speakers %}
+                    <div class="w-full grid grid-cols-[max-content_1fr] items-start gap-x-4 mb-2">
+                        {% if speaker.img is defined and speaker.img is not empty %}
+                            <figure>
+                                <img src="{{ speaker.img.src }}" alt="{{ speaker.img.alt ?? '' }}"
+                                     class="inline-block w-12 h-12 rounded-full">
+                            </figure>
+                        {% else %}
+                            <span class="inline-flex w-12 h-12 rounded-full bg-cobblestone-100 text-cobblestone-500 items-center justify-center">
+                                {{ render('atoms.icon', {
+                                    name: 'user'
+                                }) }}
+                            </span>
+                        {% endif %}
+                        <div>
+                            <span class="font-bold block">{{ speaker.name }}</span>
+                            {% if speaker.role is defined and speaker.role is not empty %}
+                                {{ speaker.role }}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+    </div>
+
+    {% if additionalButtons is defined and additionalButtons|length %}
+        <div class="mt-4">
+            {% for button in additionalButtons %}
+
+                {{ render('atoms.button', {
+                    label: button.label,
+                    href: button.href,
+                    target: button.target|default('_self'),
+                    variant: 'primary',
+                    icon: {
+                        position: 'right',
+                        name: button.iconName ?? 'null'
+                    },
+                    attributes: {
+                        class: 'w-full'
+                    }
+                }) }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>

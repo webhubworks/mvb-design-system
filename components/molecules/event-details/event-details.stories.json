@@ -1,0 +1,76 @@
+{
+  "title": "Molecules/Event Details",
+  "parameters": {
+    "server": {
+      "id": "molecules.event-details"
+    }
+  },
+  "stories": [
+    {
+      "name": "Default",
+      "args": {
+        "eventDates": [
+          {
+            "dateObject": "2025-07-13T13:30+00:00",
+            "location": "Online",
+            "price": "Free"
+          },
+          {
+            "dateObject": "2025-08-13T13:30+00:00",
+            "location": "Online",
+            "price": "Free"
+          },
+          {
+            "dateObject": "2025-09-13T13:30+00:00"
+          }
+        ],
+        "categories": [
+          {
+            "title": "Webinars",
+            "iconName": "desktop"
+          },
+          {
+            "title": "Workshops",
+            "iconName": "tools"
+          }
+        ],
+        "eventDuration": "2 hours",
+        "eventPrice": "0",
+        "targetGroupLabel": "Zielgruppe",
+        "targetGroupsText": "Verlage",
+        "eventTag": "Austausch für alle",
+        "speakersLabel": "Referentinnen und Referenten",
+        "speakers": [
+          {
+            "name": "Max Mustermann",
+            "role": "Webentwickler",
+            "img": {
+              "src": "https://picsum.photos/100/100",
+              "alt": "Max Mustermann",
+              "caption": "Max Mustermann, Webentwickler"
+            }
+          },
+          {
+            "name": "Max Mustermann",
+            "role": "Webentwickler"
+          },
+          {
+            "name": "Erika Musterfrau",
+            "role": "UX Designerin",
+            "img": {
+              "src": "https://picsum.photos/100/100",
+              "alt": "Erika Musterfrau",
+              "caption": "Erika Musterfrau, UX Designerin"
+            }
+          }
+        ],
+        "additionalButtons": [
+          {
+            "label": "Jetzt anmelden",
+            "href": "#main"
+          }
+        ]
+      }
+    }
+  ]
+}
