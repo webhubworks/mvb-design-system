@@ -22,7 +22,7 @@
 {{ render('molecules.card', {
     content: content,
     href: href,
-    badge: badge,
+    badges: badges|default(null),
     img: img|default(null),
     footerHtml: footerHtml,
     attributes: attributes|default({}),
