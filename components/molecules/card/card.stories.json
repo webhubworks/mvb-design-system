@@ -64,10 +64,16 @@
       "args": {
         "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
         "href": "#!",
-        "badge": {
-          "text": "Badge",
-          "iconName": "question"
-        },
+        "badges": [
+          {
+            "text": "Badge",
+            "iconName": "question"
+          },
+          {
+            "text": "Badge 2",
+            "iconName": "phone"
+          }
+        ],
         "accentColor": "--color-emerald",
         "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
         "img": {
