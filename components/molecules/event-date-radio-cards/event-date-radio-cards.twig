@@ -1,0 +1,61 @@
+{% set attributeCollection = attributes|default({})|collect() %}
+{% set additionalClasses = attributeCollection.get('class') %}
+{% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+
+
+<fieldset {{ attributesToHtml(additionalAttributes) }}
+        data-component="molecules.event-date-radio-cards"
+        class="mb-6"
+        {{ additionalClasses }}
+      >
+    <legend class="block text-base mb-1 font-semibold">{{ legend|default('Verfügbare Termine') }}</legend>
+    <div class="flex flex-col space-y-2">
+
+        {% for option in options %}
+
+            {% set optionAttributeCollection = option.attributes|default({})|collect() %}
+            {% set optionAdditionalClasses = optionAttributeCollection.get('class') %}
+            {% set optionAdditionalAttributes = optionAttributeCollection.forget(['class']).toArray() %}
+
+            <label
+                    for="{{ option.id }}"
+                    class="block cursor-pointer outline-cobblestone-600 px-3 py-2 flex items-center justify-between outline-1 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-persian-blue-400 transition-colors bg-white {% if option.disabled %}opacity-60{% endif %} checked:-outline-offset-2 {{ optionAdditionalClasses }}"
+                    {{ attributesToHtml(optionAdditionalAttributes) }}
+
+            >
+                <div class="flex justify-start items-center space-x-4 w-full">
+                    <input
+                            type="radio"
+                            name="date"
+                            id="{{ option.id }}"
+                            value="{{ option.value }}"
+                            class="bg-white focus:outline-persian-blue-400 appearance-none size-4 border border-cobblestone-600 checked:border-persian-blue-600 checked:bg-persian-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-persian-blue-400 relative rounded-full before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden"
+                            aria-describedby="option-{{ option.id }}-label"
+                            {% if option.checked is defined and option.checked %}checked{% endif %}
+                            {% if option.disabled is defined and option.disabled %}disabled{% endif %}
+                    />
+
+
+                    <div id="option-{{ option.id }}-label">
+                        <strong class="font-semibold">
+                            {{ option.label }}
+                        </strong>
+                        {% if option.max is defined and option.max is not empty %}
+                            <br/>
+                            Max Teilnehmer: {{ option.max }}
+                        {% endif %}
+                    </div>
+                    <div class="ml-auto text-right">
+                        {% if option.price is defined and option.price is not empty %}
+                            <strong class="font-semibold">{{ option.price }} €</strong><br/> (zzgl. MwSt.)
+                        {% else %}
+                            <strong class="font-semibold">Kostenlos</strong>
+                        {% endif %}
+
+                        </span>
+                    </div>
+                </div>
+            </label>
+        {% endfor %}
+    </div>
+</fieldset>

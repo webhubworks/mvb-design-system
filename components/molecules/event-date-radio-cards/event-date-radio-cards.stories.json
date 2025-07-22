@@ -1,0 +1,55 @@
+{
+  "title": "Molecules/Forms/Event Date Radio Cards",
+  "parameters": {
+    "server": {
+      "id": "molecules.event-date-radio-cards"
+    }
+  },
+  "args": {
+    "legend": "Verfügbare Termine wählen",
+    "options": [
+      {
+        "id": "date1",
+        "value": "2024-07-01",
+        "label": "01.07.2024",
+        "max": 20,
+        "price": "49,00",
+        "status": "aktiv",
+        "disabled": false,
+        "checked": true,
+        "attributes": {
+          "'data-event'": "event-123",
+          "onclick": "alert('Blupp')"
+        }
+      },
+      {
+        "id": "date2",
+        "value": "2024-07-15",
+        "label": "15.07.2024",
+        "max": 15,
+        "price": "39,00",
+        "status": "fällt aus",
+        "disabled": true
+      },
+      {
+        "id": "date3",
+        "value": "2024-08-01",
+        "label": "01.08.2024",
+        "status": "ausgebucht",
+        "disabled": false
+      }
+    ]
+  },
+  "stories": [
+    {
+      "name": "Event Date Radio Cards",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('molecules.date-radio-cards', {legend: 'Legend', options: []}) }}"
+          }
+        }
+      }
+    }
+  ]
+}
