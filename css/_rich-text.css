@@ -91,7 +91,7 @@ div[data-field-type="rich-text"],
             @apply bg-cobblestone-100 text-left;
 
             th {
-                @apply p-2 text-lg font-bold text-cobblestone-800 ;
+                @apply p-2 text-lg font-bold text-cobblestone-800 hyphens-auto;
             }
         }
 
@@ -100,11 +100,11 @@ div[data-field-type="rich-text"],
                 @apply bg-white;
 
                 td {
-                    @apply p-2 text-base text-cobblestone-800 break-all;
+                    @apply p-2 text-base text-cobblestone-800 hyphens-auto;
                 }
 
                 th {
-                    @apply p-2 text-lg font-bold text-cobblestone-800 bg-cobblestone-100 text-left;
+                    @apply p-2 text-lg font-bold text-cobblestone-800 bg-cobblestone-100 text-left hyphens-auto;
                 }
             }
         }

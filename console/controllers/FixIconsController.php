@@ -31,7 +31,7 @@ class FixIconsController extends Controller
                     if (!Craft::$app->elements->saveElement($entry)) {
                         echo "Fehler beim Speichern von Eintrag mit der ID: {$entry->id}\n";
                     } else {
-                        echo "Icon-KLassen bereinigt\n";
+                        echo "✅ Bereinigt: Eintrag {$entry->id}\n";
                     }
                 }
             }

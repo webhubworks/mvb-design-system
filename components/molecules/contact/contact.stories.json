@@ -36,6 +36,30 @@
           "caption": "© Lorem Picsum"
         }
       }
+    },
+    {
+      "name": "Contact without image",
+      "args": {
+        "heading": "Sie haben Fragen? Gerne bin ich persönlich für Sie da!",
+        "headingLevel": "h3",
+        "title": "Kontakt",
+        "reducedSpacing": true,
+        "titleLevel": "h3",
+        "titleVisualLevel": "h2",
+        "content": "<p><strong>Karoline Weide</strong></p>",
+        "contactItems": [
+          {
+            "label": "+49 69 1306-550",
+            "iconName": "phone",
+            "href": "tel:+49691306550"
+          },
+          {
+            "label": "kundenservice@mvb-online.de",
+            "iconName": "envelope",
+            "href": "mailto:kundenservice@mvb-online.de"
+          }
+        ]
+      }
     }
   ]
 }

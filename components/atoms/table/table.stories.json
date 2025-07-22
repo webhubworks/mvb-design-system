@@ -35,6 +35,11 @@
             "name": "Jane Smith",
             "age": 25,
             "email": "email2@domain.de"
+          },
+          {
+            "name": "Schifffahrtsmuseum",
+            "age": 25,
+            "email": "email2@domain.de"
           }
         ]
       }

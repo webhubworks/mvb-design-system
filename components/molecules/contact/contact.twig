@@ -1,5 +1,4 @@
-{% set _missingImage = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjNDE0MTQxIiBkPSJNMCAwaDYwMHY0MDBIMHoiLz48cGF0aCBmaWxsPSIjQjJCMkIyIiBkPSJNMzQ0IDE1NmgtODhhOCA4IDAgMCAwLTggOHY3MmE4IDggMCAwIDAgOCA4aDg4YTggOCAwIDAgMCA4LTh2LTcyYTggOCAwIDAgMC04LThabTAgOHY1MS4zNzVsLTEzLjAzNS0xMy4wM2E4IDggMCAwIDAtMTEuMzE1IDBsLTEwIDEwLTIyLTIyYTggOCAwIDAgMC0xMS4zMSAwTDI1NiAyMTAuNjg1VjE2NGg4OFptLTg4IDU4IDI2LTI2IDQwIDQwaC02NnYtMTRabTg4IDE0aC0xMC42ODVsLTE4LTE4IDEwLTEwTDM0NCAyMjYuNjlWMjM2Wm0tMzYtNTBhNS45OTggNS45OTggMCAwIDEgNy4xNzEtNS44ODUgNi4wMDcgNi4wMDcgMCAwIDEgNC43MTQgNC43MTQgNi4wMDYgNi4wMDYgMCAwIDEtMi41NTIgNi4xNkE1Ljk5OCA1Ljk5OCAwIDAgMSAzMDggMTg2WiIvPjwvc3ZnPg==" %}
-{% set img = img|default({src: _missingImage}) %}
+
 {% set reducedSpacing = reducedSpacing|default(false) %}
 
 {% set attributeCollection = attributes|default({})|collect() %}
@@ -14,22 +13,20 @@
 
 
     <div class="bg-white group relative flex flex-col sm:flex-row {{ reducedSpacing ? ' sm:space-x-4' : ' sm:space-x-8' }} {{ _additionalClasses }} overflow-hidden" {{ attributesToHtml(_additionalAttributes) }}>
-
-        <div class="relative overflow-hidden sm:max-w-1/2">
-            <figure class="relative h-full aspect-ratio-[400/266] z-20">
-                {% if img.src is empty %}
-                    <img src="{{ _missingImage }}" width="400" height="266" alt="{{ img.alt ?? '' }}"
+        {% if img is defined and img.src is not empty %}
+            <div class="relative overflow-hidden sm:max-w-1/2">
+                <figure class="relative h-full aspect-ratio-[400/266] z-20">
+                    <img src="{{ img.src }}" width="400" height="266" alt="{{ img.alt ?? '' }}"
                          class="w-full h-full object-cover">
-                {% endif %}
-                <img src="{{ img.src }}" width="400" height="266" alt="{{ img.alt ?? '' }}"
-                     class="w-full h-full object-cover">
-                <figcaption
-                        class="absolute bg-cobblestone/50 z-10 -rotate-90 translate-x-full origin-bottom-left right-0 px-2 py-1 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[200px]"
-                        title="{{ img.caption ?? '' }}">
-                    {{ img.caption ?? '' }}
-                </figcaption>
-            </figure>
-        </div>
+
+                    <figcaption
+                            class="absolute bg-cobblestone/50 z-10 -rotate-90 translate-x-full origin-bottom-left right-0 px-2 py-1 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[200px]"
+                            title="{{ img.caption ?? '' }}">
+                        {{ img.caption ?? '' }}
+                    </figcaption>
+                </figure>
+            </div>
+        {% endif %}
         <div class="flex flex-col justify-center p-3 {{ reducedSpacing ? 'md:p-4' : 'md:p-8' }} relative z-20">
 
             {% if title is defined and title %}
