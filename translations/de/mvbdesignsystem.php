@@ -8,6 +8,8 @@ return [
     'Logo of' => 'Logo von',
     'To the homepage' => 'Zur Startseite',
     'English' => 'Englisch',
+    'Previous' => 'Vorherige',
+    'Next' => 'Nächste',
     'German' => 'Deutsch',
     'French' => 'Französisch',
     'pt-BR' => 'Português',

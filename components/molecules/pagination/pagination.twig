@@ -1,0 +1,76 @@
+<div data-component="molecules.pagination" class="flex items-center justify-between">
+    <nav class="flex items-center justify-between w-full">
+        <!-- Previous Button -->
+        <div class="flex flex-1">
+            {% if pageInfo.prevUrl %}
+                {{ render('atoms.button', {
+                    label: 'Previous'|t,
+                    href: pageInfo.prevUrl,
+                    target: '_self',
+                    variant: 'ghost',
+                    icon: {
+                        position:  'left',
+                        name: 'arrow-left'
+                    },
+                }) }}
+            {% endif %}
+        </div>
+
+        <!-- Page Numbers -->
+        <div class="hidden md:flex items-center">
+            {% for page, url in pageInfo.getPrevUrls %}
+                {{ render('atoms.button', {
+                    label: page,
+                    href: url,
+                    target: '_self',
+                    variant: 'ghost',
+                }) }}
+            {% endfor %}
+
+            {{ render('atoms.button', {
+                label: pageInfo.currentPage,
+                href: pageInfo.currentUrl,
+                target: '_self',
+                variant: 'primary',
+            }) }}
+
+            {% for page, url in pageInfo.getNextUrls %}
+                {{ render('atoms.button', {
+                    label: page,
+                    href: url,
+                    target: '_self',
+                    variant: 'ghost',
+                }) }}
+            {% endfor %}
+
+            {% if pageInfo.totalPages > 1 and pageInfo.currentPage + 2 < pageInfo.totalPages %}
+                <span class="inline-flex items-end px-4 ">...</span>
+
+                {% for page in [pageInfo.totalPages - 1, pageInfo.totalPages] %}
+                    {{ render('atoms.button', {
+                        label: page,
+                        href: page,
+                        target: '_self',
+                        variant: 'ghost',
+                    }) }}
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- Next Button -->
+        <div class="flex w-0 flex-1 justify-end">
+            {% if pageInfo.nextUrl %}
+                {{ render('atoms.button', {
+                    label: 'Next'|t,
+                    href: pageInfo.nextUrl,
+                    target: '_self',
+                    variant: 'ghost',
+                    icon: {
+                        position:  'right',
+                        name: 'arrow-right'
+                    },
+                }) }}
+            {% endif %}
+        </div>
+    </nav>
+</div>

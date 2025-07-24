@@ -46,7 +46,7 @@
       "parameters": {
         "docs": {
           "source": {
-            "code": "{{ render('molecules.date-radio-cards', {legend: 'Legend', options: []}) }}"
+            "code": "{{ render('molecules.event-date-radio-cards', {legend: 'Legend', options: []}) }}"
           }
         }
       }
