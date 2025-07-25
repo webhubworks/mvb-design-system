@@ -7,5 +7,6 @@ return [
     'es-MX' => 'Español',
     'en-DE' => 'English',
     'en' => 'English',
-    'de' => 'Deutsch'
+    'de' => 'Deutsch',
+    'Page {currentPage} of {totalPages}' => 'Page {currentPage} of {totalPages}'
 ];

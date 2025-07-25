@@ -10,6 +10,7 @@ return [
     'English' => 'Englisch',
     'Previous' => 'Vorherige',
     'Next' => 'Nächste',
+    'Page {currentPage} of {totalPages}' => 'Seite {currentPage} von {totalPages}',
     'German' => 'Deutsch',
     'French' => 'Französisch',
     'pt-BR' => 'Português',

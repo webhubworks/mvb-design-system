@@ -30,18 +30,8 @@
         "pageInfo": {
           "currentPage": 2,
           "totalPages": 10,
-          "firstUrl": "/page/1",
-          "lastUrl": "/page/10",
           "prevUrl": "/page/1",
-          "nextUrl": "/page/3",
-          "currentUrl": "/page/2",
-          "getPrevUrls": {
-            "1": "/page/1"
-          },
-          "getNextUrls": {
-            "3": "/page/3",
-            "4": "/page/4"
-          }
+          "nextUrl": "/page/3"
       }
       }
     }
