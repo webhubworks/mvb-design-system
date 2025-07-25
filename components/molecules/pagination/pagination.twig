@@ -18,10 +18,10 @@
 
         <!-- Page Numbers -->
         <div class="hidden md:flex items-center">
-            <span>{{ ('Page {currentPage} of {totalPages}')|t({
+            <span>{{ ('Page {currentPage} of {totalPages}')|t('mvbdesignsystem', {
                 currentPage: pageInfo.currentPage,
                 totalPages: pageInfo.totalPages
-                }, 'mvbdesignsystem') }}</span>
+                }) }}</span>
         </div>
 
         <!-- Next Button -->
