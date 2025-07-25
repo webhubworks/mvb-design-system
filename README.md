@@ -129,6 +129,8 @@ ddev composer update webhubworks/mvb-design-system && ddev craft mvbdesignsystem
 ddev composer update webhubworks/mvb-design-system && ddev craft mvbdesignsystem/vite/dev
 ```
 
+#### Note
+If you run the designystem for the first time, go to vendor/webhubworks/mvb-design-system and run the `nvm install`
 
 ### Fix icon classes
 All projects use prefixed Font Awesome icon classes. To make them compatible with the new Icons Atom, we’ve added a command that handles the necessary adjustments. After using the command, all "icon fields" needs to be converted to native icon fields via the CP:
