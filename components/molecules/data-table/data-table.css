@@ -1,0 +1,88 @@
+.datatable-table th button{
+    @apply w-full text-left relative inline-flex justify-between items-center;
+}
+
+.datatable-table th button:after{
+    @apply text-cobblestone-600 ml-2;
+    content: "\e099";
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 300;
+    display: inline-block;
+}
+
+.datatable-table th.datatable-descending button:after{
+    @apply text-primary-600 ;
+    content: "\f884";
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 300;
+    display: inline-block;
+}
+
+.datatable-table th.datatable-ascending button:after{
+    @apply text-primary-600;
+    content: "\f885";
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 300;
+    display: inline-block;
+}
+
+.datatable-top{
+    @apply md:flex w-full justify-between items-center mb-4;
+}
+
+.datatable-search input{
+    @apply block w-full text-base bg-white px-3 py-2 text-base outline outline-1 -outline-offset-1 outline-cobblestone-600 placeholder:text-cobblestone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-persian-blue-400;
+}
+
+.datatable-top button{
+    @apply cursor-pointer inline-flex space-x-2 items-center text-base focus:outline-none transition-colors duration-150 justify-center px-4 py-2 bg-primary text-white hover:bg-primary-600 active:bg-primary-700 focus-visible:ring-cobblestone-400 focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.datatable-filters{
+    @apply sm:flex sm:space-x-4 py-4;
+}
+
+.filter-reset{
+    @apply ml-auto;
+}
+
+.filter-group{
+    @apply relative w-full sm:w-auto mb-2 sm:mb-0 inline-block;
+}
+
+.filter-group .popover-toggle{
+    @apply w-full sm:w-auto inline-flex justify-between;
+}
+
+.popover-toggle i{
+    @apply ml-2;
+}
+.filter-group .popover-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+}
+
+.filter-group .popover-content:not([hidden]) {
+    @apply absolute top-full left-0 min-w-full bg-white border border-cobblestone-200 z-50 m-0;
+}
+
+ul.checkbox-list{
+    @apply !list-none !m-0 !px-0 !py-2;
+}
+
+.checkbox-list li{
+    @apply inline-flex items-start space-x-2 px-2;
+}
+
+.checkbox-list li input[type="checkbox"]{
+    @apply shrink-0 mt-1.5;
+}
+
+.datatable-container{
+    @apply overflow-x-auto;
+}
+
+th[data-hide-on-mobile],
+td[data-hide-on-mobile] {
+    @apply hidden md:table-cell;
+}

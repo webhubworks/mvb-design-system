@@ -1,0 +1,498 @@
+{
+  "title": "Molecules/Data Table",
+  "parameters": {
+    "server": {
+      "id": "molecules.data-table"
+    }
+  },
+  "stories": [
+    {
+      "name": "Data Table",
+      "args": {
+        "config": {
+          "columns": [
+            { "label": "Termine", "attributes": {"dataFilterGroup": "Ort"} },
+            { "label": "Thema" },
+            { "label": "Art", "attributes": { "dataFilterGroup": "Art" } },
+            { "label": "Zielgruppe", "attributes": { "dataFilterGroup": "Zielgruppe", "dataHideOnMobile": true } },
+            { "label": "Details", "attributes": { "dataSortable": "false", "id": "id-xy" } }
+          ],
+          "filters": [
+            { "group": "Zielgruppe", "items": ["Familien", "Erwachsene", "Kinder"] },
+            { "group": "Ort", "items": ["Rostock", "Schwerin", "Greifswald", "Hamburg", "Mecklenburgische Schweiz", "Köln"] },
+            { "group": "Art", "items": ["Kurs", "Workshop"] }
+          ],
+          "labels": {
+            "reset": "Filter zurücksetzen",
+            "placeholder": "Suche…",
+            "noRows": "Keine passenden Einträge gefunden",
+            "noResults": "Keine passenden Einträge gefunden",
+            "toggle": "Filter anzeigen"
+          }
+        },
+        "rows": [
+          [
+            {
+              "html": "<strong>01.08.2025</strong><br>Stralsund",
+              "attributes": {
+                "dataSort": "2025-08-01"
+              }
+            },
+            {
+              "html": "Waldbaden für Familien"
+            },
+            {
+              "html": "Webinar"
+            },
+            {
+              "html": "Familien",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/waldbaden-fuer-familien\">Extern <i class=\"fa-light fa-arrow-up-right-from-square\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>30.08.2025 bis 31.08.2025</strong><br>Online",
+              "attributes": {
+                "dataSort": "2025-08-30"
+              }
+            },
+            {
+              "html": "Einführung in die Permakultur"
+            },
+            {
+              "html": "Webinar"
+            },
+            {
+              "html": "Erwachsene",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/einfuehrung-in-die-permakultur\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>20.07.2025 bis 22.07.2025</strong><br>Neubrandenburg",
+              "attributes": {
+                "dataSort": "2025-07-20"
+              }
+            },
+            {
+              "html": "Waldspielgruppe"
+            },
+            {
+              "html": "Kurs"
+            },
+            {
+              "html": "Erwachsene",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/waldspielgruppe\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>08.08.2025 bis 09.08.2025</strong><br>Schwerin",
+              "attributes": {
+                "dataSort": "2025-08-08"
+              }
+            },
+            {
+              "html": "Online-Abend zur Achtsamkeit"
+            },
+            {
+              "html": "Workshop"
+            },
+            {
+              "html": "Familien",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/online-abend-zur-achtsamkeit\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>22.07.2025</strong><br>Stralsund",
+              "attributes": {
+                "dataSort": "2025-07-22"
+              }
+            },
+            {
+              "html": "Familienwochenende im Waldcamp"
+            },
+            {
+              "html": "Workshop"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/familienwochenende-im-waldcamp\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>16.08.2025 bis 17.08.2025</strong><br>Neubrandenburg",
+              "attributes": {
+                "dataSort": "2025-08-16"
+              }
+            },
+            {
+              "html": "Wildkräuter entdecken"
+            },
+            {
+              "html": "Webinar"
+            },
+            {
+              "html": "Familien",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/wildkraeuter-entdecken\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>27.08.2025 bis 29.08.2025</strong><br>Hannover",
+              "attributes": {
+                "dataSort": "2025-08-27"
+              }
+            },
+            {
+              "html": "Achtsamkeit im Alltag"
+            },
+            {
+              "html": "Workshop"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/achtsamkeit-im-alltag\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>11.08.2025 bis 12.08.2025</strong><br>Rostock",
+              "attributes": {
+                "dataSort": "2025-08-11"
+              }
+            },
+            {
+              "html": "Survival-Training"
+            },
+            {
+              "html": "Webinar"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/survival-training\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>22.08.2025</strong><br>Rostock",
+              "attributes": {
+                "dataSort": "2025-08-22"
+              }
+            },
+            {
+              "html": "Ferien im Wald"
+            },
+            {
+              "html": "Webinar"
+            },
+            {
+              "html": "Erwachsene",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/ferien-im-wald\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>06.09.2025</strong><br>Rostock",
+              "attributes": {
+                "dataSort": "2025-09-06"
+              }
+            },
+            {
+              "html": "Outdoor-Yoga"
+            },
+            {
+              "html": "Event"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/outdoor-yoga\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>23.08.2025</strong><br>Hannover",
+              "attributes": {
+                "dataSort": "2025-08-23"
+              }
+            },
+            {
+              "html": "Naturpädagogik kompakt"
+            },
+            {
+              "html": "Kurs"
+            },
+            {
+              "html": "Familien",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/naturpaedagogik-kompakt\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>02.08.2025</strong><br>Lübeck",
+              "attributes": {
+                "dataSort": "2025-08-02"
+              }
+            },
+            {
+              "html": "Permakultur für Kinder"
+            },
+            {
+              "html": "Kurs"
+            },
+            {
+              "html": "Erwachsene",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/permakultur-fuer-kinder\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>12.09.2025 bis 14.09.2025</strong><br>Hamburg",
+              "attributes": {
+                "dataSort": "2025-09-12"
+              }
+            },
+            {
+              "html": "Erlebnistage im Grünen"
+            },
+            {
+              "html": "Event"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/erlebnistage-im-gruenen\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>23.07.2025 bis 24.07.2025</strong><br>Neubrandenburg",
+              "attributes": {
+                "dataSort": "2025-07-23"
+              }
+            },
+            {
+              "html": "Tiny-House bauen"
+            },
+            {
+              "html": "Event"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/tiny-house-bauen\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>03.08.2025</strong><br>Lübeck",
+              "attributes": {
+                "dataSort": "2025-08-03"
+              }
+            },
+            {
+              "html": "Waldwissen für Stadtmenschen"
+            },
+            {
+              "html": "Kurs"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/waldwissen-fuer-stadtmenschen\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>18.08.2025 bis 19.08.2025</strong><br>Stralsund",
+              "attributes": {
+                "dataSort": "2025-08-18"
+              }
+            },
+            {
+              "html": "Heilpflanzen im Jahreskreis"
+            },
+            {
+              "html": "Event"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/heilpflanzen-im-jahreskreis\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>29.08.2025</strong><br>Hannover",
+              "attributes": {
+                "dataSort": "2025-08-29"
+              }
+            },
+            {
+              "html": "Barfußpfad gestalten"
+            },
+            {
+              "html": "Event"
+            },
+            {
+              "html": "Erwachsene",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/barfußpfad-gestalten\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>03.08.2025 bis 05.08.2025</strong><br>Hamburg",
+              "attributes": {
+                "dataSort": "2025-08-03"
+              }
+            },
+            {
+              "html": "Waldhandwerk"
+            },
+            {
+              "html": "Kurs"
+            },
+            {
+              "html": "Kinder",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/waldhandwerk\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>31.08.2025 bis 02.09.2025</strong><br>Rostock",
+              "attributes": {
+                "dataSort": "2025-08-31"
+              }
+            },
+            {
+              "html": "Feuer machen & Geschichten erzählen"
+            },
+            {
+              "html": "Webinar"
+            },
+            {
+              "html": "Familien",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/feuer-machen--geschichten-erzaehlen\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ],
+          [
+            {
+              "html": "<strong>19.08.2025 bis 21.08.2025</strong><br>Schwerin",
+              "attributes": {
+                "dataSort": "2025-08-19"
+              }
+            },
+            {
+              "html": "Wald und Wasser erleben"
+            },
+            {
+              "html": "Webinar"
+            },
+            {
+              "html": "Erwachsene",
+              "attributes": {
+                "dataHideOnMobile": true
+              }
+            },
+            {
+              "html": "<a href=\"/termine/wald-und-wasser-erleben\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

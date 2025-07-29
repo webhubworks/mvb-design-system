@@ -5,6 +5,7 @@
 @import "./_rich-text.css";
 @import "../../../../theme.css";
 @import "../components/molecules/form/form.css";
+@import "../components/molecules/data-table/data-table.css";
 
 @source "../components/**/*.twig";
 @source "../../../../templates/**/*.twig";

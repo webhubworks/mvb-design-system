@@ -36,6 +36,20 @@ class RenderComponentExtension extends AbstractExtension
                     return "$key=$value";
                 })->join(' ');
             }),
+            new TwigFunction('attributesToHtmlKebabCase', function (array|Collection $attributes): string {
+                $attributes = is_array($attributes) ? Collection::make($attributes) : $attributes;
+
+                return $attributes->map(function ($value, $key) {
+                    if (!(is_string($value) || is_scalar($value) || is_null($value))) {
+                        throw new InvalidArgumentException("Invalid attribute value for key '$key'. Expected string, scalar, or null.");
+                    }
+
+                    // camelCase → kebab-case (z. B. dataSort → data-sort)
+                    $kebabKey = strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $key));
+
+                    return $value === true ? $kebabKey : "$kebabKey=\"$value\"";
+                })->join(' ');
+            }),
             new TwigFunction('render', function (string $component, array $params = []): string {
                 return MvbDesignSystem::getInstance()->renderComponent->render($component, $params);
             }, ['is_safe' => ['html']]),

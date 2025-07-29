@@ -8,6 +8,7 @@ import initImageSliders from '@components/organisms/image-slider/image-slider.js
 import initLightboxGalleries from '@components/organisms/lightbox-gallery/lightbox-gallery.js'
 import initForms from '@components/molecules/form/form.js'
 import initSupportNavigations from '@components/molecules/support-navigation/support-navigation.js'
+import initDataTables from '@components/molecules/data-table/data-table.js'
 
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitchers();
@@ -19,4 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initImageSliders();
     initForms();
     initSupportNavigations();
+    initDataTables();
 })

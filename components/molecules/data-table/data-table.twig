@@ -1,0 +1,40 @@
+<div
+        data-component="molecules.datatable"
+        data-filter='{{ config.filters|json_encode|e('html_attr') }}'
+        data-datatable-label-resetfilters="{{ labels.reset|default('Filter zurücksetzen') }}"
+        data-datatable-label-placeholder="{{ labels.placeholder|default('Suche…') }}"
+        data-datatable-label-no-rows="{{ labels.noRows|default('Keine passenden Einträge gefunden') }}"
+        data-datatable-label-no-results="{{ labels.noResults|default('Keine passenden Einträge gefunden') }}"
+    >
+    <div class="rich-text">
+
+        <table data-component-part="datatable.table" class="overflow-scroll w-full">
+            <thead>
+            <tr>
+                {% for col in config.columns %}
+                    {% set colAttr = col.attributes|default({})|collect() %}
+                    {% set _colClass = colAttr.get('class') %}
+                    {% set _otherAttrs = colAttr.forget(['class']).toArray() %}
+                    <th scope="col" class="{{ _colClass | raw }}" {{ attributesToHtmlKebabCase(_otherAttrs) | raw}}>
+                        {{ col.label }}
+                    </th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                        {% set attr = cell.attributes|default({})|collect() %}
+                        {% set _cellClass = attr.get('class') %}
+                        {% set _otherAttrs = attr.forget(['class']).toArray() %}
+                        <td class="td {{ _cellClass | raw }}" {{ attributesToHtmlKebabCase(_otherAttrs) | raw }}>
+                            {{ cell.html|raw }}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
