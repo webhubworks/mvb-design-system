@@ -71,7 +71,7 @@ ul.checkbox-list{
 }
 
 .checkbox-list li{
-    @apply inline-flex items-start space-x-2 px-2;
+    @apply flex items-start space-x-2 px-2 w-full;
 }
 
 .checkbox-list li input[type="checkbox"]{
