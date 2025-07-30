@@ -8,6 +8,16 @@
   "stories": [
     {
       "name": "Data Table",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('molecules.data-table', {\n  config: {\n    columns: [\n      { label: 'Termine', attributes: { dataFilterGroup: 'Ort' } },\n      { label: 'Thema' },\n      { label: 'Art', attributes: { dataFilterGroup: 'Art' } },\n      { label: 'Zielgruppe', attributes: { dataFilterGroup: 'Zielgruppe', dataHideOnMobile: true } },\n      { label: 'Details', attributes: { dataSortable: 'false', id: 'id-xy' } }\n    ],\n    filters: [\n      { group: 'Zielgruppe', items: ['Familien', 'Erwachsene', 'Kinder'] },\n      { group: 'Ort', items: ['Rostock', 'Schwerin', 'Greifswald', 'Hamburg', 'Mecklenburgische Schweiz', 'Köln'] },\n      { group: 'Art', items: ['Kurs', 'Workshop'] }\n    ],\n    labels: {\n      reset: 'Filter zurücksetzen',\n      placeholder: 'Suche…',\n      noRows: 'Keine passenden Einträge gefunden',\n      noResults: 'Keine passenden Einträge gefunden',\n      toggle: 'Filter anzeigen'\n    }\n  },\n  rows: [\n    [\n      {\n        html: '<strong>01.08.2025</strong><br>Stralsund',\n        attributes: { dataSort: '2025-08-01' }\n      },\n      { html: 'Waldbaden für Familien' },\n      { html: 'Webinar' },\n      { html: 'Familien', attributes: { dataHideOnMobile: true } },\n      { html: '<a href=\"/termine/waldbaden-fuer-familien\">Anzeigen <i class=\"fa-light fa-arrow-right\"></i></a>' }\n    ]\n  ]\n}) }}"
+          },
+          "description": {
+            "story": "Beispielkonfiguration der Data Table mit allen unterstützten Konfigurationsmöglichkeiten."
+          }
+        }
+      },
       "args": {
         "config": {
           "columns": [
