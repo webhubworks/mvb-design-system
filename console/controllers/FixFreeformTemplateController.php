@@ -6,7 +6,6 @@ use Craft;
 use craft\console\Controller;
 use yii\console\ExitCode;
 use Solspace\Freeform\Freeform;
-use Solspace\Freeform\Records\Form as FormRecord;
 
 class FixFreeformTemplateController extends Controller
 {
@@ -16,7 +15,6 @@ class FixFreeformTemplateController extends Controller
     public function actionIndex(): int
     {
         $templatePath = 'mvb-design-system/index.twig';
-
         $formService = Freeform::getInstance()->forms;
         $forms = $formService->getAllForms();
 
@@ -28,19 +26,21 @@ class FixFreeformTemplateController extends Controller
         $this->stdout("🔧 Setze Template '{$templatePath}' für alle Freeform-Formulare:\n");
 
         foreach ($forms as $form) {
-            $record = FormRecord::findOne(['id' => $form->id]);
+            // Nur ändern, wenn nötig
+            if ($form->getFormattingTemplate() === $templatePath) {
+                $this->stdout("• {$form->getName()} ({$form->getHandle()}): bereits korrekt.\n");
+                continue;
+            }
 
-            if ($record) {
-                $record->formattingTemplate = $templatePath;
+            $form->setFormattingTemplate($templatePath);
 
-                if ($record->save()) {
-                    $this->stdout("✔ {$form->name} ({$form->handle}) aktualisiert.\n");
-                } else {
-                    $this->stderr("✘ Fehler bei {$form->name} ({$form->handle}):\n");
-                    print_r($record->getErrors());
-                }
+            if (Freeform::getInstance()->forms->save($form)) {
+                $this->stdout("✔ {$form->getName()} ({$form->getHandle()}) aktualisiert.\n");
             } else {
-                $this->stderr("✘ Kein Record gefunden für Formular-ID {$form->id}.\n");
+                $this->stderr("✘ Fehler bei {$form->getName()} ({$form->getHandle()}):\n");
+                foreach ($form->getErrors() as $field => $messages) {
+                    $this->stderr("  - {$field}: " . implode(', ', $messages) . "\n");
+                }
             }
         }
 
