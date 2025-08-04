@@ -1,7 +1,8 @@
 {% set reducedXSpacing = reducedXSpacing|default(false) %}
+{% set fullWidth = fullWidth|default(false) %}
 
 <nav class="bg-white px-4" data-component="molecules.navigation-bar" role="navigation" aria-label="Main menu">
-    <div class="container mx-auto flex flex-wrap lg:flex-nowrap justify-between lg:justify-start items-center group">
+    <div class="{{ fullWidth ? 'p-2' : 'container' }} mx-auto flex flex-wrap lg:flex-nowrap justify-between lg:justify-start items-center group">
 
         {% if logo is defined and logo.src|length %}
             {{ render('atoms.logo', {

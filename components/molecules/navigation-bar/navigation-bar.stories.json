@@ -80,6 +80,12 @@
   "stories": [
     {
       "name": "Navigation Bar"
+    },
+    {
+      "name": "Navigation Bar with full width",
+        "args": {
+            "fullWidth": true
+        }
     }
   ]
 }

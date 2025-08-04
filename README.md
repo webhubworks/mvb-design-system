@@ -62,11 +62,6 @@ CRAFT_ENVIRONMENT
 PRIMARY_SITE_URL
 ```
 
-### Change node version in ddev config.yaml
-```yaml
-nodejs_version: 22
-```
-
 ### Untrack dist files in .gitignore
 ```dotenv
 /web/dist/**/*
@@ -98,11 +93,12 @@ craft mvbdesignsystem/storybook/build
 
 ## Develop
 
-### Configure DDEV
+### Configure DDEV & Change Node Version
 The dev servers run within DDEV, so you need to ensure that your DDEV project is set up correctly. Make sure you have the following in your `.ddev/config.yaml`:
 
 ```yaml
 # ...
+nodejs_version: 22
 web_extra_exposed_ports:
   - name: node-vite
     container_port: 5173
