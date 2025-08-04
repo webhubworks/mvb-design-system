@@ -8,7 +8,10 @@
   "args": {
     "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
     "href": "#!",
-    "dates": ["2025-05-13T13:30+00:00", "2025-05-12T23:30+00:00"],
+    "dates": [
+      "2025-05-13T13:30+00:00",
+      "2025-05-12T23:30+00:00"
+    ],
     "badges": []
   },
   "argTypes": {
@@ -28,7 +31,54 @@
       "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
     }
   },
-  "stories": [{
-    "name": "Default"
-  }]
+  "stories": [
+    {
+      "name": "Default",
+      "args": {
+        "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+        "href": "#!",
+        "dates": [
+          "2025-05-13T13:30+00:00",
+          "2025-05-12T23:30+00:00"
+        ],
+        "img": {
+          "src": "https://picsum.photos/600/400",
+          "alt": "Some stock image",
+          "width": 600,
+          "height": 400,
+          "caption": "© Lorem Picsum"
+        }
+      }
+    },
+    {
+      "name": "Boersenvereinsgruppe News",
+      "parameters": {
+        "docs": {
+          "source": {
+            "code": "{{ render('molecules.event-card', {content: 'Sommerfest der Börsenvereinsgruppe', href: '#!', dates: ['2025-05-13T13:30+00:00'], img: {src: 'https://picsum.photos/600/800', alt: 'Some stock image', width: 600, height: 800, caption: '© Lorem Picsum'}, attributes: {class: 'border-b-6 border-primary [&_a]:text-xl [&_a]:font-bold'}}) }}"
+          },
+          "description": {
+            "story": "This is a card for the Boersenvereinsgruppe news."
+          }
+        }
+      },
+      "args": {
+        "content": "Sommerfest der Börsenvereinsgruppe",
+        "href": "#!",
+        "img": {
+          "src": "https://picsum.photos/600/800",
+          "alt": "Some stock image",
+          "width": 600,
+          "height": 800,
+          "caption": "© Lorem Picsum"
+        },
+        "attributes": {
+          "class": "border-b-6 border-primary [&_a]:text-xl [&_a]:font-bold"
+        },
+        "dates": [
+          "2025-05-13T13:30+00:00"
+        ]
+      }
+    }
+  ]
 }

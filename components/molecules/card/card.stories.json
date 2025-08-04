@@ -85,6 +85,34 @@
         },
         "footerHtml": "<p class='px-3 pb-3 text-sm'>Some footer content</p>"
       }
+    },
+    {
+      "name": "Boersenvereinsgruppe",
+      "args": {
+        "content": "Berufseinsteiger*innen",
+        "href": "#!",
+        "attributes": {
+          "class": "border-b-6 border-primary [&_a]:text-xl [&_a]:font-bold"
+        },
+        "img": {
+          "src": "https://picsum.photos/600/400",
+          "alt": "Some stock image",
+          "width": 600,
+          "height": 400,
+          "caption": "© Lorem Picsum"
+        }
+      }
+    },
+    {
+      "name": "Boersenvereinsgruppe Job",
+      "args": {
+        "content": "Studentische Aushilfe Presse- und Öffentlichkeitsarbeit (m/w/d)",
+        "footerHtml": "<p class='px-3 pb-3 text-base text-primary'>Frankfurt am Main</p>",
+        "href": "#!",
+        "attributes": {
+          "class": "border-b-6 border-primary [&_a]:text-xl"
+        }
+      }
     }
   ]
 }
