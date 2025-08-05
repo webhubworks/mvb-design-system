@@ -1,8 +1,7 @@
 <div class="help-side-navigation bg-cobblestone-800 text-white fixed md:top-0 bottom-0 left-0 right-0 md:right-auto min-[96rem]:relative w-full md:w-md min-[96rem]:w-full z-[1000] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.125)] md:shadow-[8px_0_12px_-4px_rgba(0,0,0,0.25)] min-[96rem]:shadow-none hidden data-[open='true']:fixed data-[open='true']:block min-[96rem]:block"
      data-component="molecules.support-navigation">
-    <div class="py-3">
-
-        <div class="flex justify-end min-[96rem]:justify-between items-center px-4 pb-2 gap-x-2">
+    <div class="sticky top-0">
+        <div class="flex justify-end min-[96rem]:justify-between items-center px-4 pt-3 pb-2 gap-x-2">
             <form id="search-form" action="{{ searchSupport.url ?? '' }}" role="search"
                   class="min-[96rem]:w-full max-w-md hidden min-[96rem]:block">
                 <label for="support-search--navigation" class="sr-only">{{ searchLabel ?? 'Search' }}</label>
@@ -39,7 +38,7 @@
         </div>
 
 
-        <nav class="max-h-[70vh] md:max-h-none min-[96rem]:relative md:h-[100dvh] min-[96rem]:h-auto min-[96rem]:max-h-dvh overflow-y-auto bg-cobblestone-800 pr-4"
+        <nav class="max-h-[70vh] min-[96rem]:relative md:max-h-[calc(100dvh-80px)] overflow-y-auto bg-cobblestone-800 pr-4"
              role="navigation"
              aria-label="Support menu">
 
