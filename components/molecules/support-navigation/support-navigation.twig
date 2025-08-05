@@ -1,16 +1,16 @@
-<div class="help-side-navigation bg-cobblestone-800 text-white fixed md:sticky bottom-0 md:bottom-auto left-0 right-0 min-[96rem]:relative w-full order-1 z-[1000] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.125)] min-[96rem]:shadow-none">
-    <div class="top-0 lg:sticky ">
+<div class="help-side-navigation bg-cobblestone-800 text-white fixed md:top-0 bottom-0 left-0 right-0 md:right-auto min-[96rem]:relative w-full md:w-auto order-1 z-[1000] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.125)] md:shadow-[8px_0_12px_-4px_rgba(0,0,0,0.25)] min-[96rem]:shadow-none hidden data-[open='true']:fixed data-[open='true']:block min-[96rem]:block" data-component="molecules.support-navigation">
         <div class="py-3">
-            <div class="flex justify-between items-center px-4 gap-x-2 py-1">
+
+            <div class="flex justify-end min-[96rem]:justify-between items-center px-4  gap-x-2 py-3">
                 <form id="search-form" action="{{ searchSupport.url ?? '' }}" role="search"
-                      class="min-[96rem]:w-full max-w-md md:order-2 min-[96rem]:order-1">
-                    <label for="support-search" class="sr-only">{{ searchLabel ?? 'Search' }}</label>
+                      class="min-[96rem]:w-full max-w-md hidden min-[96rem]:block">
+                    <label for="support-search--navigation" class="sr-only">{{ searchLabel ?? 'Search' }}</label>
                     <div class="relative flex items-center">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <i class="fal fa-search text-white" aria-hidden="true"></i>
                     </span>
                         <input
-                                id="support-search"
+                                id="support-search--navigation"
                                 name="query"
                                 type="text"
                                 placeholder="{{ searchTerm ?? 'Search term' }}"
@@ -22,22 +22,23 @@
                 </form>
 
                 {{ render('atoms.button', {
-                    label: toggleButtonLabel ?? 'Support Menu',
                     href: null,
                     variant: 'primary',
                     icon: {
-                        name: 'book',
+                        name: 'close',
                         position: 'right'
                     },
                     attributes: {
-                        class: 'min-[96rem]:hidden whitespace-nowrap',
+                        'aria-label': 'Close support menu',
+                        class: 'min-[96rem]:hidden whitespace-nowrap !py-2.5',
                         'data-component-part': 'support-navigation.toggle-button'
                     }
                 }) }}
 
             </div>
 
-            <nav class="max-h-[70vh] md:max-h-none md:fixed min-[96rem]:relative md:top-0 md:bottom-0 md:left-0 md:h-[100dvh] min-[96rem]:h-auto min-[96rem]:max-h-dvh overflow-y-auto bg-cobblestone-800 hidden data-[open='true']:block min-[96rem]:block pr-4" data-component="molecules.support-navigation"
+
+            <nav class="max-h-[70vh] md:max-h-none min-[96rem]:relative md:h-[100dvh] min-[96rem]:h-auto min-[96rem]:max-h-dvh overflow-y-auto bg-cobblestone-800 pr-4"
                  role="navigation"
                  aria-label="Support menu">
 

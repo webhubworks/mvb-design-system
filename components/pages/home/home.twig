@@ -1,5 +1,9 @@
+{{ render('molecules.support-navigation', {items:support.items}) }}
+
 {{ render('molecules.navigation-bar', {items: navigationItems, languages: languages}) }}
+{{ render('molecules.support-navigation-bar') }}
 {{ render('organisms.hero-slider', {slides: heroSlides}) }}
+
 
 <div class="container mx-auto space-y-16 pb-16">
     {{ render('atoms.heading', {text: 'MVB – Wir bringen Bücher ins Ziel', attributes: {class: 'mb-12'}}) }}

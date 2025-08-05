@@ -1,0 +1,16 @@
+{
+  "title": "Molecules/Support Navigation Bar",
+  "parameters": {
+    "server": {
+      "id": "molecules.support-navigation-bar"
+    }
+  },
+  "args": {
+    "searchUrl": "https://www.google.de"
+  },
+  "stories": [
+    {
+      "name": "Support Navigation Bar with Trigger and Search"
+    }
+  ]
+}

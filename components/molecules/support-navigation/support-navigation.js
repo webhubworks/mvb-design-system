@@ -37,48 +37,46 @@ const closeSubmenu = (item, button, subMenu) => {
 }
 
 const initSupportNavigation = (component) => {
-    const supportNav = document.querySelector('[data-component="molecules.support-navigation"]');
-    const toggleButtons = document.querySelectorAll('[data-component-part="support-navigation.toggle-button"]');
-    const navItems = component.querySelectorAll('[data-component-part="support-navigation.menu-item"]')
+    const supportNav   = component
+    const toggleButtons = document.querySelectorAll('[data-component-part="support-navigation.toggle-button"]')
+    const navItems      = component.querySelectorAll('[data-component-part="support-navigation.menu-item"]')
 
-    if (!supportNav || !toggleButtons.length) return;
+    if (!supportNav || !toggleButtons.length) return
 
-    toggleButtons.forEach(button => {
+    toggleButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            const isOpen = supportNav.hasAttribute('data-open');
-
+            const isOpen = supportNav.hasAttribute('data-open')
             if (isOpen) {
-                supportNav.removeAttribute('data-open');
+                supportNav.removeAttribute('data-open')
             } else {
-                supportNav.setAttribute('data-open', 'true');
+                supportNav.setAttribute('data-open', 'true')
+                const focusTarget = supportNav.querySelector('[data-component-part="support-navigation.toggle-button"]')
+                if (focusTarget) window.requestAnimationFrame(() => focusTarget.focus())
             }
-        });
-    });
+        })
+    })
 
-    // Optional: Schließen bei "Escape"-Taste
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && supportNav.hasAttribute('data-open')) {
-            supportNav.removeAttribute('data-open');
+            supportNav.removeAttribute('data-open')
         }
-    });
+    })
 
-    // Optional: Klick außerhalb des Menüs schließt es
     document.addEventListener('click', (event) => {
-        const isClickInside = supportNav.contains(event.target) || [...toggleButtons].some(btn => btn.contains(event.target));
+        const isClickInside =
+            supportNav.contains(event.target) ||
+            [...toggleButtons].some((btn) => btn.contains(event.target))
         if (!isClickInside && supportNav.hasAttribute('data-open')) {
-            supportNav.removeAttribute('data-open');
+            supportNav.removeAttribute('data-open')
         }
-    });
+    })
 
     navItems.forEach((item) => {
         const toggleButton = item.querySelector('button[data-toggles-submenu="true"]')
-        const subMenu = item.querySelector('[data-component-part="support-navigation.menu"]')
-
+        const subMenu      = item.querySelector('[data-component-part="support-navigation.menu"]')
         if (!toggleButton || !subMenu) return
 
-        // 🔍 Check: Gibt es im Submenü ein aktives Element?
         const hasActiveChild = subMenu.querySelector('.active') !== null
-
         if (hasActiveChild) {
             subMenu.dataset.state = 'open'
             subMenu.classList.remove('hidden')
@@ -96,11 +94,9 @@ const initSupportNavigation = (component) => {
         })
 
         document.addEventListener('click', (e) => {
-            const isToggle = toggleButton.contains(e.target)
-            const isInMenu = item.contains(e.target)
-            const hasActiveItem = subMenu.querySelector('.active')
-
-            // Nur schließen, wenn nicht aktiv
+            const isToggle       = toggleButton.contains(e.target)
+            const isInMenu       = item.contains(e.target)
+            const hasActiveItem  = subMenu.querySelector('.active')
             if (!isToggle && !isInMenu && subMenu.dataset.state === 'open' && !hasActiveItem) {
                 closeSubmenu(item, toggleButton, subMenu)
             }
@@ -109,9 +105,9 @@ const initSupportNavigation = (component) => {
 }
 
 const initSupportNavigations = () => {
-    document.querySelectorAll('[data-component="molecules.support-navigation"]').forEach(component => {
-        initSupportNavigation(component)
-    })
+    document
+        .querySelectorAll('[data-component="molecules.support-navigation"]')
+        .forEach((component) => initSupportNavigation(component))
 }
 
 export default initSupportNavigations
