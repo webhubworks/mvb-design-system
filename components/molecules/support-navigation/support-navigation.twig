@@ -1,9 +1,9 @@
-<div class="help-side-navigation bg-cobblestone-800 text-white fixed bottom-0 left-0 right-0 min-[1540px]:relative w-full order-1 z-[1000] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.125)] min-[1540px]:shadow-none">
+<div class="help-side-navigation bg-cobblestone-800 text-white fixed md:sticky bottom-0 md:bottom-auto left-0 right-0 min-[96rem]:relative w-full order-1 z-[1000] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.125)] min-[96rem]:shadow-none">
     <div class="top-0 lg:sticky ">
         <div class="py-3">
             <div class="flex justify-between items-center px-4 gap-x-2 py-1">
                 <form id="search-form" action="{{ searchSupport.url ?? '' }}" role="search"
-                      class="min-[1540px]:w-full max-w-md ">
+                      class="min-[96rem]:w-full max-w-md md:order-2 min-[96rem]:order-1">
                     <label for="support-search" class="sr-only">{{ searchLabel ?? 'Search' }}</label>
                     <div class="relative flex items-center">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -16,7 +16,7 @@
                                 placeholder="{{ searchTerm ?? 'Search term' }}"
                                 aria-label="{{ searchLabel ?? 'Search' }}"
                                 value="{{ searchValue ?? '' }}"
-                                class="w-full pl-10 pr-4 py-1.5 min-[1540px]:py-2  bg-transparent border border-white text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
+                                class="w-full pl-10 pr-4 py-1.5 min-[96rem]:py-2  bg-transparent border border-white text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
                         >
                     </div>
                 </form>
@@ -30,14 +30,14 @@
                         position: 'right'
                     },
                     attributes: {
-                        class: 'min-[1540px]:hidden whitespace-nowrap',
+                        class: 'min-[96rem]:hidden whitespace-nowrap',
                         'data-component-part': 'support-navigation.toggle-button'
                     }
                 }) }}
 
             </div>
 
-            <nav class="max-h-[70vh] min-[1540px]:max-h-dvh overflow-y-auto bg-cobblestone-800 hidden data-[open='true']:block min-[1540px]:block min-[1540px]:relative pr-4" data-component="molecules.support-navigation"
+            <nav class="max-h-[70vh] md:max-h-none md:fixed min-[96rem]:relative md:top-0 md:bottom-0 md:left-0 md:h-[100dvh] min-[96rem]:h-auto min-[96rem]:max-h-dvh overflow-y-auto bg-cobblestone-800 hidden data-[open='true']:block min-[96rem]:block pr-4" data-component="molecules.support-navigation"
                  role="navigation"
                  aria-label="Support menu">
 

@@ -16,7 +16,7 @@
     --text-base--line-height: 1.45;
 
     --breakpoint-xl: 71.25rem;
-    --breakpoint-2xl: initial;
+    --breakpoint-2xl: 96rem;
 }
 
 body {
