@@ -15,6 +15,20 @@ return [
         '--color-primary-900' => ' var(--color-monza-900)',
         '--color-primary-950' => ' var(--color-monza-950)',
     ],
+    'vlb' => [
+        '--color-primary' => ' var(--color-mountain-meadow-500)',
+        '--color-primary-50' => ' var(--color-mountain-meadow-50)',
+        '--color-primary-100' => ' var(--color-mountain-meadow-100)',
+        '--color-primary-200' => ' var(--color-mountain-meadow-200)',
+        '--color-primary-300' => ' var(--color-mountain-meadow-300)',
+        '--color-primary-400' => ' var(--color-mountain-meadow-400)',
+        '--color-primary-500' => ' var(--color-mountain-meadow-500)',
+        '--color-primary-600' => ' var(--color-mountain-meadow-600)',
+        '--color-primary-700' => ' var(--color-mountain-meadow-700)',
+        '--color-primary-800' => ' var(--color-mountain-meadow-800)',
+        '--color-primary-900' => ' var(--color-mountain-meadow-900)',
+        '--color-primary-950' => ' var(--color-mountain-meadow-950)',
+    ],
     'vlbtix' => [
         '--color-primary' => ' var(--color-clementine-500)',
         '--color-primary-50' => ' var(--color-clementine-50)',
@@ -28,6 +42,20 @@ return [
         '--color-primary-800' => ' var(--color-clementine-800)',
         '--color-primary-900' => ' var(--color-clementine-900)',
         '--color-primary-950' => ' var(--color-clementine-950)',
+    ],
+    'buecherscheck' => [
+        '--color-primary' => ' var(--color-maximum-blue-500)',
+        '--color-primary-50' => ' var(--color-maximum-blue-50)',
+        '--color-primary-100' => ' var(--color-maximum-blue-100)',
+        '--color-primary-200' => ' var(--color-maximum-blue-200)',
+        '--color-primary-300' => ' var(--color-maximum-blue-300)',
+        '--color-primary-400' => ' var(--color-maximum-blue-400)',
+        '--color-primary-500' => ' var(--color-maximum-blue-500)',
+        '--color-primary-600' => ' var(--color-maximum-blue-600)',
+        '--color-primary-700' => ' var(--color-maximum-blue-700)',
+        '--color-primary-800' => ' var(--color-maximum-blue-800)',
+        '--color-primary-900' => ' var(--color-maximum-blue-900)',
+        '--color-primary-950' => ' var(--color-maximum-blue-950)',
     ],
     'germanisbn' => [
         '--color-primary' => ' var(--color-persian-blue-700)',
@@ -43,5 +71,4 @@ return [
         '--color-primary-900' => ' var(--color-persian-blue-900)',
         '--color-primary-950' => ' var(--color-persian-blue-950)',
     ],
-
 ];

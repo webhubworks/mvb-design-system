@@ -1,14 +1,5 @@
-
-
-<div class="grid grid-cols-1 min-[1540px]:grid-cols-[minmax(280px,_340px)_auto]">
-    {{ render('molecules.support-navigation', {items:support.items}) }}
-
-    <div class="bg-cobblestone-50 p-4 order-0 min-[1540px]:order-2">
-
 {{ render('molecules.navigation-bar', {items: navigationItems, languages: languages}) }}
-{{ render('molecules.support-navigation-bar') }}
 {{ render('organisms.hero-slider', {slides: heroSlides}) }}
-
 
 <div class="container mx-auto space-y-16 pb-16">
     {{ render('atoms.heading', {text: 'MVB – Wir bringen Bücher ins Ziel', attributes: {class: 'mb-12'}}) }}
@@ -67,5 +58,3 @@
     metaItems: footer.metaItems
 }) }}
 
-    </div>
-</div>

@@ -53,7 +53,7 @@
     {
       "name": "Default MVB",
       "args": {
-        "accentColor": "--color-clementine-600",
+        "accentColor": true,
         "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
         "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
         "href": "#!",
