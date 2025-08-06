@@ -21,19 +21,17 @@ class FixIconsController extends Controller
                         continue;
                     }
 
-                    // 1. Schritt: Entferne alle "fa[blsr] fa-"
+                    // 1. Schritt: Entferne alle "fa[blsr] fa-…"
                     $new = preg_replace('/fa[blsr]\s+fa-/', '', $value);
 
-                    // 2. Schritt: Wenn sich nichts geändert hat, extrahiere das zweite "fa-..."
+                    // 2. Schritt: Wenn nichts entfernt wurde, extrahiere das letzte "fa-…"
                     if ($new === $value) {
-                        // Suche alle Klassen "fa-..."
-                        if (preg_match_all('/\bfa-([^\s]+)/', $value, $matches) && count($matches[1]) >= 2) {
-                            // Das zweite Vorkommen (Index 1) übernehmen
-                            $new = $matches[1][1];
+                        if (preg_match_all('/\bfa-([^\s]+)/', $value, $matches) && !empty($matches[1])) {
+                            // Nimm das letzte gefundene fa-…
+                            $new = end($matches[1]);
                         }
                     }
 
-                    // Falls wir etwas geändert haben, Wert setzen
                     if ($new !== $value) {
                         $entry->setFieldValue($handle, $new);
                         $dirty = true;
