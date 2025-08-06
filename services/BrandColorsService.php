@@ -8,12 +8,20 @@ use yii\base\Component;
 
 class BrandColorsService extends Component
 {
-    public function getBrandColors(?string $brandName = null, string $default = 'mvb'): string
+    public function getBrandColorSet(?string $brandName = null, string $default = 'mvb')
     {
         $brandColors = require MvbDesignSystem::getInstance()->getBasePath() . '/config/brand-colors.php';
-        $brandColor = $brandColors[$brandName] ?? $brandColors[$default];
-        return collect($brandColor)->map(function ($color, $key) {
+        return $brandColors[$brandName] ?? $brandColors[$default];
+    }
+
+    public function getBrandColorStyle(?string $brandName = null, string $default = 'mvb'): string
+    {
+        $brandColor = $this->getBrandColorSet($brandName, $default);
+
+        $colorValueLines = collect($brandColor)->map(function ($color, $key) {
             return "$key: $color";
         })->implode('; ');
+        
+        return ":root { $colorValueLines; }";
     }
 }
