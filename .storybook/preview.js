@@ -22,8 +22,9 @@ const preview = {
             toolbar: {
                 // The label to show for this toolbar item
                 title: 'Brand',
+                icon: 'grid',
                 // Array of plain string values or MenuItem shape (see below)
-                items: ['mvb', 'vlb', 'vlbtix', 'germanisbn', 'buecherscheck'],
+                items: ['mvb', 'vlb', 'vlbtix', 'germanisbn', 'buecherscheck', 'pubnet'],
                 // Change title based on selected value
                 dynamicTitle: true,
             },
