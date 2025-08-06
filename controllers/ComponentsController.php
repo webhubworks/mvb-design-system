@@ -49,7 +49,7 @@ class ComponentsController extends Controller
                 Craft::$app->language = $queryParams['locale'];
             }
 
-            $brandColorStyle = MvbDesignSystem::getInstance()->brandColors->getBrandColors($queryParams['brand'] ?? null);
+            $brandColorStyle = MvbDesignSystem::getInstance()->brandColors->getBrandColorStyleAsRoot($queryParams['brand'] ?? null);
 
             if (! Vite::getInstance()->vite->devServerRunning()) { // ToDo: Not working??
                 return implode([
