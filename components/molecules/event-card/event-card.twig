@@ -22,6 +22,8 @@
 {{ render('molecules.card', {
     content: content,
     href: href,
+    accentColor: accentColor|default(null),
+    logoImgSrc: logoImgSrc|default(null),
     badges: badges|default(null),
     img: img|default(null),
     footerHtml: footerHtml,
