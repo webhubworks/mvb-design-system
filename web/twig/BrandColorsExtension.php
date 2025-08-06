@@ -14,6 +14,9 @@ class BrandColorsExtension extends AbstractExtension
             new TwigFunction('getBrandColorStyle', function (?string $brandName = null, string $default = 'mvb'): string {
                 return MvbDesignSystem::getInstance()->brandColors->getBrandColorStyle($brandName, $default);
             }, ['is_safe' => ['html']]),
+            new TwigFunction('getBrandColorStyleAsRoot', function (?string $brandName = null, string $default = 'mvb'): string {
+                return MvbDesignSystem::getInstance()->brandColors->getBrandColorStyleAsRoot($brandName, $default);
+            }, ['is_safe' => ['html']]),
         ];
     }
 }
