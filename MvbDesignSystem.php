@@ -10,6 +10,7 @@ use craft\i18n\PhpMessageSource;
 use craft\web\UrlManager;
 use craft\web\View;
 use Twig\Extra\Intl\IntlExtension;
+use webhubworks\mvbdesignsystem\services\BrandColorsService;
 use webhubworks\mvbdesignsystem\services\RenderComponentService;
 use webhubworks\mvbdesignsystem\web\twig\RenderComponentExtension;
 use yii\base\Module as BaseModule;
@@ -19,6 +20,7 @@ use yii\base\Module as BaseModule;
  *
  * @method static MvbDesignSystem getInstance()
  * @property-read RenderComponentService $renderComponent
+ * @property-read BrandColorsService $brandColors
  */
 class MvbDesignSystem extends BaseModule
 {
@@ -49,6 +51,7 @@ class MvbDesignSystem extends BaseModule
 
         $this->setComponents([
             'renderComponent' => RenderComponentService::class,
+            'brandColors' => BrandColorsService::class,
         ]);
 
         $this->attachEventHandlers();

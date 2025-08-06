@@ -49,11 +49,11 @@ class ComponentsController extends Controller
                 Craft::$app->language = $queryParams['locale'];
             }
 
+            $brandColorStyle = MvbDesignSystem::getInstance()->brandColors->getBrandColors($queryParams['brand'] ?? null);
+
             if (! Vite::getInstance()->vite->devServerRunning()) { // ToDo: Not working??
                 return implode([
-                    '<style>',
-//                    Vite::getInstance()->vite->fetch(Vite::getInstance()->vite->asset('app.css')),
-                    '</style>',
+                    Craft::$app->view->renderString("<style>$brandColorStyle</style>"),
                     Vite::getInstance()->vite->script('js/app.js'),
                     MvbDesignSystem::getInstance()->renderComponent->render($componentId, $queryParams)
                 ]);
@@ -61,6 +61,7 @@ class ComponentsController extends Controller
 
             if (Vite::getInstance()->vite->devServerRunning()) {
                 return implode([
+                    Craft::$app->view->renderString("<style>$brandColorStyle</style>"),
                     Vite::getInstance()->vite->script('js/app.js'),
                     MvbDesignSystem::getInstance()->renderComponent->render($componentId, $queryParams)
                 ]);
