@@ -33,7 +33,8 @@ class RenderComponentExtension extends AbstractExtension
                     if (! (is_string($value) || is_scalar($value) || is_null($value))) {
                         throw new InvalidArgumentException("Invalid attribute value for key '$key'. Expected string, scalar, or null.");
                     }
-                    return "$key=$value";
+
+                    return "$key=\"$value\"";
                 })->join(' ');
             }),
             new TwigFunction('attributesToHtmlKebabCase', function (array|Collection $attributes): string {
@@ -47,7 +48,7 @@ class RenderComponentExtension extends AbstractExtension
                     // camelCase → kebab-case (z. B. dataSort → data-sort)
                     $kebabKey = strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $key));
 
-                    return $value === true ? $kebabKey : "$kebabKey=\"$value\"";
+                    return "$kebabKey=\"$value\"";
                 })->join(' ');
             }),
             new TwigFunction('render', function (string $component, array $params = []): string {
