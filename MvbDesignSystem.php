@@ -12,6 +12,7 @@ use craft\web\View;
 use Twig\Extra\Intl\IntlExtension;
 use webhubworks\mvbdesignsystem\services\BrandColorsService;
 use webhubworks\mvbdesignsystem\services\RenderComponentService;
+use webhubworks\mvbdesignsystem\web\twig\BrandColorsExtension;
 use webhubworks\mvbdesignsystem\web\twig\RenderComponentExtension;
 use yii\base\Module as BaseModule;
 
@@ -63,6 +64,7 @@ class MvbDesignSystem extends BaseModule
         });
 
         Craft::$app->view->registerTwigExtension(new RenderComponentExtension());
+        Craft::$app->view->registerTwigExtension(new BrandColorsExtension());
     }
 
     private function attachEventHandlers(): void
