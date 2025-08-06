@@ -2,6 +2,46 @@
 
 return [
     'mvb' => [
-        '--color-primary-500' => 'red',
-    ]
+        '--color-primary' => ' var(--color-monza)',
+        '--color-primary-50' => ' var(--color-monza-50)',
+        '--color-primary-100' => ' var(--color-monza-100)',
+        '--color-primary-200' => ' var(--color-monza-200)',
+        '--color-primary-300' => ' var(--color-monza-300)',
+        '--color-primary-400' => ' var(--color-monza-400)',
+        '--color-primary-500' => ' var(--color-monza-500)',
+        '--color-primary-600' => ' var(--color-monza-600)',
+        '--color-primary-700' => ' var(--color-monza-700)',
+        '--color-primary-800' => ' var(--color-monza-800)',
+        '--color-primary-900' => ' var(--color-monza-900)',
+        '--color-primary-950' => ' var(--color-monza-950)',
+    ],
+    'vlbtix' => [
+        '--color-primary' => ' var(--color-clementine-500)',
+        '--color-primary-50' => ' var(--color-clementine-50)',
+        '--color-primary-100' => ' var(--color-clementine-100)',
+        '--color-primary-200' => ' var(--color-clementine-200)',
+        '--color-primary-300' => ' var(--color-clementine-300)',
+        '--color-primary-400' => ' var(--color-clementine-400)',
+        '--color-primary-500' => ' var(--color-clementine-500)',
+        '--color-primary-600' => ' var(--color-clementine-600)',
+        '--color-primary-700' => ' var(--color-clementine-700)',
+        '--color-primary-800' => ' var(--color-clementine-800)',
+        '--color-primary-900' => ' var(--color-clementine-900)',
+        '--color-primary-950' => ' var(--color-clementine-950)',
+    ],
+    'germanisbn' => [
+        '--color-primary' => ' var(--color-persian-blue-700)',
+        '--color-primary-50' => ' var(--color-persian-blue-50)',
+        '--color-primary-100' => ' var(--color-persian-blue-100)',
+        '--color-primary-200' => ' var(--color-persian-blue-200)',
+        '--color-primary-300' => ' var(--color-persian-blue-300)',
+        '--color-primary-400' => ' var(--color-clementine-400)',
+        '--color-primary-500' => ' var(--color-clementine-500)',
+        '--color-primary-600' => ' var(--color-clementine-600)',
+        '--color-primary-700' => ' var(--color-clementine-700)',
+        '--color-primary-800' => ' var(--color-clementine-800)',
+        '--color-primary-900' => ' var(--color-clementine-900)',
+        '--color-primary-950' => ' var(--color-clementine-950)',
+    ],
+
 ];
