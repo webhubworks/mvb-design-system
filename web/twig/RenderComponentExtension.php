@@ -36,7 +36,7 @@ class RenderComponentExtension extends AbstractExtension
 
                     return "$key=\"$value\"";
                 })->join(' ');
-            }),
+            }, ['is_safe' => ['html']]),
             new TwigFunction('attributesToHtmlKebabCase', function (array|Collection $attributes): string {
                 $attributes = is_array($attributes) ? Collection::make($attributes) : $attributes;
 
@@ -50,7 +50,7 @@ class RenderComponentExtension extends AbstractExtension
 
                     return "$kebabKey=\"$value\"";
                 })->join(' ');
-            }),
+            }, ['is_safe' => ['html']]),
             new TwigFunction('render', function (string $component, array $params = []): string {
                 return MvbDesignSystem::getInstance()->renderComponent->render($component, $params);
             }, ['is_safe' => ['html']]),
