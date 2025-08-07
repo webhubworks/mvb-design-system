@@ -9,40 +9,56 @@ use yii\console\ExitCode;
 
 class FixIconsController extends Controller
 {
+    /**
+     * Bereinigt Icon-Strings in allen Sprachen/Sites und speichert die Einträge neu.
+     */
     public function actionIndex(): int
     {
-        $entries = Entry::find()->status(null)->batch(100);
-        foreach ($entries as $batch) {
-            foreach ($batch as $entry) {
-                $dirty = false;
+        // Alle Site-IDs holen (für Mehrsprachigkeit)
+        $siteIds = Craft::$app->getSites()->getAllSiteIds();
 
-                foreach ($entry->getFieldValues() as $handle => $value) {
-                    if (!is_string($value)) {
-                        continue;
-                    }
+        foreach ($siteIds as $siteId) {
+            $this->stdout("➡️  Bearbeite Site ID {$siteId}…\n");
 
-                    // 1. Schritt: Entferne alle "fa[blsr] fa-…"
-                    $new = preg_replace('/fa[blsr]\s+fa-/', '', $value);
+            // Einträge für diese Site laden (auch Entwürfe und Archivierte)
+            $entriesQuery = Entry::find()
+                ->siteId($siteId)
+                ->status(null)
+                ->batch(100);
 
-                    // 2. Schritt: Wenn nichts entfernt wurde, extrahiere das letzte "fa-…"
-                    if ($new === $value) {
-                        if (preg_match_all('/\bfa-([^\s]+)/', $value, $matches) && !empty($matches[1])) {
-                            // Nimm das letzte gefundene fa-…
+            foreach ($entriesQuery as $batch) {
+                foreach ($batch as $entry) {
+                    // Damit saveElement() auf die richtige Site-Version zugreift:
+                    $entry->siteId = $siteId;
+
+                    $dirty = false;
+
+                    foreach ($entry->getFieldValues() as $handle => $value) {
+                        if (!is_string($value) || $value === '') {
+                            continue;
+                        }
+
+                        // 1. Schritt: Entferne alle "fa[blsr] fa-…", case-insensitive und flexibles Whitespace
+                        $new = preg_replace('/\bfa[blsr]\s+fa-/i', '', $value);
+
+                        // 2. Schritt: Wenn noch Reste von "fa-…" im String sind, immer das letzte extrahieren
+                        if (preg_match_all('/\bfa-([^\s]+)/i', $new, $matches) && !empty($matches[1])) {
                             $new = end($matches[1]);
+                        }
+
+                        // Nur setzen, wenn sich der Wert wirklich geändert hat
+                        if ($new !== $value) {
+                            $entry->setFieldValue($handle, $new);
+                            $dirty = true;
                         }
                     }
 
-                    if ($new !== $value) {
-                        $entry->setFieldValue($handle, $new);
-                        $dirty = true;
-                    }
-                }
-
-                if ($dirty) {
-                    if (!Craft::$app->elements->saveElement($entry)) {
-                        echo "Fehler beim Speichern von Eintrag mit der ID: {$entry->id}\n";
-                    } else {
-                        echo "✅ Bereinigt: Eintrag {$entry->id}\n";
+                    if ($dirty) {
+                        if (!Craft::$app->elements->saveElement($entry)) {
+                            $this->stderr("❌ Fehler beim Speichern Eintrag #{$entry->id} (Site {$siteId})\n");
+                        } else {
+                            $this->stdout("✅ Eintrag #{$entry->id} bereinigt (Site {$siteId})\n");
+                        }
                     }
                 }
             }
