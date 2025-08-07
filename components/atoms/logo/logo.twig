@@ -18,7 +18,7 @@
 
 {% if isLink %}
     <figure class="{{ baseClasses }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
-        <a href="{{ href }}" class="block w-full h-full" target="{{ target }}">
+        <a href="{{ href }}" class="flex w-full h-full justify-center items-center" target="{{ target }}">
             <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="{{ _additionalImgClasses }}"/>
         </a>
     </figure>

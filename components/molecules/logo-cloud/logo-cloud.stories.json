@@ -13,6 +13,19 @@
         "heading": "Unsere Marken und Produkte",
         "items": [
           {
+            "src": "https://picsum.photos/2000/800",
+            "alt": "VLB Logo",
+            "width": 2000,
+            "height": 800,
+            "href": "https://www.vlbtix.de"
+          },
+          {
+            "src": "https://german-isbn.de/assets/media/partnerlogos/Logo_VLB_RGB.png",
+            "alt": "VLB Logo",
+            "width": 2000,
+            "height": 800
+          },
+          {
             "src": "https://german-isbn.de/assets/media/partnerlogos/Logo_VLB_RGB.png",
             "alt": "VLB Logo",
             "width": 822,
