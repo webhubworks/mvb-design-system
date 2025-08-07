@@ -32,7 +32,10 @@ class FixIconsController extends Controller
                     // Damit saveElement() auf die richtige Site-Version zugreift:
                     //$entry->siteId = $siteId;
 
-                   // if (!in_array()ElementHelper::supportedSitesForElement($entry);
+                    if (!in_array($siteId,ElementHelper::supportedSitesForElement($entry))) {
+                        $this->stderr("❌ Eintrag #{$entry->id} ist nicht für Site {$siteId} verfügbar.\n");
+                        continue;
+                    }
 
                     $dirty = false;
 
