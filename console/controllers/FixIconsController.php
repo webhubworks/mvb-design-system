@@ -5,6 +5,7 @@ namespace webhubworks\mvbdesignsystem\console\controllers;
 use Craft;
 use craft\console\Controller;
 use craft\elements\Entry;
+use craft\helpers\ElementHelper;
 use yii\console\ExitCode;
 
 class FixIconsController extends Controller
@@ -29,7 +30,9 @@ class FixIconsController extends Controller
             foreach ($entriesQuery as $batch) {
                 foreach ($batch as $entry) {
                     // Damit saveElement() auf die richtige Site-Version zugreift:
-                    $entry->siteId = $siteId;
+                    //$entry->siteId = $siteId;
+
+                   // if (!in_array()ElementHelper::supportedSitesForElement($entry);
 
                     $dirty = false;
 
