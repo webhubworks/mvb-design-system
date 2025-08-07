@@ -3,6 +3,7 @@
 namespace webhubworks\mvbdesignsystem\console\controllers;
 
 use Craft;
+use craft\errors\UnsupportedSiteException;
 use craft\console\Controller;
 use craft\elements\Entry;
 use craft\helpers\ElementHelper;
@@ -20,7 +21,7 @@ class FixIconsController extends Controller
 
         foreach ($siteIds as $siteId) {
             $this->stdout("➡️  Bearbeite Site ID {$siteId}…\n");
-
+            Craft::$app->sites->setCurrentSite($siteId);
             // Einträge für diese Site laden (auch Entwürfe und Archivierte)
             $entriesQuery = Entry::find()
                 ->siteId($siteId)
@@ -31,11 +32,12 @@ class FixIconsController extends Controller
                 foreach ($batch as $entry) {
                     // Damit saveElement() auf die richtige Site-Version zugreift:
                     //$entry->siteId = $siteId;
+                    /* @param Entry $entry */
 
-                    if (!in_array($siteId,ElementHelper::supportedSitesForElement($entry))) {
-                        $this->stderr("❌ Eintrag #{$entry->id} ist nicht für Site {$siteId} verfügbar.\n");
-                        continue;
-                    }
+                    /*     if (!in_array($siteId,ElementHelper::supportedSitesForElement($entry))) {
+                             $this->stderr("❌ Eintrag #{$entry->id} ist nicht für Site {$siteId} verfügbar. ".$entry->getCpEditUrl()." \n");
+                             continue;
+                         }*/
 
                     $dirty = false;
 
@@ -60,11 +62,16 @@ class FixIconsController extends Controller
                     }
 
                     if ($dirty) {
-                        if (!Craft::$app->elements->saveElement($entry)) {
-                            $this->stderr("❌ Fehler beim Speichern Eintrag #{$entry->id} (Site {$siteId})\n");
-                        } else {
-                            $this->stdout("✅ Eintrag #{$entry->id} bereinigt (Site {$siteId})\n");
+                        try {
+                            if (!Craft::$app->elements->saveElement($entry)) {
+                                $this->stderr("❌ Fehler beim Speichern Eintrag #{$entry->id} (Site {$siteId})\n");
+                            } else {
+                                $this->stdout("✅ Eintrag #{$entry->id} bereinigt (Site {$siteId})\n");
+                            }
+                        } catch (UnsupportedSiteException $e) {
+                            // 🥳
                         }
+
                     }
                 }
             }
