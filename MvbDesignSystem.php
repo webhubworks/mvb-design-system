@@ -48,6 +48,7 @@ class MvbDesignSystem extends BaseModule
             'sourceLanguage' => 'en',
             'basePath' => __DIR__ . '/translations',
             'allowOverrides' => true,
+            'forceTranslation' => true,
         ];
 
         $this->setComponents([

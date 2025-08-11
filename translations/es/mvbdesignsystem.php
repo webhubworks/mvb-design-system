@@ -10,5 +10,5 @@ return [
     'de' => 'Deutsch',
     'Next' => 'Siguiente',
     'Previous' => 'Anterior',
-    'Page {currentPage} of {totalPages}' => 'Página {currentPage} de {totalPages}',
+    'Page {currentPage} of {totalPages}' => 'Página {currentPage} de {totalPages}'
 ];
