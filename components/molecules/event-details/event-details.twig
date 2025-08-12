@@ -5,9 +5,24 @@
 
 <div data-component="molecules.event-details"
      class="bg-white {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
-
+    {% if logo is defined and logo.src|length %}
+        <div class="flex justify-start p-4">
+            {{ render('atoms.logo', {
+                alt: logo.alt ?? '',
+                src: logo.src,
+                width: logo.width,
+                height: logo.height,
+                noSpace: true,
+                href: logo.href is defined ? logo.href : null,
+                attributes: {
+                    additionalImgClasses: 'h-8 w-auto',
+                }
+            }) }}
+        </div>
+    {% endif %}
     {% for date in eventDates %}
         <div class="odd:bg-cobblestone-100 even:bg-cobblestone-200 p-4">
+
             <dl class="grid grid-cols-[1.5rem_1fr] gap-y-1 gap-x-4 [&>dt]:text-center [&>dd]:font-bold">
                 {% if date.dateObject is defined and date.dateObject is not empty %}
                     <dt>

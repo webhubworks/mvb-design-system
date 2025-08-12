@@ -9,6 +9,7 @@ import initLightboxGalleries from '@components/organisms/lightbox-gallery/lightb
 import initForms from '@components/molecules/form/form.js'
 import initSupportNavigations from '@components/molecules/support-navigation/support-navigation.js'
 import initDataTables from '@components/molecules/data-table/data-table.js'
+import initScrollSpy from '@components/molecules/support-scroll-spy/support-scroll-spy.js'
 
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitchers();
@@ -21,4 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initForms();
     initSupportNavigations();
     initDataTables();
+    initScrollSpy();
 })

@@ -1,0 +1,40 @@
+{
+  "title": "Molecules/Support Scroll Spy Navigation",
+  "parameters": {
+    "server": {
+      "id": "molecules.support-scroll-spy"
+    }
+  },
+  "args": {
+    "contentHtml": "<p>Hier ist ein Absatz</p>",
+    "items": [
+      {
+        "label": "Thema 1",
+        "level": 1
+      },
+      {
+        "label": "Thema 2",
+        "level": 1
+      },
+      {
+        "label": "Thema 2.1",
+        "level": 2
+      },
+      {
+        "label": "Thema 2.2",
+        "level": 2
+      },
+      {
+        "label": "Thema 3",
+        "level": 1
+      }
+    ]
+  },
+  "stories": [
+    {
+      "name": "Support Scroll Spy Navigation"
+    }
+  ]
+}
+
+
