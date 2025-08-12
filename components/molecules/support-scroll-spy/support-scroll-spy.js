@@ -7,7 +7,7 @@ const initScrollSpy = component => {
 
     const offsetAttr = component.getAttribute('data-offset')
     const offset = Number.parseInt(offsetAttr, 10)
-    const scrollOffset = Number.isNaN(offset) ? 100 : offset
+    const scrollOffset = Number.isNaN(offset) ? 120 : offset
 
     const onScroll = () => {
         const scrollPos = window.scrollY + scrollOffset
