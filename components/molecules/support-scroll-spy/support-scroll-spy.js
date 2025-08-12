@@ -1,5 +1,5 @@
 const initScrollSpy = component => {
-    const sections = Array.from(component.querySelectorAll('.scroll-spy-target'))
+    const sections = Array.from(document.querySelectorAll('.scroll-spy-target'))
     const navLinks = Array.from(component.querySelectorAll('.scroll-spy-link'))
 
     if (!sections.length || !navLinks.length) return
