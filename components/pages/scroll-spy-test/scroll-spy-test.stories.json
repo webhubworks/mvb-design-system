@@ -1,0 +1,38 @@
+{
+  "title": "Pages/Scroll Spy Test",
+  "parameters": {
+    "server": {
+      "id": "pages.scroll-spy-test"
+    }
+  },
+  "stories": [
+    {
+      "name": "Scroll Spy Test",
+      "args": {
+        "contentHtml": "<p>Hier ist ein Absatz</p>",
+        "items": [
+          {
+            "label": "Thema 1",
+            "level": 1
+          },
+          {
+            "label": "Thema 2",
+            "level": 1
+          },
+          {
+            "label": "Thema 2.1",
+            "level": 2
+          },
+          {
+            "label": "Thema 2.2",
+            "level": 2
+          },
+          {
+            "label": "Thema 3",
+            "level": 1
+          }
+        ]
+      }
+    }
+    ]
+}

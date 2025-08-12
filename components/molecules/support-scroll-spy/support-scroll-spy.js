@@ -1,4 +1,5 @@
 const initScrollSpy = component => {
+
     const sections = Array.from(document.querySelectorAll('.scroll-spy-target'))
     const navLinks = Array.from(component.querySelectorAll('.scroll-spy-link'))
 
@@ -32,7 +33,7 @@ const initScrollSpy = component => {
 }
 
 const initScrollSpies = () => {
-    document.querySelectorAll('[data-component="scroll-spy"]').forEach(component => {
+    document.querySelectorAll('[data-component="molecules.support-scroll-spy"]').forEach(component => {
         initScrollSpy(component)
     })
 }
