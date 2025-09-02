@@ -1,23 +1,23 @@
 const initForms = () => {
     let forms = document.querySelectorAll('[data-freeform-tailwind]')
-    forms.forEach(function(e) {
-        e.addEventListener('freeform-ready', function(e) {
-            let t = e.freeform
+    forms.forEach(function(formElement) {
+        formElement.addEventListener('freeform-ready', function(event) {
+            let t = event.freeform
             console.log(t)
             t.setOption('errorClassList', ['mt-1', 'text-base', 'font-semibold', 'text-monza-600'])
             t.setOption('errorClassField', ['outline-2', '-outline-offset-1', 'outline-monza-600'])
         })
-        e.addEventListener('freeform-render-success', function(t) {
+        formElement.addEventListener('freeform-render-success', function(t) {
             t.preventDefault()
-            e.querySelector('.freeform-error-banner').classList.add('hidden')
-            e.querySelector('.freeform-success-banner').classList.remove('hidden');
+            formElement.querySelector('.freeform-error-banner').classList.add('hidden')
+            formElement.querySelector('.freeform-success-banner').classList.remove('hidden');
         })
-        e.addEventListener('freeform-render-form-errors', function(t) {
+        formElement.addEventListener('freeform-render-form-errors', function(t) {
             t.preventDefault()
-            e.querySelector('.freeform-success-banner').classList.add('hidden');
-            e.querySelector('.freeform-error-banner').classList.remove('hidden')
+            formElement.querySelector('.freeform-success-banner').classList.add('hidden');
+            formElement.querySelector('.freeform-error-banner').classList.remove('hidden')
         })
-        e.addEventListener('freeform-on-submit', function(e) {
+        formElement.addEventListener('freeform-on-submit', function(e) {
             let t = e.form.getAttribute('data-id')
             forms.forEach(function(e) {
                 let r = e.getAttribute('data-id')

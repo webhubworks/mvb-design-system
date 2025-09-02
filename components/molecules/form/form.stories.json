@@ -1,5 +1,5 @@
 {
-  "title": "Molecules/Form",
+  "title": "Molecules/Forms/Form",
   "parameters": {
     "server": {
       "id": "molecules.form"
