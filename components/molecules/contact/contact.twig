@@ -13,17 +13,16 @@
 
 
     <div class="bg-white group relative flex flex-col sm:flex-row {{ reducedSpacing ? ' sm:space-x-4' : ' sm:space-x-8' }} {{ _additionalClasses }} overflow-hidden" {{ attributesToHtml(_additionalAttributes) }}>
-        {% if img %}
+        {% if img is defined and img %}
             <div class="relative overflow-hidden sm:max-w-1/2">
                 <figure class="relative h-full aspect-ratio-[400/266] z-20">
                     <img src="{{ img.src }}" width="400" height="266" alt="{{ img.alt ?? '' }}"
                          class="w-full h-full object-cover">
-
-                    <figcaption
-                            class="absolute bg-cobblestone/50 z-10 -rotate-90 translate-x-full origin-bottom-left right-0 px-2 py-1 bottom-0 text-sm text-white whitespace-nowrap truncate max-w-[200px]"
-                            title="{{ img.caption ?? '' }}">
-                        {{ img.caption ?? '' }}
-                    </figcaption>
+                    {% if img.caption is defined and img.caption|length %}
+                        {{ render('atoms.figcaption', {
+                            caption: img.caption,
+                        }) }}
+                    {% endif %}
                 </figure>
             </div>
         {% endif %}

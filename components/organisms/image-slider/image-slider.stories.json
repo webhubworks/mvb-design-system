@@ -14,14 +14,14 @@
             "img": {
               "src": "https://picsum.photos/540/480",
               "alt": "Placeholder Image 1",
-              "caption": "© Placeholder Image 1 Caption"
+              "caption": "Placeholder Image 1 Caption"
             }
           },
           {
             "img": {
               "src": "https://picsum.photos/540/480",
               "alt": "Placeholder Image 2",
-              "caption": "© Placeholder Image 2 Caption"
+              "caption": "Placeholder Image 2 Caption"
             }
           }
         ]
@@ -35,21 +35,21 @@
             "img": {
               "src": "https://picsum.photos/540/380",
               "alt": "Placeholder Image 1",
-              "caption": "© Placeholder Image 1 Caption"
+              "caption": "Placeholder Image 1 Caption"
             }
           },
           {
             "img": {
               "src": "https://picsum.photos/540/380",
               "alt": "Placeholder Image 1",
-              "caption": "© Placeholder Image 1 Caption"
+              "caption": "Placeholder Image 1 Caption"
             }
           },
           {
             "img": {
               "src": "https://picsum.photos/540/380",
               "alt": "Placeholder Image 2",
-              "caption": "© Placeholder Image 2 Caption"
+              "caption": "Placeholder Image 2 Caption"
             }
           }
         ],

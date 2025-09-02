@@ -40,7 +40,7 @@
           "alt": "Some stock image",
           "width": 600,
           "height": 400,
-          "caption": "© Lorem Picsum"
+          "caption": "Lorem Picsum"
         },
         "attributes": {
           "class": "[&_[data-component-part='card-with-action.title']]:text-xl [&_[data-component-part='card-with-action.title']]:font-semibold"
