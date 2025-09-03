@@ -117,16 +117,20 @@
                 {% endif %}
                 {% if additionalButtons is defined and additionalButtons|length %}
                     {% for button in additionalButtons %}
+                        {% set buttonIcon = button.iconName is defined and button.iconName is not empty
+                            ? {
+                                position: button.iconPosition|default('right'),
+                                name: button.iconName
+                            }
+                            : null
+                        %}
                         <li class="lg:hidden py-2 w-full">
                             {{ render('atoms.button', {
                                 label: button.label,
                                 href: button.href,
                                 target: button.target|default('_self'),
                                 variant: 'primary',
-                                icon: {
-                                    position: 'right',
-                                    name: button.iconName ?? 'null'
-                                },
+                                icon: buttonIcon,
                                 attributes: {
                                     class: 'text-base shrink-0 w-full'
                                 }
@@ -150,15 +154,19 @@
             {% if additionalButtons is defined and additionalButtons is not empty  %}
                 <div class="shrink-0 hidden lg:block">
                     {% for button in additionalButtons %}
+                        {% set buttonIcon = button.iconName is defined and button.iconName is not empty
+                            ? {
+                            position: button.iconPosition|default('right'),
+                            name: button.iconName
+                        }
+                            : null
+                        %}
                         {{ render('atoms.button', {
                             label: button.label,
                             href: button.href,
                             target: button.target|default('_self'),
                             variant: 'primary',
-                            icon: {
-                                position:  button.iconPosition ?? 'right',
-                                name: button.iconName ?? null
-                            },
+                            icon: buttonIcon,
                             attributes: {
                                 class: 'text-base shrink-0'
                             }
