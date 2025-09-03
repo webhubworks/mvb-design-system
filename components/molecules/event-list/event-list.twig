@@ -14,8 +14,12 @@
             <div class="hidden @2xs/event-list:inline-block">
                 {{ render('atoms.icon', {name: 'calendar', attributes: {class: 'text-3xl pt-0.5 @xs/event-list:pt-0 @xs/event-list:text-4xl text-cobblestone-200'}}) }}
             </div>
-            <div class="pt-1 @2xs/event-list:pt-2.5 flex flex-col items-start space-y-4">
-                <img alt="Logo" src="{{ event.logoImgSrc }}" class="h-5 brightness-0 invert" />
+            <div class=" flex flex-col items-start space-y-4">
+                {% if event.logoImgSrc is defined and event.logoImgSrc %}
+                    <div class="@2xs/event-list:pt-2.5">
+                        <img alt="Logo" src="{{ event.logoImgSrc }}" class="h-5 brightness-0 invert" />
+                    </div>
+                {% endif %}
                 <a href="{{ event.href }}" class="font-bold active:text-cobblestone-100 hover:underline text-lg">
                     {{ tag(headingLevel, {
                         text: event.title
