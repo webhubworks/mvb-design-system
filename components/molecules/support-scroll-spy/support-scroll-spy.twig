@@ -18,7 +18,7 @@
             <nav id="support-in-page-nav" class="list-group scrollspy-nav">
                 <ul class="text-right border-r border-primary text-base space-y-2">
                     {% for item in items %}
-                        <li class="{{ item.level == 2 ? 'text-cobblestone-500' : '' }}">
+                        <li class="{{ item.level == 1 ? 'font-semibold' : 'font-normal' }}">
                             <a href="#{{ item.label|replace({' ':'-'})|lower }}"
                                class="transition-all pr-4 inline-block border-r-4 border-transparent data-[active=true]:border-primary hover:text-primary scroll-spy-link hyphens-auto">
                                 {{ item.label }}
