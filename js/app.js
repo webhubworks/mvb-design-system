@@ -10,6 +10,7 @@ import initForms from '@components/molecules/form/form.js'
 import initSupportNavigations from '@components/molecules/support-navigation/support-navigation.js'
 import initDataTables from '@components/molecules/data-table/data-table.js'
 import initScrollSpies from '@components/molecules/support-scroll-spy/support-scroll-spy.js'
+import initCalculators  from "@components/molecules/vlb-subscription-calculator/vlb-subscription-calculator.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitchers();
@@ -23,4 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSupportNavigations();
     initDataTables();
     initScrollSpies();
+    initCalculators();
 })
