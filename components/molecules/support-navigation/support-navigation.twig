@@ -38,12 +38,12 @@
         </div>
 
 
-        <nav class="max-h-[70vh] min-[96rem]:relative md:max-h-[calc(100dvh-80px)] overflow-y-auto bg-cobblestone-800 pr-4"
+        <nav class="max-h-[70vh] min-[96rem]:relative md:max-h-[calc(100dvh-80px)] overflow-y-auto bg-cobblestone-800"
              role="navigation"
              aria-label="Support menu">
 
             {% macro renderMenu(items, depth) %}
-                <ul class="pl-2 py-2 level-{{ depth }} {{ depth == 1 ? 'group' : '' }}"
+                <ul class="level-{{ depth }} {{ depth == 1 ? 'group' : '' }} [&[data-depth='2']]:bg-cobblestone-700 [&[data-depth='3']]:bg-cobblestone-600"
                     data-component-part="support-navigation.menu"
                     data-depth="{{ depth }}"
                 >
@@ -62,9 +62,8 @@
                             ]|join(' ')
                         } %}
 
-                        <li class="text-white" data-component-part="support-navigation.menu-item"
-                        >
-                            <div class="flex justify-between items-stretch flex-grow  lg:w-full">
+                        <li class="text-white" data-component-part="support-navigation.menu-item" >
+                            <div class="flex justify-between items-stretch flex-grow lg:w-full">
 
                                 {{ render('atoms.button', {
                                     label: item.label,
@@ -75,7 +74,7 @@
                                     attributes: {
                                         "data-depth": depth,
                                         class: [
-                                            "[&[data-depth='1']]:text-base [&[data-depth='2']]:text-sm [&[data-depth='3']]:text-sm [&[data-depth='4']]:text-sm [&[data-depth='4']]:italic px-2 py-1 text-white hover:text-white hover:bg-primary flex-1",
+                                            "pl-4 [&[data-depth='1']]:text-base [&[data-depth='2']]:text-base [&[data-depth='2']]:pl-4 [&[data-depth='3']]:pl-8 [&[data-depth='4']]:pl-14 [&[data-depth='3']]:text-base [&[data-depth='4']]:text-base [&[data-depth='4']]:italic px-2 py-1.5 text-white hover:text-white hover:bg-primary flex-1",
                                             isActive ? 'font-bold active' : ''
                                         ]|join(' '),
                                     }
