@@ -14,7 +14,7 @@
         {% endif %}
         {{ render('atoms.date', {date: dates|first}) }}
         </div>
-        <a href="{{ href }}" class="font-bold text-[1.25rem]/[1.1] block before:content-[''] before:absolute before:inset-0 break-word">{{ title }}</a>
+        <a href="{{ href }}" class="font-bold text-[1.25rem]/[1.1] block before:content-[''] before:absolute before:inset-0 break-word group-hover:text-primary">{{ title }}</a>
         <p class="text-base">{{ content }}</p>
     </div>
 </div>

@@ -18,7 +18,7 @@
             <div class=" absolute right-0 top-4 max-w-2/3 z-10 flex flex-col space-y-1 items-end justify-end">
                 {% for badge in badges %}
                     <div>
-                        <div class="inline-flex items-center space-x-2 text-white bg-primary px-2 py-1.5 ">
+                        <div class="inline-flex items-center space-x-2 text-white {{ loop.first ? 'bg-primary': 'bg-cobblestone-800'}} px-2 py-1.5 ">
                             {% if badge.iconName %}
                                 {{ render('atoms.icon', {name: badge.iconName, size: 'sm'}) }}
                             {% endif %}
