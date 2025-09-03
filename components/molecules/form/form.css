@@ -1,12 +1,11 @@
 .freeform-form a {
-    color: var(--color-primary-600);
-    font-weight: bold;
-    text-decoration: none;
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color .2s ease-in-out;
 }
 
 .freeform-form a:hover {
-    color: var(--color-primary-500);
-    text-decoration: none;
+    color: var(--color-primary-600);
 }
 
 .freeform-form {
