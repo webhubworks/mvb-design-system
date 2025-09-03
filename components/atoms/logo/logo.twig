@@ -18,14 +18,14 @@
 
 {% if isLink %}
     <figure class="{{ baseClasses }} {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
-        <a href="{{ href }}" class="flex w-full h-full justify-center items-center" target="{{ target }}">
-            <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="{{ _additionalImgClasses }}"/>
+        <a href="{{ href }}" class="flex w-full h-full justify-center items-center" target="{{ target }}" aria-label="{{ ariaLabel|default('Back to homepage') }}">
+            <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt|default('') }}" class="{{ _additionalImgClasses }}"/>
         </a>
     </figure>
 {% endif %}
 
 {% if not isLink %}
     <figure class="{{ baseClasses }} {{ _additionalClasses }}">
-        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt ?? '' }}" class="{{ _additionalImgClasses }}"/>
+        <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt|default('') }}" class="{{ _additionalImgClasses }}"/>
     </figure>
 {% endif %}
