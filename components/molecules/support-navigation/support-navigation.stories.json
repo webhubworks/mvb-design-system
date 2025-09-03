@@ -25,11 +25,11 @@
             },
             {
               "label": "Submenu 1 - 2.2 Long Long Long Long Long",
+              "isActive": true,
               "href": "/home/submenu2/submenu2-2",
               "children": [
                 {
                   "label": " Submenu 1 - 2.1 ",
-                  "isActive": true,
                   "href": "/home/submenu2/submenu2-1"
                 },
                 {
@@ -54,7 +54,6 @@
               "children": [
                 {
                   "label": " Submenu 1 - 2.1 ",
-                  "isActive": true,
                   "href": "/home/submenu2/submenu2-1"
                 },
                 {
@@ -79,7 +78,6 @@
               "children": [
                 {
                   "label": " Submenu 1 - 2.1 ",
-                  "isActive": true,
                   "href": "/home/submenu2/submenu2-1"
                 },
                 {

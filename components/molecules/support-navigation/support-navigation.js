@@ -1,5 +1,3 @@
-import { convertRemToPixels } from '@js/_utils.js'
-
 const toggleFlipIcon = (item) => {
     const icon = item.querySelector('[data-component="atoms.icon"]')
     if (!icon) return
@@ -36,8 +34,23 @@ const closeSubmenu = (item, button, subMenu) => {
     unflipIcon(item)
 }
 
+// ✅ prüft jetzt auch das ITEM SELBST auf active/aria-current
+const isItemSelfActive = (item) => {
+    // 1) Item selbst (z. B. <li class="active"> …)
+    if (
+        item.classList?.contains('active') ||
+        item.getAttribute?.('aria-current') === 'page'
+    ) return true
+
+    // 2) Direktes Label/Link im Item
+    const directActiveEl = item.querySelector(
+        ':scope > .active, :scope > a.active, :scope > [aria-current="page"], :scope > a[aria-current="page"]'
+    )
+    return !!directActiveEl
+}
+
 const initSupportNavigation = (component) => {
-    const supportNav   = component
+    const supportNav    = component
     const toggleButtons = document.querySelectorAll('[data-component-part="support-navigation.toggle-button"]')
     const navItems      = component.querySelectorAll('[data-component-part="support-navigation.menu-item"]')
 
@@ -76,8 +89,11 @@ const initSupportNavigation = (component) => {
         const subMenu      = item.querySelector('[data-component-part="support-navigation.menu"]')
         if (!toggleButton || !subMenu) return
 
-        const hasActiveChild = subMenu.querySelector('.active') !== null
-        if (hasActiveChild) {
+        const selfActive     = isItemSelfActive(item)
+        const hasActiveChild = !!subMenu.querySelector('.active, [aria-current="page"]')
+        const shouldOpen     = selfActive || hasActiveChild
+
+        if (shouldOpen) {
             subMenu.dataset.state = 'open'
             subMenu.classList.remove('hidden')
             toggleButton.setAttribute('aria-expanded', 'true')
@@ -94,10 +110,11 @@ const initSupportNavigation = (component) => {
         })
 
         document.addEventListener('click', (e) => {
-            const isToggle       = toggleButton.contains(e.target)
-            const isInMenu       = item.contains(e.target)
-            const hasActiveItem  = subMenu.querySelector('.active')
-            if (!isToggle && !isInMenu && subMenu.dataset.state === 'open' && !hasActiveItem) {
+            const isToggle      = toggleButton.contains(e.target)
+            const isInMenu      = item.contains(e.target)
+            const hasActiveItem = !!subMenu.querySelector('.active, [aria-current="page"]')
+            const selfIsActive  = isItemSelfActive(item)
+            if (!isToggle && !isInMenu && subMenu.dataset.state === 'open' && !hasActiveItem && !selfIsActive) {
                 closeSubmenu(item, toggleButton, subMenu)
             }
         })

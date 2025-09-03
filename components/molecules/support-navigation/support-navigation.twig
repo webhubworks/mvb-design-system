@@ -37,7 +37,6 @@
 
         </div>
 
-
         <nav class="max-h-[70vh] min-[96rem]:relative md:max-h-[calc(100dvh-80px)] overflow-y-auto bg-cobblestone-800"
              role="navigation"
              aria-label="Support menu">
@@ -46,6 +45,7 @@
                 <ul class="level-{{ depth }} {{ depth == 1 ? 'group' : '' }} [&[data-depth='2']]:bg-cobblestone-700 [&[data-depth='3']]:bg-cobblestone-600"
                     data-component-part="support-navigation.menu"
                     data-depth="{{ depth }}"
+
                 >
                     {% for item in items %}
 
@@ -53,16 +53,16 @@
                         {% set isActive = item.isActive is defined and item.isActive %}
                         {% set hasActiveChild = item.children is defined and collect(item.children).some(child => child.isActive is defined and child.isActive) %}
 
-                        {% set attributes = {
+                        {% set toggleButtonsAttributes = {
                             'aria-haspopup': hasChildren ? 'true' : 'false',
                             'data-toggles-submenu': hasChildren ? 'true' : 'false',
                             'class': [
-                                'max-w-[230px] [&>span]:sr-only text-white hover:text-white hover:bg-primary flex items-center justify-center px-2 py-1 ',
+                                'max-w-[230px] [&>span]:sr-only text-white hover:text-white hover:bg-primary flex items-center justify-center w-8 block py-1 ',
                                 isActive or hasActiveChild ? 'font-bold active' : '',
                             ]|join(' ')
                         } %}
 
-                        <li class="text-white" data-component-part="support-navigation.menu-item" >
+                        <li class="text-white " data-component-part="support-navigation.menu-item" aria-current="{{ isActive ? 'page' : 'false' }}">
                             <div class="flex justify-between items-stretch flex-grow lg:w-full">
 
                                 {{ render('atoms.button', {
@@ -74,14 +74,14 @@
                                     attributes: {
                                         "data-depth": depth,
                                         class: [
-                                            "pl-4 [&[data-depth='1']]:text-base [&[data-depth='2']]:text-base [&[data-depth='2']]:pl-4 [&[data-depth='3']]:pl-8 [&[data-depth='4']]:pl-14 [&[data-depth='3']]:text-base [&[data-depth='4']]:text-base [&[data-depth='4']]:italic px-2 py-1.5 text-white hover:text-white hover:bg-primary flex-1",
+                                            "pl-4 [&[data-depth='1']]:text-base [&[data-depth='2']]:text-base [&[data-depth='2']]:pl-6 [&[data-depth='3']]:pl-9 [&[data-depth='4']]:pl-12 [&[data-depth='3']]:text-base [&[data-depth='4']]:text-base [&[data-depth='4']]:italic px-2 py-1.5 text-white hover:text-white hover:bg-primary flex-1",
                                             isActive ? 'font-bold active' : ''
                                         ]|join(' '),
                                     }
                                 }) }}
 
                                 {% if hasChildren %}
-                                    {% set attributes = attributes|merge({
+                                    {% set toggleButtonsAttributes = toggleButtonsAttributes|merge({
                                         'aria-expanded': 'false',
                                     }) %}
 
@@ -94,7 +94,7 @@
                                             name: 'angle-down',
                                             position: 'right'
                                         } : null,
-                                        attributes: attributes
+                                        attributes: toggleButtonsAttributes
                                     }) }}
 
                                 {% endif %}
