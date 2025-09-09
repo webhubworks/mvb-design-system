@@ -14,7 +14,11 @@
     }, {
       "label": "Some other page",
       "href": "#!"
-    }]
+    },
+      {
+        "label": "Some real real long long other page",
+        "href": "#!"
+      }]
   },
   "argTypes": {
     "attributes": {

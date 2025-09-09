@@ -19,7 +19,7 @@ div[data-field-type="rich-text"],
         @apply font-bold text-[1.25rem]/[1.1] lg:text-[1.625rem]/[1.1] mt-6;
     }
 
-    h4 {
+    h4, h5 {
         @apply font-bold text-[1.15rem]/[1.1] lg:text-[1.25rem]/[1.1];
     }
 

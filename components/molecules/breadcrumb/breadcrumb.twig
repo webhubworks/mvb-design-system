@@ -10,7 +10,7 @@
             <a href="/" class="hover:text-cobblestone-950">{{ render('atoms.icon', {name: 'home-lg-alt'}) }}<span class="sr-only">{{ 'To the homepage'|t('mvbdesignsystem') }}</span></a>
         </li>
         {% for item in items %}
-            <li class="{{ loop.last ? '' : "" }} max-w-[190px] truncate before:content-['/'] before:pr-0.5 pr-2 float-left">
+            <li class="{{ loop.last or loop.first ? '' : "hidden sm:inline" }} max-w-[190px] lg:max-w-[320px] truncate before:content-['/'] before:pr-0.5 pr-2 float-left">
                 {% if item.href is defined and item.href is not empty %}
                     <a {{ loop.last ? 'aria-current="page"' : '' }}
                             title="{{ item.label }}"
