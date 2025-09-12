@@ -15,12 +15,12 @@
     "ftpFeeUnchecked": "0.0",
     "ftpChecked": false,
     "options": [
-      { "value": "1", "label": "1", "baseNew": "462", "selected": true },
-      { "value": "2-5", "label": "2–5", "baseNew": "720" },
-      { "value": "6-10", "label": "6–10", "baseNew": "864" },
-      { "value": "11-20", "label": "11–20", "baseNew": "1026" },
-      { "value": "21-35", "label": "21–35", "baseNew": "1518" },
-      { "value": "36-50", "label": "36–50*", "baseNew": "1998" }
+      { "value": "1", "label": "1", "price": "462", "selected": true },
+      { "value": "2-5", "label": "2–5", "price": "720" },
+      { "value": "6-10", "label": "6–10", "price": "864" },
+      { "value": "11-20", "label": "11–20", "price": "1026" },
+      { "value": "21-35", "label": "21–35", "price": "1518" },
+      { "value": "36-50", "label": "36–50*", "price": "1998" }
     ]
   },
 

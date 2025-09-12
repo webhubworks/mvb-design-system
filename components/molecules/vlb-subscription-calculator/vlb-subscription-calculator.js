@@ -8,7 +8,7 @@ const formatNumberDE = (n) => {
 
 const readBaseNew = (rangeEl) => {
     const opt = rangeEl?.selectedOptions?.[0];
-    const raw = opt?.dataset?.baseNew ?? '0';
+    const raw = opt?.dataset?.price ?? '0';
     const val = Number(raw);
     return Number.isFinite(val) ? val : 0;
 };
@@ -48,12 +48,12 @@ const recalc = (component) => {
 
     if (!rangeEl || !outTotalNewEl) return;
 
-    const baseNew     = readBaseNew(rangeEl);   // Jahrespreis
+    const price     = readBaseNew(rangeEl);   // Jahrespreis
     const addonsSum   = readAddonSum(addonEls); // ebenfalls Jahrespreise
     const discountPct = readDiscountPct(component);
 
-    const yearlyBefore = baseNew + addonsSum;
-    const yearlyAfter  = (baseNew * (1 - discountPct / 100)) + addonsSum;
+    const yearlyBefore = price + addonsSum;
+    const yearlyAfter  = (price * (1 - discountPct / 100)) + addonsSum;
 
     // immer ohne Rabatt ausgeben
     outTotalNewEl.textContent = formatNumberDE(yearlyBefore);

@@ -44,7 +44,7 @@
                     {% for opt in options %}
                         <option
                                 value="{{ opt.value }}"
-                                data-base-new="{{ opt.baseNew }}"
+                                data-price="{{ opt.price }}"
                                 {% if opt.selected is defined and opt.selected %}selected{% endif %}
                         >
                             {{ opt.label }}
