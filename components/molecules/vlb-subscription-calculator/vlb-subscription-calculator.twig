@@ -68,6 +68,7 @@
                         <div class="group grid size-4 grid-cols-1">
                             <input type="checkbox"
                                    name="ftp"
+                                   id="vlb-ftp"
                                    data-fee-checked="{{ ftpFeeChecked|default('0.0') }}"
                                    data-fee-unchecked="{{ ftpFeeUnchecked|default('0.0') }}"
                                    data-component-part="vlb-subscription-calculator.ftp"
@@ -80,7 +81,7 @@
                         </div>
                     </div>
                     <div class="text-sm/6">
-                        <label for="ftp" class="block text-base max-w-sm">
+                        <label for="vlb-ftp" class="block text-base max-w-sm">
                             {{ labels.ftpOption }}
                         </label>
                     </div>
