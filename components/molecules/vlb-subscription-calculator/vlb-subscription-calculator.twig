@@ -104,4 +104,8 @@
 
         <input type="hidden" data-component-part="vlb-subscription-calculator.hidden-total" />
     </div>
+
+    {% if description is defined and description %}
+        <div class="block text-base mt-2 font-normal">{{ description }}</div>
+    {% endif %}
 </div>
