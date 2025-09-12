@@ -14,12 +14,12 @@
     "ftpFeeUnchecked": "0.0",
     "ftpChecked": false,
     "options": [
-      { "value": "1", "label": "1", "baseNew": "38.5", "selected": true },
-      { "value": "2-5", "label": "2–5", "baseNew": "60.0" },
-      { "value": "6-10", "label": "6–10", "baseNew": "72.0" },
-      { "value": "11-20", "label": "11–20", "baseNew": "85.5" },
-      { "value": "21-35", "label": "21–35", "baseNew": "126.5" },
-      { "value": "36-50", "label": "36–50", "baseNew": "166.5" }
+      { "value": "1", "label": "1", "baseNew": "462", "selected": true },
+      { "value": "2-5", "label": "2–5", "baseNew": "720" },
+      { "value": "6-10", "label": "6–10", "baseNew": "864" },
+      { "value": "11-20", "label": "11–20", "baseNew": "1026" },
+      { "value": "21-35", "label": "21–35", "baseNew": "1518" },
+      { "value": "36-50", "label": "36–50*", "baseNew": "1998" }
     ]
   },
 

@@ -20,7 +20,7 @@ const readDiscountPct = (component) => {
     return Number.isFinite(pct) ? Math.max(0, Math.min(100, pct)) : 0;
 };
 
-const readAddonMonthlySum = (addons) => {
+const readAddonSum = (addons) => {
     return addons.reduce((sum, el) => {
         if (!el) return sum;
         if (el.type === 'checkbox') {
@@ -48,13 +48,12 @@ const recalc = (component) => {
 
     if (!rangeEl || !outTotalNewEl) return;
 
-    const baseNew       = readBaseNew(rangeEl);
-    const addonsMonthly = readAddonMonthlySum(addonEls);
-    const discountPct   = readDiscountPct(component);
-    const months        = 12;
+    const baseNew     = readBaseNew(rangeEl);   // Jahrespreis
+    const addonsSum   = readAddonSum(addonEls); // ebenfalls Jahrespreise
+    const discountPct = readDiscountPct(component);
 
-    const yearlyBefore  = (baseNew + addonsMonthly) * months;
-    const yearlyAfter   = (baseNew * (1 - discountPct / 100) + addonsMonthly) * months;
+    const yearlyBefore = baseNew + addonsSum;
+    const yearlyAfter  = (baseNew * (1 - discountPct / 100)) + addonsSum;
 
     // immer ohne Rabatt ausgeben
     outTotalNewEl.textContent = formatNumberDE(yearlyBefore);
