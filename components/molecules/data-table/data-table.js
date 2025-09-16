@@ -84,8 +84,30 @@ const initDatatable = (component) => {
             button.focus()
         }
 
+        const closeAllOtherPopovers = () => {
+            const allPopovers = filterContainer.querySelectorAll('.popover-content')
+            const allButtons = filterContainer.querySelectorAll('.popover-toggle')
+
+            allPopovers.forEach(otherPanel => {
+                if (otherPanel !== panel && !otherPanel.hidden) {
+                    otherPanel.hidden = true
+                    otherPanel.setAttribute('aria-hidden', 'true')
+                }
+            })
+
+            allButtons.forEach(otherButton => {
+                if (otherButton !== button) {
+                    otherButton.setAttribute('aria-expanded', 'false')
+                }
+            })
+        }
+
         button.addEventListener('click', () => {
             const isOpen = !panel.hidden
+
+            // Close all other popovers first
+            closeAllOtherPopovers()
+
             panel.hidden = isOpen
             panel.setAttribute('aria-hidden', isOpen)
             button.setAttribute('aria-expanded', !isOpen)
