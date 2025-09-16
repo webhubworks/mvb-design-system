@@ -1,5 +1,5 @@
 .datatable-table th button{
-    @apply w-full text-left relative inline-flex justify-between items-center;
+    @apply w-full text-left relative inline-flex justify-between items-center hover:cursor-pointer;
 }
 
 .datatable-table th button:after{
