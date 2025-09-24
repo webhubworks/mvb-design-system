@@ -73,17 +73,17 @@
 
     /* Scheck */
     --color-maximum-blue: var(--color-maximum-blue-500);
-    --color-maximum-blue-50: oklch(97.70% 0.013 214.36);
-    --color-maximum-blue-100: oklch(94.00% 0.031 214.46);
-    --color-maximum-blue-200: oklch(88.29% 0.055 218.10);
-    --color-maximum-blue-300: oklch(80.44% 0.089 219.92);
-    --color-maximum-blue-400: oklch(70.63% 0.114 224.38);
-    --color-maximum-blue-500: oklch(61.79% 0.112 227.68);
-    --color-maximum-blue-600: oklch(53.13% 0.101 233.65);
-    --color-maximum-blue-700: oklch(46.06% 0.083 235.17);
-    --color-maximum-blue-800: oklch(41.05% 0.066 234.83);
-    --color-maximum-blue-900: oklch(36.71% 0.056 238.41);
-    --color-maximum-blue-950: oklch(27.70% 0.047 239.83);
+    --color-maximum-blue-50: oklch(0.965 0.018 245.36);
+    --color-maximum-blue-100: oklch(0.938 0.032 246.68);
+    --color-maximum-blue-200: oklch(0.867 0.072 241.77);
+    --color-maximum-blue-300: oklch(0.806 0.111 237.97);
+    --color-maximum-blue-400: oklch(0.743 0.154 233.51);
+    --color-maximum-blue-500: oklch(0.68 0.141 233.52);
+    --color-maximum-blue-600: oklch(0.572 0.119 233.93);
+    --color-maximum-blue-700: oklch(0.461 0.096 233.61);
+    --color-maximum-blue-800: oklch(0.35 0.073 233.37);
+    --color-maximum-blue-900: oklch(0.249 0.052 233.36);
+    --color-maximum-blue-950: oklch(0.184 0.039 234.11);
 
     /* GISBN */
     --color-persian-blue: var(--color-persian-blue-700);
