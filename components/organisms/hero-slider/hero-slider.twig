@@ -59,7 +59,7 @@
                                     </div>
                                 {% endif %}
                                 {% if slide.text is defined and slide.text is not empty %}
-                                    <p class="text-base lg:text-lg">{{ slide.text }}</p>
+                                    <p class="text-base  {{ slide.headingText is not defined or not slide.headingText ? 'lg:text-xl' : 'lg:text-lg' }}">{{ slide.text }}</p>
                                 {% endif %}
                                 {% if slide.link is defined and slide.link is not empty %}
                                     {{ render('atoms.link', {
