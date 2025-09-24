@@ -11,17 +11,18 @@
                     type="button"
             >
                 <figure class="grid h-full w-full grid-rows-[minmax(0,1fr)_auto] place-items-center">
-                    <span class="block aspect-[3/2] w-full row-start-1 row-end-2">
+                    <span class="block aspect-[3/2] w-full row-start-1 row-end-2 relative">
                          <img
                                  class="h-full w-full object-contain object-center group-hover:cursor-pointer"
                                  src="{{ image.thumbnailUrl }}"
                                  alt="{{ image.alt ?? 'Bild ohne Beschreibung' }}"
                          >
+                         {% if image.copyright is defined and image.copyright %}
+                             {{ render('atoms.figcaption', {
+                                 caption: image.copyright,
+                             }) }}
+                         {% endif %}
                     </span>
-
-                    {% if image.caption is defined and image.caption %}
-                        <figcaption class="text-base text-center row-start-2 row-end-3 text-base mt-1 block"{{ image.caption }}</figcaption>
-                    {% endif %}
                 </figure>
             </button>
         {% endfor %}
