@@ -20,19 +20,6 @@ const readDiscountPct = (component) => {
     return Number.isFinite(pct) ? Math.max(0, Math.min(100, pct)) : 0;
 };
 
-const readAddonSum = (addons) => {
-    return addons.reduce((sum, el) => {
-        if (!el) return sum;
-        if (el.type === 'checkbox') {
-            const feeChecked = Number(el.dataset.feeChecked ?? '0');
-            const feeUnchecked = Number(el.dataset.feeUnchecked ?? '0');
-            const fee = el.checked ? feeChecked : feeUnchecked;
-            return sum + (Number.isFinite(fee) ? fee : 0);
-        }
-        const fee = Number(el.dataset.fee ?? '0');
-        return sum + (Number.isFinite(fee) ? fee : 0);
-    }, 0);
-};
 
 // ---- Core calculation & UI update ----
 const recalc = (component) => {
@@ -41,32 +28,18 @@ const recalc = (component) => {
     const outDiscEl       = component.querySelector('[data-component-part="vlb-subscription-calculator.total-discount"]'); // optional
     const hiddenTotalEl   = component.querySelector('[data-component-part="vlb-subscription-calculator.hidden-total"]');   // optional
 
-    const addonEls = [
-        component.querySelector('[data-component-part="vlb-subscription-calculator.ftp"]'),
-        // weitere Addons könnten hier ergänzt werden
-    ].filter(Boolean);
-
     if (!rangeEl || !outTotalNewEl) return;
 
-    const price     = readBaseNew(rangeEl);   // Jahrespreis
-    const addonsSum   = readAddonSum(addonEls); // ebenfalls Jahrespreise
+    const price       = readBaseNew(rangeEl);
     const discountPct = readDiscountPct(component);
 
-    const yearlyBefore = price + addonsSum;
-    const yearlyAfter  = (price * (1 - discountPct / 100)) + addonsSum;
+    const yearlyBefore = price;
+    const yearlyAfter  = price * (1 - discountPct / 100);
 
-    // immer ohne Rabatt ausgeben
     outTotalNewEl.textContent = formatNumberDE(yearlyBefore);
 
-    // nur ausgeben, wenn ein Discount-Element existiert UND discountPct > 0
-    if (outDiscEl) {
-        if (discountPct > 0) {
-            outDiscEl.textContent = formatNumberDE(yearlyAfter);
-            outDiscEl.closest('[data-component-part="vlb-subscription-calculator.discount-row"]')?.classList.remove('hidden');
-        } else {
-            // verstecken, falls vorhanden
-            outDiscEl.closest('[data-component-part="vlb-subscription-calculator.discount-row"]')?.classList.add('hidden');
-        }
+    if (outDiscEl && discountPct > 0) {
+        outDiscEl.textContent = formatNumberDE(yearlyAfter);
     }
 
     // Hidden-Feld: wie im Altcode — wenn Discount > 0, nimm die rabattierte Summe
@@ -78,14 +51,11 @@ const recalc = (component) => {
 // ---- Init (component-scoped) ----
 const initCalculator = (component) => {
     const rangeEl = component.querySelector('[data-component-part="vlb-subscription-calculator.range"]');
-    const ftpEl   = component.querySelector('[data-component-part="vlb-subscription-calculator.ftp"]');
 
     if (!rangeEl) return;
 
     rangeEl.addEventListener('change', () => recalc(component));
-    if (ftpEl) ftpEl.addEventListener('change', () => recalc(component));
 
-    // Initialberechnung
     recalc(component);
 };
 
