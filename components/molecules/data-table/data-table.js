@@ -14,6 +14,7 @@ const initDatatable = (component) => {
         placeholder: getDataLabel(component, 'Placeholder', 'Search...'),
         perPage: getDataLabel(component, 'PerPage', '{select} entries per page'),
         noRows: getDataLabel(component, 'NoRows', 'No entries found'),
+        noResults: getDataLabel(component, 'NoResults', 'No entries found'),
         info: getDataLabel(component, 'Info', 'Showing {start}–{end} of {rows} entries'),
     }
 
