@@ -37,7 +37,7 @@
                 <ul class="space-y-2 mt-2">
                     {% for item in contactItems %}
                         <li class="pl-7">
-                            <a href="{{ item.href }}" class="hover:underline relative flex items-center space-x-2">
+                            <a href="{{ item.href }}" class="hover:underline relative flex items-center space-x-2" target="{{ item.target ?? '_self' }}">
                                 {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white absolute -left-7'}}) }}
                                 {{ item.label }}
                             </a>
