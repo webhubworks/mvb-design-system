@@ -10,6 +10,11 @@
     display: inline-block;
 }
 
+.datable-table th, .datatable-table td{
+    @apply hyphens-none;
+}
+
+
 .datatable-table th.datatable-descending button:after{
     @apply text-primary-600 ;
     content: "\f884";

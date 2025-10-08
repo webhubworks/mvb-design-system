@@ -100,7 +100,7 @@ div[data-field-type="rich-text"],
                 @apply bg-white;
 
                 td {
-                    @apply p-2 text-base text-cobblestone-800 hyphens-auto;
+                    @apply p-2 text-base text-cobblestone-800;
                 }
 
                 th {
