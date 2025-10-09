@@ -26,7 +26,13 @@
                     <p><strong>{{ column.label }}</strong></p>
                     <ul class="space-y-2 mt-2">
                         {% for item in column.children %}
-                            <li><a href="{{ item.href }}" class="hover:underline" target="{{ item.target ?? '_self' }}">{{ item.label }}</a></li>
+                            <li>
+                                {% if item.href and item.href|length %}
+                                    <a href="{{ item.href }}" class="hover:underline" target="{{ item.target ?? '_self' }}">{{ item.label }}</a>
+                                {% else %}
+                                    <span>{{ item.label }}</span>
+                                {% endif %}
+                            </li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -37,10 +43,18 @@
                 <ul class="space-y-2 mt-2">
                     {% for item in contactItems %}
                         <li class="pl-7">
-                            <a href="{{ item.href }}" class="hover:underline relative flex items-center space-x-2" target="{{ item.target ?? '_self' }}">
-                                {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white absolute -left-7'}}) }}
-                                {{ item.label }}
-                            </a>
+                            {% if item.href and item.href|length %}
+                                <a href="{{ item.href }}" class="hover:underline relative flex items-center space-x-2" target="{{ item.target ?? '_self' }}">
+                                    {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white absolute -left-7'}}) }}
+                                    {{ item.label }}
+                                </a>
+                                {% else %}
+                                <span class="relative flex items-center space-x-2">
+                                    {{ render('atoms.icon', { name: item.iconName, attributes: {class: 'text-xl text-white absolute -left-7'}}) }}
+                                    {{ item.label }}
+                                </span>
+                            {% endif %}
+
                         </li>
                     {% endfor %}
                 </ul>
