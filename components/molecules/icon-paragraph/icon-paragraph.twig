@@ -3,7 +3,7 @@
 {% set _additionalClasses = attributeCollection.get('class') %}
 {% set _additionalAttributes = attributeCollection.forget(['class']).toArray() %}
 
-<div data-component="molecules.icon-paragraph" class="flex justify-start flex-col sm:flex-row sm:justify-start items-center gap-4 sm:gap-6 {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
+<div data-component="molecules.icon-paragraph" class="flex justify-start flex-col sm:flex-row sm:justify-start md:items-center gap-4 sm:gap-6 {{ _additionalClasses }}" {{ attributesToHtml(_additionalAttributes) }}>
 
     {% if icon %}
         <div class="block md:w-8 lg:w-12 flex-shrink-0 sm:text-center">
