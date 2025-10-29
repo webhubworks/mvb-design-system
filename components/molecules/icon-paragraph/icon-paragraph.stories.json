@@ -12,7 +12,7 @@
         "icon": {
           "name": "asterisk"
         },
-        "contentHtml": "<p>Hier ist ein Beispieltext, der in einem Icon Paragraph angezeigt wird. Hier ist ein Beispieltext, der in einem Icon Paragraph angezeigt wird. Hier ist ein Beispieltext, der in einem Icon Paragraph angezeigt wird.</p>"
+        "contentHtml": "<p>Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur.\n\nDonec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nVivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo.</p>"
       }
     },
     {
