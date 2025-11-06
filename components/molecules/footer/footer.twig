@@ -14,7 +14,7 @@
                 whiteInverted: logo.whiteInverted ?? null,
                 href: logo.href is defined ? logo.href : null,
                 attributes: {
-                    additionalImgClasses: 'h-6 w-auto',
+                    additionalImgClasses: logo.additionalImgClasses ?? 'h-6 w-auto',
                 }
             }) }}
         {% endif %}
