@@ -41,7 +41,24 @@ class FixIconsController extends Controller
 
                     $dirty = false;
 
-                    foreach ($entry->getFieldValues() as $handle => $value) {
+                    // MINIMALE ÄNDERUNG:
+                    // Statt getFieldValues() (würde alle Felder normalisieren inkl. TableMaker)
+                    // iterieren wir über die Custom-Felder und lassen TableMaker-Felder aus.
+                    $fields = $entry->getFieldLayout() ? $entry->getFieldLayout()->getCustomFields() : [];
+
+                    foreach ($fields as $field) {
+                        $handle = $field->handle;
+
+                        // TableMaker-Felder explizit ignorieren (keine Normalisierung dafür!)
+                        $isTableMaker = class_exists(\verbb\tablemaker\fields\TableMakerField::class)
+                            && ($field instanceof \verbb\tablemaker\fields\TableMakerField);
+                        if ($isTableMaker) {
+                            continue;
+                        }
+
+                        // Für alle anderen Felder erlauben wir Normalisierung wie bisher – aber nur feldweise
+                        $value = $entry->getFieldValue($handle);
+
                         if (!is_string($value) || $value === '') {
                             continue;
                         }
