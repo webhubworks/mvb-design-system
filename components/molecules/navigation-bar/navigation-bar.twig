@@ -78,6 +78,7 @@
                         {{ render('atoms.button', {
                             label: item.label,
                             href: hasChildren ? null : item.href,
+                            target: item.target|default('_self'),
                             variant: 'ghost',
                             noSpace:  reducedXSpacing,
                             icon: hasChildren ? {
@@ -98,6 +99,7 @@
                                         {{ render('atoms.button', {
                                             label: child.label,
                                             href: child.href,
+                                            target: child.target|default('_self'),
                                             variant: 'ghost',
                                             textAlign: 'left',
                                             attributes: {
