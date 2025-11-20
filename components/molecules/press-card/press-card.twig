@@ -10,7 +10,7 @@
     <div class="p-3 space-y-4">
         <div class="flex justify-between">
         {% if logoImgSrc %}
-            <img src="{{ logoImgSrc }}" alt="Logo" class="mb-3 mt-2 h-5">
+            <img src="{{ logoImgSrc }}" alt="" aria-hidden="true" class="mb-3 mt-1 h-4">
         {% endif %}
         {{ render('atoms.date', {date: dates|first}) }}
         </div>
