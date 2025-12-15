@@ -76,13 +76,7 @@
 
                                 {% else %}
 
-                                    {{ render('atoms.heading', {
-                                        text: slide.content.heading|default(''),
-                                        level:  slide.content.headingLevel|default('h2'),
-                                        attributes: {
-                                            class: 'mb-4'
-                                        }
-                                    }) }}
+                                    <p class="text-3xl italic font-bold mb-6">{{ slide.content.heading|default('') }}</p>
 
                                     {% if slide.content.text is defined and slide.content.text|length %}
                                         <p>{{ slide.content.text|raw }}</p>
