@@ -1,11 +1,12 @@
 {% set dates = dates|default([])|filter((v) => v is not null) %}
+{% set hideTime = hideTime|default(false) %}
 
 {% set footerHtml %}
     <div class="flex justify-between px-3 pb-3 pt-2 isolate z-20">
         <div class="flex items-center text-sm text-cobblestone-600 whitespace-nowrap space-x-1">
             {% if dates|length > 0 %}
 
-                {{ render('atoms.event-time', {date: dates|first}) }}
+                {{ render('atoms.event-time', {date: dates|first, hideTime: hideTime}) }}
 
                 {% if dates|length > 1 %}
 

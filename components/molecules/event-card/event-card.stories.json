@@ -85,6 +85,7 @@
       "args": {
         "content": "Sommerfest der Börsenvereinsgruppe",
         "href": "#!",
+        "hideTime": true,
         "img": {
           "src": "https://picsum.photos/600/800",
           "alt": "Some stock image",

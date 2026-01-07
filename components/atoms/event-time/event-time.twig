@@ -3,6 +3,7 @@
 {% set attributeCollection = attributes|default({})|collect() %}
 {% set additionalClasses = attributeCollection.get('class') %}
 {% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
+{% set hideTime = hideTime|default(false) %}
 
 <time {{ attributesToHtml(additionalAttributes) }}
         data-component="atoms.event-time"
@@ -13,8 +14,10 @@
         {{ render('atoms.icon', {name: 'calendar-day', attributes: {class: 'fa-fw'}}) }}
         {{ date|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
     </span>
+    {% if not hideTime %}
     <span class="whitespace-nowrap" data-component-part="atoms.event-time-time">
         {{ render('atoms.icon', {name: 'clock', attributes: {class: 'fa-fw'}}) }}
         {{ date|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
     </span>
+    {% endif %}
 </time>
