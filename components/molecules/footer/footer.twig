@@ -38,6 +38,10 @@
                 </div>
             {% endfor %}
 
+            {% if contactItems is defined and contactItems|length or socialItems is defined and socialItems|length %}
+
+
+
             <div class="flex-grow basis-full">
                 <p><strong>{{ contactHeading }}</strong></p>
                 <ul class="space-y-2 mt-2">
@@ -71,7 +75,10 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </div>
+
+
 
         <div>
             {% if showMVBLogo %}
