@@ -29,13 +29,15 @@
                         {{ render('atoms.icon', {name: 'calendar-day'}) }}
                     </dt>
                     <dd>
-                        {{ date.dateObject|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+                        {# Customer wants all dates formated in the "german way" #}
+                        {{ date.dateObject|format_datetime('medium', 'none', locale: 'de', timezone: 'Europe/Berlin') }}
                     </dd>
                     <dt>
                         {{ render('atoms.icon', {name: 'clock'}) }}
                     </dt>
                     <dd>
-                        {{ date.dateObject|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+                        {# Customer wants all dates formated in the "german way" #}
+                        {{ date.dateObject|format_datetime('none', 'short', locale: 'de', timezone: 'Europe/Berlin') }}
                     </dd>
                 {% endif %}
                 {% if eventDuration is defined and eventDuration is not empty %}

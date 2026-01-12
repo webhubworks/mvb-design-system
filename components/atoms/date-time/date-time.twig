@@ -4,13 +4,15 @@
 {% set additionalClasses = attributeCollection.get('class') %}
 {% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
 
+{# Customer wants all dates formated in the "german way" #}
+
 <time {{ attributesToHtml(additionalAttributes) }}
         data-component="atoms.event-time"
         datetime="{{ date|date('c') }}"
         class="{{ additionalClasses }}"
         title="{{ 'Timezone: Europe/Berlin'|t('mvbdesignsystem') }}">
     {{ render('atoms.icon', {name: 'calendar-day', attributes: {class: 'fa-fw'}}) }}
-    {{ date|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+    {{ date|format_datetime('medium', 'none', locale: 'de', timezone: 'Europe/Berlin') }}
     {{ render('atoms.icon', {name: 'clock', attributes: {class: 'fa-fw'}}) }}
-    {{ date|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+    {{ date|format_datetime('none', 'short', locale: 'de', timezone: 'Europe/Berlin') }}
 </time>

@@ -5,6 +5,8 @@
 {% set additionalAttributes = attributeCollection.forget(['class']).toArray() %}
 {% set hideTime = hideTime|default(false) %}
 
+{# Customer wants all dates formated in the "german way" #}
+
 <time {{ attributesToHtml(additionalAttributes) }}
         data-component="atoms.event-time"
         datetime="{{ date|date('c') }}"
@@ -12,12 +14,12 @@
         title="{{ 'Timezone: Europe/Berlin'|t('mvbdesignsystem') }}">
     <span class="whitespace-nowrap" data-component-part="atoms.event-time-date">
         {{ render('atoms.icon', {name: 'calendar-day', attributes: {class: 'fa-fw'}}) }}
-        {{ date|format_datetime('medium', 'none', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+        {{ date|format_datetime('medium', 'none', locale: 'de', timezone: 'Europe/Berlin') }}
     </span>
     {% if not hideTime %}
     <span class="whitespace-nowrap" data-component-part="atoms.event-time-time">
         {{ render('atoms.icon', {name: 'clock', attributes: {class: 'fa-fw'}}) }}
-        {{ date|format_datetime('none', 'short', locale: craft.app.language, timezone: 'Europe/Berlin') }}
+        {{ date|format_datetime('none', 'short', locale: 'de', timezone: 'Europe/Berlin') }}
     </span>
     {% endif %}
 </time>
