@@ -34,7 +34,7 @@
           ],
           "labels": {
             "reset": "Filter zurücksetzen",
-            "placeholder": "Suche…",
+              "placeholder": "Suche...",
             "noRows": "Keine passenden Einträge gefunden",
             "noResults": "Keine passenden Einträge gefunden",
             "toggle": "Filter anzeigen"

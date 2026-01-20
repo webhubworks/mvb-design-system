@@ -26,6 +26,7 @@
                 src: item.src,
                 width: item.width,
                 height: item.height,
+                target: item.target is defined ? item.target : null,
                 monochrome: item.monochrome ?? null,
                 href: item.href is defined ? item.href : null,
                 attributes: {
