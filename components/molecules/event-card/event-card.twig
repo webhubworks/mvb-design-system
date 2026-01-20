@@ -23,6 +23,7 @@
 {{ render('molecules.card', {
     content: content,
     href: href,
+    target: target|default('_self'),
     accentColor: accentColor|default(null),
     logoImgSrc: logoImgSrc|default(null),
     badges: badges|default(null),

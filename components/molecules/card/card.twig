@@ -48,6 +48,7 @@
         {% endif %}
         {% if href is defined and href is not empty %}
             <a href="{{ href }}"
+               target="{{ target|default('_self') }}"
                class="before:content-[''] before:absolute before:inset-0 break-word group-hover:cursor-pointer">{{ content }}</a>
         {% else %}
             {{ content }}
