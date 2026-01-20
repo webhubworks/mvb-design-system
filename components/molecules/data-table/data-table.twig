@@ -1,10 +1,10 @@
 <div
         data-component="molecules.datatable"
         data-filter='{{ config.filters|json_encode|e('html_attr') }}'
-        data-datatable-label-resetfilters="{{ labels.reset|default('Filter zurücksetzen') }}"
-        data-datatable-label-placeholder="{{ labels.placeholder|default('Suche…') }}"
-        data-datatable-label-no-rows="{{ labels.noRows|default('Keine passenden Einträge gefunden') }}"
-        data-datatable-label-no-results="{{ labels.noResults|default('Keine passenden Einträge gefunden') }}"
+        data-datatable-label-resetfilters="{{ config.labels.reset|default('Filter zurücksetzen') }}"
+        data-datatable-label-placeholder="{{ config.labels.placeholder|default('Suche…') }}"
+        data-datatable-label-no-rows="{{ config.labels.noRows|default('Keine passenden Einträge gefunden') }}"
+        data-datatable-label-no-results="{{ config.labels.noResults|default('Keine passenden Einträge gefunden') }}"
     >
     <div class="rich-text">
 
