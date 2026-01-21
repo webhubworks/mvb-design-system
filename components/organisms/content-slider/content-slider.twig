@@ -67,8 +67,12 @@
 
                                 {% if slide.content.cite is defined and slide.content.cite|length %}
                                     <blockquote>
-                                        <p class="text-3xl italic font-bold mb-6 before:content-['„'] after:content-['“']">{{ slide.content.heading|default('') }}</p>
-                                        <cite>{{ slide.content.cite }}</cite>
+                                        {% if slide.content.heading is defined and slide.content.heading|length %}
+                                            <p class="text-3xl italic font-bold mb-6">{{ slide.content.heading|default('') }}</p>
+                                        {% endif %}
+                                        {% if slide.content.cite is defined and slide.content.cite|length %}
+                                            <cite>{{ slide.content.cite }}</cite>
+                                        {% endif %}
                                     </blockquote>
                                     {% if slide.content.text is defined and slide.content.text|length %}
                                         <p class="mt-4">{{ slide.content.text|raw }}</p>
