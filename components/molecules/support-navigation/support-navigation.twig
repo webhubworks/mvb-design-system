@@ -42,7 +42,7 @@
              aria-label="Support menu">
 
             {% macro renderMenu(items, depth) %}
-                <ul class="level-{{ depth }} {{ depth == 1 ? 'group' : '' }} [&[data-depth='2']]:bg-cobblestone-700 [&[data-depth='3']]:bg-cobblestone-600"
+                <ul class="level-{{ depth }} {{ depth == 1 ? 'group' : '[&:not([data-state])]:hidden' }} [&[data-depth='2']]:bg-cobblestone-700 [&[data-depth='3']]:bg-cobblestone-600"
                     data-component-part="support-navigation.menu"
                     data-depth="{{ depth }}"
 
