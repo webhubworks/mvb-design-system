@@ -20,7 +20,7 @@
                         <img alt="Logo" src="{{ event.logoImgSrc }}" class="h-5 brightness-0 invert" />
                     </div>
                 {% endif %}
-                <a href="{{ event.href }}" class="font-bold active:text-cobblestone-100 hover:underline text-lg">
+                <a href="{{ event.href }}" class="font-bold active:text-cobblestone-100 hover:underline text-lg" target="{{ event.target|default('_self') }}">
                     {{ tag(headingLevel, {
                         text: event.title
                     }) }}
