@@ -109,6 +109,19 @@ div[data-field-type="rich-text"],
             }
         }
     }
+
+    figure[style*="float: left"],
+    figure[style*="float:left"]{
+        margin-right: 2rem !important;
+        margin-left: 0 !important;
+    }
+
+    /* Beispiel: figure, das rechts floated */
+    figure[style*="float: right"],
+    figure[style*="float:right"]{
+        margin-left: 2rem !important;
+        margin-right: 0 !important;
+    }
 }
 
 [data-component="molecules.hint"] .rich-text{
