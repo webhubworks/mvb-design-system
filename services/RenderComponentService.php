@@ -9,8 +9,6 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use yii\base\Component;
 use yii\base\Exception;
-use function Arrayy\array_last;
-
 
 class RenderComponentService extends Component
 {
@@ -63,7 +61,7 @@ class RenderComponentService extends Component
     private function resolveTemplatePath(string $component): string
     {
         $segments = explode('.', $component);
-        $segments[] = array_last($segments);
+        $segments[] = $segments[array_key_last($segments)];
 
         return MvbDesignSystem::COMPONENTS_PATH . '/' . implode('/', $segments);
     }
