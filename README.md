@@ -113,20 +113,18 @@ web_extra_exposed_ports:
 
 ### Run dev servers
 To develop the design system, you can use the following command, which you typically run at the same time in two terminal windows:
+
+Note: These commands must be run from within the DDEV container, not from the host.
 ```shell
-# use this to start the development server for the design system
-craft mvbdesignsystem/vite/dev
+# use this to start the development server for the design system: watches and builds the components
+ddeve exec craft mvbdesignsystem/vite/dev
 
-# use this to start the storybook for the design system
-craft mvbdesignsystem/storybook/dev
-
-# combined for fast update and build/dev
-ddev composer update webhubworks/mvb-design-system && ddev craft mvbdesignsystem/vite/build
-ddev composer update webhubworks/mvb-design-system && ddev craft mvbdesignsystem/vite/dev
+# use this to start the storybook for the design system: provides the Storybook UI
+ddev exec craft mvbdesignsystem/storybook/dev
 ```
 
 #### Note
-If you run the designystem for the first time, go to vendor/webhubworks/mvb-design-system and run the `nvm install`
+If you run the designystem for the first time, go to vendor/webhubworks/mvb-design-system and run `nvm install`.
 
 ### Fix icon classes
 All projects use prefixed Font Awesome icon classes. To make them compatible with the new Icons Atom, we’ve added a command that handles the necessary adjustments. After using the command, all "icon fields" needs to be converted to native icon fields via the CP:
