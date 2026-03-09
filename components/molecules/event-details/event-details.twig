@@ -21,6 +21,8 @@
         </div>
     {% endif %}
     {% for date in eventDates %}
+        {% set showTime = date.fullDay is defined and date.fullDay ? false : true  %}
+
         <div class="odd:bg-cobblestone-100 even:bg-cobblestone-200 p-4">
 
             <dl class="grid grid-cols-[1.5rem_1fr] gap-y-1 gap-x-4 [&>dt]:text-center [&>dd]:font-bold">
@@ -32,13 +34,16 @@
                         {# Customer wants all dates formated in the "german way" #}
                         {{ date.dateObject|format_datetime('medium', 'none', locale: 'de', timezone: 'Europe/Berlin') }}
                     </dd>
-                    <dt>
-                        {{ render('atoms.icon', {name: 'clock'}) }}
-                    </dt>
-                    <dd>
-                        {# Customer wants all dates formated in the "german way" #}
-                        {{ date.dateObject|format_datetime('none', 'short', locale: 'de', timezone: 'Europe/Berlin') }}
-                    </dd>
+
+                    {% if showTime  %}
+                        <dt>
+                            {{ render('atoms.icon', {name: 'clock'}) }}
+                        </dt>
+                        <dd>
+                            {# Customer wants all dates formated in the "german way" #}
+                            {{ date.dateObject|format_datetime('none', 'short', locale: 'de', timezone: 'Europe/Berlin') }}
+                        </dd>
+                    {% endif %}
                 {% endif %}
                 {% if eventDuration is defined and eventDuration is not empty %}
                     <dt>
