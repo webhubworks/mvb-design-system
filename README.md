@@ -117,7 +117,7 @@ To develop the design system, you can use the following command, which you typic
 Note: These commands must be run from within the DDEV container, not from the host.
 ```shell
 # use this to start the development server for the design system: watches and builds the components
-ddeve exec craft mvbdesignsystem/vite/dev
+ddev exec craft mvbdesignsystem/vite/dev
 
 # use this to start the storybook for the design system: provides the Storybook UI
 ddev exec craft mvbdesignsystem/storybook/dev
