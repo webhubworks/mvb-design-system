@@ -6,7 +6,16 @@
     }
   },
   "args": {
-    "dates": ["2025-05-13T13:30+00:00", "2025-05-14T13:30+00:00"],
+    "dates": [
+        {
+            "datetime": "2025-05-13T13:30+00:00",
+            "hideTime": true
+        },
+        {
+            "datetime": "2025-05-14T13:30+00:00",
+            "hideTime": false
+        }
+    ],
     "inverted": false
   },
   "stories": [
@@ -16,7 +25,17 @@
     {
       "name": "Dates Tooltip (Inverted)",
       "args": {
-        "inverted": true
+          "inverted": true,
+          "dates": [
+              {
+                  "datetime": "2025-05-13T13:30+00:00",
+                  "hideTime": true
+              },
+              {
+                  "datetime": "2025-05-14T13:30+00:00",
+                  "hideTime": false
+              }
+          ]
       }
     }
   ]

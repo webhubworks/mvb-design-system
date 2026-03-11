@@ -7,7 +7,10 @@
     <ul class="mb-2">
         {% for dateObject in dates %}
             <li>
-                {{ render('atoms.event-time', {date: dateObject}) }}
+                {{ render('atoms.event-time', {
+                    date: dateObject.datetime,
+                    hideTime: dateObject.hideTime
+                }) }}
             </li>
         {% endfor %}
     </ul>

@@ -9,8 +9,14 @@
     "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
     "href": "#!",
     "dates": [
-      "2025-05-13T13:30+00:00",
-      "2025-05-12T23:30+00:00"
+        {
+            "datetime": "2025-05-13T13:30+00:00",
+            "hideTime": true
+        },
+        {
+            "datetime": "2025-05-12T23:30+00:00",
+            "hideTime": false
+        }
     ],
     "badges": []
   },
@@ -35,19 +41,33 @@
     {
       "name": "Default",
       "args": {
-        "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
-        "href": "#!",
-        "dates": [
-          "2025-05-13T13:30+00:00",
-          "2025-05-12T23:30+00:00"
-        ],
-        "img": {
-          "src": "https://picsum.photos/600/400",
-          "alt": "Some stock image",
-          "width": 600,
-          "height": 400,
-          "caption": "© Lorem Picsum"
-        }
+          "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+          "href": "#!",
+          "dates": [
+              {
+                  "datetime": "2025-05-12T13:30+00:00",
+                  "hideTime": false
+              },
+              {
+                  "datetime": "2025-05-13T23:30+00:00",
+                  "hideTime": false
+              },
+              {
+                  "datetime": "2025-05-14T23:30+00:00",
+                  "hideTime": true
+              },
+              {
+                  "datetime": "2025-05-15T23:30+00:00",
+                  "hideTime": false
+              }
+          ],
+          "img": {
+              "src": "https://picsum.photos/600/400",
+              "alt": "Some stock image",
+              "width": 600,
+              "height": 400,
+              "caption": "© Lorem Picsum"
+          }
       }
     },
     {

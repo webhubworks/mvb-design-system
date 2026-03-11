@@ -10,6 +10,8 @@
         class="@container/event-list bg-cobblestone-800 text-white divide-y divide-cobblestone-700 {{ additionalClasses }}">
 
     {% for event in events %}
+        {% set firstDate = event.dates|first %}
+
         <div class="flex space-x-3 @xs/event-list:space-x-6 px-3 @2xs/event-list:px-4 @xs/event-list:px-6 py-3 @xs/event-list:py-6">
             <div class="hidden @2xs/event-list:inline-block">
                 {{ render('atoms.icon', {name: 'calendar', attributes: {class: 'text-3xl pt-0.5 @xs/event-list:pt-0 @xs/event-list:text-4xl text-cobblestone-200'}}) }}
@@ -33,7 +35,13 @@
                         </div>
                     {% endif %}
                     <div class="flex flex-wrap items-center space-x-1">
-                        {{ render('atoms.event-time', {date: event.dates|first, attributes: {class: ''}}) }}
+                        {{ render('atoms.event-time', {
+                            date: firstDate.datetime,
+                            hideTime: firstDate.hideTime,
+                            attributes: {
+                                class: ''
+                            }
+                        }) }}
                         {% if event.dates|length > 1 %}
                             {{ render('molecules.dates-tooltip', {
                                 dates: event.dates|slice(1),
