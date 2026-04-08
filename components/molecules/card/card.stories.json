@@ -62,6 +62,7 @@
     {
       "name": "Full example",
       "args": {
+          "ariaLabel": "Card with all possible content",
         "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
         "href": "#!",
         "badges": [
