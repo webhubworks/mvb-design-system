@@ -4,21 +4,20 @@
             "+class": "freeform-file-upload-container",
             "data-field-id": field.id,
             "data-field-handle": field.handle
+        },
+        input: {
+            "+class": "freeform-file-upload-input text-base !bg-transparent !outline-none focus:!outline-none !p-0 file:bg-white file:py-2 file:px-3 file:border file:border-cobblestone-600 file:font-normal file:cursor-pointer file:mr-3 hover:file:bg-cobblestone-100 focus:file:outline-2 focus:file:-outline-offset-2 focus:file:outline-persian-blue-400 !w-auto",
+            "-class": "w-full"
         }
     }
 }) %}
 
 {{ field.renderContainerOpeningTag }}
 
+  {{ field.renderLabel }}
   {{ field.renderInput }}
 
-  <label class="{{ field.attributes.label.get("class") }}" for="form-input-{{ field.handle }}">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 16v-6m-4 4V8m-4 4V4m-4 16h16M4 20V4a2 2 0 012-2h12a2 2 0 012 2v16" />
-    </svg>
-    <span{{ field.required ? ' class="freeform-required"' }}>{{ field.label }}</span>
-  </label>
-  <p class="freeform-file-name-display mt-1 text-sm">{{ "No files selected"|t('freeform') }}</p>
+  {# <p class="freeform-file-name-display mt-1 text-sm">{{ "No files selected"|t('freeform') }}</p> #}
 
   {{ field.renderInstructions }}
   {{ field.renderErrors }}

@@ -25,21 +25,19 @@ const initForms = () => {
             })
         })
     })
-    document.querySelectorAll('.freeform-file-upload-container').forEach((e) => {
-        const t = e.querySelector('.freeform-file-upload-input'),
-            r = e.querySelector('.freeform-file-name-display')
-        e.querySelector('.freeform-upload-btn').addEventListener('click', function() {
-            t.click()
-        })
-        t.addEventListener('change', function() {
-            if (t.files.length > 0) {
-                const e = Array.from(t.files)
-                    .map((e) => e.name)
-                    .join(', ')
-                r.textContent = `Selected files: ${e}`
-            } else r.textContent = 'No files selected'
-        })
-    })
+    // document.querySelectorAll('.freeform-file-upload-container').forEach((container) => {
+    //     const input = container.querySelector('.freeform-file-upload-input')
+    //     const display = container.querySelector('.freeform-file-name-display')
+    //     if (!input || !display) return
+    //     input.addEventListener('change', function() {
+    //         if (input.files.length > 0) {
+    //             const names = Array.from(input.files).map((f) => f.name).join(', ')
+    //             display.textContent = `Selected files: ${names}`
+    //         } else {
+    //             display.textContent = 'No files selected'
+    //         }
+    //     })
+    // })
 }
 
 export default initForms
