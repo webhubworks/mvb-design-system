@@ -15,7 +15,7 @@ class ViteController extends Controller
 
     public function actionBuild(): int
     {
-        if (($exitCode = $this->installNodeVersion()) !== ExitCode::OK) {
+        if (($exitCode = $this->checkNodeVersion()) !== ExitCode::OK) {
             return $exitCode;
         }
 
@@ -40,7 +40,7 @@ class ViteController extends Controller
 
     public function actionDev(): int
     {
-        if (($exitCode = $this->installNodeVersion()) !== ExitCode::OK) {
+        if (($exitCode = $this->checkNodeVersion()) !== ExitCode::OK) {
             return $exitCode;
         }
 
