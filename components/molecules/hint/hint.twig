@@ -47,6 +47,9 @@
             </div>
             {% if button is defined and button|length %}
                 <div class="ml-auto sm:self-end">
+                    {% set buttonAttributes = button.attributes|default({})|merge({
+                        class: 'whitespace-nowrap ' ~ button.attributes.class|default('')
+                    }) %}
                     {{ render('atoms.button', {
                         label: button.label,
                         href: button.href,
@@ -56,9 +59,7 @@
                             position: 'right',
                             name: "arrow-right",
                         },
-                        attributes: {
-                            class: 'whitespace-nowrap',
-                        }
+                        attributes: buttonAttributes
                     }) }}
                 </div>
             {% endif %}
