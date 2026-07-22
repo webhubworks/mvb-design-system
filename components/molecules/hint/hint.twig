@@ -53,6 +53,7 @@
                     {{ render('atoms.button', {
                         label: button.label,
                         href: button.href,
+                        target: button.target|default('_self'),
                         variant: 'secondary',
                         textAlign: 'left',
                         icon: {

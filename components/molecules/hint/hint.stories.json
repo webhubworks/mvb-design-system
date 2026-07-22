@@ -21,9 +21,6 @@
           "href": "#!",
           "icon": {
             "name": "arrow-right"
-          },
-          "attributes": {
-            "target": "_blank"
           }
         },
         "attributes": {
