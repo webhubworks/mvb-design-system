@@ -96,6 +96,7 @@
                     {{ render('atoms.link', {
                         label: content.button.label,
                         href: content.button.href,
+                        target: content.button.target|default('_self'),
                         variant: 'primary',
                         textAlign: 'left',
                         icon: {
