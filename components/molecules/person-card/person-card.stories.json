@@ -1,0 +1,71 @@
+{
+    "title": "Molecules/Cards/Person Card",
+    "parameters": {
+        "server": {
+            "id": "molecules.person-card"
+        }
+    },
+    "argTypes": {
+        "badge": {
+            "control": "object",
+            "type": "object",
+            "required": true,
+            "description": "Object with keys `text` and `iconName` where `iconName` is optional."
+        },
+        "img": {
+            "control": "object",
+            "type": "object",
+            "description": "Object with keys `src`, `alt`, and `caption` where `src` is required. The `alt` and `caption` attributes are optional."
+        },
+        "accentColor": {
+            "control": "text",
+            "type": "string",
+            "description": "The accent color of the card used as an image border. Must be a valid CSS variable: `--color-monza`"
+        },
+        "logoImgSrc": {
+            "control": "text",
+            "type": "string",
+            "description": "The URL of the logo image. If provided, the logo will be displayed in the card."
+        },
+        "footerHtml": {
+            "control": "text",
+            "type": "string",
+            "description": "The HTML content to be displayed in the footer of the card. Must be valid `HTML`."
+        },
+        "attributes": {
+            "control": "object",
+            "type": "object",
+            "description": "Additional arbitrary HTML attributes to be added to the root element of the component. (Can also include `class` attribute.)"
+        }
+    },
+    "stories": [
+        {
+            "name": "Full example",
+            "args": {
+                "ariaLabel": "Card with all possible content",
+                "content": "VLB-TIX für Vertreterinnen und Vertreter – Aktuelles für Reise und Börsen",
+                "href": "#!",
+                "badges": [
+                    {
+                        "text": "Targetgroup 1 asdf",
+                        "iconName": ""
+                    },
+                    {
+                        "text": "Targetgroup 2 a",
+                        "iconName": ""
+                    }
+                ],
+                "accentColor": "--color-emerald",
+                "logoImgSrc": "https://mvb-online.de/assets/logos/MVB.png",
+                "img": {
+                    "src": "https://picsum.photos/600/400",
+                    "alt": "Some stock image",
+                    "width": 600,
+                    "height": 400,
+                    "caption": "Lorem Picsum"
+                },
+                "footerHtml": "<p class='px-3 pb-3 text-sm'>Some footer content</p>"
+            }
+        }
+    ]
+}
