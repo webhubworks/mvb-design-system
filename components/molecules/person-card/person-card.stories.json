@@ -10,7 +10,7 @@
             "control": "object",
             "type": "object",
             "required": true,
-            "description": "Object with keys `text` and `iconName` where `iconName` is optional."
+            "description": "Object with key `text`"
         },
         "img": {
             "control": "object",
@@ -21,11 +21,6 @@
             "control": "text",
             "type": "string",
             "description": "The accent color of the card used as an image border. Must be a valid CSS variable: `--color-monza`"
-        },
-        "logoImgSrc": {
-            "control": "text",
-            "type": "string",
-            "description": "The URL of the logo image. If provided, the logo will be displayed in the card."
         },
         "footerHtml": {
             "control": "text",
