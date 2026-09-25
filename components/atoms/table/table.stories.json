@@ -43,6 +43,29 @@
           }
         ]
       }
+    },
+    {
+      "name": "Column without replace rules",
+      "args": {
+        "useReplaceRules": true,
+        "columns": [
+          {
+            "label": "Name",
+            "key": "name"
+          },
+          {
+            "label": "Address",
+            "key": "address",
+            "useReplaceRules": false
+          }
+        ],
+        "rows": [
+          {
+            "name": "**Brocom** ==GmbH",
+            "address": "<p>Kreidlerstr. 9<br>70806 Kornwestheim<br><a href=\"http://www.brocom.de\">http://www.brocom.de</a></p>"
+          }
+        ]
+      }
     }
   ]
 }
